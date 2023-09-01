@@ -7,5 +7,5 @@ export const StyledTest = styled.div<StyledTestProps>`
     color: ${(props) => props.$color};
     width: 100px;
     height: 100px;
-    background-color: #000000;
+    background-color: #f0f0f0;
 `;

@@ -13,4 +13,8 @@ export default meta;
 
 type Story = StoryObj<typeof Test>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+    args: {
+        children: "Hello, World!",
+    },
+};
