@@ -51,11 +51,11 @@ const lightBaseColorPalette: BaseColorPalette = {
     gray900: "#252729",
 
     // Base WB Alpha Color
-    white000A05: "", // TODO: Light 환경에서 지정된 색이 없음
+    white000A05: "rgba(255, 255, 255, 0.05)",
     white000A10: "rgba(255, 255, 255, 0.1)",
     white000A30: "rgba(255, 255, 255, 0.3)",
     white000A70: "rgba(255, 255, 255, 0.7)",
-    black000A05: "", // TODO: Light 환경에서 지정된 색이 없음
+    black000A05: "rgba(16, 17, 18, 0.5)",
     black000A10: "rgba(16, 17, 18, 0.1)",
     gray000A30: "rgba(16, 17, 18, 0.3)",
     gray000A70: "rgba(16, 17, 18, 0.7)",
