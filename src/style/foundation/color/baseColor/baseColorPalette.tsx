@@ -55,10 +55,12 @@ const lightBaseColorPalette: BaseColorPalette = {
     white000A10: "rgba(255, 255, 255, 0.1)",
     white000A30: "rgba(255, 255, 255, 0.3)",
     white000A70: "rgba(255, 255, 255, 0.7)",
+    gray900A30: "rgba(37, 39, 41, 0.3)",
+    gray900A70: "rgba(37, 39, 41, 0.7)",
     black000A05: "rgba(16, 17, 18, 0.5)",
     black000A10: "rgba(16, 17, 18, 0.1)",
-    gray000A30: "rgba(16, 17, 18, 0.3)",
-    gray000A70: "rgba(16, 17, 18, 0.7)",
+    black000A30: "rgba(16, 17, 18, 0.3)",
+    black000A70: "rgba(16, 17, 18, 0.7)",
 
     // Base Pink Color
     pink050: "#FDE6F4",
@@ -256,10 +258,12 @@ const darkBaseColorPalette: BaseColorPalette = {
     white000A10: "#ffffff1a",
     white000A30: "#ffffff4d",
     white000A70: "#ffffffb3",
+    gray900A30: "#1011124d",
+    gray900A70: "#101112b3",
     black000A05: "#1011120d",
     black000A10: "#1011121a",
-    gray000A30: "#1011124d",
-    gray000A70: "#101112b3",
+    black000A30: "rgba(16, 17, 18, 0.3)",
+    black000A70: "rgba(16, 17, 18, 0.7)",
 
     // Base Pink Color
     pink050: "#FDE6F4",
@@ -408,4 +412,4 @@ const darkBaseColorPalette: BaseColorPalette = {
 export const baseColorPalettes: Record<Theme, BaseColorPalette> = {
     light: lightBaseColorPalette,
     dark: darkBaseColorPalette,
-};
+} as const;

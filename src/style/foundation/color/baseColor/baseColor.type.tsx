@@ -1,3 +1,5 @@
+// https://www.figma.com/file/yVXvVvBKZnG9BBsvdC3J5B/%5B0.-Common%5D-Yourssu-Design-System?type=design&node-id=0%3A1&mode=design&t=KtrwDpGrj62wFgzG-1
+
 export type BaseLogoColor = "logoIndigo" | "logoViolet" | "logoYellow";
 
 export type BasePointColor =
@@ -43,10 +45,12 @@ export type BaseWBAlphaColor =
     | "white000A10"
     | "white000A30"
     | "white000A70"
+    | "gray900A30"
+    | "gray900A70"
     | "black000A05"
     | "black000A10"
-    | "gray000A30"
-    | "gray000A70";
+    | "black000A30"
+    | "black000A70";
 
 type BaseVariousColor<ColorName extends string> =
     | `${ColorName}050`
