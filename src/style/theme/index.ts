@@ -1,2 +1,2 @@
-export type { YDSTheme } from "./theme.type";
-export { YDSThemeProvider } from "./YDSThemeProvider";
+export type { YDSTheme } from './theme.type';
+export { YDSThemeProvider } from './YDSThemeProvider';

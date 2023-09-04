@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-
-export { baseColorPalettes } from "./baseColorPalette";
-export type { BaseColorPalette } from "./baseColorPalette";
-export type * from "./baseColor.type";
+export { baseColorPalettes } from './baseColorPalette';
+export type { BaseColorPalette } from './baseColorPalette';
+export type * from './baseColor.type';

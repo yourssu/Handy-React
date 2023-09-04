@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Test } from "..";
+import { Test } from '..';
 
 const meta: Meta<typeof Test> = {
-    title: "Component/Test",
+    title: 'Component/Test',
     component: Test,
     parameters: {
-        layout: "centered",
+        layout: 'centered',
     },
 };
 export default meta;
@@ -15,6 +15,6 @@ type Story = StoryObj<typeof Test>;
 
 export const Primary: Story = {
     args: {
-        children: "Hello, YDS!",
+        children: 'Hello, YDS!',
     },
 };

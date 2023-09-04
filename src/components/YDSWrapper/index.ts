@@ -1,2 +1,2 @@
-export { YDSWrapper } from "./YDSWrapper";
-export type { YDSWrapperProps } from "./YDSWrapper";
+export { YDSWrapper } from './YDSWrapper';
+export type { YDSWrapperProps } from './YDSWrapper';

@@ -1,13 +1,7 @@
-import {
-    createContext,
-    useCallback,
-    useEffect,
-    useMemo,
-    useState,
-} from "react";
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
-export type SelectedColorTheme = "light" | "dark" | "system";
-export type CurrentTheme = "light" | "dark";
+export type SelectedColorTheme = 'light' | 'dark' | 'system';
+export type CurrentTheme = 'light' | 'dark';
 
 export interface ColorThemeContextProps {
     /**
@@ -30,8 +24,8 @@ export interface ColorThemeContextProps {
 }
 
 export const ColorThemeContext = createContext<ColorThemeContextProps>({
-    selectedColorTheme: "system",
-    currentColorTheme: "light",
+    selectedColorTheme: 'system',
+    currentColorTheme: 'light',
     setTheme: () => {},
 });
 
@@ -48,14 +42,13 @@ export function ColorThemeContextProvider({
     children,
     fixedColorTheme: fixedTheme,
 }: ColorThemeContextProviderProps) {
-    const [SelectedTheme, setSelectedTheme] =
-        useState<SelectedColorTheme>("system");
+    const [SelectedTheme, setSelectedTheme] = useState<SelectedColorTheme>('system');
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
+        const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
-            if (!["light", "dark", "system"].includes(savedTheme)) {
-                localStorage.removeItem("theme");
+            if (!['light', 'dark', 'system'].includes(savedTheme)) {
+                localStorage.removeItem('theme');
                 return;
             }
             setSelectedTheme(savedTheme as SelectedColorTheme);
@@ -67,12 +60,10 @@ export function ColorThemeContextProvider({
             return fixedTheme;
         }
 
-        if (SelectedTheme === "system") {
-            const systemTheme = window.matchMedia(
-                "(prefers-color-scheme: dark)"
-            ).matches
-                ? "dark"
-                : "light";
+        if (SelectedTheme === 'system') {
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
             return systemTheme;
         }
 
@@ -81,7 +72,7 @@ export function ColorThemeContextProvider({
 
     const changeTheme = useCallback((theme: SelectedColorTheme) => {
         setSelectedTheme(theme);
-        localStorage.setItem("theme", theme);
+        localStorage.setItem('theme', theme);
     }, []);
 
     return (

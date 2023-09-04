@@ -1,6 +1,7 @@
-import { SemanticColor } from "./semanticColor.type";
-import { baseColorPalettes } from "../baseColor";
-import { Theme } from "../color.type";
+import { baseColorPalettes } from '../baseColor';
+import { Theme } from '../color.type';
+
+import { SemanticColor } from './semanticColor.type';
 
 export type SemanticColorPalette = Readonly<Record<SemanticColor, string>>;
 
@@ -81,7 +82,7 @@ const lightSemanticColorPalette: SemanticColorPalette = {
     // Semantic LimeItem Color
     limeItemPrimary: baseColorPalettes.light.lime300,
     limeItemBG: baseColorPalettes.light.lime050,
-    limeItemText: "", // TODO: #1 추후 색상 추가시 수정
+    limeItemText: '', // TODO: #1 추후 색상 추가시 수정
 
     // Semantic GreenItem Color
     greenItemPrimary: baseColorPalettes.light.green300,
@@ -197,7 +198,7 @@ const darkSemanticColorPalette: SemanticColorPalette = {
     // Semantic LimeItem Color
     limeItemPrimary: baseColorPalettes.light.lime300,
     limeItemBG: baseColorPalettes.light.lime050,
-    limeItemText: "", // TODO: #1 추후 색상 추가시 수정
+    limeItemText: '', // TODO: #1 추후 색상 추가시 수정
 
     // Semantic GreenItem Color
     greenItemPrimary: baseColorPalettes.light.green300,
@@ -240,8 +241,8 @@ const darkSemanticColorPalette: SemanticColorPalette = {
     pinkItemText: baseColorPalettes.light.pink600,
 
     // Semantic Shadow Color
-    shadowThin: "rgba(0, 0, 0, 0)",
-    shadowNormal: "rgba(0, 0, 0, 0)",
+    shadowThin: 'rgba(0, 0, 0, 0)',
+    shadowNormal: 'rgba(0, 0, 0, 0)',
 };
 
 export const semanticColorPalettes: Record<Theme, SemanticColorPalette> = {

@@ -1,8 +1,11 @@
-import { ThemeProvider } from "styled-components";
-import { useColorTheme } from "../../hooks";
-import { useMemo } from "react";
-import { baseColorPalettes, semanticColorPalettes } from "../foundation";
-import { YDSTheme } from "./theme.type";
+import { useMemo } from 'react';
+
+import { ThemeProvider } from 'styled-components';
+
+import { useColorTheme } from '../../hooks';
+import { baseColorPalettes, semanticColorPalettes } from '../foundation';
+
+import { YDSTheme } from './theme.type';
 
 export interface YDSThemeProviderProps {
     children?: React.ReactNode;
@@ -16,7 +19,7 @@ export function YDSThemeProvider({ children }: YDSThemeProviderProps) {
             baseColor: baseColorPalettes.light,
         };
 
-        if (currentColorTheme === "light") {
+        if (currentColorTheme === 'light') {
             _theme.color = semanticColorPalettes.light;
             _theme.baseColor = baseColorPalettes.light;
         } else {

@@ -1,8 +1,8 @@
 import {
     ColorThemeContextProvider,
     ColorThemeContextProviderProps,
-} from "../../hooks/useColorTheme/ColorTheme.context";
-import { YDSThemeProvider } from "../../style/theme";
+} from '../../hooks/useColorTheme/ColorTheme.context';
+import { YDSThemeProvider } from '../../style/theme';
 
 export type YDSProviderProps = {
     children?: React.ReactNode;

@@ -1,4 +1,4 @@
-import { YDSProvider, YDSProviderProps } from "../../contexts/YDSProvider";
+import { YDSProvider, YDSProviderProps } from '../../contexts/YDSProvider';
 
 export type YDSWrapperProps = {
     children?: React.ReactNode;

@@ -1,2 +1,2 @@
-export { YDSProvider } from "./YDSProvider";
-export type { YDSProviderProps } from "./YDSProvider";
+export { YDSProvider } from './YDSProvider';
+export type { YDSProviderProps } from './YDSProvider';

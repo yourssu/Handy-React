@@ -1,2 +1,2 @@
-export { Test } from "./Test";
-export type { TestProps } from "./Test";
+export { Test } from './Test';
+export type { TestProps } from './Test';
