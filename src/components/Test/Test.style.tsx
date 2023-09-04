@@ -7,5 +7,9 @@ export const StyledTest = styled.div<StyledTestProps>`
     color: ${(props) => props.$color};
     width: 100px;
     height: 100px;
-    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${({ theme }) => theme.color.bgNormal};
+    border: solid 1px ${({ theme }) => theme.color.borderNormal};
 `;

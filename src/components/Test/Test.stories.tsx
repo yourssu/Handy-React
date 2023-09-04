@@ -15,6 +15,6 @@ type Story = StoryObj<typeof Test>;
 
 export const Primary: Story = {
     args: {
-        children: "Hello, World!",
+        children: "Hello, YDS!",
     },
 };
