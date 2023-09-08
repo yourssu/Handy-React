@@ -19,7 +19,8 @@
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "convert-icon": "node ./icons/convert.mjs"
     },
     "peerDependencies": {
         "react": "^18.2.0",
@@ -55,7 +56,8 @@
         "typescript": "^5.0.2",
         "vite": "^4.4.5",
         "vite-plugin-dts": "^3.5.3",
-        "vite-tsconfig-paths": "^4.2.0"
+        "vite-tsconfig-paths": "^4.2.0",
+        "xmldom": "^0.6.0"
     },
     "resolutions": {
         "jackspeak": "2.1.1"
