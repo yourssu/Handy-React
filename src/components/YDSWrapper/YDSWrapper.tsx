@@ -1,4 +1,5 @@
 import { YDSProvider, YDSProviderProps } from '../../contexts/YDSProvider';
+import { GlobalStyles } from '../../style';
 
 export type YDSWrapperProps = {
     children?: React.ReactNode;
@@ -9,5 +10,10 @@ export type YDSWrapperProps = {
  * YDS를 사용하는 프로젝트의 최상위 컴포넌트로 사용해야 합니다.
  */
 export function YDSWrapper({ children }: YDSWrapperProps) {
-    return <YDSProvider>{children}</YDSProvider>;
+    return (
+        <>
+            <GlobalStyles />
+            <YDSProvider>{children}</YDSProvider>
+        </>
+    );
 }
