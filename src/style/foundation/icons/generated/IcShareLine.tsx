@@ -19,7 +19,7 @@ export const IcShareLine = memo(
             />
             <path
                 d="M17 5L7 12L17 19"
-                stroke="#505458"
+                stroke="current"
                 strokeWidth="1.5"
                 xmlns="http://www.w3.org/2000/svg"
             />
