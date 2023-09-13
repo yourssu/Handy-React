@@ -12,4 +12,6 @@ export const StyledTest = styled.div<StyledTestProps>`
     align-items: center;
     background-color: ${({ theme }) => theme.color.bgNormal};
     border: solid 1px ${({ theme }) => theme.color.borderNormal};
+
+    ${({ theme }) => theme.typo.body1};
 `;

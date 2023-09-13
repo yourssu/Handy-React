@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { useColorTheme } from '../../hooks';
-import { baseColorPalettes, semanticColorPalettes } from '../foundation';
+import { baseColorPalettes, semanticColorPalettes, typos } from '../foundation';
 
 import { YDSTheme } from './theme.type';
 
@@ -14,9 +14,10 @@ export function YDSThemeProvider({ children }: YDSThemeProviderProps) {
     const { currentColorTheme } = useColorTheme();
 
     const theme: YDSTheme = useMemo(() => {
-        const _theme = {
+        const _theme: YDSTheme = {
             color: semanticColorPalettes.light,
             baseColor: baseColorPalettes.light,
+            typo: typos,
         };
 
         if (currentColorTheme === 'light') {
