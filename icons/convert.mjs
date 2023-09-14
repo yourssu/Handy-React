@@ -17,38 +17,38 @@ const PRETTIER_CONFIG_PATH = path.join(__dirname, './.prettierrc.json');
 const prettierConfig = JSON.parse(await fs.readFile(PRETTIER_CONFIG_PATH, 'utf-8'));
 
 const toCamelCase = (str) => {
-    return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
+  return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
 };
 
 const isCamelCase = (str) => {
-    return /^[a-z][A-Za-z0-9]*$/.test(str);
+  return /^[a-z][A-Za-z0-9]*$/.test(str);
 };
 
 function camelizeElementAttributes(elem) {
-    const queue = [elem];
+  const queue = [elem];
 
-    while (queue.length) {
-        const curElem = queue.pop();
+  while (queue.length) {
+    const curElem = queue.pop();
 
-        if (curElem.hasAttributes()) {
-            Array.from(curElem.attributes).forEach((attr) => {
-                if (!isCamelCase(attr.name)) {
-                    curElem.setAttribute(toCamelCase(attr.name), attr.value);
-                    curElem.removeAttribute(attr.name);
-                }
-            });
+    if (curElem.hasAttributes()) {
+      Array.from(curElem.attributes).forEach((attr) => {
+        if (!isCamelCase(attr.name)) {
+          curElem.setAttribute(toCamelCase(attr.name), attr.value);
+          curElem.removeAttribute(attr.name);
         }
-
-        if (curElem.hasChildNodes()) {
-            Array.from(curElem.childNodes).forEach((child) => {
-                if (child.nodeType === 1) {
-                    queue.push(child);
-                }
-            });
-        }
+      });
     }
 
-    return elem;
+    if (curElem.hasChildNodes()) {
+      Array.from(curElem.childNodes).forEach((child) => {
+        if (child.nodeType === 1) {
+          queue.push(child);
+        }
+      });
+    }
+  }
+
+  return elem;
 }
 
 const SVGComponentTemplate = (name, viewBox, svg) => `/**
@@ -120,94 +120,91 @@ export const Primary: Story = {
 `;
 
 const clearIconsDir = async () => {
-    // generated folder
-    if (await fs.stat(ICONS_COMPONENTS_DIR).catch(() => false)) {
-        await fs.rm(ICONS_COMPONENTS_DIR, { recursive: true });
-    }
-    await fs.mkdir(ICONS_COMPONENTS_DIR);
+  // generated folder
+  if (await fs.stat(ICONS_COMPONENTS_DIR).catch(() => false)) {
+    await fs.rm(ICONS_COMPONENTS_DIR, { recursive: true });
+  }
+  await fs.mkdir(ICONS_COMPONENTS_DIR);
 
-    // story
-    if (await fs.stat(ICONS_STORIES_PATH).catch(() => false)) {
-        await fs.rm(ICONS_STORIES_PATH);
-    }
+  // story
+  if (await fs.stat(ICONS_STORIES_PATH).catch(() => false)) {
+    await fs.rm(ICONS_STORIES_PATH);
+  }
 };
 
 const getIcons = async () => {
-    const svgIconPaths = (await fs.readdir(ICONS_DIR)).map((filename) =>
-        path.resolve(ICONS_DIR, filename)
-    );
-    const icons = await Promise.all(
-        svgIconPaths.map(async (svgIconPath) => {
-            const svgIcon = await fs.readFile(svgIconPath, 'utf-8');
-            const svgIconName = path.basename(svgIconPath, '.svg');
-            const svgIconComponentName = (
-                svgIconName.charAt(0).toUpperCase() + svgIconName.slice(1)
-            ).replace(/_([a-z])/g, (match, char) => char.toUpperCase());
-            const svgIconComponentPath = path.join(
-                ICONS_COMPONENTS_DIR,
-                `${svgIconComponentName}.tsx`
-            );
-            return {
-                icon: svgIcon,
-                name: svgIconName,
-                componentName: svgIconComponentName,
-                componentPath: svgIconComponentPath,
-            };
-        })
-    );
-    return icons;
+  const svgIconPaths = (await fs.readdir(ICONS_DIR)).map((filename) =>
+    path.resolve(ICONS_DIR, filename)
+  );
+  const icons = await Promise.all(
+    svgIconPaths.map(async (svgIconPath) => {
+      const svgIcon = await fs.readFile(svgIconPath, 'utf-8');
+      const svgIconName = path.basename(svgIconPath, '.svg');
+      const svgIconComponentName = (
+        svgIconName.charAt(0).toUpperCase() + svgIconName.slice(1)
+      ).replace(/_([a-z])/g, (match, char) => char.toUpperCase());
+      const svgIconComponentPath = path.join(ICONS_COMPONENTS_DIR, `${svgIconComponentName}.tsx`);
+      return {
+        icon: svgIcon,
+        name: svgIconName,
+        componentName: svgIconComponentName,
+        componentPath: svgIconComponentPath,
+      };
+    })
+  );
+  return icons;
 };
 
 const convertIcons = async (icons) => {
-    // Convert Icons
-    const serializer = new XMLSerializer();
-    const domParser = new DOMParser();
-    await Promise.all(
-        icons.map(async ({ icon, componentName, componentPath }) => {
-            const dom = domParser.parseFromString(icon, 'image/svg+xml');
-            const $svg = dom.getElementsByTagName('svg')[0];
+  // Convert Icons
+  const serializer = new XMLSerializer();
+  const domParser = new DOMParser();
+  await Promise.all(
+    icons.map(async ({ icon, componentName, componentPath }) => {
+      const dom = domParser.parseFromString(icon, 'image/svg+xml');
+      const $svg = dom.getElementsByTagName('svg')[0];
 
-            camelizeElementAttributes($svg);
-            $svg.setAttribute('fill', 'current');
-            Array.from(dom.getElementsByTagName('path')).forEach((p) => p.removeAttribute('fill'));
-            const viewBox = $svg.getAttribute('viewBox');
-            const innerSvg = Array.from($svg.childNodes)
-                .map((v) => serializer.serializeToString(v))
-                .join('');
-            const component = SVGComponentTemplate(componentName, viewBox, innerSvg);
-            const prettyComponent = await prettier.format(component, {
-                ...prettierConfig,
-                filepath: componentPath,
-            });
-            await fs.writeFile(componentPath, prettyComponent);
-        })
-    );
+      camelizeElementAttributes($svg);
+      $svg.setAttribute('fill', 'current');
+      Array.from(dom.getElementsByTagName('path')).forEach((p) => p.removeAttribute('fill'));
+      const viewBox = $svg.getAttribute('viewBox');
+      const innerSvg = Array.from($svg.childNodes)
+        .map((v) => serializer.serializeToString(v))
+        .join('');
+      const component = SVGComponentTemplate(componentName, viewBox, innerSvg);
+      const prettyComponent = await prettier.format(component, {
+        ...prettierConfig,
+        filepath: componentPath,
+      });
+      await fs.writeFile(componentPath, prettyComponent);
+    })
+  );
 };
 
 const createIndexTs = async (icons) => {
-    const index = icons
-        .map(({ componentName }) => `export { ${componentName} } from './${componentName}';`)
-        .join('\n');
-    const prettyIndex = await prettier.format(index, {
-        ...prettierConfig,
-        filepath: ICONS_INDEX_PATH,
-    });
-    await fs.writeFile(ICONS_INDEX_PATH, prettyIndex);
+  const index = icons
+    .map(({ componentName }) => `export { ${componentName} } from './${componentName}';`)
+    .join('\n');
+  const prettyIndex = await prettier.format(index, {
+    ...prettierConfig,
+    filepath: ICONS_INDEX_PATH,
+  });
+  await fs.writeFile(ICONS_INDEX_PATH, prettyIndex);
 };
 
 const createStory = async (icons) => {
-    const story = StoryTemplate(icons);
-    // const prettyStory = await prettier.format(story, {
-    //     ...prettierConfig,
-    //     filepath: ICONS_INDEX_PATH,
-    // });
-    await fs.writeFile(ICONS_STORIES_PATH, story);
+  const story = StoryTemplate(icons);
+  // const prettyStory = await prettier.format(story, {
+  //     ...prettierConfig,
+  //     filepath: ICONS_INDEX_PATH,
+  // });
+  await fs.writeFile(ICONS_STORIES_PATH, story);
 };
 
 (async () => {
-    await clearIconsDir();
-    const icons = await getIcons();
-    await convertIcons(icons);
-    await createIndexTs(icons);
-    await createStory(icons);
+  await clearIconsDir();
+  const icons = await getIcons();
+  await convertIcons(icons);
+  await createIndexTs(icons);
+  await createStory(icons);
 })();

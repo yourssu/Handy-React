@@ -1,11 +1,11 @@
 import {
-    ColorThemeContextProvider,
-    ColorThemeContextProviderProps,
-} from '../../hooks/useColorTheme/ColorTheme.context';
-import { YDSThemeProvider } from '../../style/theme';
+  ColorThemeContextProvider,
+  ColorThemeContextProviderProps,
+} from '@/hooks/useColorTheme/ColorTheme.context';
+import { YDSThemeProvider } from '@/style/theme';
 
 export type YDSProviderProps = {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 } & ColorThemeContextProviderProps;
 
 /**
@@ -15,9 +15,9 @@ export type YDSProviderProps = {
  * @returns
  */
 export function YDSProvider({ children, fixedColorTheme }: YDSProviderProps) {
-    return (
-        <ColorThemeContextProvider fixedColorTheme={fixedColorTheme}>
-            <YDSThemeProvider>{children}</YDSThemeProvider>
-        </ColorThemeContextProvider>
-    );
+  return (
+    <ColorThemeContextProvider fixedColorTheme={fixedColorTheme}>
+      <YDSThemeProvider>{children}</YDSThemeProvider>
+    </ColorThemeContextProvider>
+  );
 }

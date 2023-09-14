@@ -1,41 +1,41 @@
 // https://www.figma.com/file/yVXvVvBKZnG9BBsvdC3J5B/%5B0.-Common%5D-Yourssu-Design-System?type=design&node-id=1%3A461&mode=design&t=KtrwDpGrj62wFgzG-1
 
 export type SemanticBackgroundColor =
-    | 'bgNormal'
-    | 'bgElevated'
-    | 'bgRecomment'
-    | 'bgPressed'
-    | 'bgSelected'
-    | 'bgNormalDark'
-    | 'bgElevatedDark'
-    | 'bgDimDark';
+  | 'bgNormal'
+  | 'bgElevated'
+  | 'bgRecomment'
+  | 'bgPressed'
+  | 'bgSelected'
+  | 'bgNormalDark'
+  | 'bgElevatedDark'
+  | 'bgDimDark';
 
 export type SemanticTextColor =
-    | 'textPrimary'
-    | 'textSecondary'
-    | 'textTertiary'
-    | 'textDisabled'
-    | 'textPointed'
-    | 'textWarned';
+  | 'textPrimary'
+  | 'textSecondary'
+  | 'textTertiary'
+  | 'textDisabled'
+  | 'textPointed'
+  | 'textWarned';
 
 export type SemanticDimColor = 'dimNormal' | 'dimThick' | 'dimThickReserved';
 
 export type SemanticBorderColor = 'borderThin' | 'borderNormal' | 'borderThick';
 
 export type SemanticButtonColor =
-    | 'buttonNormal'
-    | 'buttonNormalPressed'
-    | 'buttonBG'
-    | 'buttonEmojiBG'
-    | 'buttonBright'
-    | 'buttonDisabled'
-    | 'buttonDisabledBG'
-    | 'buttonPoint'
-    | 'buttonPointPressed'
-    | 'buttonPointBG'
-    | 'buttonWarned'
-    | 'buttonWarnedPressed'
-    | 'buttonWarnedBG';
+  | 'buttonNormal'
+  | 'buttonNormalPressed'
+  | 'buttonBG'
+  | 'buttonEmojiBG'
+  | 'buttonBright'
+  | 'buttonDisabled'
+  | 'buttonDisabledBG'
+  | 'buttonPoint'
+  | 'buttonPointPressed'
+  | 'buttonPointBG'
+  | 'buttonWarned'
+  | 'buttonWarnedPressed'
+  | 'buttonWarnedBG';
 
 export type SemanticBottomBarColor = 'bottomBarNormal' | 'bottomBarSelected';
 
@@ -52,9 +52,9 @@ export type SemanticPickerColor = 'dimPickerReverse';
 export type SemanticShadowColor = 'shadowThin' | 'shadowNormal';
 
 type SemanticItemColorVariants<ColorName extends string> =
-    | `${ColorName}Primary`
-    | `${ColorName}BG`
-    | `${ColorName}Text`;
+  | `${ColorName}Primary`
+  | `${ColorName}BG`
+  | `${ColorName}Text`;
 
 export type SemanticMonoItemColor = SemanticItemColorVariants<'monoItem'>;
 export type SemanticLimeItemColor = SemanticItemColorVariants<'limeItem'>;
@@ -68,28 +68,28 @@ export type SemanticPurpleItemColor = SemanticItemColorVariants<'purpleItem'>;
 export type SemanticPinkItemColor = SemanticItemColorVariants<'pinkItem'>;
 
 export type SemanticItemColor =
-    | SemanticMonoItemColor
-    | SemanticLimeItemColor
-    | SemanticGreenItemColor
-    | SemanticEmeraldItemColor
-    | SemanticAquaItemColor
-    | SemanticBlueItemColor
-    | SemanticIndigoItemColor
-    | SemanticVioletItemColor
-    | SemanticPurpleItemColor
-    | SemanticPinkItemColor;
+  | SemanticMonoItemColor
+  | SemanticLimeItemColor
+  | SemanticGreenItemColor
+  | SemanticEmeraldItemColor
+  | SemanticAquaItemColor
+  | SemanticBlueItemColor
+  | SemanticIndigoItemColor
+  | SemanticVioletItemColor
+  | SemanticPurpleItemColor
+  | SemanticPinkItemColor;
 
 export type SemanticColor =
-    | SemanticBackgroundColor
-    | SemanticTextColor
-    | SemanticDimColor
-    | SemanticBorderColor
-    | SemanticButtonColor
-    | SemanticBottomBarColor
-    | SemanticInputFieldColor
-    | SemanticToastColor
-    | SemanticPressedColor
-    | SemanticToolTipColor
-    | SemanticPickerColor
-    | SemanticShadowColor
-    | SemanticItemColor;
+  | SemanticBackgroundColor
+  | SemanticTextColor
+  | SemanticDimColor
+  | SemanticBorderColor
+  | SemanticButtonColor
+  | SemanticBottomBarColor
+  | SemanticInputFieldColor
+  | SemanticToastColor
+  | SemanticPressedColor
+  | SemanticToolTipColor
+  | SemanticPickerColor
+  | SemanticShadowColor
+  | SemanticItemColor;

@@ -7,5 +7,5 @@ import { ColorThemeContext } from './ColorTheme.context';
  * @returns
  */
 export function useColorTheme() {
-    return useContext(ColorThemeContext);
+  return useContext(ColorThemeContext);
 }
