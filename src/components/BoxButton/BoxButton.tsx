@@ -1,22 +1,46 @@
 import { forwardRef } from 'react';
 
-import { Button } from './BoxButton.style';
-import { BoxButtonProps } from './BoxButton.type';
+import { IconContext } from '@/style';
 
-export interface Props extends BoxButtonProps {
-  leftIcon: React.ReactNode;
-  title: string;
-  rightIcon: React.ReactNode;
-}
+import { StyledBoxButton } from './BoxButton.style';
 
-export const BoxButton = forwardRef<HTMLButtonElement, Props>(
-  ({ leftIcon, title, rightIcon, ...props }, ref) => {
+import { BoxButtonProps } from '.';
+
+export const BoxButton = forwardRef<HTMLButtonElement, BoxButtonProps>(
+  ({ leftIcon, children, rightIcon, ...props }, ref) => {
     return (
-      <Button disabled={props.isDisabled} ref={ref} {...props}>
-        {leftIcon}
-        {title}
-        {rightIcon}
-      </Button>
+      <StyledBoxButton
+        ref={ref}
+        disabled={props.isDisabled}
+        $size={props.size}
+        $type={props.type}
+        $rounding={props.rounding}
+        $isWarned={props.isWarned}
+      >
+        {leftIcon && (
+          <IconContext.Provider
+            value={{
+              color: 'currentColor',
+              width: 24,
+              height: 24,
+            }}
+          >
+            {leftIcon}
+          </IconContext.Provider>
+        )}
+        {children}
+        {rightIcon && (
+          <IconContext.Provider
+            value={{
+              color: 'currentColor',
+              width: 24,
+              height: 24,
+            }}
+          >
+            {rightIcon}
+          </IconContext.Provider>
+        )}
+      </StyledBoxButton>
     );
   }
 );
