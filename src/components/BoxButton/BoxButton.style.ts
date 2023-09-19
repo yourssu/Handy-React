@@ -2,17 +2,22 @@ import { css, styled } from 'styled-components';
 
 import { typos } from '@/style';
 
-import { BoxButtonProps, BoxButtonRounding, BoxButtonSize, BoxButtonType } from './BoxButton.type';
+import {
+  BoxButtonProps,
+  BoxButtonRounding,
+  BoxButtonSize,
+  BoxButtonVariant,
+} from './BoxButton.type';
 
 interface StyledBoxButtonProps {
   $size: BoxButtonSize;
-  $type: BoxButtonType;
+  $variant: BoxButtonVariant;
   $isWarned: BoxButtonProps['isWarned'];
   $rounding: BoxButtonRounding;
 }
 
-const getNormalStyle = ($types: BoxButtonType) => {
-  switch ($types) {
+const getNormalStyle = ($variant: BoxButtonVariant) => {
+  switch ($variant) {
     case 'filled':
       return css`
         background-color: ${(props) => props.theme.color.buttonPoint};
@@ -47,8 +52,8 @@ const getNormalStyle = ($types: BoxButtonType) => {
   }
 };
 
-const getDisabledStyle = ($types: BoxButtonType) => {
-  switch ($types) {
+const getDisabledStyle = ($variant: BoxButtonVariant) => {
+  switch ($variant) {
     case 'filled':
       return css`
         background-color: ${(props) => props.theme.color.buttonDisabledBG};
@@ -70,8 +75,8 @@ const getDisabledStyle = ($types: BoxButtonType) => {
   }
 };
 
-const getWarnedStyle = ($types: BoxButtonType) => {
-  switch ($types) {
+const getWarnedStyle = ($variant: BoxButtonVariant) => {
+  switch ($variant) {
     case 'filled':
       return css`
         background-color: ${(props) => props.theme.color.buttonWarned};
@@ -139,9 +144,9 @@ export const StyledBoxButton = styled.button<StyledBoxButtonProps>`
   gap: 4px;
   border-radius: ${({ $rounding }) => $rounding}px;
   ${({ $size }) => getSizeStyle($size)}
-  ${({ $type }) => getNormalStyle($type)}
-  ${({ $isWarned, $type }) => $isWarned && getWarnedStyle($type)}
+  ${({ $variant }) => getNormalStyle($variant)}
+  ${({ $isWarned, $variant }) => $isWarned && getWarnedStyle($variant)}
   &:disabled {
-    ${({ $type }) => getDisabledStyle($type)}
+    ${({ $variant }) => getDisabledStyle($variant)}
   }
 `;

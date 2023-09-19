@@ -19,7 +19,7 @@ export const Primary: Story = {
   args: {
     children: 'Primary/Large/filled',
     size: 'large',
-    type: 'filled',
+    variant: 'filled',
     rounding: 8,
     isDisabled: false,
     isWarned: false,
@@ -30,7 +30,7 @@ export const Disabled: Story = {
   args: {
     children: 'Disabled/Large/tinted',
     size: 'large',
-    type: 'tinted',
+    variant: 'tinted',
     rounding: 8,
     isDisabled: true,
     isWarned: false,
@@ -42,7 +42,7 @@ export const Warned: Story = {
   args: {
     children: 'Warned/Large/line',
     size: 'large',
-    type: 'line',
+    variant: 'line',
     rounding: 8,
     isDisabled: false,
     isWarned: true,

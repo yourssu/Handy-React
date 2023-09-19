@@ -13,7 +13,7 @@ export const BoxButton = forwardRef<HTMLButtonElement, BoxButtonProps>(
         ref={ref}
         disabled={props.isDisabled}
         $size={props.size}
-        $type={props.type}
+        $variant={props.variant}
         $rounding={props.rounding}
         $isWarned={props.isWarned}
       >
