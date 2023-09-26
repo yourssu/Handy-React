@@ -14,10 +14,10 @@ export type YDSProviderProps = {
  * @param param0
  * @returns
  */
-export function YDSProvider({ children, fixedColorTheme }: YDSProviderProps) {
+export const YDSProvider = ({ children, fixedColorTheme }: YDSProviderProps) => {
   return (
     <ColorThemeContextProvider fixedColorTheme={fixedColorTheme}>
       <YDSThemeProvider>{children}</YDSThemeProvider>
     </ColorThemeContextProvider>
   );
-}
+};

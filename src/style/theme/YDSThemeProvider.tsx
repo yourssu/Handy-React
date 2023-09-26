@@ -11,7 +11,7 @@ import { YDSTheme } from './theme.type';
 export interface YDSThemeProviderProps {
   children?: React.ReactNode;
 }
-export function YDSThemeProvider({ children }: YDSThemeProviderProps) {
+export const YDSThemeProvider = ({ children }: YDSThemeProviderProps) => {
   const { currentColorTheme } = useColorTheme();
 
   const theme: YDSTheme = useMemo(() => {
@@ -33,4 +33,4 @@ export function YDSThemeProvider({ children }: YDSThemeProviderProps) {
   }, [currentColorTheme]);
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-}
+};
