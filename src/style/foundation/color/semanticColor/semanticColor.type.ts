@@ -93,3 +93,7 @@ export type SemanticColor =
   | SemanticPickerColor
   | SemanticShadowColor
   | SemanticItemColor;
+
+// Utility Types
+type OnlyBGColor<T> = T extends `${string}BG` ? T : never;
+export type SemanticBGColor = OnlyBGColor<SemanticColor>;
