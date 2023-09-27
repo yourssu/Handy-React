@@ -13,6 +13,6 @@ export enum BadgeColor {
 
 export interface BadgeProps {
   color?: BadgeColor;
-  children?: string;
+  children?: React.ReactNode;
   leftIcon?: React.ReactNode;
 }
