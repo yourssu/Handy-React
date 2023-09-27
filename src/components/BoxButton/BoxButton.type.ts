@@ -9,6 +9,7 @@ export interface BoxButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   isWarned: boolean;
   variant: BoxButtonVariant;
   leftIcon?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  width?: string | number;
 }

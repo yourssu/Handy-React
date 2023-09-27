@@ -16,30 +16,35 @@ export const BoxButton = forwardRef<HTMLButtonElement, BoxButtonProps>(
         $variant={props.variant}
         $rounding={props.rounding}
         $isWarned={props.isWarned}
+        $width={props.width}
       >
-        {leftIcon && (
-          <IconContext.Provider
-            value={{
-              color: 'currentColor',
-              width: 24,
-              height: 24,
-            }}
-          >
-            {leftIcon}
-          </IconContext.Provider>
-        )}
-        {children}
-        {rightIcon && (
-          <IconContext.Provider
-            value={{
-              color: 'currentColor',
-              width: 24,
-              height: 24,
-            }}
-          >
-            {rightIcon}
-          </IconContext.Provider>
-        )}
+        <div>
+          {leftIcon && (
+            <IconContext.Provider
+              value={{
+                color: 'currentColor',
+                width: 24,
+                height: 24,
+              }}
+            >
+              {leftIcon}
+            </IconContext.Provider>
+          )}
+        </div>
+        <span className="boxButton-child">{children}</span>
+        <div>
+          {rightIcon && (
+            <IconContext.Provider
+              value={{
+                color: 'currentColor',
+                width: 24,
+                height: 24,
+              }}
+            >
+              {rightIcon}
+            </IconContext.Provider>
+          )}
+        </div>
       </StyledBoxButton>
     );
   }

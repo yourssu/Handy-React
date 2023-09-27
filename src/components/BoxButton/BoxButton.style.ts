@@ -14,6 +14,7 @@ interface StyledBoxButtonProps {
   $variant: BoxButtonVariant;
   $isWarned: BoxButtonProps['isWarned'];
   $rounding: BoxButtonRounding;
+  $width: BoxButtonProps['width'];
 }
 
 const getNormalStyle = ($variant: BoxButtonVariant) => {
@@ -143,10 +144,17 @@ export const StyledBoxButton = styled.button<StyledBoxButtonProps>`
   padding: 0 16px;
   gap: 4px;
   border-radius: ${({ $rounding }) => $rounding}px;
+  width: ${({ $width }) => $width};
   ${({ $size }) => getSizeStyle($size)}
   ${({ $variant }) => getNormalStyle($variant)}
   ${({ $isWarned, $variant }) => $isWarned && getWarnedStyle($variant)}
   &:disabled {
     ${({ $variant }) => getDisabledStyle($variant)}
+  }
+  & > .boxButton-child {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 `;
