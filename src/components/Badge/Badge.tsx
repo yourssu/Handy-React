@@ -1,28 +1,15 @@
-import { IconContext, SemanticColor } from '../..';
+import { IconContext } from '../..';
 
 import { StyledBadge } from './Badge.style';
-import { BadgeProps, BadgeColor } from './Badge.type';
+import { BadgeProps } from './Badge.type';
 
-const backgroundColorMap: { [key in BadgeColor]: SemanticColor } = {
-  [BadgeColor.Mono]: 'monoItemBG',
-  [BadgeColor.Lime]: 'limeItemBG',
-  [BadgeColor.Green]: 'greenItemBG',
-  [BadgeColor.Emerald]: 'emeraldItemBG',
-  [BadgeColor.Aqua]: 'aquaItemBG',
-  [BadgeColor.Blue]: 'blueItemBG',
-  [BadgeColor.Indigo]: 'indigoItemBG',
-  [BadgeColor.Violet]: 'violetItemBG',
-  [BadgeColor.Purple]: 'purpleItemBG',
-  [BadgeColor.Pink]: 'pinkItemBG',
-} as const;
-
-function Badge({ color = BadgeColor.Mono, children = 'Badge', leftIcon }: BadgeProps) {
+function Badge({ color = 'monoItemBG', children = 'Badge', leftIcon }: BadgeProps) {
   return (
     <StyledBadge
       style={{
         padding: leftIcon ? '0 8px' : '0 12px',
       }}
-      backgroundColor={backgroundColorMap[color]}
+      backgroundColor={color}
     >
       {leftIcon && (
         <IconContext.Provider

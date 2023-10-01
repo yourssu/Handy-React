@@ -1,18 +1,7 @@
-export enum BadgeColor {
-  Mono = 'mono',
-  Lime = 'lime',
-  Green = 'green',
-  Emerald = 'emerald',
-  Aqua = 'aqua',
-  Blue = 'blue',
-  Indigo = 'indigo',
-  Violet = 'violet',
-  Purple = 'purple',
-  Pink = 'pink',
-}
+import { SemanticBGColor } from '@/style';
 
 export interface BadgeProps {
-  color?: BadgeColor;
+  color?: SemanticBGColor;
   children?: React.ReactNode;
   leftIcon?: React.ReactNode;
 }
