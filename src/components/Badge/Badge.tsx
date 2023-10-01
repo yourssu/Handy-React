@@ -1,4 +1,4 @@
-import { IconContext } from '../..';
+import { IconContext } from '@/style';
 
 import { StyledBadge } from './Badge.style';
 import { BadgeProps } from './Badge.type';

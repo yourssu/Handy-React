@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { SemanticColor } from '../..';
+import { SemanticColor } from '@/style';
 
 interface StyledBadgeProps {
   backgroundColor: SemanticColor;
