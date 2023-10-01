@@ -38,10 +38,10 @@ export interface ColorThemeContextProviderProps {
   fixedColorTheme?: CurrentTheme;
 }
 
-export function ColorThemeContextProvider({
+export const ColorThemeContextProvider = ({
   children,
   fixedColorTheme: fixedTheme,
-}: ColorThemeContextProviderProps) {
+}: ColorThemeContextProviderProps) => {
   const [SelectedTheme, setSelectedTheme] = useState<SelectedColorTheme>('system');
 
   useEffect(() => {
@@ -86,4 +86,4 @@ export function ColorThemeContextProvider({
       {children}
     </ColorThemeContext.Provider>
   );
-}
+};

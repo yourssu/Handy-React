@@ -3,7 +3,7 @@ import { IconContext } from '@/style';
 import { StyledBadge } from './Badge.style';
 import { BadgeProps } from './Badge.type';
 
-function Badge({ color = 'monoItemBG', children = 'Badge', leftIcon }: BadgeProps) {
+const Badge = ({ color = 'monoItemBG', children = 'Badge', leftIcon }: BadgeProps) => {
   return (
     <StyledBadge
       style={{
@@ -24,6 +24,6 @@ function Badge({ color = 'monoItemBG', children = 'Badge', leftIcon }: BadgeProp
       {children}
     </StyledBadge>
   );
-}
+};
 
 export { Badge };
