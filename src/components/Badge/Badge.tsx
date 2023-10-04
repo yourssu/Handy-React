@@ -9,7 +9,7 @@ const Badge = ({ color = 'monoItemBG', children = 'Badge', leftIcon }: BadgeProp
       style={{
         padding: leftIcon ? '0 8px' : '0 12px',
       }}
-      backgroundColor={color}
+      $backgroundColor={color}
     >
       {leftIcon && (
         <IconContext.Provider

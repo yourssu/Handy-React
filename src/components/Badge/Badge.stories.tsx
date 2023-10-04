@@ -18,7 +18,7 @@ const BadgeStory = ({ ...badgeProps }) => {
 };
 
 type Story = StoryObj<typeof Badge>;
-export const withIcon: Story = {
+export const WithIcon: Story = {
   args: {
     children: 'Badge',
     leftIcon: <IcGroundLine />,
@@ -26,7 +26,7 @@ export const withIcon: Story = {
   render: BadgeStory,
 };
 
-export const withoutIcon: Story = {
+export const WithoutIcon: Story = {
   args: {
     children: 'Badge',
   },
