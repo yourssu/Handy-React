@@ -12,3 +12,6 @@ export type { BadgeProps } from './Badge';
 
 export { CheckBox } from './CheckBox';
 export type { CheckBoxProps } from './CheckBox';
+
+export { PlainButton } from './PlainButton';
+export type { PlainButtonProps } from './PlainButton';
