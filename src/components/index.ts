@@ -6,3 +6,6 @@ export type { YDSWrapperProps } from './YDSWrapper';
 
 export { BoxButton } from './BoxButton';
 export type { BoxButtonProps } from './BoxButton';
+
+export { PlainButton } from './PlainButton';
+export type { PlainButtonProps } from './PlainButton';
