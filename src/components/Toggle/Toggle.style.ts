@@ -12,6 +12,7 @@ const TRACK_WIDTH = 51;
 const TRACK_HEIGHT = 31;
 const THUMB_SIZE = 27;
 const PADDING = 2;
+const MIN_WIDTH = 0.1;
 
 const setTrackColor = ({
   $isDisabled,
@@ -36,13 +37,32 @@ export const StyledThumb = styled.span<StyledToggleProps>`
   display: inline-block;
   width: ${THUMB_SIZE}px;
   height: ${THUMB_SIZE}px;
-  border: ${({ theme }) => `0.1px solid ${theme.color.borderNormal}`};
   border-radius: 50%;
   background-color: ${({ theme, $isDisabled }) =>
     $isDisabled ? theme.color.buttonDisabled : theme.color.buttonBright};
   transform: ${({ $isSelected }) =>
     $isSelected && `translateX(${TRACK_WIDTH - 2 * PADDING - THUMB_SIZE}px)`};
   transition: 100ms ease-in-out;
+
+  &::before {
+    position: absolute;
+    content: '';
+    border-radius: inherit;
+    width: ${THUMB_SIZE + MIN_WIDTH}px;
+    height: ${THUMB_SIZE + MIN_WIDTH}px;
+    background-color: ${({ theme }) => theme.color.borderNormal};
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: ${MIN_WIDTH}px;
+    left: ${MIN_WIDTH}px;
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+  }
 `;
 
 export const StyledTrack = styled.label<StyledToggleProps>`
