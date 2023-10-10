@@ -1,7 +1,5 @@
 import { css, styled } from 'styled-components';
 
-import { typos } from '@/style';
-
 import { CheckBoxProps, CheckBoxSize } from './CheckBox.type';
 
 interface StyledCheckBoxProps {
@@ -16,7 +14,8 @@ const getSizeStyle = ($size: CheckBoxSize) => {
       return css`
         height: 24px;
         font-size: 14px;
-        .icon {
+        gap: 8px;
+        .checkbox-icon {
           width: 24px;
           height: 24px;
         }
@@ -25,7 +24,8 @@ const getSizeStyle = ($size: CheckBoxSize) => {
       return css`
         height: 20px;
         font-size: 14px;
-        .icon {
+        gap: 8px;
+        .checkbox-icon {
           width: 20px;
           height: 20px;
         }
@@ -34,12 +34,10 @@ const getSizeStyle = ($size: CheckBoxSize) => {
       return css`
         height: 16px;
         font-size: 12px;
-        .icon {
+        gap: 4px;
+        .checkbox-icon {
           width: 16px;
           height: 16px;
-        }
-        .icon-padding {
-          padding-right: 4px;
         }
       `;
   }
@@ -49,22 +47,21 @@ export const StyledCheckBoxWrapper = styled.div<StyledCheckBoxProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 
-  input[type='checkbox'] {
-    display: none;
+  cursor: pointer;
+  label {
+    cursor: pointer;
   }
 
-  .icon-padding {
-    padding-right: 8px;
-  }
-
-  input:disabled + .label {
-    ${({ $size }) =>
-      $size === 'small' &&
-      css`
-        ${typos.button4}
-      `}
-  }
+  ${({ $isDisabled }) =>
+    $isDisabled &&
+    `
+    cursor: not-allowed;
+    label {
+      cursor: not-allowed;
+    }
+  `}
 
   ${({ $isSelected, $isDisabled, theme }) =>
     $isSelected
