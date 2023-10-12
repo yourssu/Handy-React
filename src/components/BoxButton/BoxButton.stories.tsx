@@ -5,7 +5,7 @@ import { IcGroundLine } from '@/style';
 import { BoxButton } from './BoxButton';
 
 const meta: Meta<typeof BoxButton> = {
-  title: 'Component/BoxButton',
+  title: 'Atoms/BoxButton',
   component: BoxButton,
   parameters: {
     layout: 'centered',

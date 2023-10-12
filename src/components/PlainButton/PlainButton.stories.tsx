@@ -5,7 +5,7 @@ import { IcGroundLine } from '@/style';
 import { PlainButton } from './PlainButton';
 
 const meta: Meta<typeof PlainButton> = {
-  title: 'Component/PlainButton',
+  title: 'Atoms/PlainButton',
   component: PlainButton,
   parameters: {
     layout: 'centered',
