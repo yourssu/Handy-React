@@ -1,4 +1,4 @@
-import { MouseEvent, forwardRef, useRef } from 'react';
+import { MouseEvent, forwardRef, useImperativeHandle, useRef } from 'react';
 
 import { StyledToggle, StyeldInput, StyledTrack, StyledThumb } from './Toggle.style';
 import { ToggleProps } from './Toggle.type';
@@ -6,6 +6,7 @@ import { ToggleProps } from './Toggle.type';
 export const Toggle = forwardRef<HTMLDivElement, ToggleProps>(
   ({ isDisabled = false, isSelected = false, ...props }, ref) => {
     const toggleRef = useRef<HTMLInputElement | null>(null);
+    useImperativeHandle(ref, () => toggleRef.current as HTMLInputElement);
 
     const handleToggleClick = (event: MouseEvent) => {
       event.preventDefault();
