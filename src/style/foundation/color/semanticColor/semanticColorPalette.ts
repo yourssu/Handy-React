@@ -27,7 +27,7 @@ const lightSemanticColorPalette: SemanticColorPalette = {
   // Semantic Dim Color
   dimNormal: baseColorPalettes.light.gray900A30,
   dimThick: baseColorPalettes.light.gray900A70,
-  dimThickReserved: baseColorPalettes.light.white000A70,
+  dimThickBright: baseColorPalettes.light.white000A70,
 
   // Semantic Border Color
   borderThin: baseColorPalettes.light.gray100,
@@ -147,7 +147,7 @@ const darkSemanticColorPalette: SemanticColorPalette = {
   // Semantic Dim Color
   dimNormal: baseColorPalettes.dark.gray900A30,
   dimThick: baseColorPalettes.dark.gray900A70,
-  dimThickReserved: baseColorPalettes.dark.white000A70,
+  dimThickBright: baseColorPalettes.dark.white000A70,
 
   // Semantic Border Color
   borderThin: baseColorPalettes.dark.gray100,

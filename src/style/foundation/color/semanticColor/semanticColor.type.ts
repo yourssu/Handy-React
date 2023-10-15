@@ -18,7 +18,7 @@ export type SemanticTextColor =
   | 'textPointed'
   | 'textWarned';
 
-export type SemanticDimColor = 'dimNormal' | 'dimThick' | 'dimThickReserved';
+export type SemanticDimColor = 'dimNormal' | 'dimThick' | 'dimThickBright';
 
 export type SemanticBorderColor = 'borderThin' | 'borderNormal' | 'borderThick';
 
