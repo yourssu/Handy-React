@@ -29,7 +29,7 @@ const setTrackColor = ({
   else return theme.color.buttonBG;
 };
 
-export const StyeldInput = styled.input`
+export const StyledInput = styled.input`
   display: none;
 `;
 
@@ -75,29 +75,29 @@ export const StyledTrack = styled.label<StyledToggleProps>`
     setTrackColor({ $isDisabled, $isSelected, theme })};
   cursor: ${({ $isDisabled }) => ($isDisabled ? 'not-allowed' : 'pointer')};
 
-  ${StyeldInput}:checked + ${StyledThumb} {
+  ${StyledInput}:checked + ${StyledThumb} {
     transform: translateX(${TRACK_WIDTH - 2 * PADDING - THUMB_SIZE}px);
   }
-  ${StyeldInput} + ${StyledThumb} {
+  ${StyledInput} + ${StyledThumb} {
     transform: translateX(0px);
   }
 `;
 
 export const StyledToggle = styled.div`
-  ${StyeldInput}:checked + ${StyledTrack} {
+  ${StyledInput}:checked + ${StyledTrack} {
     background-color: ${({ theme }) => theme.color.buttonPoint};
   }
-  ${StyeldInput}:disabled + ${StyledTrack} {
+  ${StyledInput}:disabled + ${StyledTrack} {
     background-color: ${({ theme }) => theme.color.buttonBG};
   }
-  ${StyeldInput} + ${StyledTrack} {
+  ${StyledInput} + ${StyledTrack} {
     background-color: ${({ theme }) => theme.color.buttonBG};
   }
 
-  ${StyeldInput}:checked + ${StyledTrack} > ${StyledThumb} {
+  ${StyledInput}:checked + ${StyledTrack} > ${StyledThumb} {
     transform: translateX(${TRACK_WIDTH - 2 * PADDING - THUMB_SIZE}px);
   }
-  ${StyeldInput} + ${StyledTrack} > ${StyledThumb} {
+  ${StyledInput} + ${StyledTrack} > ${StyledThumb} {
     transform: translateX(0px);
   }
 `;

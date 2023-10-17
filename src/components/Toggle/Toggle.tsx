@@ -1,6 +1,6 @@
 import { MouseEvent, forwardRef, useImperativeHandle, useRef } from 'react';
 
-import { StyledToggle, StyeldInput, StyledTrack, StyledThumb } from './Toggle.style';
+import { StyledToggle, StyledInput, StyledTrack, StyledThumb } from './Toggle.style';
 import { ToggleProps } from './Toggle.type';
 
 export const Toggle = forwardRef<HTMLDivElement, ToggleProps>(
@@ -24,7 +24,7 @@ export const Toggle = forwardRef<HTMLDivElement, ToggleProps>(
           handleToggleClick(event);
         }}
       >
-        <StyeldInput
+        <StyledInput
           ref={toggleRef}
           type="checkbox"
           disabled={isDisabled}
