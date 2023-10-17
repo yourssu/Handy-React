@@ -24,7 +24,6 @@ const setTrackColor = ({
   theme: DefaultTheme;
 }) => {
   if ($isDisabled) return theme.color.buttonBG;
-
   if ($isSelected) return theme.color.buttonPoint;
   else return theme.color.buttonBG;
 };
