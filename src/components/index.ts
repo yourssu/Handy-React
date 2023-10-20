@@ -15,3 +15,6 @@ export type { CheckBoxProps } from './CheckBox';
 
 export { PlainButton } from './PlainButton';
 export type { PlainButtonProps } from './PlainButton';
+
+export { Toggle } from './Toggle';
+export type { ToggleProps } from './Toggle';
