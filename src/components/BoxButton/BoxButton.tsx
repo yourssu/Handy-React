@@ -49,3 +49,4 @@ export const BoxButton = forwardRef<HTMLButtonElement, BoxButtonProps>(
     );
   }
 );
+BoxButton.displayName = 'BoxButton';
