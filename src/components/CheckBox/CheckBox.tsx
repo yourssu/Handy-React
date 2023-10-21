@@ -67,4 +67,3 @@ export const CheckBox = forwardRef<HTMLDivElement, CheckBoxProps>(
     );
   }
 );
-CheckBox.displayName = 'CheckBox';

@@ -38,4 +38,3 @@ export const PlainButton = forwardRef<HTMLButtonElement, PlainButtonProps>(
     );
   }
 );
-PlainButton.displayName = 'PlainButton';
