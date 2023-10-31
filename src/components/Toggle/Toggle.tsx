@@ -39,3 +39,4 @@ export const Toggle = forwardRef<HTMLDivElement, ToggleProps>(
     );
   }
 );
+Toggle.displayName = 'Toggle';
