@@ -1,7 +1,7 @@
 import { StyledToast, StyledToastWrapper } from './Toast.style';
 import { ToastProps } from './Toast.type';
 
-const Toast = ({ children, duration = 'short', ...props }: ToastProps) => {
+export const Toast = ({ children, duration = 'short', ...props }: ToastProps) => {
   if (!children) return;
 
   return (
@@ -12,5 +12,3 @@ const Toast = ({ children, duration = 'short', ...props }: ToastProps) => {
     </StyledToastWrapper>
   );
 };
-
-export { Toast };
