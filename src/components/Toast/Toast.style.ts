@@ -31,8 +31,8 @@ const setToastAnimation = ($duration: ToastDuration) => {
       `;
     case 'long':
       return css`
-        ${ToastFadeIn} 0.25s ease-in forwards,
-        ${ToastFadeOut} 0.25s ${LONG_DURATION + FADE_DURATION}s ease-out forwards
+        ${ToastFadeIn} ${FADE_DURATION}s ease-in forwards,
+        ${ToastFadeOut} ${FADE_DURATION}s ${LONG_DURATION + FADE_DURATION}s ease-out forwards
       `;
   }
 };
