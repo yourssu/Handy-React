@@ -150,6 +150,7 @@ export const StyledBoxButton = styled.button<StyledBoxButtonProps>`
   ${({ $isWarned, $variant }) => $isWarned && getWarnedStyle($variant)}
   &:disabled {
     ${({ $variant }) => getDisabledStyle($variant)}
+    cursor: not-allowed;
   }
   & > .boxButton-child {
     display: block;
