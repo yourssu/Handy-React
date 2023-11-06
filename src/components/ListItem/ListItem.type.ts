@@ -1,4 +1,4 @@
-export interface ListItemProps {
+export interface ListItemProps extends React.HTMLAttributes<HTMLLIElement> {
   isPressed?: boolean;
   width?: string | number;
   children?: React.ReactNode;
