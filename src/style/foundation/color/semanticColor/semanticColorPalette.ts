@@ -21,6 +21,7 @@ const lightSemanticColorPalette: SemanticColorPalette = {
   textSecondary: baseColorPalettes.light.gray900,
   textTertiary: baseColorPalettes.light.gray600,
   textDisabled: baseColorPalettes.light.gray500,
+  textBright: baseColorPalettes.light.white000,
   textPointed: baseColorPalettes.light.pointColor400,
   textWarned: baseColorPalettes.light.warningRed400,
 
@@ -141,6 +142,7 @@ const darkSemanticColorPalette: SemanticColorPalette = {
   textSecondary: baseColorPalettes.dark.gray800,
   textTertiary: baseColorPalettes.dark.gray600,
   textDisabled: baseColorPalettes.dark.gray400,
+  textBright: baseColorPalettes.dark.white000,
   textPointed: baseColorPalettes.dark.pointColor400,
   textWarned: baseColorPalettes.dark.warningRed400,
 
