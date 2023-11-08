@@ -1,7 +1,5 @@
 import { css, styled } from 'styled-components';
 
-import { typos } from '@/style';
-
 import { CheckBoxProps, CheckBoxSize } from './CheckBox.type';
 
 interface StyledCheckBoxProps {
@@ -47,7 +45,7 @@ export const StyledCheckBoxWrapper = styled.div<StyledCheckBoxProps>`
   align-items: center;
   justify-content: center;
   user-select: none;
-  ${typos.button3}
+  ${({ theme }) => theme.typo.button3}
 
   cursor: pointer;
   label {
@@ -67,7 +65,7 @@ export const StyledCheckBoxWrapper = styled.div<StyledCheckBoxProps>`
     $isDisabled &&
     $size === 'small' &&
     css`
-      ${typos.button4}
+      ${({ theme }) => theme.typo.button4}
     `}
 
   ${({ $isSelected, $isDisabled, theme }) =>

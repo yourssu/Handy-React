@@ -1,7 +1,5 @@
 import { css, styled } from 'styled-components';
 
-import { typos } from '@/style';
-
 import { PlainButtonProps, PlainButtonSize } from './PlainButton.type';
 
 interface StyledPlainButtonProps {
@@ -24,7 +22,7 @@ const getSizeStyle = ($size: PlainButtonSize) => {
       return css`
         height: 20px;
         font-size: 14px;
-        ${typos.button3}
+        ${({ theme }) => theme.typo.button3}
         .icon {
           width: 20px;
           height: 20px;
@@ -34,7 +32,7 @@ const getSizeStyle = ($size: PlainButtonSize) => {
       return css`
         height: 16px;
         font-size: 12px;
-        ${typos.button4}
+        ${({ theme }) => theme.typo.button4}
         .icon {
           width: 16px;
           height: 16px;

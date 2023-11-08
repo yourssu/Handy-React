@@ -1,7 +1,5 @@
 import { styled } from 'styled-components';
 
-import { typos } from '@/style';
-
 import { ListItemProps } from './ListItem.type';
 
 interface StyledListItemProps {
@@ -25,7 +23,7 @@ export const StyledListItem = styled.li<StyledListItemProps>`
   .right-icon {
     margin-left: auto;
   }
-  ${typos.body1}
+  ${({ theme }) => theme.typo.body1}
   color: ${({ theme }) => theme.color.textSecondary};
   background-color: ${({ $isPressed, theme }) =>
     $isPressed ? theme.color.bgPressed : 'transparent'};
