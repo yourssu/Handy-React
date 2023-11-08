@@ -19,5 +19,8 @@ export type { PlainButtonProps } from './PlainButton';
 export { Toggle } from './Toggle';
 export type { ToggleProps } from './Toggle';
 
+export { ListItem } from './ListItem';
+export type { ListItemProps } from './ListItem';
+
 export { Toast } from './Toast';
 export type { ToastProps } from './Toast';

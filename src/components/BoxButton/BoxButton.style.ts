@@ -1,7 +1,5 @@
 import { css, styled } from 'styled-components';
 
-import { typos } from '@/style';
-
 import {
   BoxButtonProps,
   BoxButtonRounding,
@@ -117,22 +115,22 @@ const getSizeStyle = ($size: BoxButtonSize) => {
     case 'extraLarge':
       return css`
         height: 56px;
-        ${typos.button1}
+        ${({ theme }) => theme.typo.button1}
       `;
     case 'large':
       return css`
         height: 48px;
-        ${typos.button2}
+        ${({ theme }) => theme.typo.button2}
       `;
     case 'medium':
       return css`
         height: 40px;
-        ${typos.button2}
+        ${({ theme }) => theme.typo.button2}
       `;
     case 'small':
       return css`
         height: 32px;
-        ${typos.button4}
+        ${({ theme }) => theme.typo.button4}
       `;
   }
 };
@@ -150,6 +148,7 @@ export const StyledBoxButton = styled.button<StyledBoxButtonProps>`
   ${({ $isWarned, $variant }) => $isWarned && getWarnedStyle($variant)}
   &:disabled {
     ${({ $variant }) => getDisabledStyle($variant)}
+    cursor: not-allowed;
   }
   & > .boxButton-child {
     display: block;
