@@ -15,6 +15,7 @@ export type SemanticTextColor =
   | 'textSecondary'
   | 'textTertiary'
   | 'textDisabled'
+  | 'textBright'
   | 'textPointed'
   | 'textWarned';
 
