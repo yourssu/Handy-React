@@ -1,2 +1,2 @@
 export { Toast } from './Toast';
-export type { ToastProps } from './Toast.type';
+export type { ToastProps, ToastDuration } from './Toast.type';

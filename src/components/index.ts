@@ -23,4 +23,4 @@ export { ListItem } from './ListItem';
 export type { ListItemProps } from './ListItem';
 
 export { Toast } from './Toast';
-export type { ToastProps } from './Toast';
+export type { ToastProps, ToastDuration } from './Toast';
