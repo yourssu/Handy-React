@@ -13,7 +13,7 @@ export const useUncontrolledValue = <T extends HTMLInputElement | HTMLSelectElem
     if (!ref.current) return;
     ref.current.value = value;
     _setValue(value);
-  }, [value]);
+  }, [value, ref]);
 
   useEffect(() => {
     if (!ref.current) return;

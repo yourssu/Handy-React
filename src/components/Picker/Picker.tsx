@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
-import { PickerProps } from './Picker.type';
+
 import { StyledPicker } from './Picker.style';
+import { PickerProps } from './Picker.type';
 
 export const Picker = forwardRef<HTMLDivElement, PickerProps>(({ children, ...props }, ref) => {
   return (

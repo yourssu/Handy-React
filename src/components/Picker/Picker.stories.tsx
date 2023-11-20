@@ -1,8 +1,10 @@
+import { useState } from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Picker } from './Picker';
+
 import { PickerColumn } from '.';
-import { useState } from 'react';
 
 const meta: Meta<typeof Picker> = {
   title: 'Atoms/Picker',

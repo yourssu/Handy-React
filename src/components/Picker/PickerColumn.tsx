@@ -1,7 +1,9 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
+
+import { useDOMRef } from '@/hooks/useDOMRef/useDOMRef';
+
 import { PickerColumnOption, PickerColumnProps } from './Picker.type';
 import { StyledPickerColumnContainer, StyledPickerColumnOption } from './PickerColumn.style';
-import { useDOMRef } from '@/hooks/useDOMRef/useDOMRef';
 
 export const PickerColumn = forwardRef<HTMLSelectElement, PickerColumnProps>(
   ({ options, value, ...props }, ref) => {
