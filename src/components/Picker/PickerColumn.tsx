@@ -14,7 +14,7 @@ export const PickerColumn = forwardRef<HTMLSelectElement, PickerColumnProps>(
       const option = options.find((o) => o.value === value);
       if (!option) return;
       containerRef.current!.scrollTop = optionRefs.current[option.value].offsetTop - 96;
-    }, [value]);
+    }, [value, options]);
 
     const change = (option: PickerColumnOption) => {
       domRef.current!.value = option.value;
