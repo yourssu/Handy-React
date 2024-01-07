@@ -22,5 +22,8 @@ dist-ssr
 *.sln
 *.sw?
 
+.yarn
 storybook-static
+package.tgz
 icons
+.storybook
