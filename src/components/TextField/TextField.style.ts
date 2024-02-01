@@ -41,8 +41,13 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
   ${({ $isDisabled, $isPositive, $isNegative, theme }) =>
     !$isDisabled &&
     ($isNegative
-      ? css`border: 1px solid ${theme.color.textWarned}};`
-      : $isPositive && css` border: 1px solid ${theme.color.textPointed}};`)};
+      ? css`
+          border: 1px solid ${theme.color.textWarned};
+        `
+      : $isPositive &&
+        css`
+          border: 1px solid ${theme.color.textPointed};
+        `)}
 
   ${({ $isDisabled }) =>
     $isDisabled &&
