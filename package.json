@@ -29,7 +29,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "convert-icon": "node ./icons/convert.mjs"
+    "convert-icon": "node ./iconsAsset/convert.mjs"
   },
   "peerDependencies": {
     "react": "^18.2.0",
