@@ -15,6 +15,7 @@ export const TextField = ({
   helperLabel,
   suffix,
   searchPrefix,
+  width,
   ...props
 }: TextFieldProps) => {
   return (
@@ -26,6 +27,7 @@ export const TextField = ({
         $isFocused={isFocused}
         $isTyping={isTyping}
         $isDisabled={props.disabled}
+        $width={width}
       >
         {searchPrefix}
         <StyledTextField {...props} />

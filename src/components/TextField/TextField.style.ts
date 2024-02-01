@@ -9,9 +9,11 @@ interface StyledTextFieldProps {
   $isTyping?: TextFieldProps['isTyping'];
   $isDisabled?: TextFieldProps['disabled'];
   $searchPrefix?: TextFieldProps['searchPrefix'];
+  $width?: TextFieldProps['width'];
 }
 
 export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
+  width: ${({ $width }) => $width};
   height: 46px;
   display: flex;
   align-items: center;
@@ -25,12 +27,13 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
   padding: 12px 16px;
 
   .suffix-icon {
-    display: none;
+    visibility: hidden;
     cursor: pointer;
   }
 
   input:focus + .suffix-icon,
   input:active + .suffix-icon {
+    visibility: visible;
     display: flex;
     align-items: center;
   }
