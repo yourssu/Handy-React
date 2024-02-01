@@ -8,4 +8,5 @@ export interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputEleme
   helperLabel?: string;
   suffix?: React.ReactNode;
   searchPrefix?: React.ReactNode;
+  width?: number | string;
 }
