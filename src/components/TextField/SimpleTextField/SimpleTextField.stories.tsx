@@ -23,11 +23,7 @@ const TextFieldStory = ({ ...textFieldProps }) => {
   };
 
   const newProps = { ...textFieldProps, value, onChange, onClickClearButton };
-  return (
-    <div style={{ width: '300px' }}>
-      <SimpleTextField {...newProps} />
-    </div>
-  );
+  return <SimpleTextField {...newProps} />;
 };
 
 type Story = StoryObj<typeof SimpleTextField>;
@@ -39,6 +35,7 @@ export const Primary: Story = {
     disabled: false,
     isPositive: false,
     isNegative: false,
+    width: '350px',
   },
   render: TextFieldStory,
 };
@@ -49,6 +46,7 @@ export const Disabled: Story = {
     helperLabel: '도움말 텍스트',
     placeholder: '플레이스 홀더',
     disabled: true,
+    width: '350px',
   },
   render: TextFieldStory,
 };
@@ -60,6 +58,7 @@ export const Positive: Story = {
     placeholder: '플레이스 홀더',
     disabled: false,
     isPositive: true,
+    width: '350px',
   },
   render: TextFieldStory,
 };
@@ -71,6 +70,7 @@ export const Negative: Story = {
     placeholder: '플레이스 홀더',
     disabled: false,
     isNegative: true,
+    width: '350px',
   },
   render: TextFieldStory,
 };
