@@ -45,21 +45,21 @@ export const typos: Record<Typo, string> = {
     `,
   subtitle1: `
         font-size: 20px;
-        font-weight: ${fontWeights.SemiBold};
+        font-weight: ${fontWeights.Medium};
         line-height: 1.3;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   subtitle2: `
         font-size: 16px;
-        font-weight: ${fontWeights.SemiBold};
+        font-weight: ${fontWeights.Medium};
         line-height: 1.3;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   subtitle3: `
         font-size: 14px;
-        font-weight: ${fontWeights.SemiBold};
+        font-weight: ${fontWeights.Medium};
         line-height: 1.3;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
