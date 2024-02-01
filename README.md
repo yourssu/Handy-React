@@ -10,17 +10,39 @@ YDS는 숭실대학교 동아리 유어슈에서 사용하는 디자인 시스�
 YDS 문서는 노션 페이지에서 관리됩니다.  
 컴포넌트 정보와 사용 예시 등을 확인할 수 있습니다.
 
+[YDS Storybook](http://yds-react-storybook.s3-website.ap-northeast-2.amazonaws.com/?path=/docs/foundation-iconcontext--docs)
+
 ## 🖌 피그마
 
 [YDS Figma](https://www.figma.com/community/file/1146974544001355129)
 
-## 🛠 설치 방법
+## 🛠 사용 방법
 
-개발 중
+1. YDS 패키지 및 styled-components를 설치합니다.
+
+```
+npm add @yourssu/design-system-react styled-components
+
+yarn add @yourssu/design-system-react styled-components
+
+pnpm add @yourssu/design-system-react styled-components
+```
+
+2. Root Component에 YDSWrapper를 감싸줍니다.
+
+```jsx
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <YDSWrapper>
+      <App />
+    </YDSWrapper>
+  </React.StrictMode>
+);
+```
 
 ## 📱 YDS를 사용해 개발한 프로덕트
 
-개발 중
+[Soomsil-Web](https://github.com/yourssu/Soomsil-Web)
 
 ## 💻 타 버전 저장소
 
