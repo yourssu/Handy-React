@@ -197,9 +197,17 @@ export default meta;
 type Story = StoryObj<typeof IconBase>;
 
 const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2rem;
+`;
+
+const IconWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+
+  ${({ theme }) => theme.typo.caption1};
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -207,7 +215,10 @@ const Render = (args: any) => {
   return (
     <Container>
       {Icons.map((Icon, index) => (
-        <Icon key={index} {...args} />
+        <IconWrapper>
+          <Icon key={index} {...args} />
+          {Icon.displayName}
+        </IconWrapper>
       ))}
     </Container>
   );
