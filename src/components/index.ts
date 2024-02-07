@@ -1,6 +1,3 @@
-export { Test } from './Test';
-export type { TestProps } from './Test';
-
 export { YDSWrapper } from './YDSWrapper';
 export type { YDSWrapperProps } from './YDSWrapper';
 
@@ -27,3 +24,6 @@ export type { ListItemProps } from './ListItem';
 
 export { Toast } from './Toast';
 export type { ToastProps, ToastDuration } from './Toast';
+
+export { SimpleTextField } from './TextField';
+export type { SimpleTextFieldProps } from './TextField';

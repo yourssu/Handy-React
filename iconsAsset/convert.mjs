@@ -9,7 +9,7 @@ import prettier from 'prettier';
 import { DOMParser, XMLSerializer } from 'xmldom';
 
 const __dirname = path.resolve();
-const ICONS_DIR = path.join(__dirname, './icons/static');
+const ICONS_DIR = path.join(__dirname, './iconsAsset/static');
 const ICONS_COMPONENTS_DIR = path.join(__dirname, './src/style/foundation/icons/generated');
 const ICONS_INDEX_PATH = path.join(__dirname, './src/style/foundation/icons/generated/index.ts');
 const ICONS_STORIES_PATH = path.join(__dirname, './src/style/foundation/icons/icons.stories.tsx');
@@ -52,8 +52,8 @@ function camelizeElementAttributes(elem) {
 }
 
 const SVGComponentTemplate = (name, viewBox, svg) => `/**
- * 이 파일은 icons/convert.js에 의해 자동 생성되었습니다.
- * 직접 수정하는 대신 icons/convert.js를 수정하세요.
+ * 이 파일은 iconsAsset/convert.js에 의해 자동 생성되었습니다.
+ * 직접 수정하는 대신 iconsAsset/convert.js를 수정하세요.
  */
 
 import { memo, forwardRef } from 'react';
@@ -69,8 +69,8 @@ export const ${name} = memo(forwardRef<SVGSVGElement, IconProps>((props, ref) =>
 `;
 
 const StoryTemplate = (icons) => `/**
- * 이 파일은 icons/convert.js에 의해 자동 생성되었습니다.
- * 직접 수정하는 대신 icons/convert.js를 수정하세요.
+ * 이 파일은 iconsAsset/convert.js에 의해 자동 생성되었습니다.
+ * 직접 수정하는 대신 iconsAsset/convert.js를 수정하세요.
  */
 
 import { Meta, StoryObj } from '@storybook/react';

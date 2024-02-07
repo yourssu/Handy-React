@@ -25,5 +25,5 @@ dist-ssr
 .yarn
 storybook-static
 package.tgz
-icons
+iconsAsset
 .storybook
