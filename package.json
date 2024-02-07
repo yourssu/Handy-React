@@ -1,13 +1,12 @@
 {
   "name": "@yourssu/design-system-react",
   "private": false,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Yourssu Design System for React",
   "keywords": [
     "yourssu",
     "design system",
-    "react",
-    "design system"
+    "react"
   ],
   "repository": "yourssu/YDS-React",
   "license": "MIT",
