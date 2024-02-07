@@ -21,11 +21,11 @@ YDS 문서는 노션 페이지에서 관리됩니다.
 1. YDS 패키지 및 styled-components를 설치합니다.
 
 ```
-npm add @yourssu/design-system-react styled-components
+npm install @yourssu/design-system-react styled-components
 
 yarn add @yourssu/design-system-react styled-components
 
-pnpm add @yourssu/design-system-react styled-components
+pnpm install @yourssu/design-system-react styled-components
 ```
 
 2. Root Component에 YDSWrapper를 감싸줍니다.
