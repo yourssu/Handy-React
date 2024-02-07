@@ -10,9 +10,9 @@ import {
 interface StyledBoxButtonProps {
   $size: BoxButtonSize;
   $variant: BoxButtonVariant;
-  $isWarned: BoxButtonProps['isWarned'];
-  $rounding: BoxButtonRounding;
-  $width: BoxButtonProps['width'];
+  $rounding?: BoxButtonRounding;
+  $isWarned?: BoxButtonProps['isWarned'];
+  $width?: BoxButtonProps['width'];
 }
 
 const getNormalStyle = ($variant: BoxButtonVariant) => {
