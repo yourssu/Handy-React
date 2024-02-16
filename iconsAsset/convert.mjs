@@ -79,43 +79,53 @@ import { styled } from 'styled-components';
 import { IconBase } from './icon.base';
 
 import {
-    ${icons.map(({ componentName }) => `${componentName},`).join('\n    ')}
+  ${icons.map(({ componentName }) => `${componentName},`).join('\n  ')}
 } from '.';
 
 const Icons = [
-    ${icons.map(({ componentName }) => `${componentName},`).join('\n    ')}
+  ${icons.map(({ componentName }) => `${componentName},`).join('\n  ')}
 ];
 
 const meta: Meta = {
-    title: 'Foundation/Icons',
-    component: IconBase,
+  title: 'Foundation/Icons',
+  component: IconBase,
 };
 export default meta;
 
 type Story = StoryObj<typeof IconBase>;
 
 const Container = styled.div\`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+\`;
+
+const IconWrapper = styled.div\`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
 \`;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Render = (args: any) => {
-    return (
-        <Container>
-            {Icons.map((Icon, index) => (
-                <Icon key={index} {...args} />
-            ))}
-        </Container>
-    );
+  return (
+    <Container>
+      {Icons.map((Icon, index) => (
+        <IconWrapper>
+          <Icon key={index} {...args} />
+          {Icon.displayName}
+        </IconWrapper>
+      ))}
+    </Container>
+  );
 };
 
 export const Primary: Story = {
-    args: {
-        size: 24,
-    },
-    render: Render,
+  args: {
+    size: 24,
+  },
+  render: Render,
 };
 `;
 

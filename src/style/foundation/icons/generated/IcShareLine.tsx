@@ -1,6 +1,6 @@
 /**
- * 이 파일은 icons/convert.js에 의해 자동 생성되었습니다.
- * 직접 수정하는 대신 icons/convert.js를 수정하세요.
+ * 이 파일은 iconsAsset/convert.js에 의해 자동 생성되었습니다.
+ * 직접 수정하는 대신 iconsAsset/convert.js를 수정하세요.
  */
 
 import { memo, forwardRef } from 'react';
@@ -17,10 +17,22 @@ export const IcShareLine = memo(
         clipRule="evenodd"
         xmlns="http://www.w3.org/2000/svg"
       />
-      <path
-        d="M17 5L7 12L17 19"
-        stroke="current"
-        strokeWidth="1.5"
+      <rect
+        x="5"
+        y="7.5"
+        width="12"
+        height="1.5"
+        fill="current"
+        transform="rotate(-35 12 6.5)"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+      <rect
+        x="8"
+        y="14"
+        width="12"
+        height="1.5"
+        fill="current"
+        transform="rotate(36 12 12)"
         xmlns="http://www.w3.org/2000/svg"
       />
     </IconBase>
