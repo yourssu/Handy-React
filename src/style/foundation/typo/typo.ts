@@ -9,13 +9,20 @@ export const fontWeights: Record<FontWeight, number> = {
 
 export const typos: Record<Typo, string> = {
   display1: `
-        font-size: 40px;
+        font-size: 64px;
         font-weight: ${fontWeights.Bold};
         line-height: 1.3;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   display2: `
+        font-size: 40px;
+        font-weight: ${fontWeights.Bold};
+        line-height: 1.3;
+        letter-spacing: 0;
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    `,
+  display3: `
         font-size: 32px;
         font-weight: ${fontWeights.Bold};
         line-height: 1.3;
@@ -37,27 +44,62 @@ export const typos: Record<Typo, string> = {
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   title3: `
+        font-size: 22px;
+        font-weight: ${fontWeights.Bold};
+        line-height: 1.3;
+        letter-spacing: 0;
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    `,
+  title4: `
         font-size: 20px;
         font-weight: ${fontWeights.Bold};
         line-height: 1.3;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
+  title5: `
+        font-size: 18px;
+        font-weight: ${fontWeights.Bold};
+        line-height: 1.3;
+        letter-spacing: 0;
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    `,
   subtitle1: `
-        font-size: 20px;
+        font-size: 32px;
         font-weight: ${fontWeights.Medium};
         line-height: 1.3;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   subtitle2: `
-        font-size: 16px;
+        font-size: 24px;
         font-weight: ${fontWeights.Medium};
         line-height: 1.3;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   subtitle3: `
+        font-size: 20px;
+        font-weight: ${fontWeights.Medium};
+        line-height: 1.3;
+        letter-spacing: 0;
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    `,
+  subtitle4: `
+        font-size: 18px;
+        font-weight: ${fontWeights.Medium};
+        line-height: 1.3;
+        letter-spacing: 0;
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    `,
+  subtitle5: `
+        font-size: 16px;
+        font-weight: ${fontWeights.Medium};
+        line-height: 1.3;
+        letter-spacing: 0;
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    `,
+  subtitle6: `
         font-size: 14px;
         font-weight: ${fontWeights.Medium};
         line-height: 1.3;
@@ -65,16 +107,23 @@ export const typos: Record<Typo, string> = {
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   body1: `
-        font-size: 15px;
+        font-size: 18px;
         font-weight: ${fontWeights.Regular};
-        line-height: 1.6;
+        line-height: 1.5;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
   body2: `
+        font-size: 16px;
+        font-weight: ${fontWeights.Regular};
+        line-height: 1.5;
+        letter-spacing: 0;
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    `,
+  body3: `
         font-size: 14px;
         font-weight: ${fontWeights.Regular};
-        line-height: 1.6;
+        line-height: 1.5;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     `,
