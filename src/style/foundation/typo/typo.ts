@@ -136,7 +136,7 @@ export const typos: Record<Typo, string> = {
     `,
   button1: `
         font-size: 16px;
-        font-weight: ${fontWeights.Medium};
+        font-weight: ${fontWeights.Regular};
         line-height: 1.4;
         letter-spacing: 0;
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
