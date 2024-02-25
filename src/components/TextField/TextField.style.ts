@@ -66,7 +66,7 @@ export const StyledTextField = styled.input<StyledTextFieldProps>`
   background-color: transparent;
   border: none;
   outline: none;
-  ${({ theme }) => theme.typo.body1};
+  ${({ theme }) => theme.typo.body2};
 
   caret-color: ${({ theme }) => theme.color.textPointed};
 
@@ -82,7 +82,7 @@ export const StyledTextField = styled.input<StyledTextFieldProps>`
 `;
 
 export const StyledFieldLabel = styled.label<StyledTextFieldProps>`
-  ${({ theme }) => theme.typo.subtitle3};
+  ${({ theme }) => theme.typo.subtitle6};
   color: ${({ theme, $isDisabled }) =>
     $isDisabled ? theme.color.textDisabled : theme.color.textSecondary};
 `;
