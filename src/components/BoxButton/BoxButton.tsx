@@ -7,16 +7,17 @@ import { StyledBoxButton } from './BoxButton.style';
 import { BoxButtonProps } from '.';
 
 export const BoxButton = forwardRef<HTMLButtonElement, BoxButtonProps>(
-  ({ leftIcon, children, rightIcon, ...props }, ref) => {
+  ({ size, variant, rounding, isWarned, width, leftIcon, children, rightIcon, ...props }, ref) => {
     return (
       <StyledBoxButton
         ref={ref}
-        disabled={props.isDisabled}
-        $size={props.size}
-        $variant={props.variant}
-        $rounding={props.rounding}
-        $isWarned={props.isWarned}
-        $width={props.width}
+        disabled={props.disabled}
+        $size={size}
+        $variant={variant}
+        $rounding={rounding}
+        $isWarned={isWarned}
+        $width={width}
+        {...props}
       >
         <div>
           {leftIcon && (

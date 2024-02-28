@@ -1,7 +1,7 @@
+import { Stories, Primary as PrimaryBlock, Controls, Title } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { CheckBox } from './CheckBox';
-import { Stories, Primary as PrimaryBlock, Controls, Title } from '@storybook/blocks';
 
 const meta: Meta<typeof CheckBox> = {
   title: 'Atoms/CheckBox',

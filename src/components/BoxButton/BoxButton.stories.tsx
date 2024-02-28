@@ -1,9 +1,9 @@
+import { Stories, Primary as PrimaryBlock, Controls, Title } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { IcGroundLine } from '@/style';
 
 import { BoxButton } from './BoxButton';
-import { Stories, Primary as PrimaryBlock, Controls, Title } from '@storybook/blocks';
 
 const meta: Meta<typeof BoxButton> = {
   title: 'Atoms/BoxButton',
@@ -59,7 +59,7 @@ export const Primary: Story = {
     size: 'large',
     variant: 'filled',
     rounding: 8,
-    isDisabled: false,
+    disabled: false,
     isWarned: false,
   },
 };
@@ -70,7 +70,7 @@ export const Disabled: Story = {
     size: 'large',
     variant: 'tinted',
     rounding: 8,
-    isDisabled: true,
+    disabled: true,
     isWarned: false,
     leftIcon: <IcGroundLine />,
   },
@@ -82,7 +82,7 @@ export const Warned: Story = {
     size: 'large',
     variant: 'line',
     rounding: 8,
-    isDisabled: false,
+    disabled: false,
     isWarned: true,
     leftIcon: <IcGroundLine />,
     rightIcon: <IcGroundLine />,

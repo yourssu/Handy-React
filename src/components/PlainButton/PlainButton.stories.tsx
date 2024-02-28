@@ -1,9 +1,9 @@
+import { Stories, Primary as PrimaryBlock, Controls, Title } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { IcGroundLine } from '@/style';
 
 import { PlainButton } from './PlainButton';
-import { Stories, Primary as PrimaryBlock, Controls, Title } from '@storybook/blocks';
 
 const meta: Meta<typeof PlainButton> = {
   title: 'Atoms/PlainButton',
