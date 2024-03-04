@@ -45,6 +45,8 @@ export type BaseWBAlphaColor =
   | 'white000A10'
   | 'white000A30'
   | 'white000A70'
+  | 'gray900A05'
+  | 'gray900A10'
   | 'gray900A30'
   | 'gray900A70'
   | 'black000A05'

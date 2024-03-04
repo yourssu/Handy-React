@@ -23,7 +23,7 @@ export const StyledListItem = styled.li<StyledListItemProps>`
   .right-icon {
     margin-left: auto;
   }
-  ${({ theme }) => theme.typo.body1}
+  ${({ theme }) => theme.typo.body2}
   color: ${({ theme }) => theme.color.textSecondary};
   background-color: ${({ $isPressed, theme }) =>
     $isPressed ? theme.color.bgPressed : 'transparent'};

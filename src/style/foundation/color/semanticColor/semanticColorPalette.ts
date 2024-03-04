@@ -10,9 +10,9 @@ const lightSemanticColorPalette: SemanticColorPalette = {
   bgNormal: baseColorPalettes.light.white000,
   bgElevated: baseColorPalettes.light.white000,
   bgRecomment: baseColorPalettes.light.gray050,
-  bgSelected: baseColorPalettes.light.gray100,
-  bgPressed: baseColorPalettes.light.gray100,
-  bgDimDark: baseColorPalettes.light.black000A30,
+  bgSelected: baseColorPalettes.light.gray900A05,
+  bgPressed: baseColorPalettes.light.gray900A05,
+  bgDimDark: baseColorPalettes.light.gray900A30,
   bgNormalDark: baseColorPalettes.light.realBlack,
   bgElevatedDark: baseColorPalettes.light.realBlack,
 
@@ -40,7 +40,7 @@ const lightSemanticColorPalette: SemanticColorPalette = {
   buttonNormalPressed: baseColorPalettes.light.gray600,
   buttonBG: baseColorPalettes.light.gray200,
   buttonEmojiBG: baseColorPalettes.light.gray100,
-  buttonDisabled: baseColorPalettes.light.gray600,
+  buttonDisabled: baseColorPalettes.light.gray500,
   buttonDisabledBG: baseColorPalettes.light.gray200,
   buttonPoint: baseColorPalettes.light.pointColor400,
   buttonPointPressed: baseColorPalettes.light.pointColor300,
@@ -62,7 +62,7 @@ const lightSemanticColorPalette: SemanticColorPalette = {
   toastBG: baseColorPalettes.light.gray800,
 
   // Semantic Pressed Color
-  pressed: baseColorPalettes.light.black000A10,
+  pressed: baseColorPalettes.light.gray900A05,
 
   // Semantic ToolTip Color
   tooltipBG: baseColorPalettes.light.gray700,
@@ -74,6 +74,11 @@ const lightSemanticColorPalette: SemanticColorPalette = {
   // Semantic Shadow Color
   shadowThin: baseColorPalettes.light.gray400,
   shadowNormal: baseColorPalettes.light.gray500,
+
+  // Semantic Logo Color
+  pointIndigo: baseColorPalettes.light.logoIndigo,
+  pointViolet: baseColorPalettes.light.logoViolet,
+  pointYellow: baseColorPalettes.light.logoYellow,
 
   // Semantic MonoItem Color
   monoItemPrimary: baseColorPalettes.light.gray700,
@@ -135,7 +140,7 @@ const darkSemanticColorPalette: SemanticColorPalette = {
   bgSelected: baseColorPalettes.dark.white000A05,
   bgNormalDark: baseColorPalettes.dark.realBlack,
   bgElevatedDark: baseColorPalettes.dark.realBlack,
-  bgDimDark: baseColorPalettes.dark.gray900A30,
+  bgDimDark: baseColorPalettes.dark.black000A30,
 
   // Semantic Text Color
   textPrimary: baseColorPalettes.dark.gray900,
@@ -147,8 +152,8 @@ const darkSemanticColorPalette: SemanticColorPalette = {
   textWarned: baseColorPalettes.dark.warningRed400,
 
   // Semantic Dim Color
-  dimNormal: baseColorPalettes.dark.gray900A30,
-  dimThick: baseColorPalettes.dark.gray900A70,
+  dimNormal: baseColorPalettes.dark.black000A30,
+  dimThick: baseColorPalettes.dark.black000A70,
   dimThickBright: baseColorPalettes.dark.white000A70,
 
   // Semantic Border Color
@@ -191,6 +196,11 @@ const darkSemanticColorPalette: SemanticColorPalette = {
 
   // Semantic Pressed Color
   pressed: baseColorPalettes.dark.white000A10,
+
+  // Semantic Logo Color
+  pointIndigo: baseColorPalettes.light.logoIndigo,
+  pointViolet: baseColorPalettes.light.logoViolet,
+  pointYellow: baseColorPalettes.light.logoYellow,
 
   // Semantic MonoItem Color
   monoItemPrimary: baseColorPalettes.light.gray700,

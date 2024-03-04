@@ -1,6 +1,6 @@
 /**
- * 이 파일은 icons/convert.js에 의해 자동 생성되었습니다.
- * 직접 수정하는 대신 icons/convert.js를 수정하세요.
+ * 이 파일은 iconsAsset/convert.js에 의해 자동 생성되었습니다.
+ * 직접 수정하는 대신 iconsAsset/convert.js를 수정하세요.
  */
 
 import { Meta, StoryObj } from '@storybook/react';
@@ -15,9 +15,9 @@ import {
   IcArrowLeftLine,
   IcArrowRightLine,
   IcArrowUpLine,
+  IcBellmuteLine,
   IcBellFilled,
   IcBellLine,
-  IcBellmuteLine,
   IcBlockuserLine,
   IcBoardFilled,
   IcBoardLine,
@@ -25,12 +25,12 @@ import {
   IcBookLine,
   IcCalendarFilled,
   IcCalendarLine,
+  IcCameracircleLine,
   IcCameraFilled,
   IcCameraLine,
-  IcCameracircleLine,
-  IcCheckLine,
   IcCheckcircleFilled,
   IcCheckcircleLine,
+  IcCheckLine,
   IcClipLine,
   IcCommentFilled,
   IcCommentLine,
@@ -41,10 +41,10 @@ import {
   IcEmojiaddLine,
   IcEyeclosedLine,
   IcEyeopenLine,
-  IcFoodFilled,
-  IcFoodLine,
   IcFoodcalendarFilled,
   IcFoodcalendarLine,
+  IcFoodFilled,
+  IcFoodLine,
   IcGroundFilled,
   IcGroundLine,
   IcHeartLine,
@@ -59,9 +59,9 @@ import {
   IcNoticeLine,
   IcPenFilled,
   IcPenLine,
+  IcPersoncircleLine,
   IcPersonFilled,
   IcPersonLine,
-  IcPersoncircleLine,
   IcPictureFilled,
   IcPictureLine,
   IcPinFilled,
@@ -79,9 +79,9 @@ import {
   IcSchoolcalendarLine,
   IcSearchLine,
   IcSettingLine,
-  IcShareLine,
   IcSharecircleFilled,
   IcSharecircleLine,
+  IcShareLine,
   IcStarFilled,
   IcStarLine,
   IcThumbDownFilled,
@@ -94,8 +94,8 @@ import {
   IcTrashcanLine,
   IcWarningcircleFilled,
   IcWarningcircleLine,
-  IcXLine,
   IcXcircleFilled,
+  IcXLine,
 } from '.';
 
 const Icons = [
@@ -105,9 +105,9 @@ const Icons = [
   IcArrowLeftLine,
   IcArrowRightLine,
   IcArrowUpLine,
+  IcBellmuteLine,
   IcBellFilled,
   IcBellLine,
-  IcBellmuteLine,
   IcBlockuserLine,
   IcBoardFilled,
   IcBoardLine,
@@ -115,12 +115,12 @@ const Icons = [
   IcBookLine,
   IcCalendarFilled,
   IcCalendarLine,
+  IcCameracircleLine,
   IcCameraFilled,
   IcCameraLine,
-  IcCameracircleLine,
-  IcCheckLine,
   IcCheckcircleFilled,
   IcCheckcircleLine,
+  IcCheckLine,
   IcClipLine,
   IcCommentFilled,
   IcCommentLine,
@@ -131,10 +131,10 @@ const Icons = [
   IcEmojiaddLine,
   IcEyeclosedLine,
   IcEyeopenLine,
-  IcFoodFilled,
-  IcFoodLine,
   IcFoodcalendarFilled,
   IcFoodcalendarLine,
+  IcFoodFilled,
+  IcFoodLine,
   IcGroundFilled,
   IcGroundLine,
   IcHeartLine,
@@ -149,9 +149,9 @@ const Icons = [
   IcNoticeLine,
   IcPenFilled,
   IcPenLine,
+  IcPersoncircleLine,
   IcPersonFilled,
   IcPersonLine,
-  IcPersoncircleLine,
   IcPictureFilled,
   IcPictureLine,
   IcPinFilled,
@@ -169,9 +169,9 @@ const Icons = [
   IcSchoolcalendarLine,
   IcSearchLine,
   IcSettingLine,
-  IcShareLine,
   IcSharecircleFilled,
   IcSharecircleLine,
+  IcShareLine,
   IcStarFilled,
   IcStarLine,
   IcThumbDownFilled,
@@ -184,8 +184,8 @@ const Icons = [
   IcTrashcanLine,
   IcWarningcircleFilled,
   IcWarningcircleLine,
-  IcXLine,
   IcXcircleFilled,
+  IcXLine,
 ];
 
 const meta: Meta = {
@@ -198,7 +198,7 @@ type Story = StoryObj<typeof IconBase>;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 2rem;
 `;
 
@@ -206,8 +206,7 @@ const IconWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  ${({ theme }) => theme.typo.caption1};
+  font-size: 12px;
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
