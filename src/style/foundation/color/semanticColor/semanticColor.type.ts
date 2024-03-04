@@ -52,6 +52,8 @@ export type SemanticPickerColor = 'dimPickerReverse';
 
 export type SemanticShadowColor = 'shadowThin' | 'shadowNormal';
 
+export type SemanticLogoColor = 'pointIndigo' | 'pointViolet' | 'pointYellow';
+
 type SemanticItemColorVariants<ColorName extends string> =
   | `${ColorName}Primary`
   | `${ColorName}BG`
@@ -93,6 +95,7 @@ export type SemanticColor =
   | SemanticToolTipColor
   | SemanticPickerColor
   | SemanticShadowColor
+  | SemanticLogoColor
   | SemanticItemColor;
 
 // Utility Types
