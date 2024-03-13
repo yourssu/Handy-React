@@ -1,4 +1,4 @@
-name: build and deploy storybook to s3
+name: build and deploy storybook to s3, publish to npm
 
 on:
   push:
