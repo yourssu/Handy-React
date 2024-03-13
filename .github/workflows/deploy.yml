@@ -32,3 +32,8 @@ jobs:
             --region ap-northeast-2 \
             ./storybook-static \
             s3://yds-react-storybook/${{ steps.version.outputs.VERSION }}
+
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
