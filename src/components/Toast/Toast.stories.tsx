@@ -28,7 +28,7 @@ const meta: Meta<typeof Toast> = {
           </ol>
           <br />
           <Title>useToast</Title>
-          <span>'Toast 컴포넌트를 사용하기 위한 Custom Hook입니다.'</span>
+          <span>Toast 컴포넌트를 사용하기 위한 Custom Hook입니다.</span>
           <Markdown>{HookSource}</Markdown>
           <br />
           <Stories />
