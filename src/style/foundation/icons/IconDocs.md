@@ -1,4 +1,4 @@
-## Icon
+# Icon
 
 YDS Icons는 Context를 사용하여 모든 아이콘에 기본 스타일을 적용할 수 있습니다.<br/>
 모든 아이콘 종류는 [Icon Story](../?path=/story/foundation-icons--primary)에서 확인할 수 있습니다.

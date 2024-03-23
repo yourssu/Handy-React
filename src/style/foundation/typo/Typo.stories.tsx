@@ -9,7 +9,7 @@ import TypoDocs from './TypoDocs.md?raw';
 import { typos, Typo } from '.';
 
 const meta: Meta = {
-  title: 'Foundation/Typo',
+  title: 'Foundation/Typos',
   parameters: {
     docs: {
       page: () => (
