@@ -1,10 +1,24 @@
+import { Primary as PrimaryBlock, Controls, Markdown } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
+
+import TypoDocs from './TypoDocs.md?raw';
 
 import { typos, Typo } from '.';
 
 const meta: Meta = {
   title: 'Foundation/Typo',
+  parameters: {
+    docs: {
+      page: () => (
+        <>
+          <Markdown>{TypoDocs}</Markdown>
+          <PrimaryBlock />
+          <Controls />
+        </>
+      ),
+    },
+  },
 };
 export default meta;
 
