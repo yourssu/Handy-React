@@ -41,32 +41,27 @@ const TypoName = styled.div`
 `;
 
 const extractTypoDetails = (typoStyles: string) => {
-  const lines = typoStyles.split('\n');
-  const filteredLines = lines.filter(
+  const lines = typoStyles.replace(/\s/g, '').split(';');
+  return lines.filter(
     (line: string) =>
       line.includes('font-size:') || line.includes('font-weight:') || line.includes('line-height:')
   );
-  return filteredLines.join('\n').trim();
 };
 
 const TypoStory = () => {
   return (
     <>
-      {Object.keys(typos).map((key) => (
-        <TypoRow key={key}>
+      {Object.entries(typos).map(([typo, styleText]) => (
+        <TypoRow key={typo}>
           <TypoName>
-            {extractTypoDetails(typos[key as Typo])
-              .split('\n')
-              .map((line) => (
-                <React.Fragment key={key}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
+            {extractTypoDetails(styleText).map((line) => (
+              <React.Fragment key={typo + line}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
           </TypoName>
-          <TypoExample key={key} $typo={key as Typo}>
-            {key}
-          </TypoExample>
+          <TypoExample $typo={typo as Typo}>{typo}</TypoExample>
         </TypoRow>
       ))}
     </>
