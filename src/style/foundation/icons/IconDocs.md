@@ -7,9 +7,9 @@ YDS Icons는 YDS에서 사용하는 아이콘입니다.<br/>
 import { IcSearchLine } from '@yourssu/design-system-react';
 
 function App() {
-    return (
-            <IcSearchLine />
-    )
+  return (
+    <IcSearchLine />
+  )
 }
 ```
 
@@ -23,17 +23,17 @@ Context Provider의 value의 값은 `color`, `size`, `mirrored` 뿐만 아니라
 import { IcSearchLine, IcShareLine, IconContext } from '@yourssu/design-system-react';
 
 function App() {
-    return (
-        <IconContext.Provider
-            value={{
-                color: '#0f0f0f',
-                size: '20px',
-                mirrored: false,
-            }}
-        >
-            <IcSearchLine />
-            <IcShareLine />
-        </IconContext.Provider>
-    )
+  return (
+    <IconContext.Provider
+      value={{
+        color: '#0f0f0f',
+        size: '20px',
+        mirrored: false,
+      }}
+    >
+      <IcSearchLine />
+      <IcShareLine />
+    </IconContext.Provider>
+  );
 }
 ```
