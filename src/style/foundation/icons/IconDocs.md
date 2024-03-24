@@ -1,10 +1,26 @@
 # Icon
 
-YDS Icons는 Context를 사용하여 모든 아이콘에 기본 스타일을 적용할 수 있습니다.<br/>
-모든 아이콘 종류는 [Icon Story](../?path=/story/foundation-icons--primary)에서 확인할 수 있습니다.
+YDS Icons는 YDS에서 사용하는 아이콘입니다.<br/>
+모든 아이콘 종류는 아래에서 확인할 수 있습니다.
 
 ```typescript
-import { IcSearchLine, IconContext } from '@yourssu/design-system-react';
+import { IcSearchLine } from '@yourssu/design-system-react';
+
+function App() {
+    return (
+            <IcSearchLine />
+    )
+}
+```
+
+2개 이상의 아이콘을 사용할 때, Context Provider로 동일한 스타일을 한번에 적용할 수 있습니다.<br/>
+2개 이상의 Context Provider로 아이콘을 감싼 경우에는 가장 가까운 Context Provider의 값을 사용합니다.
+
+Context Provider의 value의 값은 `color`, `size`, `mirrored` 뿐만 아니라 원래 아이콘의 props를 사용할 수 있습니다.<br />
+이를 이용해 `className`, `aria-label` 등 관련 속성을 편리하게 이용할 수 있습니다.
+
+```typescript
+import { IcSearchLine, IcShareLine, IconContext } from '@yourssu/design-system-react';
 
 function App() {
     return (
@@ -16,11 +32,8 @@ function App() {
             }}
         >
             <IcSearchLine />
+            <IcShareLine />
         </IconContext.Provider>
     )
 }
 ```
-
-2개 이상의 Context Provider로 Icon을 감싼 경우 가장 가까운 context의 값을 사용합니다.
-
-> value의 값은 color, size, mirrored 뿐만 아니라 원래 Icon의 props를 사용할 수 있습니다.<br />이를 이용해 `className`, `aria-label` 등 관련 속성을 편리하게 이용할 수 있습니다.
