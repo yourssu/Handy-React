@@ -46,3 +46,5 @@ export const IcBlockuserLine = memo(
     </IconBase>
   ))
 );
+
+IcBlockuserLine.displayName = 'IcBlockuserLine';

@@ -31,3 +31,5 @@ export const IcRefreshLine = memo(
     </IconBase>
   ))
 );
+
+IcRefreshLine.displayName = 'IcRefreshLine';

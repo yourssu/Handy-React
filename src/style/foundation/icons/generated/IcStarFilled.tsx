@@ -23,3 +23,5 @@ export const IcStarFilled = memo(
     </IconBase>
   ))
 );
+
+IcStarFilled.displayName = 'IcStarFilled';

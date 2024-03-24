@@ -31,3 +31,5 @@ export const IcCheckcircleLine = memo(
     </IconBase>
   ))
 );
+
+IcCheckcircleLine.displayName = 'IcCheckcircleLine';

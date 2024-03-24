@@ -20,3 +20,5 @@ export const IcPlusLine = memo(
     </IconBase>
   ))
 );
+
+IcPlusLine.displayName = 'IcPlusLine';

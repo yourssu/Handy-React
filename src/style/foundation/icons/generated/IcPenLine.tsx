@@ -32,3 +32,5 @@ export const IcPenLine = memo(
     </IconBase>
   ))
 );
+
+IcPenLine.displayName = 'IcPenLine';

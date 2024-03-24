@@ -36,3 +36,5 @@ export const IcHomeLine = memo(
     </IconBase>
   ))
 );
+
+IcHomeLine.displayName = 'IcHomeLine';

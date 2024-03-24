@@ -27,3 +27,5 @@ export const IcPictureFilled = memo(
     </IconBase>
   ))
 );
+
+IcPictureFilled.displayName = 'IcPictureFilled';

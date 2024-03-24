@@ -36,3 +36,5 @@ export const IcSavecircleLine = memo(
     </IconBase>
   ))
 );
+
+IcSavecircleLine.displayName = 'IcSavecircleLine';

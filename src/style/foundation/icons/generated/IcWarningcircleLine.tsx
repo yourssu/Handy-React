@@ -32,3 +32,5 @@ export const IcWarningcircleLine = memo(
     </IconBase>
   ))
 );
+
+IcWarningcircleLine.displayName = 'IcWarningcircleLine';

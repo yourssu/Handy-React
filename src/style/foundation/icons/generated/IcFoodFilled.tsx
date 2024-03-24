@@ -32,3 +32,5 @@ export const IcFoodFilled = memo(
     </IconBase>
   ))
 );
+
+IcFoodFilled.displayName = 'IcFoodFilled';

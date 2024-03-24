@@ -31,3 +31,5 @@ export const IcAdbadgeFilled = memo(
     </IconBase>
   ))
 );
+
+IcAdbadgeFilled.displayName = 'IcAdbadgeFilled';

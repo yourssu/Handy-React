@@ -55,3 +55,5 @@ export const IcSchoolcalendarFilled = memo(
     </IconBase>
   ))
 );
+
+IcSchoolcalendarFilled.displayName = 'IcSchoolcalendarFilled';

@@ -18,3 +18,5 @@ export const IcDotbadgeLine = memo(
     </IconBase>
   ))
 );
+
+IcDotbadgeLine.displayName = 'IcDotbadgeLine';

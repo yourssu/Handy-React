@@ -31,3 +31,5 @@ export const IcSearchLine = memo(
     </IconBase>
   ))
 );
+
+IcSearchLine.displayName = 'IcSearchLine';

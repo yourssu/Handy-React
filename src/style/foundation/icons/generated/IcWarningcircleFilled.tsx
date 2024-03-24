@@ -31,3 +31,5 @@ export const IcWarningcircleFilled = memo(
     </IconBase>
   ))
 );
+
+IcWarningcircleFilled.displayName = 'IcWarningcircleFilled';

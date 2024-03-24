@@ -32,3 +32,5 @@ export const IcLockFilled = memo(
     </IconBase>
   ))
 );
+
+IcLockFilled.displayName = 'IcLockFilled';

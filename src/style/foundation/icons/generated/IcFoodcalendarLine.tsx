@@ -80,3 +80,5 @@ export const IcFoodcalendarLine = memo(
     </IconBase>
   ))
 );
+
+IcFoodcalendarLine.displayName = 'IcFoodcalendarLine';

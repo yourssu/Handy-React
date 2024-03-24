@@ -24,3 +24,5 @@ export const IcDotsHorizontalLine = memo(
     </IconBase>
   ))
 );
+
+IcDotsHorizontalLine.displayName = 'IcDotsHorizontalLine';

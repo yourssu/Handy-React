@@ -20,3 +20,5 @@ export const IcCameracircleLine = memo(
     </IconBase>
   ))
 );
+
+IcCameracircleLine.displayName = 'IcCameracircleLine';

@@ -27,3 +27,5 @@ export const IcHeartLine = memo(
     </IconBase>
   ))
 );
+
+IcHeartLine.displayName = 'IcHeartLine';

@@ -22,3 +22,5 @@ export const IcXcircleFilled = memo(
     </IconBase>
   ))
 );
+
+IcXcircleFilled.displayName = 'IcXcircleFilled';

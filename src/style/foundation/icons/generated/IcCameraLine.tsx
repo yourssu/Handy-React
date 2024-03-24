@@ -41,3 +41,5 @@ export const IcCameraLine = memo(
     </IconBase>
   ))
 );
+
+IcCameraLine.displayName = 'IcCameraLine';

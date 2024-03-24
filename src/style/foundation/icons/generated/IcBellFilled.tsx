@@ -32,3 +32,5 @@ export const IcBellFilled = memo(
     </IconBase>
   ))
 );
+
+IcBellFilled.displayName = 'IcBellFilled';

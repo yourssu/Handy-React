@@ -31,3 +31,5 @@ export const IcPlaycircleFilled = memo(
     </IconBase>
   ))
 );
+
+IcPlaycircleFilled.displayName = 'IcPlaycircleFilled';

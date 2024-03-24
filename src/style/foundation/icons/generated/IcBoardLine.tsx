@@ -34,3 +34,5 @@ export const IcBoardLine = memo(
     </IconBase>
   ))
 );
+
+IcBoardLine.displayName = 'IcBoardLine';

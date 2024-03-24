@@ -56,3 +56,5 @@ export const IcClipLine = memo(
     </IconBase>
   ))
 );
+
+IcClipLine.displayName = 'IcClipLine';

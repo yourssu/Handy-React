@@ -42,3 +42,5 @@ export const IcPenFilled = memo(
     </IconBase>
   ))
 );
+
+IcPenFilled.displayName = 'IcPenFilled';

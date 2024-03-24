@@ -24,3 +24,5 @@ export const IcDotsVerticalLine = memo(
     </IconBase>
   ))
 );
+
+IcDotsVerticalLine.displayName = 'IcDotsVerticalLine';
