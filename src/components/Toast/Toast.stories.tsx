@@ -1,11 +1,4 @@
-import {
-  Stories,
-  Primary as PrimaryBlock,
-  Controls,
-  Title,
-  Description,
-  Markdown,
-} from '@storybook/blocks';
+import { Stories, Primary as PrimaryBlock, Controls, Title, Markdown } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { useToast } from '@/hooks/useToast';
@@ -35,7 +28,7 @@ const meta: Meta<typeof Toast> = {
           </ol>
           <br />
           <Title>useToast</Title>
-          <Description>Toast 컴포넌트를 사용하기 위한 Custom Hook입니다.</Description>
+          <span>Toast 컴포넌트를 사용하기 위한 Custom Hook입니다.</span>
           <Markdown>{HookSource}</Markdown>
           <br />
           <Stories />
