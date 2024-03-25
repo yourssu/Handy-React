@@ -20,3 +20,5 @@ export const IcPersoncircleLine = memo(
     </IconBase>
   ))
 );
+
+IcPersoncircleLine.displayName = 'IcPersoncircleLine';

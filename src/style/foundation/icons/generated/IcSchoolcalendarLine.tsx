@@ -50,3 +50,5 @@ export const IcSchoolcalendarLine = memo(
     </IconBase>
   ))
 );
+
+IcSchoolcalendarLine.displayName = 'IcSchoolcalendarLine';

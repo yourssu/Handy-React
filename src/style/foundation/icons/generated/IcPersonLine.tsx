@@ -26,3 +26,5 @@ export const IcPersonLine = memo(
     </IconBase>
   ))
 );
+
+IcPersonLine.displayName = 'IcPersonLine';

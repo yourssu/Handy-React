@@ -38,3 +38,5 @@ export const IcThumbUpLine = memo(
     </IconBase>
   ))
 );
+
+IcThumbUpLine.displayName = 'IcThumbUpLine';

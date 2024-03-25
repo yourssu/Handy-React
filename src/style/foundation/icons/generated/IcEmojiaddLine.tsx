@@ -56,3 +56,5 @@ export const IcEmojiaddLine = memo(
     </IconBase>
   ))
 );
+
+IcEmojiaddLine.displayName = 'IcEmojiaddLine';

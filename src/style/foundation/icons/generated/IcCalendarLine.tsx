@@ -41,3 +41,5 @@ export const IcCalendarLine = memo(
     </IconBase>
   ))
 );
+
+IcCalendarLine.displayName = 'IcCalendarLine';

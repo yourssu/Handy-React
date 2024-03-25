@@ -31,3 +31,5 @@ export const IcSavecircleFilled = memo(
     </IconBase>
   ))
 );
+
+IcSavecircleFilled.displayName = 'IcSavecircleFilled';

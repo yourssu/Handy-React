@@ -50,3 +50,5 @@ export const IcTimecalendarLine = memo(
     </IconBase>
   ))
 );
+
+IcTimecalendarLine.displayName = 'IcTimecalendarLine';

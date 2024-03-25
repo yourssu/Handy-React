@@ -36,3 +36,5 @@ export const IcListLine = memo(
     </IconBase>
   ))
 );
+
+IcListLine.displayName = 'IcListLine';

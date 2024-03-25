@@ -26,3 +26,5 @@ export const IcCheckLine = memo(
     </IconBase>
   ))
 );
+
+IcCheckLine.displayName = 'IcCheckLine';

@@ -31,3 +31,5 @@ export const IcCommentFilled = memo(
     </IconBase>
   ))
 );
+
+IcCommentFilled.displayName = 'IcCommentFilled';

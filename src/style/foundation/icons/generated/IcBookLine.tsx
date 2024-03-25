@@ -61,3 +61,5 @@ export const IcBookLine = memo(
     </IconBase>
   ))
 );
+
+IcBookLine.displayName = 'IcBookLine';

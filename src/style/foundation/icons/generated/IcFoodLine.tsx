@@ -20,3 +20,5 @@ export const IcFoodLine = memo(
     </IconBase>
   ))
 );
+
+IcFoodLine.displayName = 'IcFoodLine';

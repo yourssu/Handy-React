@@ -49,3 +49,5 @@ export const IcThumbDownFilled = memo(
     </IconBase>
   ))
 );
+
+IcThumbDownFilled.displayName = 'IcThumbDownFilled';

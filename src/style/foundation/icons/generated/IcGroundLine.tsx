@@ -42,3 +42,5 @@ export const IcGroundLine = memo(
     </IconBase>
   ))
 );
+
+IcGroundLine.displayName = 'IcGroundLine';

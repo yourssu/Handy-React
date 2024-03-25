@@ -31,3 +31,5 @@ export const IcNewLine = memo(
     </IconBase>
   ))
 );
+
+IcNewLine.displayName = 'IcNewLine';

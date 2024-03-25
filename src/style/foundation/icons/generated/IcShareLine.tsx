@@ -38,3 +38,5 @@ export const IcShareLine = memo(
     </IconBase>
   ))
 );
+
+IcShareLine.displayName = 'IcShareLine';

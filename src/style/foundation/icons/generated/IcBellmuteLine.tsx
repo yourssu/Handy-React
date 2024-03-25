@@ -36,3 +36,5 @@ export const IcBellmuteLine = memo(
     </IconBase>
   ))
 );
+
+IcBellmuteLine.displayName = 'IcBellmuteLine';

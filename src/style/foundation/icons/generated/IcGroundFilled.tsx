@@ -28,3 +28,5 @@ export const IcGroundFilled = memo(
     </IconBase>
   ))
 );
+
+IcGroundFilled.displayName = 'IcGroundFilled';

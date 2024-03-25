@@ -41,3 +41,5 @@ export const IcTrashcanFilled = memo(
     </IconBase>
   ))
 );
+
+IcTrashcanFilled.displayName = 'IcTrashcanFilled';

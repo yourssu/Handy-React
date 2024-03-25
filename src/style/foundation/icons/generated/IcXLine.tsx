@@ -36,3 +36,5 @@ export const IcXLine = memo(
     </IconBase>
   ))
 );
+
+IcXLine.displayName = 'IcXLine';

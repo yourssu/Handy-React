@@ -31,3 +31,5 @@ export const IcRecommentLine = memo(
     </IconBase>
   ))
 );
+
+IcRecommentLine.displayName = 'IcRecommentLine';

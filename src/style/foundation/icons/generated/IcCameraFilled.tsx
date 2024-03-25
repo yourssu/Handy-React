@@ -26,3 +26,5 @@ export const IcCameraFilled = memo(
     </IconBase>
   ))
 );
+
+IcCameraFilled.displayName = 'IcCameraFilled';

@@ -28,3 +28,5 @@ export const IcAdbadgeLine = memo(
     </IconBase>
   ))
 );
+
+IcAdbadgeLine.displayName = 'IcAdbadgeLine';

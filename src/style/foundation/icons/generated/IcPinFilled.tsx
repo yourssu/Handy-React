@@ -40,3 +40,5 @@ export const IcPinFilled = memo(
     </IconBase>
   ))
 );
+
+IcPinFilled.displayName = 'IcPinFilled';

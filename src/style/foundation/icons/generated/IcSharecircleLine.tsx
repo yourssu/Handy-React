@@ -36,3 +36,5 @@ export const IcSharecircleLine = memo(
     </IconBase>
   ))
 );
+
+IcSharecircleLine.displayName = 'IcSharecircleLine';

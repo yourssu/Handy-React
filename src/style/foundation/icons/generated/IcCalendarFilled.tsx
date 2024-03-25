@@ -38,3 +38,5 @@ export const IcCalendarFilled = memo(
     </IconBase>
   ))
 );
+
+IcCalendarFilled.displayName = 'IcCalendarFilled';

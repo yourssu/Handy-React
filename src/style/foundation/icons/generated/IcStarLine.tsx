@@ -22,3 +22,5 @@ export const IcStarLine = memo(
     </IconBase>
   ))
 );
+
+IcStarLine.displayName = 'IcStarLine';

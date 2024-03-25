@@ -20,3 +20,5 @@ export const IcSettingLine = memo(
     </IconBase>
   ))
 );
+
+IcSettingLine.displayName = 'IcSettingLine';

@@ -41,3 +41,5 @@ export const IcBookFilled = memo(
     </IconBase>
   ))
 );
+
+IcBookFilled.displayName = 'IcBookFilled';

@@ -26,3 +26,5 @@ export const IcBellLine = memo(
     </IconBase>
   ))
 );
+
+IcBellLine.displayName = 'IcBellLine';

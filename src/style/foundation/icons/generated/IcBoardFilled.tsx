@@ -27,3 +27,5 @@ export const IcBoardFilled = memo(
     </IconBase>
   ))
 );
+
+IcBoardFilled.displayName = 'IcBoardFilled';
