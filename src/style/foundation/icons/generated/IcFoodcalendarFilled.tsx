@@ -88,3 +88,5 @@ export const IcFoodcalendarFilled = memo(
     </IconBase>
   ))
 );
+
+IcFoodcalendarFilled.displayName = 'IcFoodcalendarFilled';

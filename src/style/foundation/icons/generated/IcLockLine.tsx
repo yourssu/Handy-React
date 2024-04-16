@@ -28,3 +28,5 @@ export const IcLockLine = memo(
     </IconBase>
   ))
 );
+
+IcLockLine.displayName = 'IcLockLine';

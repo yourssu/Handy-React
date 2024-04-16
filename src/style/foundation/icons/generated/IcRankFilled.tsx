@@ -22,3 +22,5 @@ export const IcRankFilled = memo(
     </IconBase>
   ))
 );
+
+IcRankFilled.displayName = 'IcRankFilled';

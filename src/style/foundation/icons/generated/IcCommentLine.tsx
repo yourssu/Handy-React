@@ -41,3 +41,5 @@ export const IcCommentLine = memo(
     </IconBase>
   ))
 );
+
+IcCommentLine.displayName = 'IcCommentLine';

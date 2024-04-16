@@ -43,3 +43,5 @@ export const IcNoticeFilled = memo(
     </IconBase>
   ))
 );
+
+IcNoticeFilled.displayName = 'IcNoticeFilled';

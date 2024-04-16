@@ -32,3 +32,5 @@ export const IcPictureLine = memo(
     </IconBase>
   ))
 );
+
+IcPictureLine.displayName = 'IcPictureLine';

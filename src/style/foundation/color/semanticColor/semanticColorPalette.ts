@@ -42,13 +42,13 @@ const lightSemanticColorPalette: SemanticColorPalette = {
   buttonEmojiBG: baseColorPalettes.light.gray100,
   buttonDisabled: baseColorPalettes.light.gray500,
   buttonDisabledBG: baseColorPalettes.light.gray200,
+  buttonBright: baseColorPalettes.light.white000,
   buttonPoint: baseColorPalettes.light.pointColor400,
   buttonPointPressed: baseColorPalettes.light.pointColor300,
   buttonPointBG: baseColorPalettes.light.pointColor050,
   buttonWarned: baseColorPalettes.light.warningRed400,
   buttonWarnedPressed: baseColorPalettes.light.warningRed300,
   buttonWarnedBG: baseColorPalettes.light.warningRed050,
-  buttonBright: baseColorPalettes.light.white000,
 
   // Semantic Bottom Bar Color
   bottomBarNormal: baseColorPalettes.light.gray600,
@@ -166,9 +166,9 @@ const darkSemanticColorPalette: SemanticColorPalette = {
   buttonNormalPressed: baseColorPalettes.dark.gray600,
   buttonBG: baseColorPalettes.dark.gray200,
   buttonEmojiBG: baseColorPalettes.dark.gray100,
-  buttonBright: baseColorPalettes.dark.white000,
   buttonDisabled: baseColorPalettes.dark.gray500,
   buttonDisabledBG: baseColorPalettes.dark.gray200,
+  buttonBright: baseColorPalettes.dark.white000,
   buttonPoint: baseColorPalettes.dark.pointColor400,
   buttonPointPressed: baseColorPalettes.dark.pointColor300,
   buttonPointBG: baseColorPalettes.dark.pointColor050,
@@ -194,67 +194,67 @@ const darkSemanticColorPalette: SemanticColorPalette = {
   // Semantic Picker Color
   dimPickerReverse: baseColorPalettes.dark.white000A70,
 
+  // Semantic Shadow Color
+  shadowThin: 'rgba(0, 0, 0, 0)',
+  shadowNormal: 'rgba(0, 0, 0, 0)',
+
   // Semantic Pressed Color
   pressed: baseColorPalettes.dark.white000A10,
 
   // Semantic Logo Color
-  pointIndigo: baseColorPalettes.light.logoIndigo,
-  pointViolet: baseColorPalettes.light.logoViolet,
-  pointYellow: baseColorPalettes.light.logoYellow,
+  pointIndigo: baseColorPalettes.dark.logoIndigo,
+  pointViolet: baseColorPalettes.dark.logoViolet,
+  pointYellow: baseColorPalettes.dark.logoYellow,
 
   // Semantic MonoItem Color
-  monoItemPrimary: baseColorPalettes.light.gray700,
-  monoItemBG: baseColorPalettes.light.gray100,
-  monoItemText: baseColorPalettes.light.gray800,
+  monoItemPrimary: baseColorPalettes.dark.gray700,
+  monoItemBG: baseColorPalettes.dark.gray100,
+  monoItemText: baseColorPalettes.dark.gray800,
 
   // Semantic LimeItem Color
-  limeItemPrimary: baseColorPalettes.light.lime300,
-  limeItemBG: baseColorPalettes.light.lime050,
+  limeItemPrimary: baseColorPalettes.dark.lime300,
+  limeItemBG: baseColorPalettes.dark.lime050,
   limeItemText: '', // TODO: #1 추후 색상 추가시 수정
 
   // Semantic GreenItem Color
-  greenItemPrimary: baseColorPalettes.light.green300,
-  greenItemBG: baseColorPalettes.light.green050,
-  greenItemText: baseColorPalettes.light.green800,
+  greenItemPrimary: baseColorPalettes.dark.green300,
+  greenItemBG: baseColorPalettes.dark.green050,
+  greenItemText: baseColorPalettes.dark.green800,
 
   // Semantic EmeraldItem Color
-  emeraldItemPrimary: baseColorPalettes.light.emerald300,
-  emeraldItemBG: baseColorPalettes.light.emerald050,
-  emeraldItemText: baseColorPalettes.light.emerald800,
+  emeraldItemPrimary: baseColorPalettes.dark.emerald300,
+  emeraldItemBG: baseColorPalettes.dark.emerald050,
+  emeraldItemText: baseColorPalettes.dark.emerald800,
 
   // Semantic AquaItem Color
-  aquaItemPrimary: baseColorPalettes.light.aqua300,
-  aquaItemBG: baseColorPalettes.light.aqua050,
-  aquaItemText: baseColorPalettes.light.aqua700,
+  aquaItemPrimary: baseColorPalettes.dark.aqua300,
+  aquaItemBG: baseColorPalettes.dark.aqua050,
+  aquaItemText: baseColorPalettes.dark.aqua700,
 
   // Semantic BlueItem Color
-  blueItemPrimary: baseColorPalettes.light.blue300,
-  blueItemBG: baseColorPalettes.light.blue050,
-  blueItemText: baseColorPalettes.light.blue700,
+  blueItemPrimary: baseColorPalettes.dark.blue300,
+  blueItemBG: baseColorPalettes.dark.blue050,
+  blueItemText: baseColorPalettes.dark.blue700,
 
   // Semantic IndigoItem Color
-  indigoItemPrimary: baseColorPalettes.light.indigo300,
-  indigoItemBG: baseColorPalettes.light.indigo050,
-  indigoItemText: baseColorPalettes.light.indigo400,
+  indigoItemPrimary: baseColorPalettes.dark.indigo300,
+  indigoItemBG: baseColorPalettes.dark.indigo050,
+  indigoItemText: baseColorPalettes.dark.indigo400,
 
   // Semantic VioletItem Color
-  violetItemPrimary: baseColorPalettes.light.violet300,
-  violetItemBG: baseColorPalettes.light.violet050,
-  violetItemText: baseColorPalettes.light.violet400,
+  violetItemPrimary: baseColorPalettes.dark.violet300,
+  violetItemBG: baseColorPalettes.dark.violet050,
+  violetItemText: baseColorPalettes.dark.violet400,
 
   // Semantic PurpleItem Color
-  purpleItemPrimary: baseColorPalettes.light.purple300,
-  purpleItemBG: baseColorPalettes.light.purple050,
-  purpleItemText: baseColorPalettes.light.purple400,
+  purpleItemPrimary: baseColorPalettes.dark.purple300,
+  purpleItemBG: baseColorPalettes.dark.purple050,
+  purpleItemText: baseColorPalettes.dark.purple400,
 
   // Semantic PinkItem Color
-  pinkItemPrimary: baseColorPalettes.light.pink300,
-  pinkItemBG: baseColorPalettes.light.pink050,
-  pinkItemText: baseColorPalettes.light.pink600,
-
-  // Semantic Shadow Color
-  shadowThin: 'rgba(0, 0, 0, 0)',
-  shadowNormal: 'rgba(0, 0, 0, 0)',
+  pinkItemPrimary: baseColorPalettes.dark.pink300,
+  pinkItemBG: baseColorPalettes.dark.pink050,
+  pinkItemText: baseColorPalettes.dark.pink600,
 };
 
 export const semanticColorPalettes: Record<Theme, SemanticColorPalette> = {

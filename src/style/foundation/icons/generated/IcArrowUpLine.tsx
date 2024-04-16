@@ -26,3 +26,5 @@ export const IcArrowUpLine = memo(
     </IconBase>
   ))
 );
+
+IcArrowUpLine.displayName = 'IcArrowUpLine';

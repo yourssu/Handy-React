@@ -47,3 +47,5 @@ export const IcNoticeLine = memo(
     </IconBase>
   ))
 );
+
+IcNoticeLine.displayName = 'IcNoticeLine';

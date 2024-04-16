@@ -25,3 +25,5 @@ export const IcPersonFilled = memo(
     </IconBase>
   ))
 );
+
+IcPersonFilled.displayName = 'IcPersonFilled';

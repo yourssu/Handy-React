@@ -12,7 +12,7 @@ const __dirname = path.resolve();
 const ICONS_DIR = path.join(__dirname, './iconsAsset/static');
 const ICONS_COMPONENTS_DIR = path.join(__dirname, './src/style/foundation/icons/generated');
 const ICONS_INDEX_PATH = path.join(__dirname, './src/style/foundation/icons/generated/index.ts');
-const ICONS_STORIES_PATH = path.join(__dirname, './src/style/foundation/icons/icons.stories.tsx');
+const ICONS_STORIES_PATH = path.join(__dirname, './src/style/foundation/icons/Icons.stories.tsx');
 const PRETTIER_CONFIG_PATH = path.join(__dirname, './.prettierrc.json');
 const prettierConfig = JSON.parse(await fs.readFile(PRETTIER_CONFIG_PATH, 'utf-8'));
 
@@ -66,6 +66,8 @@ export const ${name} = memo(forwardRef<SVGSVGElement, IconProps>((props, ref) =>
       ${svg}
     </IconBase>
     )));
+
+${name}.displayName = '${name}';
 `;
 
 const StoryTemplate = (icons) => `/**
@@ -73,9 +75,11 @@ const StoryTemplate = (icons) => `/**
  * 직접 수정하는 대신 iconsAsset/convert.js를 수정하세요.
  */
 
+import { Primary as PrimaryBlock, Controls, Markdown } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
 
+import IconDocs from './IconDocs.md?raw';
 import { IconBase } from './icon.base';
 
 import {
@@ -89,6 +93,17 @@ const Icons = [
 const meta: Meta = {
   title: 'Foundation/Icons',
   component: IconBase,
+  parameters: {
+    docs: {
+      page: () => (
+        <>
+          <Markdown>{IconDocs}</Markdown>
+          <PrimaryBlock />
+          <Controls />
+        </>
+      ),
+    },
+  },
 };
 export default meta;
 

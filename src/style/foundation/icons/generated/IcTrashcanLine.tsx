@@ -38,3 +38,5 @@ export const IcTrashcanLine = memo(
     </IconBase>
   ))
 );
+
+IcTrashcanLine.displayName = 'IcTrashcanLine';

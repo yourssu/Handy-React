@@ -31,3 +31,5 @@ export const IcNewFilled = memo(
     </IconBase>
   ))
 );
+
+IcNewFilled.displayName = 'IcNewFilled';

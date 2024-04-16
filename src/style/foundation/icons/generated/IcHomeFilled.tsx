@@ -22,3 +22,5 @@ export const IcHomeFilled = memo(
     </IconBase>
   ))
 );
+
+IcHomeFilled.displayName = 'IcHomeFilled';

@@ -26,3 +26,5 @@ export const IcEyeclosedLine = memo(
     </IconBase>
   ))
 );
+
+IcEyeclosedLine.displayName = 'IcEyeclosedLine';

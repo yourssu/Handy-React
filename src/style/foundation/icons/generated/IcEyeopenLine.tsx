@@ -31,3 +31,5 @@ export const IcEyeopenLine = memo(
     </IconBase>
   ))
 );
+
+IcEyeopenLine.displayName = 'IcEyeopenLine';

@@ -26,3 +26,5 @@ export const IcArrowLeftLine = memo(
     </IconBase>
   ))
 );
+
+IcArrowLeftLine.displayName = 'IcArrowLeftLine';
