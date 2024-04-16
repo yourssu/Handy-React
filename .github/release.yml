@@ -6,7 +6,7 @@ categories:
   - title: '🆕 새로운 기능이 추가되었어요!'
     label: 'feat'
   - title: '🐞 자잘한 버그를 수정했습니다.'
-    label:
+    labels:
       - 'bug'
       - 'fix'
   - title: '🫶🏻 사용성 개선에 힘썼습니다.'
