@@ -12,8 +12,17 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build
+        run: pnpm build
 
       - name: Build storybook
         run: pnpm build-storybook --output-dir=storybook-static
