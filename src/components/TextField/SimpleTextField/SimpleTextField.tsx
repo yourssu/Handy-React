@@ -1,3 +1,5 @@
+import { useTheme } from 'styled-components';
+
 import { IcXLine, IconContext } from '@/style';
 
 import { TextField } from '../TextField';
@@ -10,7 +12,7 @@ export const SimpleTextField = ({ onClickClearButton, ...props }: SimpleTextFiel
       suffix={
         <IconContext.Provider
           value={{
-            color: '#0f0f0f',
+            color: useTheme().color.buttonNormal,
             size: '1rem',
           }}
         >
