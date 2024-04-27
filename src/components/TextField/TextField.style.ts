@@ -80,6 +80,10 @@ export const StyledTextField = styled.input<StyledTextFieldProps>`
     color: ${({ theme, disabled }) =>
       disabled ? theme.color.textDisabled : theme.color.textTertiary};
   }
+
+  &::-ms-reveal {
+    display: none;
+  }
 `;
 
 export const StyledSuffixText = styled.span<StyledTextFieldProps>`
