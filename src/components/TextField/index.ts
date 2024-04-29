@@ -6,3 +6,6 @@ export type { SuffixTextFieldProps } from './SuffixTextField/SuffixTextField.typ
 
 export { PasswordTextField } from './PasswordTextField/PasswordTextField';
 export type { PasswordTextFieldProps } from './PasswordTextField/PasswordTextField.type';
+
+export { SearchTextField } from './SearchTextField/SearchTextField';
+export type { SearchTextFieldProps } from './SearchTextField/SearchTextField.type';
