@@ -27,3 +27,6 @@ export type { ToastProps, ToastDuration } from './Toast';
 
 export { SimpleTextField } from './TextField';
 export type { SimpleTextFieldProps } from './TextField';
+
+export { SearchTextField } from './TextField';
+export type { SearchTextFieldProps } from './TextField';
