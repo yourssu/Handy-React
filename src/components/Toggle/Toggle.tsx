@@ -4,7 +4,7 @@ import { StyledToggle, StyledInput, StyledTrack, StyledThumb } from './Toggle.st
 import { ToggleProps } from './Toggle.type';
 
 export const Toggle = forwardRef<HTMLDivElement, ToggleProps>(
-  ({ isDisabled = false, isSelected = false, ...props }, ref) => {
+  ({ isDisabled = false, isSelected = false, ...props }: ToggleProps, ref) => {
     const toggleRef = useRef<HTMLInputElement | null>(null);
     useImperativeHandle(ref, () => toggleRef.current as HTMLInputElement);
 
