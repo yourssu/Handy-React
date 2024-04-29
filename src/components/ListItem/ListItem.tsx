@@ -6,7 +6,7 @@ import { StyledListItem } from './ListItem.style';
 import { ListItemProps } from './ListItem.type';
 
 export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
-  ({ isPressed, leftIcon, rightIcon, children, ...props }, ref) => {
+  ({ isPressed, leftIcon, rightIcon, children, ...props }: ListItemProps, ref) => {
     return (
       <StyledListItem ref={ref} $isPressed={isPressed} $width={props.width} {...props}>
         {leftIcon && (

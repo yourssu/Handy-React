@@ -6,7 +6,10 @@ import { StyledCheckBoxWrapper } from './CheckBox.style';
 import { CheckBoxProps } from './CheckBox.type';
 
 export const CheckBox = forwardRef<HTMLDivElement, CheckBoxProps>(
-  ({ size = 'medium', isDisabled = false, onClick, children, isSelected, ...props }, ref) => {
+  (
+    { size = 'medium', isDisabled = false, onClick, children, isSelected, ...props }: CheckBoxProps,
+    ref
+  ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 

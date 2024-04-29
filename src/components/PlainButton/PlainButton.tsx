@@ -7,7 +7,10 @@ import { StyledPlainButton } from './PlainButton.style';
 import { PlainButtonProps } from '.';
 
 export const PlainButton = forwardRef<HTMLButtonElement, PlainButtonProps>(
-  ({ size, isPointed, isWarned, leftIcon, children, rightIcon, ...props }, ref) => {
+  (
+    { size, isPointed, isWarned, leftIcon, children, rightIcon, ...props }: PlainButtonProps,
+    ref
+  ) => {
     return (
       <StyledPlainButton
         ref={ref}
