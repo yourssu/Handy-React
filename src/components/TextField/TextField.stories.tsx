@@ -1,4 +1,4 @@
-import { Title } from '@storybook/blocks';
+import { Controls, Title } from '@storybook/blocks';
 import { Meta } from '@storybook/react';
 
 import { TextField } from './TextField';
@@ -12,7 +12,7 @@ const meta: Meta = {
       page: () => (
         <>
           <Title />
-          <h2> 주의사항 </h2>
+          <h2>주의사항</h2>
           <ol>
             <li>
               TextField의 종류에 따라 suffix, searchPrefix 속성 값이 일부 정해져 있습니다.
@@ -56,6 +56,8 @@ const meta: Meta = {
             </li>
           </ol>
           <br />
+          <h2>TextField 속성</h2>
+          <Controls />
         </>
       ),
     },
