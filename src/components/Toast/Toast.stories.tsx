@@ -75,7 +75,11 @@ const HookTest = () => {
 
   return (
     <div
-      style={{ backgroundColor: '#c4c4c4', width: '390px', height: '300px', position: 'relative' }}
+      style={{
+        backgroundColor: '#c4c4c4',
+        width: '1920px',
+        height: '1080px',
+      }}
     >
       <button
         onClick={() => {
@@ -98,7 +102,7 @@ export const SingleLine: Story = {
 };
 export const MultiLine: Story = {
   args: {
-    children: '줄 수가 두 줄 이상이 되는 토스트 메시지입니다. 좌측 정렬을 해주세요.',
+    children: '줄 수가 두 줄 이상이 되는 토스트 메시지입니다.\n좌측 정렬을 해주세요.',
   },
   render: ToastStory,
 };

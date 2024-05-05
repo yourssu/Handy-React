@@ -40,22 +40,28 @@ const setToastAnimation = ($duration: ToastDuration) => {
 };
 
 export const StyledToastWrapper = styled.div`
-  position: absolute;
-  bottom: 66px;
+  position: fixed;
+  inset: 0px;
   width: 100%;
+  height: 100%;
   padding: 0px 8px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledToast = styled.div<StyledToastProps>`
   opacity: 0;
   border-radius: 8px;
-  width: 100%;
+  width: fit-content;
   padding: 16px 24px;
   display: flex;
   justify-content: center;
   background-color: ${({ theme }) => theme.color.toastBG};
   color: ${({ theme }) => theme.color.textBright};
   ${({ theme }) => theme.typo.body2};
-
   ${({ $duration }) => setToastAnimation($duration)};
+  white-space: pre-line;
+  position: absolute;
+  bottom: 66px;
 `;
