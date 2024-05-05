@@ -5,7 +5,6 @@ import { useToast } from '@/hooks/useToast';
 
 import HookSource from './HookSource.md?raw';
 import { Toast } from './Toast';
-import { ToastDuration } from './Toast.type';
 
 const meta: Meta<typeof Toast> = {
   title: 'Component/Toast',
@@ -48,11 +47,7 @@ const ToastStory = ({ ...toastProps }) => {
   );
 };
 
-const HookTest = () => {
-  const toastProps = {
-    children: 'useToast를 사용한 토스트 메시지',
-    duration: 'long' as ToastDuration,
-  };
+const HookTest = ({ ...toastProps }) => {
   const { showToast, isShowToast } = useToast();
 
   return (
@@ -94,4 +89,8 @@ export const MultiLine: Story = {
 };
 export const ToastHook: Story = {
   render: HookTest,
+  args: {
+    children: 'useToast를 사용한 토스트 메시지',
+    duration: 'long',
+  },
 };
