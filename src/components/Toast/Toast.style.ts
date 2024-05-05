@@ -26,13 +26,15 @@ const setToastAnimation = ($duration: ToastDuration) => {
   switch ($duration) {
     case 'short':
       return css`
-        ${ToastFadeIn} ${FADE_DURATION}s ease-in forwards,
-        ${ToastFadeOut} ${FADE_DURATION}s ${SHORT_DURATION + FADE_DURATION}s ease-out forwards
+        animation:
+          ${ToastFadeIn} ${FADE_DURATION}s ease-in forwards,
+          ${ToastFadeOut} ${FADE_DURATION}s ${SHORT_DURATION + FADE_DURATION}s ease-out forwards;
       `;
     case 'long':
       return css`
-        ${ToastFadeIn} ${FADE_DURATION}s ease-in forwards,
-        ${ToastFadeOut} ${FADE_DURATION}s ${LONG_DURATION + FADE_DURATION}s ease-out forwards
+        animation:
+          ${ToastFadeIn} ${FADE_DURATION}s ease-in forwards,
+          ${ToastFadeOut} ${FADE_DURATION}s ${LONG_DURATION + FADE_DURATION}s ease-out forwards;
       `;
   }
 };
@@ -55,5 +57,5 @@ export const StyledToast = styled.div<StyledToastProps>`
   color: ${({ theme }) => theme.color.textBright};
   ${({ theme }) => theme.typo.body2};
 
-  animation: ${({ $duration }) => setToastAnimation($duration)};
+  ${({ $duration }) => setToastAnimation($duration)};
 `;
