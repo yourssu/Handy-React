@@ -1,9 +1,10 @@
 import { css, keyframes, styled } from 'styled-components';
 
-import { ToastDuration } from './Toast.type';
+import { ToastDuration, ToastProps } from './Toast.type';
 
 interface StyledToastProps {
   $duration: ToastDuration;
+  $width: ToastProps['width'];
 }
 
 const SHORT_DURATION = 1.5;
@@ -53,7 +54,9 @@ export const StyledToastWrapper = styled.div`
 export const StyledToast = styled.div<StyledToastProps>`
   opacity: 0;
   border-radius: 8px;
-  width: fit-content;
+  min-width: fit-content;
+  width: ${({ $width }) => $width};
+  max-width: 100%;
   padding: 16px 24px;
   display: flex;
   justify-content: center;

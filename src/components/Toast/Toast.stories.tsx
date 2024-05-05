@@ -19,7 +19,7 @@ const meta: Meta<typeof Toast> = {
           <Controls />
           <h2> 주의사항 </h2>
           <ol>
-            <li>Toast의 width는 Toast 를 감싸는 컴포넌트의 width에 영향을 받습니다.</li>
+            <li>width props 값이 fit-content보다 작을 경우 적용되지 않습니다.</li>
           </ol>
           <br />
           <Title>useToast</Title>
@@ -77,6 +77,7 @@ export const SingleLine: Story = {
   args: {
     children: '토스트 메시지',
     duration: 'short',
+    width: '300px',
   },
   render: ToastStory,
 };
