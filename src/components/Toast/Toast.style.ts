@@ -57,5 +57,5 @@ export const StyledToast = styled.div<StyledToastProps>`
   color: ${({ theme }) => theme.color.textBright};
   ${({ theme }) => theme.typo.body2};
 
-  animation: ${({ $duration }) => setToastAnimation($duration)};
+  ${({ $duration }) => setToastAnimation($duration)};
 `;
