@@ -46,25 +46,30 @@ export const StyledToastWrapper = styled.div`
   width: 100%;
   height: 100%;
   padding: 0px 8px;
-  pointer-events: none;
+
   display: flex;
   justify-content: center;
+
+  pointer-events: none;
 `;
 
 export const StyledToast = styled.div<StyledToastProps>`
-  opacity: 0;
-  border-radius: 8px;
+  position: absolute;
+  bottom: 66px;
   min-width: fit-content;
   width: ${({ $width }) => $width};
   max-width: 100%;
-  padding: 16px 24px;
+
   display: flex;
   justify-content: center;
+  padding: 16px 24px;
+  opacity: 0;
+
   background-color: ${({ theme }) => theme.color.toastBG};
+  border-radius: 8px;
   color: ${({ theme }) => theme.color.textBright};
   ${({ theme }) => theme.typo.body2};
-  ${({ $duration }) => setToastAnimation($duration)};
   white-space: pre-line;
-  position: absolute;
-  bottom: 66px;
+
+  ${({ $duration }) => setToastAnimation($duration)};
 `;
