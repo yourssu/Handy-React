@@ -1,4 +1,4 @@
-import { Stories, Primary as PrimaryBlock, Controls, Title, Markdown } from '@storybook/blocks';
+import { Primary as PrimaryBlock, Controls, Title, Markdown } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { useToast } from '@/hooks/useToast';
@@ -25,8 +25,6 @@ const meta: Meta<typeof Toast> = {
           <Title>useToast</Title>
           <span>Toast 컴포넌트를 사용하기 위한 Custom Hook입니다.</span>
           <Markdown>{HookSource}</Markdown>
-          <br />
-          <Stories />
         </>
       ),
     },
@@ -54,7 +52,7 @@ const HookTest = ({ ...toastProps }) => {
     <div
       style={{
         width: '500px',
-        height: '300px',
+        height: '200px',
         display: 'flex',
         justifyContent: 'center',
       }}
@@ -65,7 +63,7 @@ const HookTest = ({ ...toastProps }) => {
         }}
         style={{ height: 'fit-content' }}
       >
-        버튼을 누르면 토스트가 발생합니다
+        Show Toast
       </button>
       {isShowToast && <Toast {...toastProps} />}
     </div>
@@ -73,6 +71,13 @@ const HookTest = ({ ...toastProps }) => {
 };
 
 type Story = StoryObj<typeof Toast>;
+export const ToastHook: Story = {
+  render: HookTest,
+  args: {
+    children: 'useToast를 사용한 토스트 메시지',
+    duration: 'long',
+  },
+};
 export const SingleLine: Story = {
   args: {
     children: '토스트 메시지',
@@ -87,11 +92,4 @@ export const MultiLine: Story = {
     duration: 'short',
   },
   render: ToastStory,
-};
-export const ToastHook: Story = {
-  render: HookTest,
-  args: {
-    children: 'useToast를 사용한 토스트 메시지',
-    duration: 'long',
-  },
 };
