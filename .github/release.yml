@@ -1,37 +1,36 @@
 # 이 파일은 release note 작성에 사용되는 파일입니다.
 
-name-template: '@yourssu/design-system-react@$RESOLVED_VERSION'
-tag-template: 'v$RESOLVED_VERSION'
-categories:
-  - title: '🆕 새로운 기능이 추가되었어요!'
-    label: 'feat'
-  - title: '🐞 자잘한 버그를 수정했습니다.'
-    labels:
-      - 'bug'
-      - 'fix'
-  - title: '🫶🏻 사용성 개선에 힘썼습니다.'
-    label: 'docs'
-  - title: '🛠️ 더 나은 코드를 위해 노력하고 있습니다.'
-    labels:
-      - 'refactor'
-      - 'chore'
-  - title: 'ETC'
-    labels:
-      - '*'
-change-template: '* $TITLE (#$NUMBER) by @$AUTHOR'
-change-title-escapes: '\<*_&#@`'
-exclude-labels:
-  - 'Main'
-version-resolver:
-  major:
-    labels:
-      - 'Major'
-  minor:
-    labels:
-      - 'Minor'
-  patch:
-    labels:
-      - 'Patch'
-  default: patch
-template: |
-  $CHANGES
+changelog:
+  name-template: '@Yourssu Design/design-system-react@$RESOLVED_VERSION'
+  tag-template: 'v$RESOLVED_VERSION'
+  categories:
+    - title: ':new: Exciting New Features!'
+      label: 'feat'
+    - title: ':ladybug: Fixed a Bug'
+      labels:
+        - 'bug'
+        - 'fix'
+    - title: ':heart_hands::skin-tone-2: Improve User Experience'
+      label: 'docs'
+    - title: ':hammer_and_wrench: Strive for Better Code'
+      label: 'refactor'
+    - title: 'ETC'
+      labels:
+        - '*'
+  change-template: '* $TITLE (#$NUMBER) by @$AUTHOR'
+  change-title-escapes: '\<*_&#@`'
+  exclude-labels:
+    - 'Main'
+  version-resolver:
+    major:
+      labels:
+        - 'Major'
+    minor:
+      labels:
+        - 'Minor'
+    patch:
+      labels:
+        - 'Patch'
+    default: patch
+  template: |
+    $CHANGES

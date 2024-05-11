@@ -1,4 +1,4 @@
-```typescript
+```tsx
 import { ToastDuration, useToast, Toast } from '@yourssu/design-system-react';
 
 const ToastWrapper = () => {
@@ -11,7 +11,14 @@ const ToastWrapper = () => {
 
   return (
     <div>
-      <button onClick={() => { showToast(toastProps.duration); }}> 버튼 </button>
+      <button
+        onClick={() => {
+          showToast(toastProps.duration);
+        }}
+      >
+        {' '}
+        버튼{' '}
+      </button>
       {isShowToast && <Toast {...toastProps} />}
     </div>
   );

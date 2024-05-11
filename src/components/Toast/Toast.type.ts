@@ -5,4 +5,6 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   /** 지속 시간 (1.5s | 3s)*/
   duration?: ToastDuration;
+  /** Toast의 width */
+  width?: string;
 }

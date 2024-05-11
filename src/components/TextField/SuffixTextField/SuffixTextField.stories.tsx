@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import { SimpleTextField } from './SimpleTextField';
+import { SuffixTextField } from './SuffixTextField';
 
-const meta: Meta<typeof SimpleTextField> = {
-  title: 'Atoms/TextField/SimpleTextField',
-  component: SimpleTextField,
+const meta: Meta<typeof SuffixTextField> = {
+  title: 'Atoms/TextField/SuffixTextField',
+  component: SuffixTextField,
   parameters: {
     layout: 'centered',
   },
@@ -18,15 +18,12 @@ const TextFieldStory = ({ ...textFieldProps }) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-  const onClickClearButton = () => {
-    setValue('');
-  };
 
-  const newProps = { ...textFieldProps, value, onChange, onClickClearButton };
-  return <SimpleTextField {...newProps} />;
+  const newProps = { ...textFieldProps, value, onChange };
+  return <SuffixTextField {...newProps} />;
 };
 
-type Story = StoryObj<typeof SimpleTextField>;
+type Story = StoryObj<typeof SuffixTextField>;
 export const Primary: Story = {
   args: {
     fieldLabel: '필드 라벨',
@@ -36,6 +33,7 @@ export const Primary: Story = {
     isPositive: false,
     isNegative: false,
     width: '350px',
+    suffix: '@soongsil.ac.kr',
   },
   render: TextFieldStory,
 };
@@ -47,6 +45,7 @@ export const Disabled: Story = {
     placeholder: '플레이스 홀더',
     disabled: true,
     width: '350px',
+    suffix: '@soongsil.ac.kr',
   },
   render: TextFieldStory,
 };
@@ -59,6 +58,7 @@ export const Positive: Story = {
     disabled: false,
     isPositive: true,
     width: '350px',
+    suffix: '@soongsil.ac.kr',
   },
   render: TextFieldStory,
 };
@@ -71,6 +71,7 @@ export const Negative: Story = {
     disabled: false,
     isNegative: true,
     width: '350px',
+    suffix: '@soongsil.ac.kr',
   },
   render: TextFieldStory,
 };
