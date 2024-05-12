@@ -5,15 +5,18 @@ changelog:
   tag-template: 'v$RESOLVED_VERSION'
   categories:
     - title: '🆕 Exciting New Features!'
-      labels: 'feat'
+      labels:
+        - 'feat'
     - title: '🐞 Fixed a Bug'
       labels:
         - 'bug'
         - 'fix'
     - title: '🫶🏻 Improve User Experience'
-      labels: 'docs'
+      labels:
+        - 'docs'
     - title: '🛠️ Strive for Better Code'
-      labels: 'refactor'
+      labels:
+        - 'refactor'
     - title: '👩🏻‍💻 ETC'
       labels:
         - '*'
