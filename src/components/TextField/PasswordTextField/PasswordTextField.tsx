@@ -8,7 +8,7 @@ import { TextField } from '../TextField';
 
 import { PasswordTextFieldProps } from './PasswordTextField.type';
 
-export const PasswordTextField = ({ isMarked, ...props }: PasswordTextFieldProps) => {
+export const PasswordTextField = ({ isMarked = true, ...props }: PasswordTextFieldProps) => {
   const [isMarkedValue, setIsMarkedValue] = useState(isMarked);
   const onClickEyeButton = () => {
     setIsMarkedValue((prev) => !prev);
