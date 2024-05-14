@@ -9,10 +9,10 @@ import {
 import { TextFieldProps } from './TextField.type';
 
 export const TextField = ({
-  isNegative,
-  isPositive,
-  isFocused,
-  isTyping,
+  isNegative = false,
+  isPositive = false,
+  isFocused = false,
+  isTyping = false,
   fieldLabel,
   helperLabel,
   suffix,
