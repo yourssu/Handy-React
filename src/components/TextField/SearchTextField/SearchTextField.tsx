@@ -18,9 +18,7 @@ export const SearchTextField = ({ onClickClearButton, ...props }: SearchTextFiel
             size: '1rem',
           }}
         >
-          <div className="suffix-icon clear-icon" onClick={onClickClearButton}>
-            <IcXLine />
-          </div>
+          <IcXLine onClick={onClickClearButton} />
         </IconContext.Provider>
       }
       searchPrefix={
