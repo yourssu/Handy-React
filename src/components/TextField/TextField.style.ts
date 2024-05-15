@@ -42,8 +42,8 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
           border: 1px solid ${theme.color.textPointed};
         `)}
 
-  input:focus + ${StyledSuffixIconContainer} {
-    display: none;
+  input:focus + ${StyledSuffixIconContainer}, input:active + ${StyledSuffixIconContainer} {
+    display: flex;
     cursor: pointer;
     visibility: visible;
   }
