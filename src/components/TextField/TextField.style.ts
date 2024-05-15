@@ -12,6 +12,10 @@ interface StyledTextFieldProps {
   $width?: TextFieldProps['width'];
 }
 
+export const StyledSuffixIconContainer = styled.div<StyledTextFieldProps>`
+  display: none;
+`;
+
 export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
   width: ${({ $width }) => $width};
   height: 46px;
@@ -37,6 +41,12 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
         css`
           border: 1px solid ${theme.color.textPointed};
         `)}
+
+  input:focus + ${StyledSuffixIconContainer} {
+    display: none;
+    cursor: pointer;
+    visibility: visible;
+  }
 `;
 
 export const StyledTextField = styled.input<StyledTextFieldProps>`
@@ -69,16 +79,6 @@ export const StyledSuffixText = styled.span<StyledTextFieldProps>`
   ${({ theme }) => theme.typo.body2};
   color: ${({ theme, $isDisabled }) =>
     $isDisabled ? theme.color.textDisabled : theme.color.textTertiary};
-`;
-
-export const StyledSuffixIconContainer = styled.div<StyledTextFieldProps>`
-  display: flex;
-  cursor: pointer;
-  ${({ $isDisabled }) =>
-    $isDisabled &&
-    css`
-      visibility: hidden;
-    `}
 `;
 
 export const StyledFieldLabel = styled.label<StyledTextFieldProps>`
