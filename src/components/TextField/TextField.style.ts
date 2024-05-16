@@ -46,6 +46,10 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
     display: flex;
     cursor: pointer;
   }
+
+  svg {
+    flex-shrink: 0;
+  }
 `;
 
 export const StyledTextField = styled.input<StyledTextFieldProps>`
