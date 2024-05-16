@@ -12,8 +12,12 @@ interface StyledTextFieldProps {
   $width?: TextFieldProps['width'];
 }
 
-export const StyledSuffixIconContainer = styled.div<StyledTextFieldProps>`
+export const StyledSuffixIconContainer = styled.div`
   display: none;
+`;
+
+export const StyledSearchPrefixContainer = styled.div`
+  display: flex;
 `;
 
 export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`

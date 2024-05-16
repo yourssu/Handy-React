@@ -25,7 +25,7 @@ export const SearchTextField = ({ onClickClearButton, ...props }: SearchTextFiel
         <IconContext.Provider
           value={{
             color: theme.color.textTertiary,
-            size: '1.5rem',
+            size: '1.25rem',
           }}
         >
           <IcSearchLine />
