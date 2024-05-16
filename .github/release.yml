@@ -4,20 +4,23 @@ changelog:
   name-template: '@Yourssu Design/design-system-react@$RESOLVED_VERSION'
   tag-template: 'v$RESOLVED_VERSION'
   categories:
-    - title: ':new: Exciting New Features!'
-      label: 'feat'
-    - title: ':ladybug: Fixed a Bug'
+    - title: '🆕 Exciting New Features!'
+      labels:
+        - 'feat'
+    - title: '🐞 Fixed a Bug'
       labels:
         - 'bug'
         - 'fix'
-    - title: ':heart_hands::skin-tone-2: Improve User Experience'
-      label: 'docs'
-    - title: ':hammer_and_wrench: Strive for Better Code'
-      label: 'refactor'
-    - title: 'ETC'
+    - title: '🫶🏻 Improve User Experience'
+      labels:
+        - 'docs'
+    - title: '🛠️ Strive for Better Code'
+      labels:
+        - 'refactor'
+    - title: '👩🏻‍💻 ETC'
       labels:
         - '*'
-  change-template: '* $TITLE (#$NUMBER) by @$AUTHOR'
+  change-template: '- $TITLE (#$NUMBER) by @$AUTHOR'
   change-title-escapes: '\<*_&#@`'
   exclude-labels:
     - 'Main'

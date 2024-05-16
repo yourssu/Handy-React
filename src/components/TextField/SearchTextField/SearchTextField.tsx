@@ -18,16 +18,14 @@ export const SearchTextField = ({ onClickClearButton, ...props }: SearchTextFiel
             size: '1rem',
           }}
         >
-          <div className="suffix-icon clear-icon" onClick={onClickClearButton}>
-            <IcXLine />
-          </div>
+          <IcXLine onClick={onClickClearButton} />
         </IconContext.Provider>
       }
       searchPrefix={
         <IconContext.Provider
           value={{
             color: theme.color.textTertiary,
-            size: '1.5rem',
+            size: '1.25rem',
           }}
         >
           <IcSearchLine />

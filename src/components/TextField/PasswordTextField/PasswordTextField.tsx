@@ -8,24 +8,29 @@ import { TextField } from '../TextField';
 
 import { PasswordTextFieldProps } from './PasswordTextField.type';
 
-export const PasswordTextField = ({ isMarked, ...props }: PasswordTextFieldProps) => {
+export const PasswordTextField = ({ isMarked = true, ...props }: PasswordTextFieldProps) => {
+  const theme = useTheme();
   const [isMarkedValue, setIsMarkedValue] = useState(isMarked);
+
   const onClickEyeButton = () => {
     setIsMarkedValue((prev) => !prev);
   };
+
   return (
     <TextField
       type={isMarkedValue ? 'password' : 'text'}
       suffix={
         <IconContext.Provider
           value={{
-            color: useTheme().color.buttonNormal,
+            color: theme.color.buttonNormal,
             size: '1.5rem',
           }}
         >
-          <div className="suffix-icon" onClick={onClickEyeButton}>
-            {isMarkedValue ? <IcEyeclosedLine /> : <IcEyeopenLine />}
-          </div>
+          {isMarkedValue ? (
+            <IcEyeclosedLine onClick={onClickEyeButton} />
+          ) : (
+            <IcEyeopenLine onClick={onClickEyeButton} />
+          )}
         </IconContext.Provider>
       }
       {...props}
