@@ -20,6 +20,7 @@ const meta: Meta<typeof Toast> = {
           <h2> 주의사항 </h2>
           <ol>
             <li>width props 값이 fit-content보다 작을 경우 적용되지 않습니다.</li>
+            <li>Toast의 z-index 값은 9999입니다.</li>
           </ol>
           <br />
           <Title>useToast</Title>
