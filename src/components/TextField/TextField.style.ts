@@ -12,6 +12,10 @@ interface StyledTextFieldProps {
   $width?: TextFieldProps['width'];
 }
 
+export const StyledSuffixIconContainer = styled.div<StyledTextFieldProps>`
+  display: none;
+`;
+
 export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
   width: ${({ $width }) => $width};
   height: 46px;
@@ -27,18 +31,6 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
   padding: 12px 16px;
   gap: 4px;
 
-  .suffix-icon {
-    visibility: hidden;
-    cursor: pointer;
-  }
-
-  input:focus + .suffix-icon,
-  input:active + .suffix-icon {
-    visibility: visible;
-    display: flex;
-    align-items: center;
-  }
-
   ${({ $isDisabled, $isPositive, $isNegative, theme }) =>
     !$isDisabled &&
     ($isNegative
@@ -50,14 +42,10 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
           border: 1px solid ${theme.color.textPointed};
         `)}
 
-  ${({ $isDisabled }) =>
-    $isDisabled &&
-    css`
-      input:focus + .suffix-icon,
-      input:active + .suffix-icon {
-        display: none;
-      }
-    `}
+  input:focus + ${StyledSuffixIconContainer}, input:active + ${StyledSuffixIconContainer} {
+    display: flex;
+    cursor: pointer;
+  }
 `;
 
 export const StyledTextField = styled.input<StyledTextFieldProps>`

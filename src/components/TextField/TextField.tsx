@@ -1,6 +1,7 @@
 import {
   StyledFieldLabel,
   StyledHelperLabel,
+  StyledSuffixIconContainer,
   StyledSuffixText,
   StyledTextField,
   StyledTextFieldWrapper,
@@ -8,10 +9,10 @@ import {
 import { TextFieldProps } from './TextField.type';
 
 export const TextField = ({
-  isNegative,
-  isPositive,
-  isFocused,
-  isTyping,
+  isNegative = false,
+  isPositive = false,
+  isFocused = false,
+  isTyping = false,
   fieldLabel,
   helperLabel,
   suffix,
@@ -35,7 +36,9 @@ export const TextField = ({
         {typeof suffix === 'string' ? (
           <StyledSuffixText $isDisabled={props.disabled}>{suffix}</StyledSuffixText>
         ) : (
-          suffix
+          <StyledSuffixIconContainer $isDisabled={props.disabled}>
+            {suffix}
+          </StyledSuffixIconContainer>
         )}
       </StyledTextFieldWrapper>
       {helperLabel && (
