@@ -12,7 +12,7 @@ interface StyledTextFieldProps {
   $width?: TextFieldProps['width'];
 }
 
-export const StyledSuffixIconContainer = styled.div<StyledTextFieldProps>`
+export const StyledSuffixIconContainer = styled.div`
   display: none;
 `;
 
