@@ -16,10 +16,6 @@ export const StyledSuffixIconContainer = styled.div`
   display: none;
 `;
 
-export const StyledSearchPrefixContainer = styled.div`
-  display: flex;
-`;
-
 export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
   width: ${({ $width }) => $width};
   height: 46px;
@@ -49,6 +45,10 @@ export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
   input:focus + ${StyledSuffixIconContainer}, input:active + ${StyledSuffixIconContainer} {
     display: flex;
     cursor: pointer;
+  }
+
+  svg {
+    flex-shrink: 0;
   }
 `;
 
