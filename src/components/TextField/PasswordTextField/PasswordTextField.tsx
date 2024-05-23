@@ -40,3 +40,4 @@ export const PasswordTextField = forwardRef<HTMLInputElement, PasswordTextFieldP
     );
   }
 );
+PasswordTextField.displayName = 'PasswordTextField';

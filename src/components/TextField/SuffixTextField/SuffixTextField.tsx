@@ -9,3 +9,4 @@ export const SuffixTextField = forwardRef<HTMLInputElement, SuffixTextFieldProps
     return <TextField ref={ref} suffix={suffix} {...props} />;
   }
 );
+SuffixTextField.displayName = 'SuffixTextField';

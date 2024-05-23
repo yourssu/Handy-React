@@ -30,3 +30,4 @@ export const SimpleTextField = forwardRef<HTMLInputElement, SimpleTextFieldProps
     );
   }
 );
+SimpleTextField.displayName = 'SimpleTextField';
