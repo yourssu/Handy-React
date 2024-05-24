@@ -13,6 +13,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "prepublishOnly": "npm run build",
     "preview": "vite preview",
+    "ci:publish": "pnpm publish -r",
     "design-system": "pnpm --filter @yourssu/design-system-react",
     "logging-system": "pnpm --filter @yourssu/logging-system-react",
     "utils": "pnpm --filter @yourssu/utils",
