@@ -1,56 +1,26 @@
 {
-  "name": "@yourssu/design-system-react",
+  "name": "@yourssu/monorepo-packages",
+  "packageManager": "pnpm@8.15.4",
   "private": false,
-  "version": "1.1.2",
-  "description": "Yourssu Design System for React",
-  "keywords": [
-    "yourssu",
-    "design system",
-    "react"
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
   ],
-  "repository": "yourssu/YDS-React",
-  "license": "MIT",
   "type": "module",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "prepublishOnly": "npm run build",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "convert-icon": "node ./iconsAsset/convert.mjs"
+    "preview": "vite preview"
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^6.0.7"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.0.2",
-    "@storybook/addon-interactions": "^8.0.2",
-    "@storybook/addon-links": "^8.0.2",
-    "@storybook/addon-mdx-gfm": "^8.0.2",
-    "@storybook/addon-onboarding": "^8.0.2",
-    "@storybook/blocks": "^8.0.2",
-    "@storybook/react": "^8.0.2",
-    "@storybook/react-vite": "^8.0.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@types/webfontloader": "^1.6.38",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
@@ -65,14 +35,10 @@
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^8.0.2",
-    "styled-components": "^6.0.7",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.3",
     "vite-tsconfig-paths": "^4.2.0",
-    "webfontloader": "^1.6.28",
     "xmldom": "^0.6.0"
-  },
-  "packageManager": "pnpm@8.15.4"
+  }
 }
