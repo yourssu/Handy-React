@@ -1,7 +1,8 @@
-import { SetLocalStorage, SetLocalStorageClear } from './SetLocalStorage';
-import { LogPayloadParams, LogRequestList, LogType } from './types/LogType';
 import CryptoJS from 'crypto-js';
+
+import { SetLocalStorage, SetLocalStorageClear } from './SetLocalStorage';
 import { postLog } from './apis/postLog';
+import { LogPayloadParams, LogRequestList, LogType } from './types/LogType';
 
 const createRandomId = () => {
   let randomId = '';
