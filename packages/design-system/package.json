@@ -1,0 +1,54 @@
+{
+  "name": "@yourssu/design-system-react",
+  "private": false,
+  "version": "1.1.2",
+  "description": "Yourssu Design System for React",
+  "keywords": [
+    "yourssu",
+    "design system",
+    "react"
+  ],
+  "repository": "yourssu/YDS-React",
+  "license": "MIT",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "prepublishOnly": "npm run build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "convert-icon": "node ./iconsAsset/convert.mjs"
+  },
+  "peerDependencies": {
+    "styled-components": "^6.0.7"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.0.2",
+    "@storybook/addon-interactions": "^8.0.2",
+    "@storybook/addon-links": "^8.0.2",
+    "@storybook/addon-mdx-gfm": "^8.0.2",
+    "@storybook/addon-onboarding": "^8.0.2",
+    "@storybook/blocks": "^8.0.2",
+    "@storybook/react": "^8.0.2",
+    "@storybook/react-vite": "^8.0.2",
+    "@types/webfontloader": "^1.6.38",
+    "storybook": "^8.0.2",
+    "styled-components": "^6.0.7",
+    "webfontloader": "^1.6.28"
+  }
+}
