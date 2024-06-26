@@ -62,6 +62,7 @@ export const StyledTextField = styled.input<StyledTextFieldProps>`
   outline: none;
   ${({ theme }) => theme.typo.body2};
 
+  color: ${({ theme }) => theme.color.textSecondary};
   caret-color: ${({ theme }) => theme.color.textPointed};
 
   &:disabled {
