@@ -1,2 +1,3 @@
-export type { FontWeight, Typo } from './typo.type';
+export type { FontWeight, TypoENType, TypoKRType } from './typo.type';
+export type { Typos } from './typo';
 export { typos, fontWeights } from './typo';
