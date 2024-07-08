@@ -34,8 +34,6 @@ const extractTypoDetails = (typoStyles: string) => {
   const lineHeight = lineHeightLine?.match(/line-height:(\d+)px/)?.[1];
   const letterSpacing = letterSpacingLine?.match(/letter-spacing:(-?[0-9]+(\.[0-9]+)*)/)?.[1];
 
-  console.log(fontSize, lineHeight, letterSpacingLine, letterSpacing);
-
   return [fontSize, lineHeight, letterSpacing];
 };
 
