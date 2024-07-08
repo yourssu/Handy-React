@@ -1,6 +1,6 @@
 import { FontWeight, TypoENType, TypoKRType } from './typo.type';
 
-interface Typos {
+export interface Typos {
   en: Record<TypoENType, string>;
   kr: Record<TypoKRType, string>;
 }
