@@ -1,7 +1,7 @@
-import { BaseColorPalette, SemanticColorPalette, Typo } from '../foundation';
+import { BaseColorPalette, SemanticColorPalette, KRENTypos } from '../foundation';
 
 export type YDSTheme = {
   color: SemanticColorPalette;
   baseColor: BaseColorPalette;
-  typo: Record<Typo, string>;
+  typo: KRENTypos;
 };

@@ -1,6 +1,6 @@
 import { FontWeight, TypoENType, TypoKRType } from './typo.type';
 
-export interface Typos {
+export interface KRENTypos {
   en: Record<TypoENType, string>;
   kr: Record<TypoKRType, string>;
 }
@@ -11,7 +11,7 @@ export const fontWeights: Record<FontWeight, number> = {
   SemiBold: 600,
 };
 
-export const typos: Typos = {
+export const typos: KRENTypos = {
   en: {
     D1_EN_Sb_96: `
         font-size: 96px;
@@ -338,7 +338,7 @@ export const typos: Typos = {
     B3_EN_Rg_14: `
         font-size: 14px;
         font-weight: ${fontWeights.Regular};
-        line-height: T3_KR_Sb_20px;
+        line-height: 20px;
         letter-spacing: 0;
         font-family: 'Pretendard', 'sans-serif';
     `,
