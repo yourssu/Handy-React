@@ -138,7 +138,7 @@ const Render = (args: any) => {
 
 export const Primary: Story = {
   args: {
-    size: 24,
+    size: '24px',
   },
   render: Render,
 };
