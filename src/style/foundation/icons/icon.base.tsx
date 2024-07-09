@@ -9,9 +9,9 @@ export const IconBase = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     <svg
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      fill={color}
+      width={size ?? '24px'}
+      height={size ?? '24px'}
+      fill={color ?? 'current'}
       {...rest}
     >
       {children}
