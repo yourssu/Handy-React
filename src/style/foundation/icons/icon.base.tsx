@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { IconProps } from './icon.type';
 
 export const IconBase = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-  const { size, color, mirrored, children, ...rest } = props;
+  const { size, color, children, ...rest } = props;
 
   return (
     <svg
@@ -12,7 +12,6 @@ export const IconBase = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
       width={size}
       height={size}
       fill={color}
-      transform={mirrored ? 'scale(-1, 1)' : undefined}
       {...rest}
     >
       {children}
