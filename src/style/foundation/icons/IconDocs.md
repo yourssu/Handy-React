@@ -18,7 +18,7 @@ Handy Iconography는 Handy에서 사용하는 아이콘입니다.
 ## 아이콘 사용법
 
 ```typescript
-import { IcAddFilled } from '@yourssu/design-system-react';
+import { IcAddFilled } from '@yourssu/design-system-react'; // TODO: change name
 
 function App() {
   return (
