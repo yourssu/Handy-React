@@ -68,6 +68,8 @@ export { IcClockFilled } from './IcClockFilled';
 export { IcClockLine } from './IcClockLine';
 export { IcCloseFilled } from './IcCloseFilled';
 export { IcCloseLine } from './IcCloseLine';
+export { IcCommentFilled } from './IcCommentFilled';
+export { IcCommentLine } from './IcCommentLine';
 export { IcCopyFilled } from './IcCopyFilled';
 export { IcCopyLine } from './IcCopyLine';
 export { IcCropFilled } from './IcCropFilled';
