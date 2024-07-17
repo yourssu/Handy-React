@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Primary as PrimaryBlock, Controls, Markdown } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
@@ -6,7 +6,7 @@ import { styled } from 'styled-components';
 
 import TypoDocs from './TypoDocs.md?raw';
 
-import { typos, TypoENType, TypoKRType } from '.';
+import { typos, TypoType } from '.';
 
 const meta: Meta = {
   title: 'Foundation/Typos',
@@ -53,18 +53,36 @@ const TypoOptionValue = styled.div`
   align-self: center;
 `;
 
-const TypoKRExample = styled.div<{ $typo: TypoKRType }>`
-  ${(props) => props.theme.typo.kr[props.$typo]};
+const TypoExample = styled.div<{ $typo: TypoType }>`
+  white-space: normal;
+  line-break: anywhere;
+  ${(props) => props.theme.typo[props.$typo]};
 `;
 
-const TypoENExample = styled.div<{ $typo: TypoENType }>`
-  ${(props) => props.theme.typo.en[props.$typo]};
+const TypoHeader = styled.header`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
 `;
 
 const TypoGridTitle = styled.div`
   font-weight: 500;
   font-size: 22px;
-  margin-bottom: 48px;
+`;
+
+const TypoPreviewInput = styled.input`
+  all: unset;
+  max-width: 700px;
+  width: 100%;
+
+  border: 1px solid #d2d0d2;
+  border-radius: 9999px;
+  padding: 20px 28px;
+
+  &:focus {
+    border-color: #222022;
+  }
 `;
 
 const TypoGridHead = () => {
@@ -86,28 +104,30 @@ const TypoGridHead = () => {
 };
 
 const TypoStory = () => {
+  const [preview, setPreivew] = useState('나무잎새남실');
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPreivew(e.target.value);
+  };
+
   return (
     <>
-      <TypoGridTitle>한글 타이포그래피</TypoGridTitle>
+      <TypoHeader>
+        <TypoGridTitle>타이포그래피</TypoGridTitle>
+        <div>
+          <TypoPreviewInput
+            placeholder="텍스트를 입력해주세요..."
+            value={preview}
+            onChange={onChange}
+          />
+        </div>
+      </TypoHeader>
       <TypoGrid>
         <TypoGridHead />
-        {Object.entries(typos.kr).map(([typo, typoStyles]) => (
+        {Object.entries(typos).map(([typo, typoStyles]) => (
           <React.Fragment key={typo}>
             <TypoName>{typo}</TypoName>
-            <TypoKRExample $typo={typo as TypoKRType}>나무잎새남실바람이</TypoKRExample>
-            {extractTypoDetails(typoStyles).map((detail, index) => (
-              <TypoOptionValue key={index}>{detail}</TypoOptionValue>
-            ))}
-          </React.Fragment>
-        ))}
-      </TypoGrid>
-      <TypoGridTitle>영어 타이포그래피</TypoGridTitle>
-      <TypoGrid>
-        <TypoGridHead />
-        {Object.entries(typos.en).map(([typo, typoStyles]) => (
-          <React.Fragment key={typo}>
-            <TypoName>{typo}</TypoName>
-            <TypoENExample $typo={typo as TypoENType}>ABCDEFGH</TypoENExample>
+            <TypoExample $typo={typo as TypoType}>{preview}</TypoExample>
             {extractTypoDetails(typoStyles).map((detail, index) => (
               <TypoOptionValue key={index}>{detail}</TypoOptionValue>
             ))}
