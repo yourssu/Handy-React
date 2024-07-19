@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { useColorTheme } from '@/hooks';
 
-import { baseColorPalettes, semanticColorPalettes, typos } from '../foundation';
+import { baseColorPalettes, semanticColorPalettes, typo } from '../foundation';
 
 import { YDSTheme } from './theme.type';
 
@@ -18,7 +18,7 @@ export const YDSThemeProvider = ({ children }: YDSThemeProviderProps) => {
     const _theme: YDSTheme = {
       color: semanticColorPalettes.light,
       baseColor: baseColorPalettes.light,
-      typo: typos,
+      typo,
     };
 
     if (currentColorTheme === 'light') {
