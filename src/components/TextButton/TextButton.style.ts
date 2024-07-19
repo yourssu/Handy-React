@@ -51,7 +51,7 @@ const getSizeStyle = ($size: TextButtonSize) => {
     case 'xsmall':
       return css`
         height: 28px;
-        ${({ theme }) => theme.typo.B5_Sb_12}
+        ${({ theme }) => theme.typo.C2_Sb_12}
       `;
   }
 };

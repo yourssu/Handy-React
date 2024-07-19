@@ -73,21 +73,21 @@ const getSizeStyle = ($size: BoxButtonSize) => {
         height: 40px;
         border-radius: radius.m;
         padding: 0 16px;
-        ${({ theme }) => theme.typo.B1_Sb_14}
+        ${({ theme }) => theme.typo.B3_Sb_14}
       `;
     case 'xsmall':
       return css`
         height: 32px;
         border-radius: radius.s;
         padding: 0 8px;
-        ${({ theme }) => theme.typo.B1_Sb_12}
+        ${({ theme }) => theme.typo.C2_Sb_12}
       `;
     case 'xxsmall':
       return css`
         height: 24px;
         border-radius: radius.xs;
         padding: 0 8px;
-        ${({ theme }) => theme.typo.B1_Sb_12}
+        ${({ theme }) => theme.typo.C2_Sb_12}
       `;
   }
 };
