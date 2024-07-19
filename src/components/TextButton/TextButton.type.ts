@@ -1,4 +1,4 @@
-export type TextButtonSize = 'Medium' | 'Small' | 'Xsmall';
+export type TextButtonSize = 'medium' | 'small' | 'xsmall';
 export type TextButtonHierarchy = 'primary' | 'secondary';
 
 export interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

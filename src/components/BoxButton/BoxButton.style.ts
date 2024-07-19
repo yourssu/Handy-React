@@ -47,42 +47,42 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
 
 const getSizeStyle = ($size: BoxButtonSize) => {
   switch ($size) {
-    case 'Xlarge':
+    case 'xlarge':
       return css`
         height: 56px;
         border-radius: radius.xl;
         padding: 0 20px;
         ${({ theme }) => theme.typo.B1_Sb_16}
       `;
-    case 'Large':
+    case 'large':
       return css`
         height: 52px;
         border-radius: radius.xl;
         padding: 0 20px;
         ${({ theme }) => theme.typo.B1_Sb_16}
       `;
-    case 'Medium':
+    case 'medium':
       return css`
         height: 48px;
         border-radius: radius.l;
         padding: 0 16px;
         ${({ theme }) => theme.typo.B1_Sb_16}
       `;
-    case 'Small':
+    case 'small':
       return css`
         height: 40px;
         border-radius: radius.m;
         padding: 0 16px;
         ${({ theme }) => theme.typo.B1_Sb_14}
       `;
-    case 'Xsmall':
+    case 'xsmall':
       return css`
         height: 32px;
         border-radius: radius.s;
         padding: 0 8px;
         ${({ theme }) => theme.typo.B1_Sb_12}
       `;
-    case 'Xxsmall':
+    case 'xxsmall':
       return css`
         height: 24px;
         border-radius: radius.xs;

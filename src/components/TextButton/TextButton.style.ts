@@ -37,18 +37,18 @@ const getHierarchyStyle = ($hierarchy: TextButtonHierarchy) => {
 
 const getSizeStyle = ($size: TextButtonSize) => {
   switch ($size) {
-    case 'Medium':
+    case 'medium':
       return css`
         height: 36px;
         padding: 0 8px;
         ${({ theme }) => theme.typo.B3_Sb_14}
       `;
-    case 'Small':
+    case 'small':
       return css`
         height: 32px;
         ${({ theme }) => theme.typo.B3_Sb_14}
       `;
-    case 'Xsmall':
+    case 'xsmall':
       return css`
         height: 28px;
         ${({ theme }) => theme.typo.B5_Sb_12}
