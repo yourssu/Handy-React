@@ -8,7 +8,7 @@ export const fontWeights: Record<FontWeight, number> = {
   SemiBold: 600,
 };
 
-export const typos: Typos = {
+export const typo: Typos = {
   D1_Lt_96: `
         font-size: 96px;
         font-weight: ${fontWeights.Light};

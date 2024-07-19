@@ -6,7 +6,7 @@ import { styled } from 'styled-components';
 
 import TypoDocs from './TypoDocs.md?raw';
 
-import { typos, TypoType } from '.';
+import { typo, TypoType } from '.';
 
 const meta: Meta = {
   title: 'Foundation/Typos',
@@ -124,7 +124,7 @@ const TypoStory = () => {
       </TypoHeader>
       <TypoGrid>
         <TypoGridHead />
-        {Object.entries(typos).map(([typo, typoStyles]) => (
+        {Object.entries(typo).map(([typo, typoStyles]) => (
           <React.Fragment key={typo}>
             <TypoName>{typo}</TypoName>
             <TypoExample $typo={typo as TypoType}>{preview}</TypoExample>
