@@ -43,5 +43,37 @@ const Primary: StoryObj = {
   render: CheckboxStory,
 };
 
+const Default: StoryObj = {
+  render: () => <Checkbox>기본 체크박스</Checkbox>,
+};
+
+const StateChange: StoryObj = {
+  render: () => (
+    <Checkbox
+      onChange={(e) => {
+        alert('상태가 변경되었습니다: ' + e.target.checked);
+      }}
+    >
+      상태 관리 체크박스
+    </Checkbox>
+  ),
+};
+
+const Sizes: StoryObj = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <Checkbox size="small" selected>
+        small
+      </Checkbox>
+      <Checkbox size="medium" selected>
+        medium
+      </Checkbox>
+      <Checkbox size="large" selected>
+        large
+      </Checkbox>
+    </div>
+  ),
+};
+
 export default meta;
-export { Primary };
+export { Primary, Default, StateChange, Sizes };

@@ -21,12 +21,15 @@ export const StyledCheckboxContainer = styled.div`
 
   display: flex;
   align-items: center;
+
+  ${({ theme }) => theme.typo.B1_Rg_16};
+  color: #25262c; // TODO: primitive theme 적용 필요
 `;
 
 export const StyledCheckboxLabel = styled.label`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px; // TODO: semantic theme 적용 필요
 
   cursor: pointer;
 
@@ -45,30 +48,30 @@ export const StyledCheckboxChecker = styled.div<{ $size: CheckboxSizeType }>`
   justify-content: center;
   align-items: center;
 
-  border: 1px solid #e3e4e8;
+  border: 1px solid #e3e4e8; // TODO: semantic theme 적용 필요
   border-radius: 50%;
 
-  background-color: white;
+  background-color: white; // TODO: semantic theme 적용 필요
 
   svg {
-    fill: #e3e4e8;
+    fill: #e3e4e8; // TODO: semantic theme 적용 필요
   }
 
   &:has(+ input[type='checkbox']:checked) {
     border: none;
-    background-color: #6b5cff;
+    background-color: #6b5cff; // TODO: semantic theme 적용 필요
 
     svg {
-      fill: white;
+      fill: white; // TODO: semantic theme 적용 필요
     }
   }
 
   &:has(+ input[type='checkbox']:disabled) {
     border: none;
-    background-color: #e3e4e8;
+    background-color: #e3e4e8; // TODO: semantic theme 적용 필요
 
     svg {
-      fill: white;
+      fill: white; // TODO: semantic theme 적용 필요
     }
   }
 `;
