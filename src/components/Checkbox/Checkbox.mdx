@@ -1,0 +1,98 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+import { Checkbox } from './Checkbox';
+import React from 'react';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+체크박스는 선택과 비선택, 다중 선택을 나타낼 수 있는 요소입니다.
+
+<br />
+<br />
+
+## 사용하기
+
+### 기본
+
+체크박스의 기본 사용법입니다.
+
+```tsx
+const Component = () => {
+  return <Checkbox>기본 체크박스</Checkbox>;
+};
+```
+
+<Checkbox>기본 체크박스</Checkbox>
+
+<br />
+<br />
+
+### 외부에서 상태 값 관리하기
+
+간혹 외부에서 상태 값을 관리해야 할 때가 있습니다.  
+이때는 `selected`와 `onChange`를 사용하여 상태 값을 외부에서 관리할 수 있습니다.
+
+```tsx
+const Component = () => {
+  const [selected, setSelected] = useState(false);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelected(e.target.checked);
+    alert('상태가 변경되었습니다: ' + e.target.checked);
+  };
+
+  return (
+    <Checkbox selected={selected} onChange={onChange}>
+      상태 관리 체크박스
+    </Checkbox>
+  );
+};
+```
+
+<Checkbox
+  onChange={(e) => {
+    alert('상태가 변경되었습니다: ' + e.target.checked);
+  }}
+>
+  상태 관리 체크박스
+</Checkbox>
+
+<br />
+<br />
+
+### 크기 설정
+
+`size` 를 사용하여 체크박스의 크기를 설정할 수 있습니다.
+
+지원하는 크기는 `small`, `medium`, `large` 이며, 기본 값은 `medium` 입니다.
+
+폰트 사이즈 및 갭 크기는 동일합니다.
+
+<br />
+<br />
+
+### ref로 input에 직접 접근
+
+간혹, `input`태그에 `ref`로 접근해야 할 때가 있습니다.  
+(ex. `react-hook-form`의 `register` 메서드 사용 등)
+
+이때는 `input` 태그를 사용하듯이 `ref`를 사용할 수 있습니다.
+
+```tsx
+const Component = () => {
+  const { register } = useFormContext();
+
+  return <Checkbox {...register('myCheckbox')}>Ref도 지원합니다</Checkbox>;
+};
+```
+
+<br />
+<br />
+
+## 미리보기
+
+<Canvas of={CheckboxStories.Primary} />
+<Controls />
+```
