@@ -6,6 +6,6 @@ type CheckboxProps = {
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   children: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLInputElement>;
 
 export type { CheckboxProps, CheckboxSizeType };
