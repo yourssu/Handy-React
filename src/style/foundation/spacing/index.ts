@@ -1,2 +1,2 @@
-export * from './spacing';
-export * from './spacing.type';
+export * from './primitiveSpacing';
+export * from './semanticSpacing';
