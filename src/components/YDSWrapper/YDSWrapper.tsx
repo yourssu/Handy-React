@@ -1,9 +1,8 @@
-import { YDSProviderProps, YDSProvider } from '@/contexts/YDSProvider';
-import { GlobalStyles } from '@/style';
+import { GlobalStyles, YDSThemeProvider } from '@/style';
 
 export type YDSWrapperProps = {
   children?: React.ReactNode;
-} & YDSProviderProps;
+};
 
 /**
  * YDS에 사용되는 Context, Style을 위한 컴포넌트입니다.
@@ -13,7 +12,7 @@ export const YDSWrapper = ({ children }: YDSWrapperProps) => {
   return (
     <>
       <GlobalStyles />
-      <YDSProvider>{children}</YDSProvider>
+      <YDSThemeProvider>{children}</YDSThemeProvider>
     </>
   );
 };
