@@ -8,6 +8,6 @@ export type YDSTheme = {
 
   // TOOD: semantic pr 에서 진행합니다.
   // semantic: {};
-  
+
   typo: Typos;
 };
