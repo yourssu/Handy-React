@@ -1,2 +1,2 @@
 export * from './primitiveColor';
-// export * from './semanticColor';
+export * from './semanticColor';

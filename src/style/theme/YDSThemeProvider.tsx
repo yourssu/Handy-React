@@ -1,6 +1,12 @@
 import { ThemeProvider } from 'styled-components';
 
-import { primitiveColorPalette, spacing, typo } from '../foundation';
+import {
+  primitiveColorPalette,
+  primitiveNumber,
+  semanticColorPalette,
+  semanticRadius,
+  typo,
+} from '../foundation';
 
 import { YDSTheme } from './theme.type';
 
@@ -12,9 +18,12 @@ export const YDSThemeProvider = ({ children }: YDSThemeProviderProps) => {
   const theme: YDSTheme = {
     primitive: {
       color: primitiveColorPalette,
-      spacing,
+      number: primitiveNumber,
     },
-    // semantic: {},
+    semantic: {
+      color: semanticColorPalette,
+      radius: semanticRadius,
+    },
     typo,
   };
 

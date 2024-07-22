@@ -1,6 +1,4 @@
-import { PrimitiveColor } from './primitiveColor.type';
-
-export type PrimitiveColorPalette = Readonly<Record<PrimitiveColor, string>>;
+import { PrimitiveColorPalette } from '@/style/foundation/color/primitiveColor/primitiveColor.type';
 
 export const primitiveColorPalette: PrimitiveColorPalette = {
   // Primitive Violet Color

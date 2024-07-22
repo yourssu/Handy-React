@@ -1,27 +1,31 @@
 // https://www.figma.com/design/gvwhMF6iNkuYKzxipKzkaG/Handy-v1-(demo)?node-id=636-131805&t=Wr7H8VzVaJXsyDQT-1
 
-type PrimitiveVariousColor<ColorName extends string> =
-  | `${ColorName}050`
-  | `${ColorName}100`
-  | `${ColorName}200`
-  | `${ColorName}300`
-  | `${ColorName}400`
-  | `${ColorName}500`
-  | `${ColorName}600`
-  | `${ColorName}700`
-  | `${ColorName}800`
-  | `${ColorName}900`
-  | `${ColorName}950`;
+import { MergeVariants } from '@/types/variant';
 
-export type PrimitiveVioletColor = PrimitiveVariousColor<'violet'>;
-export type PrimitiveGrayColor = PrimitiveVariousColor<'gray'>;
+type PrimitiveColorSaturationVariant =
+  | '050'
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900'
+  | '950';
 
-export type PrimitiveNeutralColor = 'neutralBlack' | 'neutralWhite' | 'neutralTransparent';
+export type PrimitiveVioletColor = MergeVariants<'violet', PrimitiveColorSaturationVariant>;
+export type PrimitiveGrayColor = MergeVariants<'gray', PrimitiveColorSaturationVariant>;
 
-export type PrimitiveStatusColor = 'statusRedMain' | 'statusRedSub';
+export type PrimitiveNeutralColor = MergeVariants<'neutral', 'black' | 'white' | 'transparent'>;
 
-export type PrimitiveColor =
+export type PrimitiveStatusColor = MergeVariants<'status', 'red', 'main' | 'sub'>;
+
+export type PrimitiveColorType =
   | PrimitiveVioletColor
   | PrimitiveGrayColor
   | PrimitiveNeutralColor
   | PrimitiveStatusColor;
+
+export type PrimitiveColorPalette = Readonly<Record<PrimitiveColorType, string>>;
