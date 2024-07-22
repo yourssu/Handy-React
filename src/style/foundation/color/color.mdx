@@ -1,10 +1,10 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { Meta, ColorPalette, ColorItem, Canvas } from '@storybook/blocks';
 
-<Meta title="Foundation/Colors" />
+import * as ColorStories from './color.stories';
+
+<Meta of={ColorStories} />
 
 # Colors
-
-## 공사중: Semantic Color가 구현되고 난 후, 컬러 가이드가 업데이트 될 예정입니다.
 
 Handy를 적용하는 모든 프로덕트는 Handy **Semantic** Color에 정의된 컬러를 사용해야 합니다.
 
@@ -30,14 +30,34 @@ declare module 'styled-components' {
 }
 ```
 
+<br />
+<br />
+
+## 예시
+
 사용 예시는 아래와 같습니다.
 
-```typescript
+```tsx
 import { styled } from 'styled-components';
 
 const StyledDiv = styled.div`
-  background-color: ${({ theme }) => theme...};
+  width: 100px;
+  height: 100px;
+
+  color: ${({ theme }) => theme.semantic.color.textBasicWhite};
+  background-color: ${({ theme }) => theme.semantic.color.bgBrandPrimary};
 `;
 ```
 
-<h2>Light Mode</h2>
+<Canvas of={ColorStories.ColorExample} withSource="none" />
+
+<br />
+<br />
+
+## 시맨틱 색상 팔레트
+
+아래 색상들은 `theme.semantic.color` 내에 정의되어 있습니다.
+
+<br />
+
+<ColorStories.AllThemeColors />

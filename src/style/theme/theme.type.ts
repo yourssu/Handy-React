@@ -1,13 +1,21 @@
-import { PrimitiveColorPalette, Spacings, Typos } from '../foundation';
+import {
+  PrimitiveColorPalette,
+  SemanticColorPalette,
+  PrimitiveNumber,
+  Typos,
+  SemanticRadius,
+} from '../foundation';
 
 export type YDSTheme = {
   primitive: {
     color: PrimitiveColorPalette;
-    spacing: Spacings;
+    number: PrimitiveNumber;
   };
 
-  // TOOD: semantic pr 에서 진행합니다.
-  // semantic: {};
+  semantic: {
+    color: SemanticColorPalette;
+    radius: SemanticRadius;
+  };
 
   typo: Typos;
 };
