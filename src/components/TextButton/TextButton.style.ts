@@ -40,16 +40,28 @@ const getSizeStyle = ($size: TextButtonSize) => {
         height: 36px;
         padding: 0 8px;
         ${({ theme }) => theme.typo.B3_Sb_14}
+        svg {
+          width: 20px;
+          height: 20px;
+        }
       `;
     case 'small':
       return css`
         height: 32px;
         ${({ theme }) => theme.typo.B3_Sb_14}
+        svg {
+          width: 16px;
+          height: 16px;
+        }
       `;
     case 'xsmall':
       return css`
         height: 28px;
         ${({ theme }) => theme.typo.C2_Sb_12}
+        svg {
+          width: 12px;
+          height: 12px;
+        }
       `;
   }
 };

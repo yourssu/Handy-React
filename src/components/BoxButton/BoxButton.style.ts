@@ -51,6 +51,10 @@ const getSizeStyle = ($size: BoxButtonSize) => {
         border-radius: ${({ theme }) => theme.semantic.radius.xl}px;
         padding: 0 20px;
         ${({ theme }) => theme.typo.B1_Sb_16}
+        svg {
+          width: 20px;
+          height: 20px;
+        }
       `;
     case 'large':
       return css`
@@ -58,6 +62,10 @@ const getSizeStyle = ($size: BoxButtonSize) => {
         border-radius: ${({ theme }) => theme.semantic.radius.xl}px;
         padding: 0 20px;
         ${({ theme }) => theme.typo.B1_Sb_16}
+        svg {
+          width: 20px;
+          height: 20px;
+        }
       `;
     case 'medium':
       return css`
@@ -65,6 +73,10 @@ const getSizeStyle = ($size: BoxButtonSize) => {
         border-radius: ${({ theme }) => theme.semantic.radius.l}px;
         padding: 0 16px;
         ${({ theme }) => theme.typo.B1_Sb_16}
+        svg {
+          width: 20px;
+          height: 20px;
+        }
       `;
     case 'small':
       return css`
@@ -72,6 +84,10 @@ const getSizeStyle = ($size: BoxButtonSize) => {
         border-radius: ${({ theme }) => theme.semantic.radius.m}px;
         padding: 0 16px;
         ${({ theme }) => theme.typo.B3_Sb_14}
+        svg {
+          width: 16px;
+          height: 16px;
+        }
       `;
     case 'xsmall':
       return css`
@@ -79,6 +95,10 @@ const getSizeStyle = ($size: BoxButtonSize) => {
         border-radius: ${({ theme }) => theme.semantic.radius.s}px;
         padding: 0 8px;
         ${({ theme }) => theme.typo.C2_Sb_12}
+        svg {
+          width: 12px;
+          height: 12px;
+        }
       `;
     case 'xxsmall':
       return css`
@@ -86,6 +106,10 @@ const getSizeStyle = ($size: BoxButtonSize) => {
         border-radius: ${({ theme }) => theme.semantic.radius.xs}px;
         padding: 0 8px;
         ${({ theme }) => theme.typo.C2_Sb_12}
+        svg {
+          width: 12px;
+          height: 12px;
+        }
       `;
   }
 };
