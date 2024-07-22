@@ -11,7 +11,7 @@ export const IconBase = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
       xmlns="http://www.w3.org/2000/svg"
       width={size ?? '24px'}
       height={size ?? '24px'}
-      fill={color ?? 'current'}
+      fill={color ?? 'currentColor'}
       {...rest}
     >
       {children}
