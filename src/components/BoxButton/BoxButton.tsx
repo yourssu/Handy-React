@@ -15,9 +15,9 @@ export const BoxButton = forwardRef<HTMLButtonElement, BoxButtonProps>(
         $width={width}
         {...props}
       >
-        <div>{leftIcon}</div>
+        <>{leftIcon}</>
         <span className="boxButton-child">{children}</span>
-        <div>{rightIcon}</div>
+        <>{rightIcon}</>
       </StyledBoxButton>
     );
   }

@@ -15,9 +15,9 @@ export const TextButton = forwardRef<HTMLButtonElement, TextButtonProps>(
         $width={width}
         {...props}
       >
-        <div>{leftIcon}</div>
+        <>{leftIcon}</>
         <span className="textButton-child">{children}</span>
-        <div>{rightIcon}</div>
+        <>{rightIcon}</>
       </StyledTextButton>
     );
   }
