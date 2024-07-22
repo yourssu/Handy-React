@@ -117,9 +117,13 @@ const getSizeStyle = ($size: BoxButtonSize) => {
 const getDisabledStyle = ($hierarchy: BoxButtonHierarchy) => {
   switch ($hierarchy) {
     case 'primary':
-    case 'secondary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonBoxPrimaryDisabled};
+        border: none;
+      `;
+    case 'secondary':
+      return css`
+        background-color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryDisabled};
         border: none;
       `;
     case 'tertiary':
