@@ -1,2 +1,2 @@
-export * from './primitiveSpacing';
-export * from './semanticSpacing';
+export * from './primitiveNumber';
+export * from './semanticRadius';

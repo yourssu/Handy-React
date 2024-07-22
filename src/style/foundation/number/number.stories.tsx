@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
 
-import { semanticSpacing } from '@/style/foundation/spacing/semanticSpacing';
+import { semanticRadius } from '@/style/foundation/number/semanticRadius';
 
 const meta: Meta = {
-  title: 'Foundation/Spacing',
+  title: 'Foundation/Number',
   parameters: {
     layout: 'centered',
   },
@@ -18,11 +18,11 @@ const StyledSpacingExample = styled.div`
   align-items: center;
   justify-content: center;
 
-  border-radius: ${({ theme }) => theme.semantic.spacing.spacingRadiusL}px;
+  border-radius: ${({ theme }) => theme.semantic.radius.l}px;
   background-color: ${({ theme }) => theme.semantic.color.bgBrandPrimary};
 `;
 
-const StyledAllBorderSpacings = styled.div`
+const StyledAllNumbers = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -62,7 +62,7 @@ const StyledRowItem = styled.div`
   }
 `;
 
-const StyledBorderSpacingExample = styled.div<{ value: number }>`
+const StyledBorderRadiusExample = styled.div<{ value: number }>`
   width: 100px;
   height: 100px;
 
@@ -81,28 +81,26 @@ const SpacingExample: StoryObj = {
   render: () => <StyledSpacingExample />,
 };
 
-const AllBorderSpacings: StoryObj = {
+const AllBorderRadius: StoryObj = {
   render: () => (
-    <StyledAllBorderSpacings>
+    <StyledAllNumbers>
       <StyledRow>
         <StyledRowHeader>Border Radius</StyledRowHeader>
         <StyledRowDescription>theme.semantic.spacing</StyledRowDescription>
         <StyledRowItemList>
-          {Object.entries(semanticSpacing).map(([key, value]) => {
+          {Object.entries(semanticRadius).map(([key, value]) => {
             return (
               <StyledRowItem>
-                <StyledBorderSpacingExample value={value}>
-                  {key.replace('spacingRadius', '')}
-                </StyledBorderSpacingExample>
-                <span>{key}</span>
+                <StyledBorderRadiusExample value={value}>{key}</StyledBorderRadiusExample>
+                <span>{value}px</span>
               </StyledRowItem>
             );
           })}
         </StyledRowItemList>
       </StyledRow>
-    </StyledAllBorderSpacings>
+    </StyledAllNumbers>
   ),
 };
 
 export default meta;
-export { SpacingExample, AllBorderSpacings };
+export { SpacingExample, AllBorderRadius };
