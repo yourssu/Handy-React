@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { StyledTextButton } from './TextButton.style';
 
@@ -15,9 +15,9 @@ export const TextButton = forwardRef<HTMLButtonElement, TextButtonProps>(
         $width={width}
         {...props}
       >
-        <>{leftIcon && React.cloneElement(leftIcon, { size: '20px' })}</>
+        <>{leftIcon}</>
         <span className="textButton-child">{children}</span>
-        <>{rightIcon && React.cloneElement(rightIcon, { size: '20px' })}</>
+        <>{rightIcon}</>
       </StyledTextButton>
     );
   }
