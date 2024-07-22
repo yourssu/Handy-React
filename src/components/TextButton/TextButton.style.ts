@@ -2,8 +2,6 @@ import { css, styled } from 'styled-components';
 
 import { TextButtonProps, TextButtonSize, TextButtonHierarchy } from './TextButton.type';
 
-// TODO: import radius
-
 interface StyledTextButtonProps {
   $size: TextButtonSize;
   $hierarchy: TextButtonHierarchy;
@@ -14,22 +12,22 @@ const getHierarchyStyle = ($hierarchy: TextButtonHierarchy) => {
   switch ($hierarchy) {
     case 'primary':
       return css`
-        background-color: ${({ theme }) => theme.color.buttonTextPrimaryEnabled};
-        color: ${({ theme }) => theme.color.textBrandPrimary};
+        background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryEnabled};
+        color: ${({ theme }) => theme.semantic.color.textBrandPrimary};
         border: none;
         &:hover {
           cursor: pointer;
-          background-color: ${({ theme }) => theme.color.buttonTextPrimaryPressed};
+          background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryPressed};
         }
       `;
     case 'secondary':
       return css`
-        background-color: ${({ theme }) => theme.color.buttonTextSecondaryEnabled};
-        color: ${({ theme }) => theme.color.textBasicTertiary};
+        background-color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryEnabled};
+        color: ${({ theme }) => theme.semantic.color.textBasicTertiary};
         border: none;
         &:hover {
           cursor: pointer;
-          color: ${({ theme }) => theme.color.buttonTextSecondaryPressed};
+          color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryPressed};
         }
       `;
   }
@@ -67,7 +65,7 @@ export const StyledTextButton = styled.button<StyledTextButtonProps>`
   width: ${({ $width }) => $width};
 
   &:disabled {
-    color: ${({ theme }) => theme.color.textBasicDisabled};
+    color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     cursor: not-allowed;
   }
 
