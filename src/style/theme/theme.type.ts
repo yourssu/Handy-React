@@ -1,20 +1,20 @@
 import {
   PrimitiveColorPalette,
   SemanticColorPalette,
-  PrimitiveSpacing,
-  SemanticSpacing,
+  PrimitiveNumber,
   Typos,
+  SemanticRadius,
 } from '../foundation';
 
 export type YDSTheme = {
   primitive: {
     color: PrimitiveColorPalette;
-    spacing: PrimitiveSpacing;
+    number: PrimitiveNumber;
   };
 
   semantic: {
     color: SemanticColorPalette;
-    spacing: SemanticSpacing;
+    radius: SemanticRadius;
   };
 
   typo: Typos;
