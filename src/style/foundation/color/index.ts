@@ -1,3 +1,2 @@
-export * from './baseColor';
+export * from './primitiveColor';
 export * from './semanticColor';
-export * from './color.type';
