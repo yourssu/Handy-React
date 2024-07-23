@@ -27,7 +27,7 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
         border: none;
         &:hover {
           cursor: pointer;
-          color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryPressed};
+          background-color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryPressed};
         }
       `;
     case 'tertiary':
@@ -129,7 +129,7 @@ const getDisabledStyle = ($hierarchy: BoxButtonHierarchy) => {
     case 'tertiary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonBoxTertiaryDisabled};
-        border: 1px solid ${({ theme }) => theme.semantic.color.lineBasicMedium};
+        border: 1px solid ${({ theme }) => theme.semantic.color.textBasicDisabled};
       `;
   }
 };
