@@ -51,7 +51,7 @@ const StateChange: StoryObj = {
   render: () => (
     <Checkbox
       onChange={(e) => {
-        alert('상태가 변경되었습니다: ' + e.target.checked);
+        alert('상태가 변경되었습니다: ' + e.currentTarget.checked);
       }}
     >
       상태 관리 체크박스
