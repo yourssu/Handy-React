@@ -16,7 +16,7 @@ export const BoxButton = forwardRef<HTMLButtonElement, BoxButtonProps>(
         {...props}
       >
         <>{leftIcon}</>
-        <span className="boxButton-child">{children}</span>
+        <span>{children}</span>
         <>{rightIcon}</>
       </StyledBoxButton>
     );

@@ -142,18 +142,12 @@ export const StyledBoxButton = styled.button<StyledBoxButtonProps>`
 
   ${({ $hierarchy }) => getHierarchyStyle($hierarchy)}
   ${({ $size }) => getSizeStyle($size)}
+  min-width: fit-content;
   width: ${({ $width }) => $width};
 
   &:disabled {
     ${({ $hierarchy }) => getDisabledStyle($hierarchy)}
     color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     cursor: not-allowed;
-  }
-
-  & > .boxButton-child {
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 `;

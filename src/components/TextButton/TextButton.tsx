@@ -16,7 +16,7 @@ export const TextButton = forwardRef<HTMLButtonElement, TextButtonProps>(
         {...props}
       >
         <>{leftIcon}</>
-        <span className="textButton-child">{children}</span>
+        <span>{children}</span>
         <>{rightIcon}</>
       </StyledTextButton>
     );
