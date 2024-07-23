@@ -1,7 +1,7 @@
 type CheckboxSizeType = 'small' | 'medium' | 'large';
 
 type CheckboxProps = {
-  size?: CheckboxSizeType;
+  size: CheckboxSizeType;
   selected?: boolean;
   disabled?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;

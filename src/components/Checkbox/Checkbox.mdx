@@ -18,9 +18,11 @@ import React from 'react';
 
 체크박스의 기본 사용법입니다.
 
+`size` 는 `small`, `medium`, `large` 중 하나를 선택할 수 있으며, 필수 프로터피입니다.
+
 ```tsx
 const Component = () => {
-  return <Checkbox>기본 체크박스</Checkbox>;
+  return <Checkbox size="medium">기본 체크박스</Checkbox>;
 };
 ```
 
@@ -44,7 +46,7 @@ const Component = () => {
   };
 
   return (
-    <Checkbox selected={selected} onChange={onChange}>
+    <Checkbox size="medium" selected={selected} onChange={onChange}>
       상태 관리 체크박스
     </Checkbox>
   );
@@ -80,7 +82,11 @@ const Component = () => {
 const Component = () => {
   const { register } = useFormContext();
 
-  return <Checkbox {...register('myCheckbox')}>Ref도 지원합니다</Checkbox>;
+  return (
+    <Checkbox size="medium" {...register('myCheckbox')}>
+      Ref도 지원합니다
+    </Checkbox>
+  );
 };
 ```
 

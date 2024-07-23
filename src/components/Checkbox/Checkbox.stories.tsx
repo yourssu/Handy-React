@@ -5,6 +5,10 @@ import { Checkbox } from '@/components/Checkbox/Checkbox';
 const meta: Meta<typeof Checkbox> = {
   title: 'Components/Checkbox',
   component: Checkbox,
+  args: {
+    size: 'medium',
+    disabled: false,
+  },
   argTypes: {
     size: {
       control: {
@@ -15,6 +19,22 @@ const meta: Meta<typeof Checkbox> = {
     selected: {
       control: {
         type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onChange: {
+      table: {
+        defaultValue: { summary: 'undefined' },
       },
     },
     children: {
@@ -33,7 +53,7 @@ const meta: Meta<typeof Checkbox> = {
 
 const CheckboxStory = (args: object) => {
   return (
-    <Checkbox {...args} onChange={undefined}>
+    <Checkbox size="medium" {...args} onChange={undefined}>
       체크박스
     </Checkbox>
   );
@@ -44,12 +64,13 @@ const Primary: StoryObj = {
 };
 
 const Default: StoryObj = {
-  render: () => <Checkbox>기본 체크박스</Checkbox>,
+  render: () => <Checkbox size="medium">기본 체크박스</Checkbox>,
 };
 
 const StateChange: StoryObj = {
   render: () => (
     <Checkbox
+      size="medium"
       onChange={(e) => {
         alert('상태가 변경되었습니다: ' + e.currentTarget.checked);
       }}

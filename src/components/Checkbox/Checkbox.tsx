@@ -11,7 +11,7 @@ import { CheckboxProps } from '@/components/Checkbox/Checkbox.type';
 import { IcCheckFilled } from '@/style';
 
 export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
-  ({ size = 'medium', selected, disabled, children, onChange, ...props }, ref) => {
+  ({ size, selected, disabled, children, onChange, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
