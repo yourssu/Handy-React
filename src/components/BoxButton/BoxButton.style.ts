@@ -129,7 +129,7 @@ const getDisabledStyle = ($hierarchy: BoxButtonHierarchy) => {
     case 'tertiary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonBoxTertiaryDisabled};
-        border: 1px solid ${({ theme }) => theme.semantic.color.textBasicDisabled};
+        border: 1px solid ${({ theme }) => theme.semantic.color.lineBasicMedium};
       `;
   }
 };
