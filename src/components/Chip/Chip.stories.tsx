@@ -10,27 +10,27 @@ import { Chip } from './Chip';
 const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
   component: Chip,
-  // argTypes: {
-  //   size: {
-  //     control: {
-  //       type: 'radio',
-  //     },
-  //     options: ['small', 'medium', 'large'],
-  //   },
-  //   selected: {
-  //     control: {
-  //       type: 'boolean',
-  //     },
-  //   },
-  //   children: {
-  //     description: 'React.ReactNode 타입의 children을 받습니다.',
-  //     type: { name: 'other', value: '', required: true },
-  //     control: {
-  //       type: 'string',
-  //     },
-  //     defaultValue: '체크박스',
-  //   },
-  // },
+  argTypes: {
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: ['small', 'medium', 'large'],
+    },
+    selected: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    children: {
+      description: 'React.ReactNode 타입의 children을 받습니다.',
+      type: { name: 'other', value: '', required: true },
+      control: {
+        type: 'string',
+      },
+      defaultValue: '체크박스',
+    },
+  },
   parameters: {
     layout: 'centered',
   },
