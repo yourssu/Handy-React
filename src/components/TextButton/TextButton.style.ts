@@ -48,6 +48,7 @@ const getSizeStyle = ($size: TextButtonSize) => {
     case 'small':
       return css`
         height: 32px;
+        padding: 0px 8px;
         ${({ theme }) => theme.typo.B3_Sb_14}
         svg {
           width: 16px;
@@ -57,6 +58,7 @@ const getSizeStyle = ($size: TextButtonSize) => {
     case 'xsmall':
       return css`
         height: 28px;
+        padding: 0px 6px;
         ${({ theme }) => theme.typo.C2_Sb_12}
         svg {
           width: 12px;
@@ -87,6 +89,7 @@ export const StyledTextButton = styled.button<StyledTextButtonProps>`
 
   ${({ $hierarchy }) => getHierarchyStyle($hierarchy)}
   ${({ $size }) => getSizeStyle($size)}
+  border-radius: ${({ theme }) => theme.semantic.radius.xs}px;
   min-width: fit-content;
   width: ${({ $width }) => $width};
 
