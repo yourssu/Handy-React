@@ -12,19 +12,19 @@ export const Tabs = ({ scrollable = true, children, defaultTab }: TabsProps) => 
 
   return (
     <TabContext.Provider value={{ scrollable, currentTab, setCurrentTab: onChange }}>
-      {children}
+      <div>{children}</div>
     </TabContext.Provider>
   );
 };
 
-const List = ({ children }: TabListProps) => {
+const List = ({ children, size = 'large' }: TabListProps) => {
   const validChildren = Children.toArray(children);
   if (validChildren.length === 0)
     throw new Error('List 컴포넌트 안에 Tab 컴포넌트를 1개 이상 넣어주세요');
 
   const { scrollable } = useContext(TabContext) ?? { scrollable: true };
   return (
-    <StyledList role="tablist" $scrollable={scrollable}>
+    <StyledList role="tablist" $scrollable={scrollable} $size={size}>
       {children}
     </StyledList>
   );

@@ -4,8 +4,10 @@ export interface TabsProps {
   defaultTab: string;
 }
 
+export type TabSize = 'large' | 'small';
 export interface TabListProps {
   children: React.ReactNode;
+  size?: TabSize;
 }
 
 export interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {

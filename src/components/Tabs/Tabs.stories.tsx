@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Tabs } from './Tabs';
-import { TabsProps } from './Tabs.type';
+import { TabListProps, TabsProps } from './Tabs.type';
 
-const meta: Meta<TabsProps> = {
+const meta: Meta<TabsProps & TabListProps> = {
   title: 'Atoms/Tabs',
   component: Tabs,
   parameters: {
@@ -11,13 +11,20 @@ const meta: Meta<TabsProps> = {
   },
   argTypes: {
     defaultTab: {
-      description: '기본으로 설정될 Tabs.Tab 컴포넌트의 id',
+      description: '기본으로 설정될 Tabs.Tab의 id',
     },
     scrollable: {
       control: {
         type: 'boolean',
       },
       description: 'Tabs.List의 가로 스크롤 가능 여부',
+    },
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: ['small', 'large'],
+      description: 'Tabs.Tab의 텍스트 크기를 지정하는 **Tabs.List의** 프로퍼티',
     },
   },
 };
@@ -39,6 +46,46 @@ export const Scrollable: Story = {
       <Tabs.Panel value="tab-2">'iOS' 탭 조회중</Tabs.Panel>
       <Tabs.Panel value="tab-3">'Android' 탭 조회중</Tabs.Panel>
     </Tabs>
+  ),
+};
+
+export const ScrollableSize: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '50px' }}>
+      <div>
+        <h4> size='large' (B1_Sb_16) </h4>
+        <br />
+        <Tabs defaultTab="tab-0">
+          <Tabs.List>
+            <Tabs.Tab id="tab-0">전체</Tabs.Tab>
+            <Tabs.Tab id="tab-1">Web</Tabs.Tab>
+            <Tabs.Tab id="tab-2">iOS</Tabs.Tab>
+            <Tabs.Tab id="tab-3">Android</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panel value="tab-0">'전체' 탭 조회중</Tabs.Panel>
+          <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
+          <Tabs.Panel value="tab-2">'iOS' 탭 조회중</Tabs.Panel>
+          <Tabs.Panel value="tab-3">'Android' 탭 조회중</Tabs.Panel>
+        </Tabs>
+      </div>
+
+      <div>
+        <h4> size='small' (B3_Sb_14) </h4>
+        <br />
+        <Tabs defaultTab="tab-0">
+          <Tabs.List size="small">
+            <Tabs.Tab id="tab-0">전체</Tabs.Tab>
+            <Tabs.Tab id="tab-1">Web</Tabs.Tab>
+            <Tabs.Tab id="tab-2">iOS</Tabs.Tab>
+            <Tabs.Tab id="tab-3">Android</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panel value="tab-0">'전체' 탭 조회중</Tabs.Panel>
+          <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
+          <Tabs.Panel value="tab-2">'iOS' 탭 조회중</Tabs.Panel>
+          <Tabs.Panel value="tab-3">'Android' 탭 조회중</Tabs.Panel>
+        </Tabs>
+      </div>
+    </div>
   ),
 };
 

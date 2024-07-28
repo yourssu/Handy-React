@@ -22,11 +22,15 @@ import React from 'react';
 사용하는 `Tabs.Tab` 개수에 따라 사용해야 하는 탭 종류가 정해져 있습니다.<br />
 종류에 따른 차이는 하단 `예시` - `scrollable` 파트에서 확인하실 수 있습니다.
 
-- Scrollable Tab: `scrollable = true` 입니다. `Tabs.Tab`이 4개 이상일 경우 사용합니다.<br /><br />
+- Scrollable Tab: `scrollable = true` 입니다. `Tabs.Tab`이 4개 이상일 경우 사용합니다.
+  - Scrollable Tab은 `size` 프로퍼티를 설정할 수 있습니다.
+    <br />
+    <br />
 - Fixed Tab: `scrollable = false` 입니다. `Tabs.Tab`이 3개 이하일 경우 사용합니다.
 
   - Fixed Tab은 **모바일 웹**에서만 사용해야 합니다.
   - Fixed Tab을 사용할 때, `Tabs.Tab`의 내용은 **공백 포함 6자 이하의 텍스트**여야 합니다.
+  - Fixed Tab은 `size` 프로퍼티를 설정해도 적용되지 않습니다.
     <br />
     <br />
 
@@ -57,11 +61,12 @@ const Component = () => {
 
 ### Tabs
 
-List와 Panel을 감싸는 루트 컴포넌트입니다. `defaultTab`, `scrollable`을 프로퍼티로 넘길 수 있습니다.
+List와 Panel을 감싸는 루트 컴포넌트입니다.<br />`defaultTab`, `scrollable`을 프로퍼티로 넘길 수 있습니다.
 
 ### Tabs.List
 
-1개 이상의 Tab을 감싸는 컴포넌트입니다. (단독 사용시 에러가 발생합니다)
+1개 이상의 Tab을 감싸는 컴포넌트입니다. (단독 사용시 에러가 발생합니다)<br />
+`size`를 프로퍼티로 넘길 수 있습니다.
 
 ### Tabs.Tab
 
@@ -72,7 +77,34 @@ List와 Panel을 감싸는 루트 컴포넌트입니다. `defaultTab`, `scrollab
 하나의 Tab과 연결된 내용을 포함하는 컴포넌트입니다.<br />
 `Tabs.Tab`의 `id`와 `Tabs.Panel`의 `value`를 동일하게 설정하여 두 요소를 연결할 수 있습니다.
 
+<br />
 ## 예시
+
+### size
+
+Scrollable Tab의 텍스트 사이즈를 결정하는 `Tabs.List`의 프로퍼티입니다.<br />
+지원하는 종류는 `small`, `large` 이며, 기본값은 `large`입니다.
+
+```tsx
+const Component = () => {
+  return (
+    <Tabs defaultTab="tab-0">
+      <Tabs.List size="small">
+        <Tabs.Tab id="tab-0">전체</Tabs.Tab>
+        <Tabs.Tab id="tab-1">Web</Tabs.Tab>
+        <Tabs.Tab id="tab-2">iOS</Tabs.Tab>
+        <Tabs.Tab id="tab-3">Android</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value="tab-0">'전체' 탭 조회중</Tabs.Panel>
+      <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
+      <Tabs.Panel value="tab-2">'iOS' 탭 조회중</Tabs.Panel>
+      <Tabs.Panel value="tab-3">'Android' 탭 조회중</Tabs.Panel>
+    </Tabs>
+  );
+};
+```
+
+<Canvas of={TabsStories.ScrollableSize} />
 
 ### defaultTab
 
@@ -158,4 +190,3 @@ const Component = () => {
 ```
 
 <Canvas of={TabsStories.Click} />
-import {TabContext} from './Tab.context';
