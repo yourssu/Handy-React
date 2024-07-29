@@ -6,3 +6,7 @@ export type { BoxButtonProps } from './BoxButton';
 
 export { TextButton } from './TextButton';
 export type { TextButtonProps } from './TextButton';
+
+export { Checkbox } from './Checkbox';
+export type { CheckboxProps, CheckboxSizeType } from './Checkbox';
+
