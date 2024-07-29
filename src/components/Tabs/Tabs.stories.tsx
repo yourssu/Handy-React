@@ -4,7 +4,7 @@ import { Tabs } from './Tabs';
 import { TabListProps, TabsProps } from './Tabs.type';
 
 const meta: Meta<TabsProps & TabListProps> = {
-  title: 'Atoms/Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
   parameters: {
     layout: 'centered',
