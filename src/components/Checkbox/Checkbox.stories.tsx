@@ -96,5 +96,15 @@ const Sizes: StoryObj = {
   ),
 };
 
+const Disabled: StoryObj = {
+  render: () => (
+    <>
+      <Checkbox size="medium" disabled>
+        변경 불가
+      </Checkbox>
+    </>
+  ),
+};
+
 export default meta;
-export { Primary, Default, StateChange, Sizes };
+export { Primary, Default, StateChange, Sizes, Disabled };
