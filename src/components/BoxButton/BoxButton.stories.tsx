@@ -1,11 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { IcExternalLinkLine } from '@/style';
-
 import { BoxButton } from './BoxButton';
 
 const meta: Meta<typeof BoxButton> = {
-  title: 'Atoms/BoxButton',
+  title: 'Components/BoxButton',
   component: BoxButton,
   parameters: {
     layout: 'centered',
@@ -79,7 +77,6 @@ export const Disabled: Story = {
     size: 'large',
     hierarchy: 'primary',
     disabled: true,
-    leftIcon: <IcExternalLinkLine />,
   },
 };
 
