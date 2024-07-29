@@ -1,103 +1,121 @@
-// https://www.figma.com/file/yVXvVvBKZnG9BBsvdC3J5B/%5B0.-Common%5D-Yourssu-Design-System?type=design&node-id=1%3A461&mode=design&t=KtrwDpGrj62wFgzG-1
+import { MergeVariants } from '@/types/variant';
 
-export type SemanticBackgroundColor =
-  | 'bgNormal'
-  | 'bgElevated'
-  | 'bgRecomment'
-  | 'bgPressed'
-  | 'bgSelected'
-  | 'bgNormalDark'
-  | 'bgElevatedDark'
-  | 'bgDimDark';
+type StaticBasicVariant = 'primary' | 'secondary' | 'tertiary' | 'disabled' | 'white';
+type StaticBrandVariant = 'primary' | 'secondary';
+type StatusVariant = 'negative' | 'positive';
+type InteractiveVariant = 'enabled' | 'pressed' | 'disabled';
+type SelectableVariant = 'selected' | 'unselected';
+type SelectableVariantWithDisabled = SelectableVariant | 'disabled';
 
-export type SemanticTextColor =
-  | 'textPrimary'
-  | 'textSecondary'
-  | 'textTertiary'
-  | 'textDisabled'
-  | 'textBright'
-  | 'textPointed'
-  | 'textWarned';
+export type SemanticBackgroundBasicColor = MergeVariants<
+  'bg',
+  'basic',
+  'default' | 'light' | 'strong' | 'black'
+>;
 
-export type SemanticDimColor = 'dimNormal' | 'dimThick' | 'dimThickBright';
+export type SemanticBackgroundBrandColor = MergeVariants<'bg', 'brand', StaticBrandVariant>;
 
-export type SemanticBorderColor = 'borderThin' | 'borderNormal' | 'borderThick';
+export type SemanticBackgroundStatusColor = MergeVariants<'bg', 'status', StatusVariant>;
 
-export type SemanticButtonColor =
-  | 'buttonNormal'
-  | 'buttonNormalPressed'
-  | 'buttonBG'
-  | 'buttonEmojiBG'
-  | 'buttonBright'
-  | 'buttonDisabled'
-  | 'buttonDisabledBG'
-  | 'buttonPoint'
-  | 'buttonPointPressed'
-  | 'buttonPointBG'
-  | 'buttonWarned'
-  | 'buttonWarnedPressed'
-  | 'buttonWarnedBG';
+export type SemanticTextBasicColor = MergeVariants<'text', 'basic', StaticBasicVariant>;
 
-export type SemanticBottomBarColor = 'bottomBarNormal' | 'bottomBarSelected';
+export type SemanticTextBrandColor = MergeVariants<'text', 'brand', StaticBrandVariant>;
 
-export type SemanticInputFieldColor = 'inputFieldNormal' | 'inputFieldElevated';
+export type SemanticTextStatusColor = MergeVariants<'text', 'status', StatusVariant>;
 
-export type SemanticToastColor = 'toastBG';
+export type SemanticLineBasicColor = MergeVariants<'line', 'basic', 'light' | 'medium' | 'strong'>;
 
-export type SemanticPressedColor = 'pressed';
+export type SemanticLineStatusColor = MergeVariants<'line', 'status', StatusVariant>;
 
-export type SemanticToolTipColor = 'tooltipBG' | 'tooltipPoint';
+export type SemanticButtonBoxPrimaryColor = MergeVariants<
+  'button',
+  'box',
+  'primary',
+  InteractiveVariant
+>;
 
-export type SemanticPickerColor = 'dimPickerReverse';
+export type SemanticButtonBoxSecondaryColor = MergeVariants<
+  'button',
+  'box',
+  'secondary',
+  InteractiveVariant
+>;
 
-export type SemanticShadowColor = 'shadowThin' | 'shadowNormal';
+export type SemanticButtonBoxTertiaryColor = MergeVariants<
+  'button',
+  'box',
+  'tertiary',
+  InteractiveVariant
+>;
 
-export type SemanticLogoColor = 'pointIndigo' | 'pointViolet' | 'pointYellow';
+export type SemanticButtonFabPrimaryColor = MergeVariants<
+  'button',
+  'fab',
+  'primary',
+  InteractiveVariant
+>;
 
-type SemanticItemColorVariants<ColorName extends string> =
-  | `${ColorName}Primary`
-  | `${ColorName}BG`
-  | `${ColorName}Text`;
+export type SemanticButtonFabSecondaryColor = MergeVariants<
+  'button',
+  'fab',
+  'secondary',
+  InteractiveVariant
+>;
 
-export type SemanticMonoItemColor = SemanticItemColorVariants<'monoItem'>;
-export type SemanticLimeItemColor = SemanticItemColorVariants<'limeItem'>;
-export type SemanticGreenItemColor = SemanticItemColorVariants<'greenItem'>;
-export type SemanticEmeraldItemColor = SemanticItemColorVariants<'emeraldItem'>;
-export type SemanticAquaItemColor = SemanticItemColorVariants<'aquaItem'>;
-export type SemanticBlueItemColor = SemanticItemColorVariants<'blueItem'>;
-export type SemanticIndigoItemColor = SemanticItemColorVariants<'indigoItem'>;
-export type SemanticVioletItemColor = SemanticItemColorVariants<'violetItem'>;
-export type SemanticPurpleItemColor = SemanticItemColorVariants<'purpleItem'>;
-export type SemanticPinkItemColor = SemanticItemColorVariants<'pinkItem'>;
+export type SemanticButtonTextPrimaryColor = MergeVariants<
+  'button',
+  'text',
+  'primary',
+  InteractiveVariant
+>;
 
-export type SemanticItemColor =
-  | SemanticMonoItemColor
-  | SemanticLimeItemColor
-  | SemanticGreenItemColor
-  | SemanticEmeraldItemColor
-  | SemanticAquaItemColor
-  | SemanticBlueItemColor
-  | SemanticIndigoItemColor
-  | SemanticVioletItemColor
-  | SemanticPurpleItemColor
-  | SemanticPinkItemColor;
+export type SemanticButtonTextSecondaryColor = MergeVariants<
+  'button',
+  'text',
+  'secondary',
+  InteractiveVariant
+>;
 
-export type SemanticColor =
-  | SemanticBackgroundColor
-  | SemanticTextColor
-  | SemanticDimColor
-  | SemanticBorderColor
-  | SemanticButtonColor
-  | SemanticBottomBarColor
-  | SemanticInputFieldColor
-  | SemanticToastColor
-  | SemanticPressedColor
-  | SemanticToolTipColor
-  | SemanticPickerColor
-  | SemanticShadowColor
-  | SemanticLogoColor
-  | SemanticItemColor;
+export type SemanticButtonRadioColor = MergeVariants<
+  'button',
+  'radio',
+  SelectableVariantWithDisabled
+>;
 
-// Utility Types
-type OnlyItemBGColor<T> = T extends `${string}ItemBG` ? T : never;
-export type SemanticItemBGColor = OnlyItemBGColor<SemanticColor>;
+export type SemanticIconBasicColor = MergeVariants<'icon', 'basic', StaticBasicVariant>;
+
+export type SemanticIconBrandColor = MergeVariants<'icon', 'brand', StaticBrandVariant>;
+
+export type SemanticCheckboxColor = MergeVariants<'checkbox', SelectableVariantWithDisabled>;
+
+export type SemanticChipColor = MergeVariants<'chip', SelectableVariantWithDisabled>;
+
+export type SemanticPaginationBrandColor = MergeVariants<'pagination', 'brand', 'pressed'>;
+
+export type SemanticPaginationBasicColor = MergeVariants<'pagination', 'basic', SelectableVariant>;
+
+export type SemanticColorType =
+  | SemanticBackgroundBasicColor
+  | SemanticBackgroundBrandColor
+  | SemanticBackgroundStatusColor
+  | SemanticTextBasicColor
+  | SemanticTextBrandColor
+  | SemanticTextStatusColor
+  | SemanticLineBasicColor
+  | SemanticLineStatusColor
+  | SemanticButtonBoxPrimaryColor
+  | SemanticButtonBoxSecondaryColor
+  | SemanticButtonBoxTertiaryColor
+  | SemanticButtonFabPrimaryColor
+  | SemanticButtonFabSecondaryColor
+  | SemanticButtonTextPrimaryColor
+  | SemanticButtonTextSecondaryColor
+  | SemanticButtonRadioColor
+  | SemanticIconBasicColor
+  | SemanticIconBrandColor
+  | SemanticCheckboxColor
+  | SemanticChipColor
+  | SemanticPaginationBrandColor
+  | SemanticPaginationBasicColor;
+
+export type SemanticColorPalette = Readonly<Record<SemanticColorType, string>>;
