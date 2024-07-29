@@ -24,13 +24,13 @@ TextButton의 기본 사용법입니다.
 지원하는 크기는 `medium`, `small`, `xsmall` 입니다.
 
 ```tsx
-const Component = () => {
-  return (
-    <TextButton size="medium" hierarchy="primary">
-      Primary/Medium
-    </TextButton>
-  );
-};
+import { TextButton } from '@yourssu/design-system-react';
+```
+
+```tsx
+<TextButton size="medium" hierarchy="primary">
+  Primary/Medium
+</TextButton>
 ```
 
 <Canvas of={TextButtonStories.Sizes} withSource="none" />
@@ -48,12 +48,24 @@ const Component = () => {
 
 `TextButton`을 클릭할 수 없게 막습니다.
 
+```tsx
+<TextButton size="medium" hierarchy="primary" disabled={true}>
+  Primary/Disabled/Medium
+</TextButton>
+```
+
 <Canvas of={TextButtonStories.Disabled} withSource="none" />
 
 ### width
 
 `width` prop으로 원하는 가로 길이를 설정합니다.<br />
 단, `children` 콘텐츠 크기보다 작은 값을 입력할 경우 적용되지 않습니다.
+
+```tsx
+<TextButton size="medium" hierarchy="primary" width="500px">
+  Primary/Medium/500px
+</TextButton>
+```
 
 <Canvas of={TextButtonStories.Width} withSource="none" />
 
@@ -62,19 +74,15 @@ const Component = () => {
 `onClick` 메서드를 이용하여 원하는 이벤트를 할당할 수 있습니다.
 
 ```tsx
-const Component = () => {
-  return (
-    <TextButton
-      size="medium"
-      hierarchy="primary"
-      onClick={() => {
-        alert('TextButton을 클릭했습니다');
-      }}
-    >
-      Primary/Medium
-    </TextButton>
-  );
-};
+<TextButton
+  size="medium"
+  hierarchy="primary"
+  onClick={() => {
+    alert('TextButton을 클릭했습니다');
+  }}
+>
+  Click me!
+</TextButton>
 ```
 
 <Canvas of={TextButtonStories.Click} withSource="none" />

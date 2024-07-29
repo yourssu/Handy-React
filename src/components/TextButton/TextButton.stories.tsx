@@ -5,7 +5,7 @@ import { IcExternalLinkLine } from '@/style';
 import { TextButton } from './TextButton';
 
 const meta: Meta<typeof TextButton> = {
-  title: 'Atoms/TextButton',
+  title: 'Components/TextButton',
   component: TextButton,
   parameters: {
     layout: 'centered',
@@ -74,7 +74,6 @@ export const Disabled: Story = {
     size: 'medium',
     hierarchy: 'primary',
     disabled: true,
-    leftIcon: <IcExternalLinkLine />,
   },
 };
 
