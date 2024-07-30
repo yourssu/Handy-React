@@ -47,9 +47,10 @@ const Tab = ({ children, id, onClick, ...props }: TabProps) => {
     <StyledTab
       type="button"
       role="tab"
+      aria-selected={currentTab === id}
+      aria-controls={id}
       onClick={onClickWrapper}
       $isSelected={currentTab === id}
-      aria-selected={currentTab === id}
       {...props}
     >
       {children}
