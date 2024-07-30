@@ -5,7 +5,7 @@ export interface TabsProps {
 }
 
 export type TabSize = 'large' | 'small';
-export interface TabListProps {
+export interface TabListProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   size?: TabSize;
 }

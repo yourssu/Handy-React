@@ -17,20 +17,20 @@ export const Tabs = ({ scrollable = true, children, defaultTab }: TabsProps) => 
   );
 };
 
-const List = ({ children, size = 'large' }: TabListProps) => {
+const List = ({ children, size = 'large', ...props }: TabListProps) => {
   const validChildren = Children.toArray(children);
   if (validChildren.length === 0)
     throw new Error('List 컴포넌트 안에 Tab 컴포넌트를 1개 이상 넣어주세요');
 
   const { scrollable } = useContext(TabContext) ?? { scrollable: true };
   return (
-    <StyledList role="tablist" $scrollable={scrollable} $size={size}>
+    <StyledList role="tablist" $scrollable={scrollable} $size={size} {...props}>
       {children}
     </StyledList>
   );
 };
 
-const Tab = ({ children, id, onClick }: TabProps) => {
+const Tab = ({ children, id, onClick, ...props }: TabProps) => {
   const { scrollable, currentTab, setCurrentTab } = useContext(TabContext) ?? {
     scrollable: true,
     currentTab: undefined,
@@ -49,18 +49,19 @@ const Tab = ({ children, id, onClick }: TabProps) => {
       onClick={onClickWrapper}
       $isSelected={currentTab === id}
       aria-selected={currentTab === id}
+      {...props}
     >
       {children}
     </StyledTab>
   );
 };
 
-const Panel = ({ children, value }: TabPanelProps) => {
+const Panel = ({ children, value, ...props }: TabPanelProps) => {
   const { currentTab } = useContext(TabContext) ?? { currentTab: undefined };
 
   if (currentTab !== value) return;
   return (
-    <div role="tabpanel" aria-labelledby={value}>
+    <div role="tabpanel" aria-labelledby={value} {...props}>
       {children}
     </div>
   );
