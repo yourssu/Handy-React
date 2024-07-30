@@ -1,29 +1,52 @@
 import { styled } from 'styled-components';
 
-export const StyledChipContainer = styled.div<{ $selected: boolean; $disabled: boolean }>`
+import { ChipSizeType } from '@/components/Chip/Chip.type';
+
+export const StyledChipContainer = styled.div<{
+  $size: ChipSizeType;
+  $selected: boolean;
+  $disabled: boolean;
+  $isRoleInput: boolean;
+}>`
   display: inline-flex;
   align-items: center;
   gap: 4px;
 
-  padding: 0 12px;
-  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: ${({ $size }) => ($size === 'small' ? '2px' : '6px')};
+  padding-bottom: ${({ $size }) => ($size === 'small' ? '2px' : '6px')};
 
   border-radius: 9999px;
 
-  background-color: ${({ $selected, $disabled }) =>
-    $disabled ? '#F7F8F8' : $selected ? '#DDE1FF' : '#F1F1F4'};
+  background-color: ${({ $selected, $disabled, theme }) =>
+    $disabled
+      ? theme.semantic.color.chipDisabled
+      : $selected
+        ? theme.semantic.color.chipSelected
+        : theme.semantic.color.chipUnselected};
 
-  color: ${({ $selected, $disabled }) =>
-    $disabled ? '#B5B9C4' : $selected ? '#6B5CFF' : '#4B505D'};
+  color: ${({ $selected, $disabled, theme }) =>
+    $disabled
+      ? theme.semantic.color.textBasicDisabled
+      : $selected
+        ? theme.semantic.color.textBrandPrimary
+        : theme.semantic.color.textBasicSecondary};
 
   svg {
-    fill: ${({ $selected, $disabled }) =>
-      $disabled ? '#B5B9C4' : $selected ? '#6B5CFF' : '#4B505D'};
+    fill: ${({ $selected, $disabled, theme }) =>
+      $disabled
+        ? theme.semantic.color.textBasicDisabled
+        : $selected
+          ? theme.semantic.color.textBrandPrimary
+          : theme.semantic.color.textBasicSecondary};
   }
 
-  cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${({ $disabled, $isRoleInput }) =>
+    $isRoleInput ? 'default' : $disabled ? 'not-allowed' : 'pointer'};
 
-  ${({ theme, $selected }) => ($selected ? theme.typo.B3_Sb_14 : theme.typo.B3_Rg_14)};
+  ${({ theme, $selected, $disabled }) =>
+    $selected && !$disabled ? theme.typo.B3_Sb_14 : theme.typo.B3_Rg_14};
 `;
 
 export const StyledChipContent = styled.span`

@@ -1,15 +1,16 @@
-// TODO: drag 기능 추가 시 사용할 타입
-// import { Dispatch, SetStateAction } from 'react';
+import { ChipRefPayloadType, ChipRoleType } from '@/components/Chip/Chip.type';
 
-// type ChipGroupProps<D extends React.ReactNode> = {
-//   children: React.ReactNode;
-//   drag?: boolean;
-//   dragItems?: D[];
-//   dragItemSetter?: Dispatch<SetStateAction<D[]>>;
-// };
+type ChipGroupRefPayloadType = {
+  element: HTMLDivElement | null;
+  chipRefs: React.MutableRefObject<ChipRefPayloadType[]>;
+  clearAllSelected: () => void;
+};
 
 type ChipGroupProps = {
   children: React.ReactNode;
-};
+  role: ChipRoleType;
+  swipable?: boolean;
+  onSelectedChange?: (selectedChipElements: HTMLDivElement[]) => void;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export type { ChipGroupProps };
+export type { ChipGroupProps, ChipGroupRefPayloadType };
