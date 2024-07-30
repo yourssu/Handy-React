@@ -45,6 +45,7 @@ const Tab = ({ children, id, onClick, ...props }: TabProps) => {
   const StyledTab = scrollable ? StyledScrollableTab : StyledFixedTab;
   return (
     <StyledTab
+      type="button"
       role="tab"
       onClick={onClickWrapper}
       $isSelected={currentTab === id}
