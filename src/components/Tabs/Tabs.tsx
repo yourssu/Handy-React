@@ -1,4 +1,4 @@
-import React, { Children, useContext, useState } from 'react';
+import React, { Children, useContext, useRef, useState } from 'react';
 
 import { TabContext } from './Tab.context';
 import { StyledFixedTab, StyledList, StyledScrollableTab } from './Tabs.style';
@@ -23,6 +23,7 @@ const List = ({ children, size = 'large', ...props }: TabListProps) => {
     throw new Error('List 컴포넌트 안에 Tab 컴포넌트를 1개 이상 넣어주세요');
 
   const { scrollable } = useContext(TabContext) ?? { scrollable: true };
+
   return (
     <StyledList role="tablist" $scrollable={scrollable} $size={size} {...props}>
       {children}
@@ -37,10 +38,40 @@ const Tab = ({ children, id, onClick, ...props }: TabProps) => {
     setCurrentTab: undefined,
   };
   const isSelected = currentTab === id;
+  const tabRef = useRef<HTMLButtonElement>(null);
 
   const onClickWrapper = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setCurrentTab?.(id);
     onClick?.(event);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (!tabRef.current || !tabRef.current.parentNode) return;
+
+    // TODO: ref로 가져오는 형제 노드는 ChildNode인데 click/focus()는 HTMLElement가 가지는 메서드라 단언문을 사용함. 개선할 수 없을까 🥲
+    const previousTab = tabRef.current.previousSibling as HTMLButtonElement;
+    const nextTab = tabRef.current.nextSibling as HTMLButtonElement;
+    const firstTab = tabRef.current.parentNode.firstChild as HTMLButtonElement;
+    const lastTab = tabRef.current.parentNode.lastChild as HTMLButtonElement;
+
+    if (event.code === 'ArrowLeft') {
+      if (previousTab) {
+        previousTab.click();
+        previousTab.focus();
+        return;
+      }
+      lastTab.click();
+      lastTab.focus();
+    }
+    if (event.code === 'ArrowRight') {
+      if (nextTab) {
+        nextTab.click();
+        nextTab.focus();
+        return;
+      }
+      firstTab.click();
+      firstTab.focus();
+    }
   };
 
   const StyledTab = scrollable ? StyledScrollableTab : StyledFixedTab;
@@ -52,7 +83,9 @@ const Tab = ({ children, id, onClick, ...props }: TabProps) => {
       aria-controls={id}
       tabIndex={isSelected ? 0 : -1}
       onClick={onClickWrapper}
+      onKeyDown={handleKeyDown}
       $isSelected={isSelected}
+      ref={tabRef}
       {...props}
     >
       {children}
