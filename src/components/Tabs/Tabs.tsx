@@ -1,4 +1,4 @@
-import React, { Children, useContext, useRef, useState } from 'react';
+import React, { Children, isValidElement, useContext, useRef, useState } from 'react';
 
 import { TabContext } from './Tab.context';
 import { StyledFixedTab, StyledList, StyledScrollableTab } from './Tabs.style';
@@ -18,9 +18,16 @@ export const Tabs = ({ scrollable = true, children, defaultTab }: TabsProps) => 
 };
 
 const List = ({ children, size = 'large', ...props }: TabListProps) => {
-  const validChildren = Children.toArray(children);
-  if (validChildren.length === 0)
-    throw new Error('List 컴포넌트 안에 Tab 컴포넌트를 1개 이상 넣어주세요');
+  const TabIdSet = new Set();
+
+  Children.toArray(children).forEach((child) => {
+    if (!isValidElement(child)) return;
+    if (TabIdSet.has(child.props.id)) throw new Error('Tabs.Tab 컴포넌트에 중복 id가 존재합니다.');
+    TabIdSet.add(child.props.id);
+  });
+
+  if (TabIdSet.size === 0)
+    throw new Error('Tabs.List 컴포넌트 안에 Tabs.Tab 컴포넌트를 1개 이상 넣어주세요.');
 
   const { scrollable } = useContext(TabContext) ?? { scrollable: true };
 
@@ -77,6 +84,7 @@ const Tab = ({ children, id, onClick, ...props }: TabProps) => {
   const StyledTab = scrollable ? StyledScrollableTab : StyledFixedTab;
   return (
     <StyledTab
+      className="tab"
       type="button"
       role="tab"
       aria-selected={isSelected}
