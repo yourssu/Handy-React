@@ -36,6 +36,7 @@ const Tab = ({ children, id, onClick, ...props }: TabProps) => {
     currentTab: undefined,
     setCurrentTab: undefined,
   };
+  const isSelected = currentTab === id;
 
   const onClickWrapper = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setCurrentTab?.(id);
@@ -47,10 +48,11 @@ const Tab = ({ children, id, onClick, ...props }: TabProps) => {
     <StyledTab
       type="button"
       role="tab"
-      aria-selected={currentTab === id}
+      aria-selected={isSelected}
       aria-controls={id}
+      tabIndex={isSelected ? 0 : -1}
       onClick={onClickWrapper}
-      $isSelected={currentTab === id}
+      $isSelected={isSelected}
       {...props}
     >
       {children}
@@ -63,7 +65,7 @@ const Panel = ({ children, value, ...props }: TabPanelProps) => {
 
   if (currentTab !== value) return;
   return (
-    <div role="tabpanel" aria-labelledby={value} {...props}>
+    <div role="tabpanel" aria-labelledby={value} tabIndex={0} {...props}>
       {children}
     </div>
   );
