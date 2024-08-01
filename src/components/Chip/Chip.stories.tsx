@@ -61,7 +61,7 @@ const ControlComponent = (args: object) => {
 const DefaultUsageComponent = () => {
   return (
     <Chip size="medium" role="suggestion">
-      sdsd
+      칩
     </Chip>
   );
 };
