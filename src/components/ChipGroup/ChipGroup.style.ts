@@ -6,8 +6,7 @@ export const StyledChipGroupContainer = styled.div<{ $swipable: boolean; $isSwip
   flex-wrap: ${({ $swipable }) => ($swipable ? 'nowrap' : 'wrap')};
   overflow-x: ${({ $swipable }) => ($swipable ? 'auto' : 'visible')};
 
-  row-gap: ${({ theme }) => theme.primitive.number[10]}px;
-  column-gap: ${({ theme }) => theme.primitive.number[8]}px;
+  gap: ${({ theme }) => theme.primitive.number[10]}px;
 
   cursor: ${({ $swipable, $isSwiping }) => $swipable && ($isSwiping ? 'grabbing' : 'grab')};
 
