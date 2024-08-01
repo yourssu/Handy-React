@@ -10,13 +10,15 @@ export interface TabListProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: TabSize;
 }
 
-export interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface TabProps<TabType extends string> extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  id: string;
+  id: TabType;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-export interface TabPanelProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TabPanelProps<TabType extends string>
+  extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  value: string;
+
+  value: TabType;
 }

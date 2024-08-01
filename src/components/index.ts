@@ -10,5 +10,5 @@ export type { TextButtonProps } from './TextButton';
 export { Checkbox } from './Checkbox';
 export type { CheckboxProps, CheckboxSizeType } from './Checkbox';
 
-export { Tabs } from './Tabs';
+export { useTabs } from './Tabs';
 export type { TabsProps, TabListProps, TabProps, TabPanelProps } from './Tabs';
