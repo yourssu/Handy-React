@@ -2,12 +2,14 @@ import { styled } from 'styled-components';
 
 import { ChipSizeType } from '@/components/Chip/Chip.type';
 
-export const StyledChipContainer = styled.div<{
+interface StyledChipContainerProps {
   $size: ChipSizeType;
   $selected: boolean;
   $disabled: boolean;
   $isRoleInput: boolean;
-}>`
+}
+
+export const StyledChipContainer = styled.div<StyledChipContainerProps>`
   display: inline-flex;
   align-items: center;
   gap: 4px;
