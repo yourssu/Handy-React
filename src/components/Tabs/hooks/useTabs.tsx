@@ -55,13 +55,20 @@ export const useTabs = <TabType extends string>({
       onClick?.(event);
     };
 
+    const toHTMLElement = (node: ChildNode | null): HTMLElement | null => {
+      if (!node || node.nodeType !== Node.ELEMENT_NODE) return null;
+      return node as HTMLElement;
+    };
+
     const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
       if (!tabRef.current || !tabRef.current.parentNode) return;
 
-      const previousTab = tabRef.current.previousSibling as HTMLButtonElement;
-      const nextTab = tabRef.current.nextSibling as HTMLButtonElement;
-      const firstTab = tabRef.current.parentNode.firstChild as HTMLButtonElement;
-      const lastTab = tabRef.current.parentNode.lastChild as HTMLButtonElement;
+      const previousTab = toHTMLElement(tabRef.current.previousSibling);
+      const nextTab = toHTMLElement(tabRef.current.nextSibling);
+      const firstTab = toHTMLElement(tabRef.current.parentNode.firstChild);
+      const lastTab = toHTMLElement(tabRef.current.parentNode.lastChild);
+
+      if (!firstTab || !lastTab) return;
 
       if (event.code === 'ArrowLeft') {
         if (previousTab) {
