@@ -128,7 +128,7 @@ const TabsClickTest = ({ defaultTab }: { defaultTab: TabType }) => {
             Web
           </Tabs.Tab>
         </Tabs.List>
-        <Tabs.Panel value="tab-0">'전체' 탭 조회중</Tabs.Panel>
+        <Tabs.Panel value="tab-0">'Web' 탭을 클릭해보세요!</Tabs.Panel>
         <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
       </Tabs>
     </div>
