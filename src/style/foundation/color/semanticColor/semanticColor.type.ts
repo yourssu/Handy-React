@@ -62,6 +62,13 @@ export type SemanticButtonFabSecondaryColor = MergeVariants<
   InteractiveVariant
 >;
 
+export type SemanticButtonFabShadowColor = MergeVariants<
+  'button',
+  'fab',
+  StaticBrandVariant,
+  'shadow'
+>;
+
 export type SemanticButtonTextPrimaryColor = MergeVariants<
   'button',
   'text',
@@ -108,6 +115,7 @@ export type SemanticColorType =
   | SemanticButtonBoxTertiaryColor
   | SemanticButtonFabPrimaryColor
   | SemanticButtonFabSecondaryColor
+  | SemanticButtonFabShadowColor
   | SemanticButtonTextPrimaryColor
   | SemanticButtonTextSecondaryColor
   | SemanticButtonRadioColor
