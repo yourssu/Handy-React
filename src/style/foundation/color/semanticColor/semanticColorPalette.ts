@@ -51,8 +51,6 @@ export const semanticColorPalette: SemanticColorPalette = {
   buttonFabPrimaryEnabled: primitiveColorPalette.violet500,
   buttonFabPrimaryPressed: primitiveColorPalette.violet700,
   buttonFabPrimaryDisabled: primitiveColorPalette.gray100,
-  buttonFabPrimaryShadow: primitiveColorPalette.effect050,
-  buttonFabSecondaryShadow: primitiveColorPalette.effect100,
 
   buttonRadioSelected: primitiveColorPalette.violet500,
   buttonRadioUnselected: primitiveColorPalette.gray200,

@@ -1,9 +1,10 @@
 import {
   PrimitiveColorPalette,
-  SemanticColorPalette,
   PrimitiveNumber,
-  Typos,
+  SemanticColorPalette,
+  SemanticEffect,
   SemanticRadius,
+  Typos,
 } from '../foundation';
 
 export type YDSTheme = {
@@ -15,6 +16,7 @@ export type YDSTheme = {
   semantic: {
     color: SemanticColorPalette;
     radius: SemanticRadius;
+    effect: SemanticEffect;
   };
 
   typo: Typos;
