@@ -1,0 +1,64 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import React from 'react';
+import { Fab } from './Fab';
+import * as FabStories from './Fab.stories';
+
+<Meta of={FabStories} />
+
+# Fab(Floating Action Button)
+
+사용자가 중요한 작업이나 기능을 동시적으로 수행하는 데 사용되는 요소입니다.<br/>
+고정된 위치에서 기능한다는 특징을 가집니다.
+
+<Canvas of={FabStories.Default} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+Fab 컴포넌트의 필수 프로퍼티는 `size`, `hierarchy` 입니다.
+
+필수 프로퍼티인 `size`를 이용하여 Fab의 크기를 설정해주세요.<br/>
+지원하는 크기는 `small`, `large` 입니다.
+
+```tsx
+import { Fab } from '@yourssu/design-system-react';
+```
+
+```tsx
+<Fab size="large" hierarchy="primary">
+  <IcExternalLinkLine />
+</Fab>
+```
+
+<Canvas of={FabStories.Sizes} />
+
+필수 프로퍼티인 `hierarchy`를 이용하여 Fab의 시각적 걔층을 설정해주세요.<br/>
+지원하는 계층은 `primary`, `secondary` 입니다.
+
+<Canvas of={FabStories.Hierarchies} />
+
+이외의 프로퍼티들은 하단의 예시에서 확인할 수 있습니다.
+
+## 예시
+
+### disabled
+
+`Fab` 컴포넌트와의 상호작용을 막습니다.
+
+```tsx
+<Fab size="large" hierarchy="primary" disabled={true}>
+  <IcExternalLinkLine />
+</Fab>
+```
+
+<Canvas of={FabStories.Disabled} />
+ 
+이외 HTML `<button>` 요소에서 사용할 수 있는 attribute를 모두 사용할 수 있습니다. <br/>
+> https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes
+
+## 주의사항
+
+한 화면에 2개 이상의 `Fab` 컴포넌트를 사용할 경우 `Fab` 컴포넌트 사이에는 세로 12px의 gap이 존재해야 합니다.
