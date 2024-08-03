@@ -4,8 +4,10 @@ import {
   primitiveColorPalette,
   primitiveNumber,
   semanticColorPalette,
+  semanticEffect,
   semanticRadius,
   typo,
+  zIndex,
 } from '../foundation';
 
 import { YDSTheme } from './theme.type';
@@ -23,8 +25,10 @@ export const YDSThemeProvider = ({ children }: YDSThemeProviderProps) => {
     semantic: {
       color: semanticColorPalette,
       radius: semanticRadius,
+      effect: semanticEffect,
     },
     typo,
+    zIndex,
   };
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
