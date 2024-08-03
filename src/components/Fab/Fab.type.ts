@@ -1,5 +1,3 @@
-import React from 'react';
-
 export type FabHierarchy = 'primary' | 'secondary';
 export type FabSize = 'large' | 'small';
 
