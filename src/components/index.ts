@@ -10,5 +10,5 @@ export type { TextButtonProps } from './TextButton';
 export { Checkbox } from './Checkbox';
 export type { CheckboxProps, CheckboxSizeType } from './Checkbox';
 
-export type * from './Fab';
 export { Fab } from './Fab';
+export type { FabHierarchy, FabProps, FabSize } from './Fab';

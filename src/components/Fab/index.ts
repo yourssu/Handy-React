@@ -1,2 +1,2 @@
 export { Fab } from './Fab';
-export type * from './Fab.type';
+export type { FabHierarchy, FabProps, FabSize } from './Fab.type';
