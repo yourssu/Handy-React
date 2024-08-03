@@ -7,6 +7,7 @@ import {
   semanticEffect,
   semanticRadius,
   typo,
+  zIndex,
 } from '../foundation';
 
 import { YDSTheme } from './theme.type';
@@ -27,6 +28,7 @@ export const YDSThemeProvider = ({ children }: YDSThemeProviderProps) => {
       effect: semanticEffect,
     },
     typo,
+    zIndex,
   };
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

@@ -5,6 +5,7 @@ import {
   SemanticEffect,
   SemanticRadius,
   Typos,
+  ZIndex,
 } from '../foundation';
 
 export type YDSTheme = {
@@ -20,4 +21,5 @@ export type YDSTheme = {
   };
 
   typo: Typos;
+  zIndex: ZIndex;
 };
