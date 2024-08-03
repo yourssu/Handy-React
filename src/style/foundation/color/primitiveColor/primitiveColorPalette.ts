@@ -35,4 +35,8 @@ export const primitiveColorPalette: PrimitiveColorPalette = {
   // Primitive Status Color
   statusRedMain: '#FF5C5C',
   statusRedSub: '#FFEBEB',
+
+  // Primitive Effect Color
+  effect050: 'rgba(181, 185, 196, 0.25)', // #B5B9C4, alpha: 25%,
+  effect100: 'rgba(110, 118, 135, 0.25)', // #6E7687',alpha: 25%,
 } as const;
