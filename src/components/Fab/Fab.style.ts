@@ -81,6 +81,7 @@ const disabledStyles = css<StyledFabProps>`
 
 export const StyledFab = styled.button<StyledFabProps>`
   position: fixed;
+  z-index: ${({ theme }) => theme.zIndex.fab};
   bottom: 32px;
   right: 16px;
 
