@@ -83,7 +83,7 @@ export const StyledFab = styled.button<StyledFabProps>`
   position: fixed;
   bottom: 32px;
   right: 16px;
-  
+
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -97,4 +97,5 @@ export const StyledFab = styled.button<StyledFabProps>`
     ${disabledStyles}
     box-shadow: none;
     cursor: not-allowed;
+  }
 `;
