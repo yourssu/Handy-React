@@ -55,18 +55,18 @@ export const useTabs = <TabType extends string>({
       onClick?.(event);
     };
 
-    const toHTMLElement = (node: ChildNode | null): HTMLElement | null => {
-      if (!node || node.nodeType !== Node.ELEMENT_NODE) return null;
-      return node as HTMLElement;
+    const toButtonElement = (node: ChildNode | null): HTMLButtonElement | null => {
+      if (node instanceof HTMLButtonElement) return node;
+      return null;
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
       if (!tabRef.current || !tabRef.current.parentNode) return;
 
-      const previousTab = toHTMLElement(tabRef.current.previousSibling);
-      const nextTab = toHTMLElement(tabRef.current.nextSibling);
-      const firstTab = toHTMLElement(tabRef.current.parentNode.firstChild);
-      const lastTab = toHTMLElement(tabRef.current.parentNode.lastChild);
+      const previousTab = toButtonElement(tabRef.current.previousSibling);
+      const nextTab = toButtonElement(tabRef.current.nextSibling);
+      const firstTab = toButtonElement(tabRef.current.parentNode.firstChild);
+      const lastTab = toButtonElement(tabRef.current.parentNode.lastChild);
 
       if (!firstTab || !lastTab) return;
 
