@@ -22,10 +22,13 @@ export type PrimitiveNeutralColor = MergeVariants<'neutral', 'black' | 'white' |
 
 export type PrimitiveStatusColor = MergeVariants<'status', 'red', 'main' | 'sub'>;
 
+export type PrimitiveEffectColor = 'effect050' | 'effect100';
+
 export type PrimitiveColorType =
   | PrimitiveVioletColor
   | PrimitiveGrayColor
   | PrimitiveNeutralColor
-  | PrimitiveStatusColor;
+  | PrimitiveStatusColor
+  | PrimitiveEffectColor;
 
 export type PrimitiveColorPalette = Readonly<Record<PrimitiveColorType, string>>;

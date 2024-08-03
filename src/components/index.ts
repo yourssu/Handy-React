@@ -12,3 +12,6 @@ export type { CheckboxProps, CheckboxSizeType } from './Checkbox';
 
 export { useTabs } from './Tabs';
 export type { TabsProps, TabListProps, TabProps, TabPanelProps } from './Tabs';
+
+export { Fab } from './Fab';
+export type { FabHierarchy, FabProps, FabSize } from './Fab';
