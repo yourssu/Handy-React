@@ -1,0 +1,63 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as DotPaginationStories from './DotPagination.stories';
+import { DotPagination } from './DotPagination';
+import React from 'react';
+
+<Meta of={DotPaginationStories} />
+
+# DotPagination
+
+Pagination은 콘텐츠 또는 데이터를 여러 페이지로 분할하고 숫자나 기호(점, 선)를 사용하여 총 정보량과 현재 사용자가 속한 지점을 안내합니다.<br />
+사용자의 현재 지점을 알려줌으로써 사용자가 혼란 없이 정보를 얻고 서비스를 원활하게 이용할 수 있도록 합니다.<br />
+
+DotPagination은 콘텐츠가 페이지로 제공된다는 정보를 간단히 제공할 때 사용합니다.<br />
+사용자가 콘텐츠 사이를 쉽게 이동할 수 있도록 합니다.<br />
+
+<Canvas of={DotPaginationStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+DotPagination의 기본 사용법입니다.
+
+<Canvas of={DotPaginationStories.Secondary} />
+
+```tsx
+import { DotPagination } from '@yourssu/design-system-react';
+
+const [currentPage, setCurrentPage] = useState(1);
+
+<DotPagination totalPage={5} setPage={setCurrentPage} />;
+```
+
+<br />
+<br />
+
+## 예시
+
+### totalPage
+
+전체 페이지 수를 의미하는 프로퍼티입니다. 2 미만의 값을 넣을 경우 에러가 발생합니다.<br />
+`DotPagination`은 페이지 수가 **2 이상~ 5 이하**일 때 사용할 것을 권장합니다.
+
+<Canvas of={DotPaginationStories.TotalPage} />
+
+### size
+
+`DotPagination`의 크기와 간격을 결정하는 프로퍼티입니다. 디바이스 환경에 맞는 값을 사용해야 합니다.<br />
+지원하는 종류는 `mobile`, `web`이며, 기본값은 `web`입니다.
+
+|                | mobile | web  |
+| -------------- | ------ | ---- |
+| Dot 1개의 크기 | 6px    | 10px |
+| Dot 사이 간격  | 6px    | 10px |
+
+<Canvas of={DotPaginationStories.Sizes} />
+
+이외 HTML `<input>` 요소에서 사용할 수 있는 attribute를 모두 사용할 수 있습니다. <br/>
+(단, `type='radio'`에 적용할 수 있는 attribute만 사용해주세요)
+
+> https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes
