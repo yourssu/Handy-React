@@ -23,7 +23,10 @@ DotPagination은 콘텐츠가 페이지로 제공된다는 정보를 간단히 �
 
 DotPagination의 기본 사용법입니다.
 
-<Canvas of={DotPaginationStories.Secondary} />
+필수 프로퍼티인 `totalPage`, `setPage`를 설정해주세요.<br />
+
+- `totalPage` : 전체 페이지 수
+- `setPage` : 현재 페이지를 변경하는 함수
 
 ```tsx
 import { DotPagination } from '@yourssu/design-system-react';
@@ -32,6 +35,8 @@ const [currentPage, setCurrentPage] = useState(1);
 
 <DotPagination totalPage={5} setPage={setCurrentPage} />;
 ```
+
+<Canvas of={DotPaginationStories.Secondary} />
 
 <br />
 <br />

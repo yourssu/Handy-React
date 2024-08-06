@@ -17,7 +17,7 @@ export const DotPagination = ({
 
   const handleChange = (page: number) => {
     setCurrentPage(page);
-    setPage(page);
+    setPage?.(page);
   };
 
   return (

@@ -19,7 +19,7 @@ const meta: Meta<typeof DotPagination> = {
       control: { type: 'radio', options: ['mobile', 'web'] },
     },
     setPage: {
-      description: '페이지를 변경하는 함수',
+      description: '현재 페이지를 변경하는 함수',
     },
   },
 };
