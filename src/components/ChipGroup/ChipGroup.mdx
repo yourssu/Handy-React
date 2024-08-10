@@ -1,0 +1,294 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as ChipGroupStories from './ChipGroup.stories';
+
+<Meta of={ChipGroupStories} />
+
+# ChipGroup
+
+ChipGroup은 둘 이상의 Chip들을 간단하고 더욱 선언적으로 조작할 수 있는 UI를 구성해줍니다.
+
+<Canvas of={ChipGroupStories.Control} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+ChipGroup은 필수 프로퍼티로 `role` 을 받습니다.
+
+- `role`: 자식 Chip들의 용법을 결정합니다. 값은 `input`, `filter`, `suggestion` 중 하나입니다.
+
+ChipGroup 내부의 `Chip` 들은 `role` 프로퍼티를 **공통적으로 상속**받습니다.  
+또한, 반드시 **내부의 `Chip` 들은 `role` 프로퍼티를 `group` 값으로 설정**해야 합니다.
+
+<br />
+
+role에 따른 기능적 차이는 아래와 같습니다.
+
+- `input`: 사용자가 입력한 개별적인 정보를 나타내기 위해 사용합니다.
+- `filter`: 콘텐츠를 필터링할 때 사용합니다. 자식 Chip들의 **다중선택이 가능**합니다.
+- `suggestion`: 사용자가 선택할 수 있는 옵션을 제공할 때 사용합니다. 자식 Chip들의 **다중선택이 불가능**합니다.
+
+<br />
+<br />
+
+### role : suggestion
+
+```tsx
+<ChipGroup role="suggestion">
+  <Chip size="medium" role="group">
+    suggestion1
+  </Chip>
+  <Chip size="medium" role="group">
+    suggestion2
+  </Chip>
+  <Chip size="medium" role="group">
+    suggestion3
+  </Chip>
+</ChipGroup>
+```
+
+<Canvas of={ChipGroupStories.DefaultUsage1} withSource="none" />
+
+### role : filter
+
+```tsx
+<ChipGroup role="filter">
+  <Chip size="medium" role="group">
+    filter1
+  </Chip>
+  <Chip size="medium" role="group">
+    filter2
+  </Chip>
+  <Chip size="medium" role="group">
+    filter3
+  </Chip>
+</ChipGroup>
+```
+
+<Canvas of={ChipGroupStories.DefaultUsage2} withSource="none" />
+
+### role : input
+
+```tsx
+<ChipGroup role="input">
+  <Chip size="medium" role="group">
+    input1
+  </Chip>
+  <Chip size="medium" role="group">
+    input2
+  </Chip>
+  <Chip size="medium" role="group">
+    input3
+  </Chip>
+</ChipGroup>
+```
+
+<Canvas of={ChipGroupStories.DefaultUsage3} withSource="none" />
+
+<br />
+<br />
+
+## 예시
+
+### swipable
+
+마우스로 가로 스크롤이 가능한 ChipGroup을 구현할 수 있습니다.
+
+```tsx
+const datas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+<ChipGroup role="input" swipable>
+  {datas.map((data) => (
+        <Chip key={data} role="group" size="medium">input{data}</Chip>
+    ))}
+</ChipGroup>
+```
+
+<Canvas of={ChipGroupStories.Swipable} withSource="none" />
+
+<br />
+<br />
+
+### onSelectedChange
+
+`onSelectedChange` 콜백을 통해 선택된 Chip들의 element 정보를 받을 수 있습니다.
+
+단, `role` 프로퍼티가 `input`인 경우에는 작동하지 않습니다.
+
+```tsx
+const [selectedChips, setSelectedChips] = useState<string[]>([]);
+
+const onSelectedChange = (selected: HTMLDivElement[]) => {
+  setSelectedChips(selected.map((chip) => chip.dataset.chip));
+};
+
+return (
+  <>
+    <div>선택된 칩: {selectedChips.toArray()}</div>
+
+    <ChipGroup role="filter" onSelectedChange={onSelectedChange}>
+      <Chip size="medium" role="group" data-chip="1">
+        filter1
+      </Chip>
+      <Chip size="medium" role="group" data-chip="2">
+        filter2
+      </Chip>
+      <Chip size="medium" role="group" data-chip="3">
+        filter3
+      </Chip>
+    </ChipGroup>
+  </>
+);
+```
+
+<Canvas of={ChipGroupStories.OnSelectedChange} withSource="none" />
+
+<br />
+<br />
+
+### ref : 선택 내용 초기화
+
+경우에 따라 유저에게 더 나은 UX를 제공하기 위해  
+선택된 Chip들을 모두 초기화해야 할 때가 있습니다.
+
+`ChipGroup` 컴포넌트의 `ref` 프로퍼티를 사용하여 선택된 Chip 들을 초기화할 수 있는 메서드를 제공합니다.
+
+`ref` 로 제공되는 `clearAllSelected` 메서드를 사용해주세요.
+
+이 메서드 호출 시, 변경된 상태는 `onSelectedChange` 콜백을 통해 전달됩니다.
+
+```tsx
+import type { ChipGroupRefPayloadType } from '@yourssu/design-system-react';
+```
+
+```tsx
+const ref = useRef<ChipGroupRefPayloadType>(null);
+
+const onReset = () => {
+  ref.current?.clearAllSelected();
+};
+
+return (
+  <>
+    <button onClick={onReset}>선택 초기화</button>
+
+    <ChipGroup ref={ref} role="filter">
+      <Chip size="medium" role="group">
+        filter1
+      </Chip>
+      <Chip size="medium" role="group">
+        filter2
+      </Chip>
+      <Chip size="medium" role="group">
+        filter3
+      </Chip>
+    </ChipGroup>
+  </>
+);
+```
+
+<Canvas of={ChipGroupStories.Ref} withSource="none" />
+
+<br />
+<br />
+
+## 권장하지 않는 사용법
+
+선택 내용 초기화 이외에도 `ref` 프로퍼티를 사용하여 많은 DOM 접근의 가능성을 열어두었습니다.
+
+하지만, 이로 인한 몇 가지 안티 패턴이 존재합니다.
+
+<br />
+<br />
+
+### ref를 이용한 선택 상태 강제 변경
+
+**`ref` 로 제공되는 `chipRefs.setInnerSelected` 메서드를 호출하여 selected 상태를 변경하지 말아주세요.**
+
+이 메서드로 변경된 상태는 `onSelectedChange` 콜백을 통해 전달되지 않습니다.
+
+```tsx
+const ref = useRef<ChipGroupRefPayloadType>(null);
+const [selectedChips, setSelectedChips] = useState<string[]>([]);
+
+const onSelectAll = () => {
+  ref.current?.chipRefs.current.forEach((chipRef) => {
+    chipRef.setInnerSelected(true);
+  });
+};
+
+const onSelectedChange = (selected: HTMLDivElement[]) => {
+  setSelectedChips(selected.map((chip) => chip.id));
+};
+
+return (
+  <>
+    <button onClick={onSelectAll}>전부 선택</button>
+
+    <div>선택된 칩 아이디: {selectedChips.toArray()}</div>
+
+    <ChipGroup ref={ref} role="filter" onSelectedChange={onSelectedChange}>
+      <Chip size="medium" role="group" id="1">
+        filter1
+      </Chip>
+      <Chip size="medium" role="group" id="2">
+        filter2
+      </Chip>
+      <Chip size="medium" role="group" id="3">
+        filter3
+      </Chip>
+    </ChipGroup>
+  </>
+);
+```
+
+<Canvas of={ChipGroupStories.SelectAll} withSource="none" />
+
+<br />
+<br />
+
+### ref를 이용한 예약어 변경
+
+**`ref` 로 제공되는 모든 element를 직접 조작하지 말아주세요.**
+
+혹은, **ChipGroup의 자식 Chip 컴포넌트에 `ref` 프로퍼티를 사용하여 직접 조작하지 말아주세요.**
+
+<br />
+
+이에 따른 내부 구현이 변경될 수 있으며, 이로 인해 예기치 않은 동작이 발생할 수 있습니다.
+
+`ref` 로 제공되는 element는 정보를 읽는 용도로만 사용해주세요.
+
+```tsx
+const ref = useRef<ChipGroupRefPayloadType>(null);
+
+useEffect(() => {
+    // ❌ ref로 제공되는 element들을 직접 조작하지 말아주세요.
+    ref.current?.element.onclick = undefined;
+    ref.current?.element.className = "new-my-class";
+    ...
+}, [])
+
+<ChipGroup role="suggestion" ref={ref}>
+  ...
+</ChipGroup>;
+```
+
+```tsx
+const ref = useRef<ChipRefPayloadType>(null);
+
+useEffect(() => {
+    // ❌ 자식 Chip 컴포넌트에 ref 프로퍼티를 사용하여 직접 조작하지 말아주세요.
+    ref.current?.element.id = 'widdidid';
+    ref.current?.element.className = "new-my-class";
+    ref.current?.element.dataset.selected = "false";
+    ref.current?.element.dataset.disabled = "true";
+    ...
+}, [])
+
+<ChipGroup role="suggestion">
+  <Chip ref={ref} size="medium" role="group">칩</Chip>
+</ChipGroup>;
+```
