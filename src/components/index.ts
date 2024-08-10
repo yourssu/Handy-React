@@ -10,5 +10,20 @@ export type { TextButtonProps } from './TextButton';
 export { Checkbox } from './Checkbox';
 export type { CheckboxProps, CheckboxSizeType } from './Checkbox';
 
+export { ChipGroup } from './ChipGroup';
+export type * from './ChipGroup';
+
+export { Chip } from './Chip';
+export type {
+  ChipContentProps,
+  ChipIconPositionType,
+  ChipIconProps,
+  ChipIconRemoveProps,
+  ChipRefPayloadType,
+  ChipProps,
+  ChipRoleType,
+  ChipSizeType,
+} from './Chip';
+
 export { Fab } from './Fab';
 export type { FabHierarchy, FabProps, FabSize } from './Fab';
