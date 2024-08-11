@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { RadioGroupItemProps, RadioGroupProps } from '@/components/RadioGroup/RadioGroup.type';
+import {
+  RadioGroupItemProps,
+  RadioGroupProps,
+  RadioGroupValueChangeEvent,
+} from '@/components/RadioGroup/RadioGroup.type';
 import { useRadioGroup } from '@/components/RadioGroup/hooks/useRadioGroup';
 
 const meta: Meta<RadioGroupProps<string> & RadioGroupItemProps<string>> = {
@@ -50,6 +54,137 @@ const ControlComponent = (args: object) => {
   );
 };
 
+const UsageComponent = () => {
+  const RadioGroup = useRadioGroup<'한국어' | '영어' | '일본어'>();
+
+  return (
+    <RadioGroup size="medium">
+      <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+      <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+      <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+    </RadioGroup>
+  );
+};
+
+const UsageDefaultComponent = () => {
+  const RadioGroup = useRadioGroup<'한국어' | '영어' | '일본어'>('한국어');
+
+  return (
+    <RadioGroup size="medium">
+      <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+      <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+      <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+    </RadioGroup>
+  );
+};
+
+const SizeComponent = () => {
+  const RadioGroup = useRadioGroup<'한국어' | '영어' | '일본어'>();
+
+  return (
+    <div style={{ display: 'flex', gap: 48 }}>
+      <RadioGroup size="small">
+        <div>- small</div>
+        <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+        <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+        <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+      </RadioGroup>
+      <RadioGroup size="medium">
+        <div>- medium</div>
+        <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+        <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+        <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+      </RadioGroup>
+      <RadioGroup size="large">
+        <div>- large</div>
+        <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+        <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+        <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+      </RadioGroup>
+    </div>
+  );
+};
+
+const OrientationComponent = () => {
+  const RadioGroup = useRadioGroup<'한국어' | '영어' | '일본어'>();
+
+  return (
+    <div style={{ display: 'flex', gap: 80 }}>
+      <RadioGroup size="small">
+        <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+        <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+        <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+      </RadioGroup>
+      <RadioGroup size="small" orientation="vertical">
+        <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+        <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+        <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+      </RadioGroup>
+      <RadioGroup size="small" orientation="horizontal">
+        <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+        <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+        <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+      </RadioGroup>
+    </div>
+  );
+};
+
+const EventComponent = () => {
+  const RadioGroup = useRadioGroup<'한국어' | '영어' | '일본어'>('한국어');
+
+  const onValueChange = (e: RadioGroupValueChangeEvent<'한국어' | '영어' | '일본어'>) => {
+    const { value, event } = e;
+    alert(`선택된 값: ${value}`);
+    console.log(event);
+  };
+
+  return (
+    <RadioGroup size="medium" onValueChange={onValueChange}>
+      <RadioGroup.Item value="한국어">한국어입니다</RadioGroup.Item>
+      <RadioGroup.Item value="영어">영어입니다</RadioGroup.Item>
+      <RadioGroup.Item value="일본어">일본어입니다</RadioGroup.Item>
+    </RadioGroup>
+  );
+};
+
+const DisabledComponent = () => {
+  const RadioGroup = useRadioGroup<'한국어' | '영어' | '일본어'>();
+
+  return (
+    <RadioGroup size="medium">
+      <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+      <RadioGroup.Item value="영어" disabled>
+        영어
+      </RadioGroup.Item>
+      <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+    </RadioGroup>
+  );
+};
+
 export const Control: StoryObj = {
   render: ControlComponent,
+};
+
+export const Usage: StoryObj = {
+  render: UsageComponent,
+};
+
+export const UsageDefault: StoryObj = {
+  render: UsageDefaultComponent,
+};
+
+export const Size: StoryObj = {
+  render: SizeComponent,
+};
+
+export const Orientation: StoryObj = {
+  render: OrientationComponent,
+};
+
+export const Disabled: StoryObj = {
+  render: DisabledComponent,
+};
+
+export const Event: StoryObj = {
+  render: EventComponent,
 };

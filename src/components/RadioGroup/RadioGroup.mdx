@@ -13,4 +13,132 @@ RadioGroup은 단일 선택을 나타낼 수 있는 요소인 Radio Button을 �
 <br />
 <br />
 
-## RadioGroup.Item
+## 개발 시 참고하면 좋을 내용
+
+RadioGroup은 단일 선택을 제공할 때에만 사용합니다.  
+다중 선택을 제공해야한다면 Checkbox 혹은 Switch를 사용합니다.
+
+<br />
+<br />
+
+## 사용법
+
+RadioGroup 컴포넌트는 `useRadioGroup` 훅을 불러와 사용합니다.
+
+1. 안전한 typing을 위해 RadioGroup의 value를 나열한 타입을 정의합니다.
+
+```tsx
+type RadioGroupValues = '한국어' | '영어' | '일본어';
+```
+
+2. `useRadioGroup` 훅을 호출합니다.
+
+```tsx
+import { useRadioGroup } from '@yourssu/design-system-react';
+
+const RadioGroup = useRadioGroup<RadioGroupValues>();
+```
+
+3. 반환된 RadioGroup 컴포넌트를 통해 원하는 콘텐츠를 구성합니다.
+
+```tsx
+<RadioGroup size="medium">
+  <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+  <RadioGroup.Item value="영어">영어</RadioGroup.Item>
+  <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+</RadioGroup>
+```
+
+<Canvas of={RadioGroupStories.Usage} />
+
+4. 필요하다면 `useRadioGroup` 훅에 기본으로 선택될 value를 전달합니다.
+
+```tsx
+const RadioGroup = useRadioGroup<RadioGroupValues>('한국어');
+```
+
+<Canvas of={RadioGroupStories.UsageDefault} />
+
+<br />
+<br />
+
+### RadioGroup: size (필수)
+
+RadioGroup.Item 컴포넌트의 크기를 정합니다.  
+가능한 값은 `small`, `medium`, `large` 입니다.
+
+```tsx
+<RadioGroup size="small">...</RadioGroup>
+<RadioGroup size="medium">...</RadioGroup>
+<RadioGroup size="large">...</RadioGroup>
+```
+
+<Canvas of={RadioGroupStories.Size} />
+
+<br />
+<br />
+
+### RadioGroup: orientation (선택)
+
+RadioGroup.Item 컴포넌트들의 정렬 방향을 정합니다.  
+가능한 값은 `vertical`, `horizontal` 이며, 기본값은 `vertical` 입니다.
+
+```tsx
+<RadioGroup size="medium">...</RadioGroup>
+<RadioGroup size="medium" orientation="vertical">...</RadioGroup>
+<RadioGroup size="medium" orientation="horizontal">...</RadioGroup>
+```
+
+<Canvas of={RadioGroupStories.Orientation} />
+
+<br />
+<br />
+
+## 예시
+
+### RadioGroup.Item: disabled
+
+RadioGroup.Item 컴포넌트를 비활성화 상태로 만듭니다.
+
+```tsx
+<RadioGroup size="medium">
+  <RadioGroup.Item value="한국어">한국어</RadioGroup.Item>
+  <RadioGroup.Item value="영어" disabled>
+    영어
+  </RadioGroup.Item>
+  <RadioGroup.Item value="일본어">일본어</RadioGroup.Item>
+</RadioGroup>
+```
+
+<Canvas of={RadioGroupStories.Disabled} />
+
+<br />
+<br />
+
+### 변경 감지 이벤트 할당
+
+RadioGroup 컴포넌트에 `onValueChange` 이벤트를 할당하여 변경 감지 이벤트를 처리할 수 있습니다.
+
+```tsx
+import { RadioGroupValueChangeEvent } from '@yourssu/design-system-react';
+```
+
+```tsx
+const RadioGroup = useRadioGroup<RadioGroupValues>('한국어');
+
+const onValueChange = (e: RadioGroupValueChangeEvent) => {
+  const { value, event } = e;
+  alert(`선택된 값: ${value}`);
+  console.log(event);
+};
+
+return (
+  <RadioGroup size="medium" onValueChange={onValueChange}>
+    <RadioGroup.Item value="한국어">한국어입니다</RadioGroup.Item>
+    <RadioGroup.Item value="영어">영어입니다</RadioGroup.Item>
+    <RadioGroup.Item value="일본어">일본어입니다</RadioGroup.Item>
+  </RadioGroup>
+);
+```
+
+<Canvas of={RadioGroupStories.Event} />
