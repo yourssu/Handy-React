@@ -119,6 +119,7 @@ export const StyledRadioItemLabel = styled.label<StyledRadioItemProps>`
     border-style: solid;
     border-color: ${({ theme }) => theme.semantic.color.lineBasicMedium};
     border-radius: 50%;
+    background-color: transparent;
 
     pointer-events: none;
   }
