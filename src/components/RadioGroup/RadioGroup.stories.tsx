@@ -39,13 +39,13 @@ const meta: Meta<RadioGroupProps<string> & RadioGroupItemProps<string>> = {
 export default meta;
 
 const ControlComponent = (args: object) => {
-  const RadioGroup = useRadioGroup<'a' | 'b' | 'c'>('b');
+  const RadioGroup = useRadioGroup<'item-1' | 'item-2' | 'item-3'>('item-1');
 
   return (
     <RadioGroup orientation="vertical" size="large" {...args}>
-      <RadioGroup.Item value="a">Option A</RadioGroup.Item>
-      <RadioGroup.Item value="b">Option B</RadioGroup.Item>
-      <RadioGroup.Item value="c">Option C</RadioGroup.Item>
+      <RadioGroup.Item value="item-1">Item1</RadioGroup.Item>
+      <RadioGroup.Item value="item-2">Item2</RadioGroup.Item>
+      <RadioGroup.Item value="item-3">Item3</RadioGroup.Item>
     </RadioGroup>
   );
 };
