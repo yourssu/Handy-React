@@ -126,7 +126,7 @@ import { RadioGroupValueChangeEvent } from '@yourssu/design-system-react';
 ```tsx
 const RadioGroup = useRadioGroup<RadioGroupValues>('한국어');
 
-const onValueChange = (e: RadioGroupValueChangeEvent) => {
+const onValueChange = (e: RadioGroupValueChangeEvent<RadioGroupValues>) => {
   const { value, event } = e;
   alert(`선택된 값: ${value}`);
   console.log(event);
