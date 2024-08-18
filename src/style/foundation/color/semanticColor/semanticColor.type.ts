@@ -25,6 +25,8 @@ export type SemanticTextStatusColor = MergeVariants<'text', 'status', StatusVari
 
 export type SemanticLineBasicColor = MergeVariants<'line', 'basic', 'light' | 'medium' | 'strong'>;
 
+export type SemanticLineBrandColor = MergeVariants<'line', 'brand', 'primary'>;
+
 export type SemanticLineStatusColor = MergeVariants<'line', 'status', StatusVariant>;
 
 export type SemanticButtonBoxPrimaryColor = MergeVariants<
@@ -102,6 +104,7 @@ export type SemanticColorType =
   | SemanticTextBrandColor
   | SemanticTextStatusColor
   | SemanticLineBasicColor
+  | SemanticLineBrandColor
   | SemanticLineStatusColor
   | SemanticButtonBoxPrimaryColor
   | SemanticButtonBoxSecondaryColor

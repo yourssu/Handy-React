@@ -29,6 +29,8 @@ export const semanticColorPalette: SemanticColorPalette = {
   lineBasicMedium: primitiveColorPalette.gray200,
   lineBasicStrong: primitiveColorPalette.gray300,
 
+  lineBrandPrimary: primitiveColorPalette.violet500,
+
   lineStatusNegative: primitiveColorPalette.statusRedMain,
   lineStatusPositive: primitiveColorPalette.violet500,
 
