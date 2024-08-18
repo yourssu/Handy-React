@@ -30,3 +30,12 @@ export type { TabsProps, TabListProps, TabProps, TabPanelProps } from './Tabs';
 
 export { Fab } from './Fab';
 export type { FabHierarchy, FabProps, FabSize } from './Fab';
+
+export { useRadioGroup } from './RadioGroup';
+export type {
+  RadioGroupProps,
+  RadioGroupItemProps,
+  RadioGroupSizeType,
+  RadioGroupOrientationType,
+  RadioGroupValueChangeEvent,
+} from './RadioGroup';
