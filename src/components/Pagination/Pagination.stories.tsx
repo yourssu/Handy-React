@@ -18,8 +18,8 @@ const meta: Meta<typeof Pagination> = {
     initialPage: {
       description: '초기 페이지 번호 (totalPage보다 큰 수)',
     },
-    setPage: {
-      description: '현재 페이지를 변경하는 함수',
+    onPageChange: {
+      description: '페이지가 변경될 때 호출할 함수',
     },
   },
 };
@@ -46,7 +46,7 @@ const PaginationTest = ({
     <div style={{ textAlign: 'center' }}>
       <p>현재 선택된 페이지: {currentPage}</p>
       <br />
-      <Pagination totalPage={totalPage} initialPage={currentPage} setPage={setCurrentPage} />
+      <Pagination totalPage={totalPage} initialPage={currentPage} onPageChange={setCurrentPage} />
     </div>
   );
 };
@@ -68,4 +68,12 @@ export const TotalPage: Story = {
       <PaginationTest totalPage={10} />
     </div>
   ),
+};
+
+export const EventTest: Story = {
+  render: () => {
+    const handlePageChange = (page: number) => alert(`${page}페이지를 클릭했습니다.`);
+
+    return <Pagination totalPage={10} initialPage={1} onPageChange={handlePageChange} />;
+  },
 };
