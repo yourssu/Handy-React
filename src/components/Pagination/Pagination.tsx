@@ -5,7 +5,7 @@ import { IcArrowsChevronLeftFilled, IcArrowsChevronRightFilled } from '@/style';
 import { StyledButton, StyledNav } from './Pagination.style';
 import { PaginationProps } from './Pagination.type';
 
-export const Pagination = ({ totalPage, initialPage = 1, setPage }: PaginationProps) => {
+export const Pagination = ({ totalPage, initialPage = 1, onPageChange }: PaginationProps) => {
   if (totalPage <= 1) throw new Error('totalPage는 2 이상의 숫자여야 합니다.');
   if (initialPage > totalPage) throw new Error('initialPage는 totalPage보다 클 수 없습니다.');
 
@@ -25,7 +25,7 @@ export const Pagination = ({ totalPage, initialPage = 1, setPage }: PaginationPr
 
   const handleClickPage = (page: number) => {
     setCurrentPage(page);
-    setPage?.(page);
+    onPageChange?.(page);
   };
 
   const handleClickArrow = (direction: 'left' | 'right') => {
