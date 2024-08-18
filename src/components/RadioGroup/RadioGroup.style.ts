@@ -122,6 +122,10 @@ export const StyledRadioItemLabel = styled.label<StyledRadioItemProps>`
     background-color: transparent;
 
     pointer-events: none;
+
+    &:focus {
+      outline: 1px solid black;
+    }
   }
 
   [data-radio-content='true'] {
