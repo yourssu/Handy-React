@@ -1,4 +1,4 @@
-import { useContext, useId, useRef } from 'react';
+import { useContext, useId, useRef, useState } from 'react';
 
 import { RadioGroupContext } from '@/components/RadioGroup/RadioGroup.context';
 import {
@@ -17,11 +17,24 @@ export const useRadioGroup = <Values extends string>(initialValue?: Values) => {
     disabled = false,
   }: RadioGroupItemProps<Values>) => {
     const ref = useRef<HTMLLabelElement>(null);
-    const { orientation, size } = useContext(RadioGroupContext);
+    const { orientation, size, currentRadioValue } = useContext(RadioGroupContext);
+    const thisChecked = currentRadioValue === value;
 
     const getButtonElementFrom = (node: ChildNode | null) => {
       if (node instanceof HTMLLabelElement) return node.querySelector('button');
       return null;
+    };
+
+    const getKeysetByOrientation = () => {
+      const previousKey = orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft';
+      const nextKey = orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight';
+      return { previousKey, nextKey };
+    };
+
+    const handleFocusKeyAction = (buttonElement: HTMLButtonElement | null) => {
+      if (!buttonElement) return;
+      buttonElement.closest('label')?.click();
+      buttonElement.focus();
     };
 
     const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
@@ -31,28 +44,21 @@ export const useRadioGroup = <Values extends string>(initialValue?: Values) => {
       const nextButton = getButtonElementFrom(ref.current.nextSibling);
       const firstButton = getButtonElementFrom(groupRef.current.firstChild);
       const lastButton = getButtonElementFrom(groupRef.current.lastChild);
-
-      if (!firstButton || !lastButton) return;
-
-      const previousKey = orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft';
-      const nextKey = orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight';
+      const { previousKey, nextKey } = getKeysetByOrientation();
 
       if (e.code === previousKey) {
-        const button = previousButton || lastButton;
-        button.click();
-        button.focus();
+        e.preventDefault();
+        handleFocusKeyAction(previousButton || lastButton);
       }
 
       if (e.code === nextKey) {
-        const button = nextButton || firstButton;
-        button.click();
-        button.focus();
+        e.preventDefault();
+        handleFocusKeyAction(nextButton || firstButton);
       }
 
       if (e.code === 'Space' || e.code === 'Enter') {
         e.preventDefault();
-        e.currentTarget.closest('label')?.click();
-        e.currentTarget.focus();
+        handleFocusKeyAction(e.currentTarget);
       }
     };
 
@@ -66,9 +72,16 @@ export const useRadioGroup = <Values extends string>(initialValue?: Values) => {
           name={radioGroupName}
           defaultChecked={initialValue === value}
           disabled={disabled}
+          tabIndex={-1}
+          aria-hidden
         />
 
-        <button onKeyDown={onKeyDown}>
+        <button
+          onKeyDown={onKeyDown}
+          role="radio"
+          tabIndex={thisChecked ? 0 : -1}
+          aria-checked={thisChecked}
+        >
           <div className="inner" />
         </button>
 
@@ -83,15 +96,25 @@ export const useRadioGroup = <Values extends string>(initialValue?: Values) => {
     orientation = 'vertical',
     onValueChange,
   }: RadioGroupProps<Values>) => {
+    const [currentRadioValue, setCurrentRadioValue] = useState<Values | undefined>(initialValue);
+
     const onInput = (e: React.ChangeEvent<HTMLFieldSetElement>) => {
       const { target } = e;
       if (!(target instanceof HTMLInputElement)) return;
-      onValueChange?.({ value: target.value as Values, event: e });
+
+      const value = target.value as Values;
+      setCurrentRadioValue(value);
+      onValueChange?.({ value, event: e });
     };
 
     return (
-      <RadioGroupContext.Provider value={{ orientation, size }}>
-        <StyledRadioGroupFieldset $orientation={orientation} onInput={onInput} ref={groupRef}>
+      <RadioGroupContext.Provider value={{ orientation, size, currentRadioValue }}>
+        <StyledRadioGroupFieldset
+          $orientation={orientation}
+          onInput={onInput}
+          ref={groupRef}
+          role="radiogroup"
+        >
           {children}
         </StyledRadioGroupFieldset>
       </RadioGroupContext.Provider>
