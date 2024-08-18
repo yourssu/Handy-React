@@ -11,17 +11,17 @@ export const Pagination = ({ totalPage, initialPage = 1, setPage }: PaginationPr
 
   const [currentPage, setCurrentPage] = useState(initialPage);
 
+  const pagesPerSection = 5;
   const pages = Array.from({ length: totalPage }).reduce<number[][]>(
     (section, _, index) => {
-      if (index % 5 === 0) section.push([]);
+      if (index % pagesPerSection === 0) section.push([]);
       section[section.length - 1].push(index + 1);
       return section;
     },
     [[]]
   );
-  const lastSection = Math.ceil(totalPage / 5);
-  const currentSection = Math.ceil(currentPage / 5);
-  const pagesPerSection = 5;
+  const lastSection = Math.ceil(totalPage / pagesPerSection);
+  const currentSection = Math.ceil(currentPage / pagesPerSection);
 
   const handleClickPage = (page: number) => {
     setCurrentPage(page);
@@ -30,12 +30,12 @@ export const Pagination = ({ totalPage, initialPage = 1, setPage }: PaginationPr
 
   const handleClickArrow = (direction: 'left' | 'right') => {
     const offset = direction === 'left' ? -pagesPerSection : pagesPerSection;
-    handleClickPage(5 * (currentSection - 1) + 1 + offset);
+    handleClickPage(pagesPerSection * (currentSection - 1) + 1 + offset);
   };
 
   return (
     <StyledNav aria-label="number-pagination">
-      {totalPage > 5 && (
+      {totalPage > pagesPerSection && (
         <StyledButton onClick={() => handleClickArrow('left')} disabled={currentSection === 1}>
           <IcArrowsChevronLeftFilled size="16px" />
         </StyledButton>
@@ -54,7 +54,7 @@ export const Pagination = ({ totalPage, initialPage = 1, setPage }: PaginationPr
         </StyledButton>
       ))}
 
-      {totalPage > 5 && (
+      {totalPage > pagesPerSection && (
         <StyledButton
           onClick={() => handleClickArrow('right')}
           disabled={currentSection === lastSection}
