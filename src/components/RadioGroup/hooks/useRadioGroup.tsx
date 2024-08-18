@@ -18,7 +18,7 @@ export const useRadioGroup = <Values extends string>(initialValue?: Values) => {
   }: RadioGroupItemProps<Values>) => {
     const ref = useRef<HTMLLabelElement>(null);
     const { orientation, size, currentRadioValue } = useContext(RadioGroupContext);
-    const thisChecked = currentRadioValue === value;
+    const thisChecked = currentRadioValue === value && !disabled;
 
     const getButtonElementFrom = (node: ChildNode | null) => {
       if (node instanceof HTMLLabelElement) return node.querySelector('button');
