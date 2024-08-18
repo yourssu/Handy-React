@@ -8,9 +8,11 @@ import {
 interface RadioGroupContextProps {
   orientation?: RadioGroupOrientationType;
   size?: RadioGroupSizeType;
+  currentRadioValue?: string;
 }
 
 export const RadioGroupContext = createContext<RadioGroupContextProps>({
   size: undefined,
   orientation: undefined,
+  currentRadioValue: undefined,
 });
