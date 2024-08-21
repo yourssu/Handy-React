@@ -29,6 +29,8 @@ export const semanticColorPalette: SemanticColorPalette = {
   lineBasicMedium: primitiveColorPalette.gray200,
   lineBasicStrong: primitiveColorPalette.gray300,
 
+  lineBrandPrimary: primitiveColorPalette.violet500,
+
   lineStatusNegative: primitiveColorPalette.statusRedMain,
   lineStatusPositive: primitiveColorPalette.violet500,
 
@@ -84,5 +86,5 @@ export const semanticColorPalette: SemanticColorPalette = {
   paginationBrandPressed: primitiveColorPalette.violet050,
 
   paginationBasicSelected: primitiveColorPalette.neutralBlack,
-  paginationBasicUnselected: primitiveColorPalette.gray500,
+  paginationBasicUnselected: primitiveColorPalette.gray200,
 } as const;

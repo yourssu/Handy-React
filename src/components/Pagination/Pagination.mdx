@@ -1,0 +1,82 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as PaginationStories from './Pagination.stories';
+import { Pagination } from './Pagination';
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+Pagination은 콘텐츠 또는 데이터를 여러 페이지로 분할하고 숫자나 기호(점, 선)를 사용하여 총 정보량과 현재 사용자가 속한 지점을 안내합니다.<br />
+사용자의 현재 지점을 알려줌으로써 사용자가 혼란 없이 정보를 얻고 서비스를 원활하게 이용할 수 있도록 합니다.<br />
+
+Pagination은 검색결과나 테이블 목록 등 명확한 페이지 정보가 필요할 때 사용합니다.<br />
+숫자 링크나 이전/다음 버튼을 눌러 사용자가 페이지 사이를 쉽게 이동할 수 있도록 합니다.<br />
+
+<Canvas of={PaginationStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+Pagination의 기본 사용법입니다.
+
+필수 프로퍼티인 `totalPage`, `onPageChange`를 설정해주세요.<br />
+
+- `totalPage` : 전체 페이지 수
+- `onPageChange` : 페이지가 변경될 때 호출할 함수
+
+```tsx
+import { Pagination } from '@yourssu/design-system-react';
+```
+
+```tsx
+const onPageChange = (page: number) => { ... };
+
+<Pagination totalPage={5} onPageChange={onPageChange} />;
+```
+
+<Canvas of={PaginationStories.Secondary} />
+
+<br />
+<br />
+
+## 예시
+
+### totalPage
+
+전체 페이지 수를 의미하는 프로퍼티입니다. 2 미만의 값을 넣을 경우 에러가 발생합니다.<br />
+`totalPage <= 5`일 때, 이전/다음 버튼은 생성되지 않습니다.
+
+<Canvas of={PaginationStories.TotalPage} />
+
+#### 이전/다음 버튼의 동작 방식
+
+`totalPage > 5`일 때, 이전/다음 버튼이 생성됩니다.<br />
+클릭하면 **현재 페이지에 관계 없이,** 이전/다음 섹션의 첫번째 페이지가 선택된 상태로 변경됩니다.<br />
+(3페이지를 선택한 상태에서 `>` 버튼 클릭 시, 6페이지를 선택)<br />
+
+이전/다음 섹션이 존재하지 않을 경우 비활성화 됩니다.
+
+<Canvas of={PaginationStories.Primary} />
+
+### initialPage
+
+초기 페이지 번호를 의미하는 프로퍼티입니다. totalPage 미만의 값을 넣을 경우 에러가 발생합니다.
+
+<Canvas of={PaginationStories.InitialPage} />
+
+### 페이지 버튼 클릭 시 이벤트 할당
+
+`onPageChange` 메서드를 이용하여 원하는 이벤트를 할당할 수 있습니다.
+
+```tsx
+const onPageChange = (page: number) => {
+  alert(`${page}페이지를 클릭했습니다.`);
+};
+
+<Pagination totalPage={10} onPageChange={onPageChange} />;
+```
+
+<Canvas of={PaginationStories.EventTest} />

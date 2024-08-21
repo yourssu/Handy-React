@@ -25,5 +25,21 @@ export type {
   ChipSizeType,
 } from './Chip';
 
+export { useTabs } from './Tabs';
+export type { TabsProps, TabListProps, TabProps, TabPanelProps } from './Tabs';
+
 export { Fab } from './Fab';
 export type { FabHierarchy, FabProps, FabSize } from './Fab';
+
+
+export { Pagination } from './Pagination';
+export type { PaginationProps } from './Pagination';
+
+export { useRadioGroup } from './RadioGroup';
+export type {
+  RadioGroupProps,
+  RadioGroupItemProps,
+  RadioGroupSizeType,
+  RadioGroupOrientationType,
+  RadioGroupValueChangeEvent,
+} from './RadioGroup';
