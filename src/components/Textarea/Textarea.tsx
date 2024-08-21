@@ -12,7 +12,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       const newValue = e.target.value;
-      if (maxLength && e.target.value.length > maxLength) {
+      if (maxLength && newValue.length > maxLength) {
         return;
       }
       setValue(newValue);
