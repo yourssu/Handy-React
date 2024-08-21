@@ -8,7 +8,7 @@ interface StyledTextareaProps {
   $error?: TextareaProps['error'];
 }
 
-export const StyledContainer = styled.div<StyledTextareaProps>`
+export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;

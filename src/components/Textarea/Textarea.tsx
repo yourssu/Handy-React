@@ -20,7 +20,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     };
 
     return (
-      <StyledContainer $width={width}>
+      <StyledContainer>
         <StyledTextarea
           ref={ref}
           $width={width}
