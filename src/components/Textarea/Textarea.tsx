@@ -9,7 +9,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref
   ) => {
     const [value, setValue] = useState('');
-    const [currentLength, setCurrentLength] = useState(value?.length || 0);
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       const newValue = e.target.value;
@@ -17,7 +16,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         return;
       }
       setValue(newValue);
-      setCurrentLength(newValue.length);
       onValueChange?.(newValue);
     };
 
@@ -36,7 +34,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           {...props}
         />
         <StyledHelperText $error={error}>
-          {helperText && helperText} {maxLength && `(${currentLength}/${maxLength})`}
+          {helperText && helperText} {maxLength && `(${value.length}/${maxLength})`}
         </StyledHelperText>
       </StyledContainer>
     );
