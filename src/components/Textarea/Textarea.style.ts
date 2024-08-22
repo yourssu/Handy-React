@@ -29,7 +29,7 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
   color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
 
   caret-color: ${({ theme, $error }) =>
-    $error ? theme.semantic.color.textStatusNegative : theme.semantic.color.textBasicTertiary};
+    $error ? theme.semantic.color.textStatusNegative : theme.semantic.color.lineStatusPositive};
 
   outline-color: ${({ theme }) => theme.semantic.color.lineStatusPositive};
   outline-width: 1px;
