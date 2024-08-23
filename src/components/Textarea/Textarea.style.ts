@@ -23,13 +23,13 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
 
   box-sizing: border-box;
   border: ${({ theme, $error }) =>
-    $error ? `1px solid ${theme.semantic.color.textStatusNegative}` : 'none'};
+    $error ? `1px solid ${theme.semantic.color.lineStatusNegative}` : 'none'};
   border-radius: ${({ theme }) => theme.semantic.radius.m}px;
   background-color: ${({ theme }) => theme.semantic.color.bgBasicLight};
   color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
 
   caret-color: ${({ theme, $error }) =>
-    $error ? theme.semantic.color.textStatusNegative : theme.semantic.color.lineStatusPositive};
+    $error ? theme.semantic.color.lineStatusNegative : theme.semantic.color.lineStatusPositive};
 
   outline-color: ${({ theme }) => theme.semantic.color.lineStatusPositive};
   outline-width: 1px;
