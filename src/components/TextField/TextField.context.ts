@@ -1,11 +1,18 @@
 import { createContext } from 'react';
 
-interface TextFieldContextProps {
-  isError?: boolean;
-  disabled?: boolean;
-}
+import { TextFieldContextProps } from './TextField.type';
 
-export const TextFieldContext = createContext<TextFieldContextProps>({
-  isError: undefined,
-  disabled: undefined,
+type TextFieldInnerContextProps = {
+  text: string;
+} & TextFieldContextProps;
+
+export const textFieldDefaultProps: TextFieldContextProps = {
+  isError: false,
+  disabled: false,
+  maxLength: Infinity,
+};
+
+export const TextFieldContext = createContext<TextFieldInnerContextProps>({
+  ...textFieldDefaultProps,
+  text: '',
 });

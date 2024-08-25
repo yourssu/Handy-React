@@ -2,7 +2,7 @@ import { forwardRef, useContext, useImperativeHandle, useRef, useState } from 'r
 
 import { IcCancelFilled } from '@/style';
 
-import { TextFieldContext } from './TextField.context';
+import { TextFieldContext, textFieldDefaultProps } from './TextField.context';
 import {
   StyledClearButton,
   StyledTextFieldContainer,
@@ -18,11 +18,18 @@ const Label = ({ children }: React.PropsWithChildren<unknown>) => {
 };
 
 const HelperText = ({ children }: React.PropsWithChildren<unknown>) => {
-  const { isError, disabled } = useContext(TextFieldContext);
-  if (isError === undefined || disabled === undefined) return null;
+  const {
+    isError,
+    disabled,
+    maxLength,
+    text: { length },
+  } = useContext(TextFieldContext);
+
+  const isMaxLengthSetted = maxLength !== textFieldDefaultProps.maxLength;
+
   return (
     <StyledTextFieldHelperText $isError={isError && !disabled}>
-      {children}
+      {isMaxLengthSetted ? `(${length}/${maxLength})` : children}
     </StyledTextFieldHelperText>
   );
 };
@@ -44,18 +51,32 @@ const ClearButton = ({ inputRef, setText }: ClearButtonProps) => {
 
 export const TextField = Object.assign(
   forwardRef<HTMLInputElement, React.PropsWithChildren<TextFieldProps>>(
-    ({ children, isError = false, disabled = false, ...props }, ref) => {
+    (
+      {
+        children,
+        isError = textFieldDefaultProps.isError,
+        disabled = textFieldDefaultProps.disabled,
+        maxLength = textFieldDefaultProps.maxLength,
+        ...props
+      },
+      ref
+    ) => {
       const inputRef = useRef<HTMLInputElement>(null);
-      const [text, setText] = useState('');
+      const [text, setText] = useState(props.defaultValue ?? '');
 
       const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setText(e.currentTarget.value);
+        const value = e.currentTarget.value;
+
+        if (value.length > maxLength) return;
+
+        setText(value);
+        props.onChange?.(e);
       };
 
       useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
       return (
-        <TextFieldContext.Provider value={{ isError, disabled }}>
+        <TextFieldContext.Provider value={{ isError, disabled, maxLength, text }}>
           <StyledTextFieldContainer>
             <StyledTextFieldInputContainer>
               <StyledTextFieldInput
@@ -69,6 +90,7 @@ export const TextField = Object.assign(
                 disabled={disabled}
                 spellCheck={false}
                 tabIndex={0}
+                maxLength={maxLength}
               />
               {text && !disabled && <ClearButton inputRef={inputRef} setText={setText} />}
             </StyledTextFieldInputContainer>

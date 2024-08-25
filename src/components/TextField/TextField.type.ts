@@ -1,7 +1,13 @@
-export interface TextFieldProps extends React.HTMLAttributes<HTMLInputElement> {
-  isError?: boolean;
-  disabled?: boolean;
+export interface TextFieldContextProps {
+  isError: boolean;
+  disabled: boolean;
+  maxLength: number;
 }
+
+export type TextFieldProps = Partial<TextFieldContextProps> &
+  React.HTMLAttributes<HTMLInputElement> & {
+    defaultValue?: string;
+  };
 
 export interface ClearButtonProps {
   inputRef: React.RefObject<HTMLInputElement>;
