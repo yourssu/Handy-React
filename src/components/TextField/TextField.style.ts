@@ -65,7 +65,7 @@ export const StyledTextFieldHelperText = styled.div<{ $isError: boolean }>`
     $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.textBasicTertiary};
 `;
 
-export const StyledRemoveButton = styled.button`
+export const StyledClearButton = styled.button`
   position: absolute;
   top: 50%;
   right: 16px;

@@ -4,7 +4,7 @@ import { IcCancelFilled } from '@/style';
 
 import { TextFieldContext } from './TextField.context';
 import {
-  StyledRemoveButton,
+  StyledClearButton,
   StyledTextFieldContainer,
   StyledTextFieldHelperText,
   StyledTextFieldInput,
@@ -36,9 +36,9 @@ const ClearButton = ({ inputRef, setText }: ClearButtonProps) => {
   };
 
   return (
-    <StyledRemoveButton className="clear-button" onClick={onClick}>
+    <StyledClearButton className="clear-button" onClick={onClick}>
       <IcCancelFilled size="20px" />
-    </StyledRemoveButton>
+    </StyledClearButton>
   );
 };
 
