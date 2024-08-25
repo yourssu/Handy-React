@@ -34,16 +34,32 @@ const HelperText = ({ children }: React.PropsWithChildren<unknown>) => {
   );
 };
 
-const ClearButton = ({ inputRef, setText }: ClearButtonProps) => {
-  const onClick = () => {
+const ClearButton = ({ inputRef, setText, onClick }: ClearButtonProps) => {
+  const triggerClearEvent = () => {
+    if (!inputRef.current) return;
+
+    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+      window.HTMLInputElement.prototype,
+      'value'
+    )?.set;
+
+    nativeInputValueSetter?.call(inputRef.current, '');
+
+    // 리액트 내부적으로 input 이벤트를 change 이벤트로 감지
+    inputRef.current.dispatchEvent(new Event('input', { bubbles: true }));
+  };
+
+  const onClickHadler = () => {
     if (!inputRef.current) return;
 
     inputRef.current.focus();
     setText('');
+    onClick?.();
+    triggerClearEvent();
   };
 
   return (
-    <StyledClearButton className="clear-button" onClick={onClick}>
+    <StyledClearButton className="clear-button" onClick={onClickHadler}>
       <IcCancelFilled size="20px" />
     </StyledClearButton>
   );
@@ -57,12 +73,13 @@ export const TextField = Object.assign(
         isError = textFieldDefaultProps.isError,
         disabled = textFieldDefaultProps.disabled,
         maxLength = textFieldDefaultProps.maxLength,
+        onClearButtonClick,
         ...props
       },
       ref
     ) => {
       const inputRef = useRef<HTMLInputElement>(null);
-      const [text, setText] = useState(props.defaultValue ?? '');
+      const [text, setText] = useState(props.value ?? props.defaultValue ?? '');
 
       const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.value;
@@ -84,7 +101,6 @@ export const TextField = Object.assign(
                 $isError={isError && !disabled}
                 ref={inputRef}
                 type="text"
-                placeholder="input text"
                 value={text}
                 onChange={onChange}
                 disabled={disabled}
@@ -92,7 +108,9 @@ export const TextField = Object.assign(
                 tabIndex={0}
                 maxLength={maxLength}
               />
-              {text && !disabled && <ClearButton inputRef={inputRef} setText={setText} />}
+              {text && !disabled && (
+                <ClearButton inputRef={inputRef} setText={setText} onClick={onClearButtonClick} />
+              )}
             </StyledTextFieldInputContainer>
 
             {children}
