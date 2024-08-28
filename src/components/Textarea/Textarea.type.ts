@@ -1,8 +1,7 @@
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  width: string;
-  height: string;
+  width: React.CSSProperties['width'];
+  height: React.CSSProperties['height'];
   helperText?: string;
   error?: boolean;
-  value?: string;
   onValueChange?: (value: string) => void;
 }
