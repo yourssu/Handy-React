@@ -56,7 +56,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           />
         </StyledTextareaWrapper>
         <StyledHelperText $error={error}>
-          {helperText && helperText} {maxLength && `(${value.length}/${maxLength})`}
+          {maxLength ? `(${value.length}/${maxLength})` : helperText && helperText}
         </StyledHelperText>
       </StyledContainer>
     );
