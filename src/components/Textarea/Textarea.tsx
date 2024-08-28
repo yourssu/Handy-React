@@ -1,6 +1,11 @@
 import { forwardRef, useState } from 'react';
 
-import { StyledTextarea, StyledContainer, StyledHelperText } from './Textarea.style';
+import {
+  StyledTextarea,
+  StyledContainer,
+  StyledHelperText,
+  StyledTextareaWrapper,
+} from './Textarea.style';
 import { TextareaProps } from './Textarea.type';
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -8,7 +13,17 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     { width, height, maxLength, helperText, placeholder, disabled, error, onValueChange, ...props },
     ref
   ) => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState<string>('');
+
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocus = () => {
+      setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+      setIsFocused(false);
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       const newValue = e.target.value;
@@ -21,18 +36,25 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     return (
       <StyledContainer>
-        <StyledTextarea
-          ref={ref}
+        <StyledTextareaWrapper
           $width={width}
           $height={height}
-          value={value}
-          onChange={handleChange}
-          maxLength={maxLength}
-          placeholder={placeholder}
-          disabled={disabled}
           $error={error}
-          {...props}
-        />
+          $isFocused={isFocused}
+        >
+          <StyledTextarea
+            ref={ref}
+            value={value}
+            onChange={handleChange}
+            maxLength={maxLength}
+            placeholder={placeholder}
+            disabled={disabled}
+            $error={error}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            {...props}
+          />
+        </StyledTextareaWrapper>
         <StyledHelperText $error={error}>
           {helperText && helperText} {maxLength && `(${value.length}/${maxLength})`}
         </StyledHelperText>

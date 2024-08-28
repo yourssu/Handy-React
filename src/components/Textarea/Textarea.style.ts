@@ -6,6 +6,7 @@ interface StyledTextareaProps {
   $width?: TextareaProps['width'];
   $height?: TextareaProps['height'];
   $error?: TextareaProps['error'];
+  $isFocused?: boolean;
 }
 
 export const StyledContainer = styled.div`
@@ -14,18 +15,32 @@ export const StyledContainer = styled.div`
   gap: 4px;
 `;
 
-export const StyledTextarea = styled.textarea<StyledTextareaProps>`
-  width: ${({ $width }) => $width};
-  height: ${({ $height }) => $height};
+export const StyledTextareaWrapper = styled.div<StyledTextareaProps>`
+  width: ${({ $width }) => $width ?? '100%'};
+  height: ${({ $height }) => $height ?? 'auto'};
   padding: 16px;
-  ${({ theme }) => theme.typo.B3_Rg_14}
-  resize: none;
-
-  box-sizing: border-box;
+  background-color: ${({ theme }) => theme.semantic.color.bgBasicLight};
   border: ${({ theme, $error }) =>
     $error ? `1px solid ${theme.semantic.color.lineStatusNegative}` : 'none'};
-  border-radius: ${({ theme }) => theme.semantic.radius.m}px;
-  background-color: ${({ theme }) => theme.semantic.color.bgBasicLight};
+  border-radius: ${({ theme }) => theme.semantic.radius.s}px;
+  box-sizing: border-box;
+  border: ${({ theme, $error, $isFocused }) =>
+    $error
+      ? `1px solid ${theme.semantic.color.lineStatusNegative}`
+      : $isFocused
+        ? `1px solid ${theme.semantic.color.lineStatusPositive}`
+        : 'none'};
+`;
+
+export const StyledTextarea = styled.textarea<StyledTextareaProps>`
+  width: 100%;
+  height: 100%;
+  resize: none;
+  ${({ theme }) => theme.typo.B3_Rg_14}
+
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
   color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
 
   caret-color: ${({ theme, $error }) =>
@@ -33,10 +48,6 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
 
   &:focus {
     outline: none;
-    border: ${({ theme, $error }) =>
-      $error
-        ? `1px solid ${theme.semantic.color.lineStatusNegative}`
-        : `1px solid ${theme.semantic.color.lineStatusPositive}`};
   }
 
   &::placeholder {
@@ -44,12 +55,25 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.semantic.color.bgBasicLight};
+    background-color: transparent;
     cursor: not-allowed;
 
     &::placeholder {
       color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     }
+  }
+
+  &::-webkit-scrollbar {
+    width: 2px;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.semantic.color.lineBasicMedium};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.semantic.color.lineBasicStrong};
   }
 `;
 
