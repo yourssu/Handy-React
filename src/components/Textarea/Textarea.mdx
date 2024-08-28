@@ -117,3 +117,30 @@ Textarea에 잘못된 값이 입력되었을 때 사용자에게 오류 상태�
 
 <br />
 <br />
+
+### onValueChange
+
+Textarea에 텍스트를 입력하거나 변경할 때 호출되는 콜백 함수입니다. 이 함수는 현재 입력된 텍스트 값을 매개변수로 전달하여, 외부에서 상태를 관리하거나 추가적인 로직을 실행할 수 있게 합니다.
+
+```tsx
+const [text, setText] = useState('');
+
+const handleValueChange = (newValue: string) => {
+  setText(newValue);
+};
+
+return (
+  <Textarea
+    {...args}
+    value={text}
+    onValueChange={handleValueChange}
+    maxLength={args.maxLength}
+    placeholder={args.placeholder}
+  />
+);
+```
+
+<Canvas of={TextareaStories.OnValueChange} withSource="none" />
+
+<br />
+<br />

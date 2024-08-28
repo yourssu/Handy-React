@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -46,16 +46,40 @@ const meta: Meta<typeof Textarea> = {
 export default meta;
 type Story = StoryObj<typeof Textarea>;
 
+const ControlledComponent = (args: TextareaProps) => {
+  return <Textarea {...args} maxLength={args.maxLength} placeholder={args.placeholder} />;
+};
+
+const OnChangeComponent = (args: TextareaProps) => {
+  const [text, setText] = useState('');
+
+  const handleValueChange = (newValue: string) => {
+    setText(newValue);
+  };
+
+  return (
+    <Textarea
+      {...args}
+      value={text}
+      onValueChange={handleValueChange}
+      maxLength={args.maxLength}
+      placeholder={args.placeholder}
+    />
+  );
+};
+
 export const Default: Story = {
+  render: (args) => <ControlledComponent {...args} />,
   args: {
-    width: '343px',
-    height: '187px',
+    width: '100%',
+    height: 'auto',
     placeholder: 'Enter text here...',
     helperText: 'Text Inputting',
   },
 };
 
 export const Placeholder: Story = {
+  render: (args) => <ControlledComponent {...args} />,
   args: {
     width: '343px',
     height: '187px',
@@ -64,6 +88,7 @@ export const Placeholder: Story = {
 };
 
 export const HelperText: Story = {
+  render: (args) => <ControlledComponent {...args} />,
   args: {
     width: '343px',
     height: '187px',
@@ -73,6 +98,7 @@ export const HelperText: Story = {
 };
 
 export const Disabled: Story = {
+  render: (args) => <ControlledComponent {...args} />,
   args: {
     width: '343px',
     height: '187px',
@@ -83,6 +109,7 @@ export const Disabled: Story = {
 };
 
 export const Error: Story = {
+  render: (args) => <ControlledComponent {...args} />,
   args: {
     width: '343px',
     height: '187px',
@@ -92,28 +119,28 @@ export const Error: Story = {
   },
 };
 
-const MaxLengthTest = ({
-  width = '343px',
-  height = '187px',
-  maxLength = 50,
-  placeholder = 'Max 50 characters',
-  helperText = '',
-  disabled = false,
-  error = false,
-}: TextareaProps) => {
-  return (
-    <Textarea
-      width={width}
-      height={height}
-      maxLength={maxLength}
-      placeholder={placeholder}
-      helperText={helperText}
-      disabled={disabled}
-      error={error}
-    />
-  );
+export const MaxLength: Story = {
+  render: (args) => <ControlledComponent {...args} />,
+  args: {
+    width: '343px',
+    height: '187px',
+    maxLength: 50,
+    placeholder: 'Max 50 characters',
+    helperText: '',
+    disabled: false,
+    error: false,
+  },
 };
 
-export const MaxLength: Story = {
-  render: MaxLengthTest,
+export const OnValueChange: Story = {
+  render: (args) => <OnChangeComponent {...args} />,
+  args: {
+    width: '343px',
+    height: '187px',
+    maxLength: 50,
+    placeholder: 'onValueChange...',
+    helperText: '',
+    disabled: false,
+    error: false,
+  },
 };
