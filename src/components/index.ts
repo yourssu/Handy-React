@@ -31,7 +31,6 @@ export type { TabsProps, TabListProps, TabProps, TabPanelProps } from './Tabs';
 export { Fab } from './Fab';
 export type { FabHierarchy, FabProps, FabSize } from './Fab';
 
-
 export { Pagination } from './Pagination';
 export type { PaginationProps } from './Pagination';
 
@@ -43,3 +42,6 @@ export type {
   RadioGroupOrientationType,
   RadioGroupValueChangeEvent,
 } from './RadioGroup';
+
+export { Textarea } from './Textarea';
+export type { TextareaProps } from './Textarea';
