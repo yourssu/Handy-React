@@ -35,6 +35,7 @@ export const StyledTextareaWrapper = styled.div<StyledTextareaProps>`
 export const StyledTextarea = styled.textarea<StyledTextareaProps>`
   width: 100%;
   height: 100%;
+  padding-right: 6px;
   resize: none;
   ${({ theme }) => theme.typo.B3_Rg_14}
 
