@@ -84,7 +84,11 @@ export type SemanticButtonRadioColor = MergeVariants<
   SelectableVariantWithDisabled
 >;
 
-export type SemanticIconBasicColor = MergeVariants<'icon', 'basic', StaticBasicVariant>;
+export type SemanticIconBasicColor = MergeVariants<
+  'icon',
+  'basic',
+  StaticBasicVariant | 'disabledStrong'
+>;
 
 export type SemanticIconBrandColor = MergeVariants<'icon', 'brand', StaticBrandVariant>;
 
