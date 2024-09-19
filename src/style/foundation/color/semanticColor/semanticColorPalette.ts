@@ -87,4 +87,9 @@ export const semanticColorPalette: SemanticColorPalette = {
 
   paginationBasicSelected: primitiveColorPalette.neutralBlack,
   paginationBasicUnselected: primitiveColorPalette.gray200,
+
+  switchSelected: primitiveColorPalette.violet500,
+  switchUnselected: primitiveColorPalette.gray300,
+  switchDisabled: primitiveColorPalette.gray200,
+  switchThumb: primitiveColorPalette.neutralWhite,
 } as const;
