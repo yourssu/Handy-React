@@ -1,0 +1,82 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as SwitchStories from './Switch.stories';
+import { Switch } from './Switch';
+import React from 'react';
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+Switch는 특정 기능을 활성 또는 비활성의 상태로 만들 수 있도록 도와주는 요소입니다.
+
+<Canvas of={SwitchStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 개발 시 참고하면 좋을 내용
+
+- Switch를 사용할 때에는 단일한 레이블을 제시해야합니다.<br />
+- Switch는 레이블의 오른쪽에 위치시키기를 권장합니다.<br />
+
+<br />
+<br />
+
+## 사용법
+
+필수 프로퍼티인 `size` 를 사용하여 Switch의 크기를 설정해주세요.<br />
+지원하는 크기는 `large`, `medium`, `small` 입니다.
+
+```tsx
+import { Switch } from '@yourssu/design-system-react';
+```
+
+```tsx
+<span> switch label </span>
+<Switch size="large">
+```
+
+<Canvas of={SwitchStories.Sizes} />
+
+<br />
+<br />
+
+## 예시
+
+## isSelected
+
+`Switch`의 초기 선택 여부를 결정합니다. 기본 값은 `false`입니다. <br />
+
+```tsx
+<span> switch label </span>
+<Switch size="large" isSelected={true}>
+```
+
+<Canvas of={SwitchStories.Selected} />
+
+## isDisabled
+
+`Switch`를 클릭할 수 없게 막습니다. 기본 값은 `false`입니다. <br />
+
+```tsx
+<span> switch label </span>
+<Switch size="large" isDisabled={true}>
+```
+
+<Canvas of={SwitchStories.Disabled} />
+
+`isSelected`가 `true`인 상태에서도 `isDisabled`가 적용될 수 있습니다.
+
+```tsx
+<span> switch label </span>
+<Switch size="large" isSelected={true} isDisabled={true}>
+```
+
+<Canvas of={SwitchStories.DisabledSelected} />
+
+## 상태 전환 시 이벤트 할당
+
+`onSelectedChange` 메서드를 이용하여 상태 전환 시 수행할 이벤트를 할당할 수 있습니다.
+
+<Canvas of={SwitchStories.Click} />
