@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -108,25 +108,4 @@ const SwitchClickStory = () => {
 
 export const Click: Story = {
   render: SwitchClickStory,
-};
-
-const RefTestt = () => {
-  const [selected, setSelected] = useState(false);
-  const switchRef = useRef<HTMLDivElement>(null);
-
-  const handleClick = (selected: boolean) => {
-    setSelected(selected);
-    console.log(switchRef.current?.dataset.selected);
-  };
-
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-      <span>{selected ? 'on' : 'off'}</span>
-      <Switch ref={switchRef} size="large" isSelected={selected} onSelectedChange={handleClick} />
-    </div>
-  );
-};
-
-export const RefTest: Story = {
-  render: RefTestt,
 };
