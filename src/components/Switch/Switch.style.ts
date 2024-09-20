@@ -10,19 +10,41 @@ interface StyledSwitchProps {
   $size: SwitchSize;
 }
 
-const getTrackWidth = (size: SwitchSize) =>
-  match(size)
-    .with('large', () => 48)
-    .with('medium', () => 32)
-    .with('small', () => 24)
-    .otherwise(() => 48);
-
-const getTrackHeight = (size: SwitchSize) =>
-  match(size)
-    .with('large', () => 30)
-    .with('medium', () => 20)
-    .with('small', () => 16)
-    .otherwise(() => 30);
+const sizeStyle = {
+  large: {
+    track: {
+      width: 48,
+      height: 30,
+      padding: 2.5,
+    },
+    thumb: {
+      width: 25,
+      height: 25,
+    },
+  },
+  medium: {
+    track: {
+      width: 32,
+      height: 20,
+      padding: 2,
+    },
+    thumb: {
+      width: 16,
+      height: 16,
+    },
+  },
+  small: {
+    track: {
+      width: 24,
+      height: 16,
+      padding: 1.5,
+    },
+    thumb: {
+      width: 13,
+      height: 13,
+    },
+  },
+} as const;
 
 const getTrackColor = (arg: { $isDisabled: boolean; $isSelected: boolean; theme: DefaultTheme }) =>
   match(arg)
@@ -30,36 +52,23 @@ const getTrackColor = (arg: { $isDisabled: boolean; $isSelected: boolean; theme:
     .with({ $isSelected: true }, ({ theme }) => theme.semantic.color.switchSelected)
     .otherwise(({ theme }) => theme.semantic.color.switchUnselected);
 
-const getPadding = (size: SwitchSize) =>
-  match(size)
-    .with('large', () => 2.5)
-    .with('medium', () => 2)
-    .with('small', () => 1.5)
-    .otherwise(() => 2.5);
-
 export const StyledTrack = styled.div<StyledSwitchProps>`
-  width: ${({ $size }) => `${getTrackWidth($size)}px`};
-  height: ${({ $size }) => `${getTrackHeight($size)}px`};
-  padding: ${({ $size }) => `${getPadding($size)}px`};
+  ${({ $size }) => sizeStyle[$size].track}
+
   border-radius: 999px;
   background-color: ${({ $isDisabled, $isSelected, theme }) =>
     getTrackColor({ $isDisabled, $isSelected, theme })};
   cursor: ${({ $isDisabled }) => ($isDisabled ? 'not-allowed' : 'pointer')};
 `;
 
-const getThumbSize = (size: SwitchSize) =>
-  match(size)
-    .with('large', () => 25)
-    .with('medium', () => 16)
-    .with('small', () => 13)
-    .otherwise(() => 25);
-
-const getThumbTransform = (size: SwitchSize) =>
-  getTrackWidth(size) - 2 * getPadding(size) - getThumbSize(size);
+const getThumbTransform = (size: SwitchSize) => {
+  const { track, thumb } = sizeStyle[size];
+  return track.width - 2 * track.padding - thumb.width;
+};
 
 export const StyledThumb = styled.div<StyledSwitchProps>`
-  width: ${({ $size }) => `${getThumbSize($size)}px`};
-  height: ${({ $size }) => `${getThumbSize($size)}px`};
+  ${({ $size }) => sizeStyle[$size].thumb}
+
   border-radius: 50%;
   background-color: ${({ theme }) => theme.semantic.color.switchThumb};
   transform: ${({ $size, $isSelected }) =>
