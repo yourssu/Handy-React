@@ -101,6 +101,7 @@ export const TextField = Object.assign(
                 $isError={isError && !disabled}
                 ref={inputRef}
                 type="text"
+                defaultValue={undefined}
                 value={text}
                 onChange={onChange}
                 disabled={disabled}
