@@ -49,7 +49,7 @@ const ClearButton = ({ inputRef, setText, onClick }: ClearButtonProps) => {
     inputRef.current.dispatchEvent(new Event('input', { bubbles: true }));
   };
 
-  const onClickHadler = () => {
+  const onClickHandler = () => {
     if (!inputRef.current) return;
 
     inputRef.current.focus();
@@ -59,7 +59,7 @@ const ClearButton = ({ inputRef, setText, onClick }: ClearButtonProps) => {
   };
 
   return (
-    <StyledClearButton className="clear-button" onClick={onClickHadler}>
+    <StyledClearButton className="clear-button" onClick={onClickHandler}>
       <IcCancelFilled size="20px" />
     </StyledClearButton>
   );
