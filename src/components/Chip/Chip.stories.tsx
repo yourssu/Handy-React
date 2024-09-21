@@ -42,7 +42,7 @@ const meta: Meta<typeof Chip> = {
       control: {
         type: 'text',
       },
-      defaultValue: '체크박스',
+      defaultValue: '칩',
     },
   },
   parameters: {
