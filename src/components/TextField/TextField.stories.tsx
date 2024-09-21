@@ -201,3 +201,27 @@ export const DefaultValue: StoryObj = {
 export const DefaultValueWithValue: StoryObj = {
   render: DefaultValueWithValueComponent,
 };
+
+export const Width: StoryObj = {
+  render: () => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+      }}
+    >
+      <div style={{ width: '300px' }}>
+        <TextField placeholder="이름을 입력해주세요...">
+          <TextField.Label>이름</TextField.Label>
+        </TextField>
+      </div>
+
+      <div style={{ width: '500px' }}>
+        <TextField placeholder="이름을 입력해주세요...">
+          <TextField.Label>이름</TextField.Label>
+        </TextField>
+      </div>
+    </div>
+  ),
+};

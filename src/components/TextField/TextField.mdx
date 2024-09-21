@@ -103,6 +103,31 @@ import { TextField } from '@yourssu/design-system-react';
 <br />
 <br />
 
+### 너비 지정
+
+TextField 컴포넌트는 기본적으로 유동적인 너비를 위해 `width` 가 100%로 지정되어 있습니다.
+
+부모 컴포넌트에 `width`를 지정하여 TextField의 너비를 조절해주세요.
+
+```tsx
+<div style={{ width: '300px' }}>
+  <TextField placeholder="이름을 입력해주세요...">
+    <TextField.Label>이름</TextField.Label>
+  </TextField>
+</div>
+
+<div style={{ width: '500px' }}>
+  <TextField placeholder="이름을 입력해주세요...">
+    <TextField.Label>이름</TextField.Label>
+  </TextField>
+</div>
+```
+
+<Canvas of={TextFieldStories.Width} withSource="none" />
+
+<br />
+<br />
+
 ## 예시
 
 ### isError
