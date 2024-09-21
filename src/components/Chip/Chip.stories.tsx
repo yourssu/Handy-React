@@ -40,7 +40,7 @@ const meta: Meta<typeof Chip> = {
       description: 'React.ReactNode 타입의 children을 받습니다.',
       type: { name: 'other', value: '', required: true },
       control: {
-        type: 'string',
+        type: 'text',
       },
       defaultValue: '체크박스',
     },
