@@ -85,5 +85,6 @@ export const StyledClearButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    color: ${({ theme }) => theme.semantic.color.iconBasicTertiary};
   }
 `;
