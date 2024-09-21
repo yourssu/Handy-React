@@ -30,6 +30,8 @@ export const StyledTextFieldInput = styled.input<{ $isError: boolean }>`
     $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.lineStatusPositive};
   border-radius: ${({ theme }) => theme.semantic.radius.m}px;
 
+  caret-color: ${({ theme }) => theme.semantic.color.lineStatusPositive};
+
   ${({ theme }) => theme.typo.B1_Rg_16}
   color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
 
