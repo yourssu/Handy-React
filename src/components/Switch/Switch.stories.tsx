@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Switch } from './Switch';
@@ -93,19 +91,17 @@ export const DisabledSelected: Story = {
   render: SwitchStory,
 };
 
-const SwitchClickStory = () => {
-  const [selected, setSelected] = useState(false);
-
-  const handleClick = (selected: boolean) => setSelected(selected);
+const SwitchChangeStory = () => {
+  const handleChange = (selected: boolean) => alert(`현재 Switch의 상태: ${selected}`);
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-      <span>{selected ? 'on' : 'off'}</span>
-      <Switch size="large" defaultSelected={selected} onSelectedChange={handleClick} />
+      <span>click switch</span>
+      <Switch size="large" onSelectedChange={handleChange} />
     </div>
   );
 };
 
-export const Click: Story = {
-  render: SwitchClickStory,
+export const Change: Story = {
+  render: SwitchChangeStory,
 };
