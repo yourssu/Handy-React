@@ -15,6 +15,11 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
         background-color: ${({ theme }) => theme.semantic.color.buttonBoxPrimaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBasicWhite};
         border: none;
+
+        svg {
+          fill: ${({ theme }) => theme.semantic.color.iconBasicWhite};
+        }
+
         &:hover {
           cursor: pointer;
           background-color: ${({ theme }) => theme.semantic.color.buttonBoxPrimaryPressed};
@@ -25,6 +30,11 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
         background-color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBrandSecondary};
         border: none;
+
+        svg {
+          fill: ${({ theme }) => theme.semantic.color.iconBrandSecondary};
+        }
+
         &:hover {
           cursor: pointer;
           background-color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryPressed};
@@ -35,6 +45,11 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
         background-color: ${({ theme }) => theme.semantic.color.buttonBoxTertiaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
         border: 1px solid ${({ theme }) => theme.semantic.color.lineBasicMedium};
+
+        svg {
+          fill: ${({ theme }) => theme.semantic.color.iconBasicPrimary};
+        }
+
         &:hover {
           cursor: pointer;
           background-color: ${({ theme }) => theme.semantic.color.buttonBoxTertiaryPressed};
@@ -149,5 +164,9 @@ export const StyledBoxButton = styled.button<StyledBoxButtonProps>`
     ${({ $hierarchy }) => getDisabledStyle($hierarchy)}
     color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     cursor: not-allowed;
+
+    svg {
+      fill: ${({ theme }) => theme.semantic.color.iconBasicDisabledStrong};
+    }
   }
 `;
