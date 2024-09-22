@@ -34,7 +34,7 @@ const HelperText = ({ children }: React.PropsWithChildren<unknown>) => {
   );
 };
 
-const ClearButton = ({ inputRef, setText, onClick }: ClearButtonProps) => {
+const ClearButton = ({ inputRef, isError, setText, onClick }: ClearButtonProps) => {
   const triggerClearEvent = () => {
     if (!inputRef.current) return;
 
@@ -59,7 +59,7 @@ const ClearButton = ({ inputRef, setText, onClick }: ClearButtonProps) => {
   };
 
   return (
-    <StyledClearButton className="clear-button" onClick={onClickHandler}>
+    <StyledClearButton className="clear-button" onClick={onClickHandler} $isError={isError}>
       <IcCancelFilled size="20px" />
     </StyledClearButton>
   );
@@ -110,7 +110,12 @@ export const TextField = Object.assign(
                 maxLength={maxLength}
               />
               {text && !disabled && (
-                <ClearButton inputRef={inputRef} setText={setText} onClick={onClearButtonClick} />
+                <ClearButton
+                  inputRef={inputRef}
+                  isError={isError}
+                  setText={setText}
+                  onClick={onClearButtonClick}
+                />
               )}
             </StyledTextFieldInputContainer>
 

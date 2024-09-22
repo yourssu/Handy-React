@@ -13,6 +13,7 @@ export type TextFieldProps = Partial<TextFieldContextProps> &
 
 export interface ClearButtonProps {
   inputRef: React.RefObject<HTMLInputElement>;
+  isError: boolean;
   setText: React.Dispatch<React.SetStateAction<string>>;
   onClick?: () => void;
 }

@@ -30,7 +30,8 @@ export const StyledTextFieldInput = styled.input<{ $isError: boolean }>`
     $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.lineStatusPositive};
   border-radius: ${({ theme }) => theme.semantic.radius.m}px;
 
-  caret-color: ${({ theme }) => theme.semantic.color.lineStatusPositive};
+  caret-color: ${({ theme, $isError }) =>
+    $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.lineStatusPositive};
 
   ${({ theme }) => theme.typo.B1_Rg_16}
   color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
@@ -67,7 +68,7 @@ export const StyledTextFieldHelperText = styled.div<{ $isError: boolean }>`
     $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.textBasicTertiary};
 `;
 
-export const StyledClearButton = styled.button`
+export const StyledClearButton = styled.button<{ $isError: boolean }>`
   position: absolute;
   top: 50%;
   right: 16px;
