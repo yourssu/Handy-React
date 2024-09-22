@@ -13,7 +13,7 @@ const meta: Meta<typeof Switch> = {
   },
   argTypes: {
     isDisabled: { description: 'Switch의 비활성화 여부를 결정하는 속성' },
-    isSelected: { description: 'Switch의 초기 선택 여부를 나타내는 속성' },
+    defaultSelected: { description: 'Switch의 초기 선택 여부를 나타내는 속성' },
     size: {
       description: 'Switch의 크기를 결정하는 속성',
       control: {
@@ -28,11 +28,11 @@ const meta: Meta<typeof Switch> = {
 };
 export default meta;
 
-const SwitchStory = ({ isDisabled, isSelected, size }: SwitchProps) => {
+const SwitchStory = ({ isDisabled, defaultSelected, size }: SwitchProps) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
       <span>switch label</span>
-      <Switch isDisabled={isDisabled} isSelected={isSelected} size={size} />
+      <Switch isDisabled={isDisabled} defaultSelected={defaultSelected} size={size} />
     </div>
   );
 };
@@ -41,7 +41,7 @@ type Story = StoryObj<typeof Switch>;
 export const Primary: Story = {
   args: {
     isDisabled: false,
-    isSelected: false,
+    defaultSelected: false,
     size: 'large',
   },
   render: SwitchStory,
@@ -69,7 +69,7 @@ export const Sizes: Story = {
 export const Selected: Story = {
   args: {
     isDisabled: false,
-    isSelected: true,
+    defaultSelected: true,
     size: 'large',
   },
   render: SwitchStory,
@@ -78,7 +78,7 @@ export const Selected: Story = {
 export const Disabled: Story = {
   args: {
     isDisabled: true,
-    isSelected: false,
+    defaultSelected: false,
     size: 'large',
   },
   render: SwitchStory,
@@ -87,7 +87,7 @@ export const Disabled: Story = {
 export const DisabledSelected: Story = {
   args: {
     isDisabled: true,
-    isSelected: true,
+    defaultSelected: true,
     size: 'large',
   },
   render: SwitchStory,
@@ -101,7 +101,7 @@ const SwitchClickStory = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
       <span>{selected ? 'on' : 'off'}</span>
-      <Switch size="large" isSelected={selected} onSelectedChange={handleClick} />
+      <Switch size="large" defaultSelected={selected} onSelectedChange={handleClick} />
     </div>
   );
 };

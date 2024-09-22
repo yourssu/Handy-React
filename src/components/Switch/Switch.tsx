@@ -4,8 +4,8 @@ import { StyledTrack, StyledThumb } from './Switch.style';
 import { SwitchProps } from './Switch.type';
 
 export const Switch = forwardRef<HTMLDivElement, SwitchProps>(
-  ({ isDisabled = false, isSelected = false, size, onSelectedChange, ...props }, ref) => {
-    const [innerSelected, setInnerSelected] = useState(isSelected);
+  ({ isDisabled = false, defaultSelected = false, size, onSelectedChange, ...props }, ref) => {
+    const [innerSelected, setInnerSelected] = useState(defaultSelected);
 
     const handleSwitchClick = () => {
       if (isDisabled) return;
