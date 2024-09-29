@@ -34,7 +34,7 @@ import { Switch } from '@yourssu/design-system-react';
 
 ```tsx
 <span> switch label </span>
-<Switch size="large">
+<Switch size="large" />
 ```
 
 <Canvas of={SwitchStories.Sizes} />
@@ -46,34 +46,54 @@ import { Switch } from '@yourssu/design-system-react';
 
 ## isSelected
 
-`Switch`의 초기 선택 여부를 결정합니다. 기본 값은 `false`입니다. <br />
+`Switch`의 선택 여부를 결정합니다. 기본 값은 `false`입니다. <br />
 
 ```tsx
 <span> switch label </span>
-<Switch size="large" isSelected={true}>
+<Switch size="large" isSelected={true} />
 ```
 
 <Canvas of={SwitchStories.Selected} />
 
+`Switch`를 직접 클릭하지 않고, `isSelected`에 전달된 상태를 제어하여 선택 여부를 변경할 수도 있습니다. <br />
+단, 직접 클릭하여 상태를 변경할 때 외부에도 이를 반영할 수 있게 `onSelectedChange`를 다음과 같이(\*) 작성해 주세요.
+
+```tsx
+const Component = () => {
+  const [isSelected, setIsSelected] = useState(true);
+
+  return (
+    <>
+      <button onClick={() => setIsSelected(false)}>switch off</button>
+      <button onClick={() => setIsSelected(true)}>switch on</button>
+
+      <span>switch label</span>
+      <Switch
+        size={'large'}
+        isSelected={isSelected}
+        onSelectedChange={(selected) => {
+          setIsSelected(selected); // *
+          // ...
+        }}
+      />
+    </>
+  );
+};
+```
+
+<Canvas of={SwitchStories.ExternalChange} />
+
 ## isDisabled
 
 `Switch`를 클릭할 수 없게 막습니다. 기본 값은 `false`입니다. <br />
+**`isDisabled = true`일 때, `isSelected = true`는 동작하지 않으며 항상 unselected한 상태입니다.**
 
 ```tsx
 <span> switch label </span>
-<Switch size="large" isDisabled={true}>
+<Switch size="large" isDisabled={true} isSelected={true}/>
 ```
 
 <Canvas of={SwitchStories.Disabled} />
-
-`isSelected`가 `true`인 상태에서도 `isDisabled`가 적용될 수 있습니다.
-
-```tsx
-<span> switch label </span>
-<Switch size="large" isSelected={true} isDisabled={true}>
-```
-
-<Canvas of={SwitchStories.DisabledSelected} />
 
 ## 상태 전환 시 이벤트 할당
 
