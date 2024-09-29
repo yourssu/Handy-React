@@ -1,6 +1,4 @@
-import { forwardRef, useState } from 'react';
-
-import { useUpdateEffect } from '@/hooks/useUpdateEffect/useUpdateEffect';
+import { forwardRef, useEffect, useState } from 'react';
 
 import { StyledTrack, StyledThumb } from './Switch.style';
 import { SwitchProps } from './Switch.type';
@@ -24,9 +22,9 @@ export const Switch = forwardRef<HTMLDivElement, SwitchProps>(
       onSelectedChange?.(!innerSelected);
     };
 
-    useUpdateEffect(() => {
-      setInnerSelected(isSelected);
-    }, [isSelected]);
+    useEffect(() => {
+      setInnerSelected(isDisabled ? false : isSelected);
+    }, [isSelected, isDisabled]);
 
     return (
       <StyledTrack

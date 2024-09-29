@@ -78,15 +78,6 @@ export const Selected: Story = {
 export const Disabled: Story = {
   args: {
     isDisabled: true,
-    isSelected: false,
-    size: 'large',
-  },
-  render: SwitchStory,
-};
-
-export const DisabledSelected: Story = {
-  args: {
-    isDisabled: true,
     isSelected: true,
     size: 'large',
   },
