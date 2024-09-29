@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Switch } from './Switch';
@@ -11,7 +13,7 @@ const meta: Meta<typeof Switch> = {
   },
   argTypes: {
     isDisabled: { description: 'Switch의 비활성화 여부를 결정하는 속성' },
-    defaultSelected: { description: 'Switch의 초기 선택 여부를 나타내는 속성' },
+    isSelected: { description: 'Switch의 선택 여부를 나타내는 속성' },
     size: {
       description: 'Switch의 크기를 결정하는 속성',
       control: {
@@ -26,11 +28,11 @@ const meta: Meta<typeof Switch> = {
 };
 export default meta;
 
-const SwitchStory = ({ isDisabled, defaultSelected, size }: SwitchProps) => {
+const SwitchStory = ({ isDisabled, isSelected, size }: SwitchProps) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
       <span>switch label</span>
-      <Switch isDisabled={isDisabled} defaultSelected={defaultSelected} size={size} />
+      <Switch isDisabled={isDisabled} isSelected={isSelected} size={size} />
     </div>
   );
 };
@@ -39,7 +41,7 @@ type Story = StoryObj<typeof Switch>;
 export const Primary: Story = {
   args: {
     isDisabled: false,
-    defaultSelected: false,
+    isSelected: false,
     size: 'large',
   },
   render: SwitchStory,
@@ -67,7 +69,7 @@ export const Sizes: Story = {
 export const Selected: Story = {
   args: {
     isDisabled: false,
-    defaultSelected: true,
+    isSelected: true,
     size: 'large',
   },
   render: SwitchStory,
@@ -76,7 +78,7 @@ export const Selected: Story = {
 export const Disabled: Story = {
   args: {
     isDisabled: true,
-    defaultSelected: false,
+    isSelected: false,
     size: 'large',
   },
   render: SwitchStory,
@@ -85,7 +87,7 @@ export const Disabled: Story = {
 export const DisabledSelected: Story = {
   args: {
     isDisabled: true,
-    defaultSelected: true,
+    isSelected: true,
     size: 'large',
   },
   render: SwitchStory,
@@ -104,4 +106,30 @@ const SwitchChangeStory = () => {
 
 export const Change: Story = {
   render: SwitchChangeStory,
+};
+
+const ExternalChangeStory = () => {
+  const [isSelected, setIsSelected] = useState(true);
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <button onClick={() => setIsSelected(false)}>switch off</button>
+        <button onClick={() => setIsSelected(true)}>switch on</button>
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <span>switch label</span>
+        <Switch
+          isSelected={isSelected}
+          size={'large'}
+          onSelectedChange={(selected) => setIsSelected(selected)}
+        />
+      </div>
+    </div>
+  );
+};
+
+export const ExternalChange: Story = {
+  render: ExternalChangeStory,
 };

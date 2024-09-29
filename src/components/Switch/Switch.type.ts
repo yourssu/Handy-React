@@ -2,7 +2,7 @@ export type SwitchSize = 'small' | 'medium' | 'large';
 
 export interface SwitchProps extends React.HTMLAttributes<HTMLDivElement> {
   isDisabled?: boolean;
-  defaultSelected?: boolean;
+  isSelected?: boolean;
   size: SwitchSize;
   onSelectedChange?: (selected: boolean) => void;
 }
