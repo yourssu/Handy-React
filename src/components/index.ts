@@ -46,5 +46,8 @@ export type {
 export { Textarea } from './Textarea';
 export type { TextareaProps } from './Textarea';
 
+export { TextField } from './TextField';
+export type { TextFieldProps } from './TextField';
+
 export { Switch } from './Switch';
 export type { SwitchProps } from './Switch';

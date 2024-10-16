@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { IcExternalLinkLine } from '@/style';
+
 import { BoxButton } from './BoxButton';
 
 const meta: Meta<typeof BoxButton> = {
@@ -100,4 +102,17 @@ export const Click: Story = {
       alert('BoxButton을 클릭했습니다');
     },
   },
+};
+
+export const WithIcon: Story = {
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <BoxButton size="large" hierarchy="primary" leftIcon={<IcExternalLinkLine />}>
+        with leftIcon
+      </BoxButton>
+      <BoxButton size="large" hierarchy="primary" disabled rightIcon={<IcExternalLinkLine />}>
+        with rightIcon
+      </BoxButton>
+    </div>
+  ),
 };

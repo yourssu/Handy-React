@@ -98,3 +98,16 @@ export const Click: Story = {
     },
   },
 };
+
+export const WithIcon: Story = {
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <TextButton size="medium" hierarchy="primary" leftIcon={<IcExternalLinkLine />}>
+        with leftIcon
+      </TextButton>
+      <TextButton size="medium" hierarchy="primary" disabled rightIcon={<IcExternalLinkLine />}>
+        with rightIcon
+      </TextButton>
+    </div>
+  ),
+};

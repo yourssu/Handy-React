@@ -1,0 +1,248 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as TextFieldStories from './TextField.stories.tsx';
+import { TextField } from './TextField';
+import React from 'react';
+
+<Meta of={TextFieldStories} />
+
+# TextField
+
+Textfield는 사용자가 텍스트나 정보를 입력하고 편집할 수 있는 컴포넌트입니다.
+
+<Canvas of={TextFieldStories.Control} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+기본 사용법은 아래와 같습니다.
+
+```tsx
+import { TextField } from '@yourssu/design-system-react';
+```
+
+```tsx
+<TextField />
+```
+
+<Canvas of={TextFieldStories.Usage} withSource="none" />
+
+<br />
+<br />
+
+### placeholder
+
+`placeholder` prop을 통해 TextField에 placeholder를 추가할 수 있습니다.
+
+```tsx
+<TextField placeholder="입력해주세요..." />
+```
+
+<Canvas of={TextFieldStories.Placeholder} withSource="none" />
+
+<br />
+<br />
+
+### Label
+
+`TextField.Label`을 통해 TextField에 Label을 추가할 수 있습니다.
+
+```tsx
+<TextField placeholder="이름을 입력해주세요...">
+  <TextField.Label>이름</TextField.Label>
+</TextField>
+```
+
+<Canvas of={TextFieldStories.Label} withSource="none" />
+
+<br />
+<br />
+
+### Helper Text
+
+`TextField.HelperText`을 통해 TextField에 Helper Text를 추가할 수 있습니다.
+
+`Label` 아래에 `HelperText`를 위치시킬 필요는 없지만, 선언적 코드 작성을 위하여 권장됩니다.
+
+```tsx
+// 권장하는 선언 방식
+<TextField placeholder="이름을 입력해주세요...">
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>
+
+
+// 사용은 가능, 권장하지 않음
+<TextField placeholder="이름을 입력해주세요...">
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+  <TextField.Label>이름</TextField.Label>
+</TextField>
+```
+
+<Canvas of={TextFieldStories.HelperText} withSource="none" />
+
+<br />
+<br />
+
+### maxLength
+
+`maxLength` prop을 통해 TextField에 최대 글자수를 제한할 수 있습니다.
+
+이 프로퍼티를 사용하면, Helper Text에 현재 입력된 글자수와 최대 글자수를 표시할 수 있으며, 기존 Helper Text는 대체됩니다.
+
+```tsx
+<TextField placeholder="이름을 입력해주세요..." maxLength={10}>
+  <TextField.HelperText>제가 대체됩니다!</TextField.HelperText>
+</TextField>
+```
+
+<Canvas of={TextFieldStories.MaxLength} withSource="none" />
+
+<br />
+<br />
+
+### 너비 지정
+
+TextField 컴포넌트는 기본적으로 유동적인 너비를 위해 `width` 가 100%로 지정되어 있습니다.
+
+부모 컴포넌트에 `width`를 지정하여 TextField의 너비를 조절해주세요.
+
+```tsx
+<div style={{ width: '300px' }}>
+  <TextField placeholder="이름을 입력해주세요...">
+    <TextField.Label>이름</TextField.Label>
+  </TextField>
+</div>
+
+<div style={{ width: '500px' }}>
+  <TextField placeholder="이름을 입력해주세요...">
+    <TextField.Label>이름</TextField.Label>
+  </TextField>
+</div>
+```
+
+<Canvas of={TextFieldStories.Width} withSource="none" />
+
+<br />
+<br />
+
+## 예시
+
+### isError
+
+`isError` 속성을 통해 TextField에 에러 상태임을 나타낼 수 있습니다.
+
+```tsx
+<TextField placeholder="이름을 입력해주세요..." isError>
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>
+```
+
+<Canvas of={TextFieldStories.Error} withSource="none" />
+
+<br />
+<br />
+
+### disabled
+
+`disabled` 속성을 통해 `TextField`을 사용할 수 없게 막습니다.
+
+이때, 에러 상태에 대한 색상은 제거됩니다.
+
+```tsx
+<TextField placeholder="이름을 입력해주세요..." disabled>
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>
+
+
+<TextField placeholder="이름을 입력해주세요..." disabled isError>
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>
+```
+
+<Canvas of={TextFieldStories.Disabled} withSource="none" />
+
+<br />
+<br />
+
+### 삭제 버튼 클릭시 이벤트 처리
+
+`onClearButtonClick` 속성을 통해 삭제 버튼 클릭시 원하는 이벤트를 처리할 수 있습니다.
+
+```tsx
+const onClearButtonClick = () => {
+  alert('삭제 버튼 클릭!');
+};
+
+<TextField placeholder="이름을 입력해주세요..." onClearButtonClick={onClearButtonClick}>
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>;
+```
+
+<Canvas of={TextFieldStories.OnClearButtonClick} withSource="none" />
+
+<br />
+<br />
+
+### 외부에서 상태 관리
+
+기본적으로 컴포넌트 내부에서 상태를 관리하지만, 외부에서 상태를 관리하고 싶을 때 `onChange` 속성을 사용할 수 있습니다.
+
+```tsx
+const [_, setValue] = React.useState('');
+
+const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setValue(e.target.value);
+};
+
+<TextField placeholder="이름을 입력해주세요..." onChange={onChange}>
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>;
+```
+
+<Canvas of={TextFieldStories.OnChange} withSource="none" />
+
+<br />
+<br />
+
+### 기본값 설정
+
+`defaultValue` 속성을 통해 TextField의 기본값을 설정할 수 있습니다.
+
+```tsx
+<TextField placeholder="이름을 입력해주세요..." defaultValue="홍길동">
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>
+```
+
+<Canvas of={TextFieldStories.DefaultValue} withSource="none" />
+
+단 value 속성과 함께 사용한다면, value 속성이 우선적으로 적용됩니다.
+
+```tsx
+const [value, setValue] = useState('김철수');
+
+const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setValue(e.target.value);
+};
+
+<TextField
+  placeholder="이름을 입력해주세요..."
+  value={value}
+  onChange={onChange}
+  defaultValue="홍길동"
+>
+  <TextField.Label>이름</TextField.Label>
+  <TextField.HelperText>신분증상 이름을 입력해주세요.</TextField.HelperText>
+</TextField>;
+```
+
+<Canvas of={TextFieldStories.DefaultValueWithValue} withSource="none" />

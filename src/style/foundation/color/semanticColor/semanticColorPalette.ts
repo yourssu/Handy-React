@@ -70,6 +70,7 @@ export const semanticColorPalette: SemanticColorPalette = {
   iconBasicSecondary: primitiveColorPalette.gray700,
   iconBasicTertiary: primitiveColorPalette.gray500,
   iconBasicDisabled: primitiveColorPalette.gray200,
+  iconBasicDisabledStrong: primitiveColorPalette.gray300,
   iconBasicWhite: primitiveColorPalette.neutralWhite,
 
   iconBrandPrimary: primitiveColorPalette.violet500,

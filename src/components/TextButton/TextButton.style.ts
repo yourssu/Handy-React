@@ -15,6 +15,11 @@ const getHierarchyStyle = ($hierarchy: TextButtonHierarchy) => {
         background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBrandPrimary};
         border: none;
+
+        svg {
+          fill: ${({ theme }) => theme.semantic.color.iconBrandPrimary};
+        }
+
         &:hover {
           cursor: pointer;
           background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryPressed};
@@ -25,6 +30,11 @@ const getHierarchyStyle = ($hierarchy: TextButtonHierarchy) => {
         background-color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBasicTertiary};
         border: none;
+
+        svg {
+          fill: ${({ theme }) => theme.semantic.color.iconBasicTertiary};
+        }
+
         &:hover {
           cursor: pointer;
           background-color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryPressed};
@@ -97,5 +107,9 @@ export const StyledTextButton = styled.button<StyledTextButtonProps>`
     ${({ $hierarchy }) => getDisabledStyle($hierarchy)}
     color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     cursor: not-allowed;
+
+    svg {
+      fill: ${({ theme }) => theme.semantic.color.iconBasicDisabledStrong};
+    }
   }
 `;
