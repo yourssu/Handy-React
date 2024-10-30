@@ -1,0 +1,74 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as SnackbarStories from './Snackbar.stories.tsx';
+import { Snackbar } from './Snackbar';
+
+<Meta of={SnackbarStories} />
+
+# Snackbar
+
+UI의 최하단에서 유저의 이용을 방해하지 않으면서 유저가 수행했거나 수행해야 할 작업에 대해 일시적으로 피드백을 제공합니다.
+
+<Canvas of={SnackbarStories.Test} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+Snackbar 컴포넌트의 기본 사용법입니다.
+
+1. Snackbar를 노출할 영역을 `SnackbarProvider`로 감싸줍니다.
+
+```tsx
+<YDSWrapper>
+  <SnackbarProvider>
+    <App />
+  </SnackbarProvider>
+</YDSWrapper>
+```
+
+2. `useSnackbar` 훅을 사용하여 snackbar를 가져옵니다.
+
+```tsx
+const { snackbar } = useSnackbar();
+```
+
+3. Snackbar를 호출하는 함수를 만들어서 Snackbar를 노출합니다.
+
+필수 프로퍼티인 `message`를 꼭 설정해주세요.
+
+`type` - Snackbar의 종류 (info 또는 error). 기본 값은 `info`입니다. <br />
+`width` - Snackbar의 가로 길이 (px, %, 등). 기본적으로 글자 길이에 맞게 가로 길이가 정해집니다. <br />
+`margin` - 왼쪽 오른쪽의 margin 값. 기본 값은 `16px`입니다. <br />
+`message` - Snackbar의 내용 (메시지). 필수 프로퍼티입니다. <br />
+`duration` - Snackbar가 자동으로 닫히기 전까지의 시간(ms). 기본 값은 `5000`입니다. <br />
+`position` - Snackbar의 위치 (left, center, right, full-width). 기본 값은 `center`입니다.
+
+```tsx
+function App() {
+  const { snackbar } = useSnackbar();
+
+  const handleShowSnackbar = () => {
+    snackbar({
+      type: 'info', // Snackbar의 종류 (info 또는 error)
+      width: '350px', // Snackbar의 가로 길이 (px, %, 등)
+      margin: '16px', // 왼쪽 오른쪽의 margin 값
+      message: '테스트용 스낵바입니다.', // Snackbar의 내용 (메시지)
+      duration: 3000, // Snackbar가 자동으로 닫히기 전까지의 시간(ms)
+      position: 'center', // Snackbar의 위치 (left, center, right, full-width)
+    });
+  };
+  return (
+    <>
+      <BoxButton size="small" hierarchy="primary" onClick={handleShowSnackbar}>
+        Show Snackbar
+      </BoxButton>
+    </>
+  );
+}
+```
+
+4. Snackbar를 닫을 시, info 타입일 때는 `드래그`, error 타입일 때는 `X 버튼`을 클릭하여 Snackbar를 닫을 수 있습니다.
+
+<Canvas of={SnackbarStories.CloseTest} />

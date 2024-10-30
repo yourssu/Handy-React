@@ -1,0 +1,125 @@
+import { Meta, StoryObj } from '@storybook/react';
+
+import { BoxButton } from '../BoxButton';
+
+import { Snackbar } from './Snackbar';
+import { SnackbarProps } from './Snackbar.type';
+import { SnackbarProvider } from './SnackbarProvider';
+import { useSnackbar } from './useSnackbar';
+
+const meta: Meta<SnackbarProps> = {
+  title: 'Components/Snackbar',
+  component: Snackbar,
+  args: {
+    type: 'info',
+    duration: 5000,
+    margin: '16px',
+    position: 'center',
+  },
+  argTypes: {
+    type: {
+      description: 'Snackbar의 종류 (info 또는 error)',
+      control: { type: 'radio', options: ['info', 'error'] },
+    },
+    width: {
+      control: 'text',
+      description: 'Snackbar의 가로 길이 (px, %, 등)',
+    },
+    duration: {
+      description: 'Snackbar가 자동으로 닫히기 전까지의 시간 (ms)',
+      control: 'number',
+    },
+    position: {
+      description: 'Snackbar의 위치 (left, center, right, full-width)',
+      control: { type: 'radio', options: ['left', 'center', 'right', 'full-width'] },
+    },
+    message: {
+      control: 'text',
+      description: 'Snackbar의 내용 (메시지)',
+    },
+    id: { table: { disable: true } },
+    onClose: { table: { disable: true } },
+    isClosing: { table: { disable: true } },
+  },
+};
+
+export default meta;
+type Story = StoryObj<SnackbarProps>;
+
+const SnackbarComponent = (args: Partial<SnackbarProps>) => {
+  const { snackbar } = useSnackbar();
+
+  const addSnackbar = () => {
+    snackbar({
+      ...args,
+      message: args.message || '기본 메시지입니다.',
+    });
+  };
+
+  const buttonLabel = args.type === 'error' ? 'Error Snackbar' : 'Info Snackbar';
+
+  return (
+    <div>
+      <BoxButton size="small" hierarchy="primary" onClick={addSnackbar}>
+        {buttonLabel}
+      </BoxButton>
+    </div>
+  );
+};
+
+export const Test: Story = {
+  render: (args) => (
+    <SnackbarProvider>
+      <SnackbarComponent {...args} />
+    </SnackbarProvider>
+  ),
+  args: {
+    type: 'info',
+    position: 'center',
+    width: '350px',
+    message: '테스트용 스낵바입니다.',
+  },
+};
+
+export const Info: Story = {
+  render: (args) => (
+    <SnackbarProvider>
+      <SnackbarComponent {...args} />
+    </SnackbarProvider>
+  ),
+  args: {
+    type: 'info',
+    position: 'center',
+    width: '350px',
+    message: '정보성 메시지가 들어갑니다. 최대 2줄 입력 가능합니다.',
+  },
+};
+
+export const Error: Story = {
+  render: (args) => (
+    <SnackbarProvider>
+      <SnackbarComponent {...args} />
+    </SnackbarProvider>
+  ),
+  args: {
+    type: 'error',
+    message: '에러 메시지가 들어갑니다. 최대 2줄 입력 가능합니다.',
+    width: '350px',
+    position: 'center',
+  },
+};
+
+export const CloseTest: Story = {
+  render: (args) => (
+    <SnackbarProvider>
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <SnackbarComponent {...args} type="info" message="정보성 메시지가 들어갑니다." />
+        <SnackbarComponent {...args} type="error" message="에러 메시지가 들어갑니다." />
+      </div>
+    </SnackbarProvider>
+  ),
+  args: {
+    width: '350px',
+    position: 'center',
+  },
+};
