@@ -93,4 +93,7 @@ export const semanticColorPalette: SemanticColorPalette = {
   switchUnselected: primitiveColorPalette.gray300,
   switchDisabled: primitiveColorPalette.gray200,
   switchThumb: primitiveColorPalette.neutralWhite,
+
+  snackbarInfo: primitiveColorPalette.gray800,
+  snackbarError: primitiveColorPalette.statusRedSub,
 } as const;
