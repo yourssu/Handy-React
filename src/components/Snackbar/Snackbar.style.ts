@@ -69,6 +69,7 @@ export const StyledSnackbar = styled.div.withConfig({
 })<StyledSnackbarProps>`
   position: relative;
   padding: 24px;
+  margin-bottom: 16px;
   width: ${({ position, $width }) => (position === 'full-width' ? 'calc(100% - 32px)' : $width)};
   height: ${({ $heightType }) => ($heightType === 2 ? '72px' : '52px')};
   border-radius: ${({ theme }) => theme.semantic.radius.m}px;
@@ -100,14 +101,6 @@ export const StyledSnackbar = styled.div.withConfig({
       transform: translateY(0);
       opacity: 1;
     }
-  }
-
-  &:not(:first-child) {
-    margin-bottom: 8px;
-  }
-
-  &:first-child {
-    margin-bottom: 16px;
   }
 `;
 
