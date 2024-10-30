@@ -51,3 +51,6 @@ export type { TextFieldProps } from './TextField';
 
 export { Switch } from './Switch';
 export type { SwitchProps } from './Switch';
+
+export { Divider } from './Divider';
+export type { DividerProps } from './Divider';
