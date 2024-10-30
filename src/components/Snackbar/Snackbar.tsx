@@ -7,7 +7,6 @@ import { SnackbarHeightType, SnackbarProps } from './Snackbar.type';
 import { useTouchMouseDrag } from './useMouseTouchDrag';
 
 export const Snackbar = ({
-  id,
   type = 'info',
   width,
   margin,
@@ -24,9 +23,9 @@ export const Snackbar = ({
   const closeToast = useCallback(() => {
     if (!isClosing && onClose) {
       setIsClosing(true);
-      setTimeout(() => onClose(id), 300);
+      setTimeout(() => onClose(), 300);
     }
-  }, [isClosing, onClose, id]);
+  }, [isClosing, onClose]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -45,24 +44,17 @@ export const Snackbar = ({
     }
   }, [message]);
 
-  const handleAnimationEnd = () => {
-    if (isClosing && onClose) {
-      onClose(id);
-    }
-  };
-
   const snackbarRef = useTouchMouseDrag(() => {
     closeToast();
   });
 
   return (
     <StyledSnackbar
-      ref={type === 'info' ? snackbarRef : undefined}
+      ref={snackbarRef}
       $type={type}
       $width={width}
       $margin={margin}
       isClosing={isClosing}
-      onAnimationEnd={handleAnimationEnd}
       position={position}
       $heightType={heightType}
     >

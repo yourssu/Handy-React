@@ -1,59 +1,39 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react';
-
 import ReactDOM from 'react-dom';
-
 import { Snackbar } from './Snackbar';
 import { StyledSnackbarContainer } from './Snackbar.style';
-import { SnackbarProps } from './Snackbar.type';
+import { SnackbarWithoutClosingProps } from './Snackbar.type';
 
 type SnackbarContextType = {
-  showSnackbar: (props: Omit<SnackbarProps, 'isClosing' | 'id'>) => void;
+  showSnackbar: (props: SnackbarWithoutClosingProps) => void;
 };
 
 const SnackbarContext = createContext<SnackbarContextType>({ showSnackbar: () => {} });
 
 export const SnackbarProvider = ({ children }: PropsWithChildren) => {
-  const [snackbars, setSnackbars] = useState<SnackbarProps[]>([]);
-  const MAX_SNACKBARS = 5;
+  const [snackbar, setSnackbar] = useState<SnackbarWithoutClosingProps | null>(null);
+  const [isClosing, setIsClosing] = useState<boolean>(false);
 
-  const showSnackbar = useCallback((props: Omit<SnackbarProps, 'isClosing' | 'id'>) => {
-    setSnackbars((prevSnackbars) => {
-      if (prevSnackbars.length >= MAX_SNACKBARS) {
-        return prevSnackbars;
-      }
-      const newSnackbar = { ...props, id: `snackbar-${Date.now()}`, isClosing: false };
-      return [...prevSnackbars, newSnackbar];
-    });
+  const showSnackbar = useCallback((props: SnackbarWithoutClosingProps) => {
+    setSnackbar(props);
+    setIsClosing(false);
   }, []);
 
-  const handleRemoveSnackbar = useCallback((id: string) => {
-    setSnackbars((prevSnackbars) => prevSnackbars.filter((snackbar) => snackbar.id !== id));
+  const removeSnackbar = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => setSnackbar(null), 300);
   }, []);
-
-  const snackbarList = snackbars.map((snackbar) => (
-    <Snackbar
-      key={snackbar.id}
-      id={snackbar.id}
-      type={snackbar.type}
-      width={snackbar.width}
-      margin={snackbar.margin}
-      message={snackbar.message}
-      onClose={handleRemoveSnackbar}
-      duration={snackbar.duration}
-      position={snackbar.position}
-      isClosing={snackbar.isClosing}
-    />
-  ));
 
   return (
     <SnackbarContext.Provider value={{ showSnackbar }}>
       {children}
-      {ReactDOM.createPortal(
-        <StyledSnackbarContainer position={snackbars[0]?.position || 'center'}>
-          {snackbarList}
-        </StyledSnackbarContainer>,
-        document.body
-      )}
+      {snackbar &&
+        ReactDOM.createPortal(
+          <StyledSnackbarContainer position={snackbar.position || 'center'}>
+            <Snackbar {...snackbar} onClose={removeSnackbar} isClosing={isClosing} />
+          </StyledSnackbarContainer>,
+          document.body
+        )}
     </SnackbarContext.Provider>
   );
 };
