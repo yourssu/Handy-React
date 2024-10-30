@@ -13,10 +13,10 @@ interface StyledSnackbarProps {
   $heightType?: SnackbarHeightType;
 }
 
-const getBackgroundStyle = ($type: SnackbarType) => {
-  return match($type)
-    .with('error', () => '#FFEBEB')
-    .otherwise(() => '#3F434D');
+const getBackgroundStyle = (arg: { $type: SnackbarType; theme: DefaultTheme }) => {
+  return match(arg)
+    .with({ $type: 'error' }, ({ theme }) => theme.semantic.color.snackbarError)
+    .otherwise(({ theme }) => theme.semantic.color.snackbarInfo);
 };
 
 const getFontColorStyle = (arg: { $type: SnackbarType; theme: DefaultTheme }) => {
@@ -76,7 +76,7 @@ export const StyledSnackbar = styled.div.withConfig({
 
   ${({ theme }) => theme.typo.B3_Rg_14}
   color: ${({ $type, theme }) => getFontColorStyle({ $type, theme })};
-  background-color: ${({ $type }) => `${getBackgroundStyle($type)}`};
+  background-color: ${({ $type, theme }) => `${getBackgroundStyle({ $type, theme })}`};
 
   display: flex;
   gap: 12px;
