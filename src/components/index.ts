@@ -51,3 +51,7 @@ export type { TextFieldProps } from './TextField';
 
 export { Switch } from './Switch';
 export type { SwitchProps } from './Switch';
+
+export { SnackbarProvider } from './Snackbar/SnackbarProvider';
+export { useSnackbar } from './Snackbar/useSnackbar';
+export type * from './Snackbar';
