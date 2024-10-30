@@ -102,6 +102,8 @@ export type SemanticPaginationBasicColor = MergeVariants<'pagination', 'basic', 
 
 export type SemanticSwitchColor = MergeVariants<'switch', SelectableVariantWithDisabled | 'thumb'>;
 
+export type SemanticSnackbarColor = MergeVariants<'snackbar', 'info' | 'error'>;
+
 export type SemanticColorType =
   | SemanticBackgroundBasicColor
   | SemanticBackgroundBrandColor
@@ -126,6 +128,7 @@ export type SemanticColorType =
   | SemanticChipColor
   | SemanticPaginationBrandColor
   | SemanticPaginationBasicColor
-  | SemanticSwitchColor;
+  | SemanticSwitchColor
+  | SemanticSnackbarColor;
 
 export type SemanticColorPalette = Readonly<Record<SemanticColorType, string>>;
