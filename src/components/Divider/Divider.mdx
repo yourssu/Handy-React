@@ -1,0 +1,62 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as DividerStories from './Divider.stories';
+import { Divider } from './Divider';
+import React from 'react';
+
+<Meta of={DividerStories} />
+
+# Divider
+
+Divider는 목록 및 레이아웃에서 콘텐츠를 그룹화하여 요소를 구분하는 선입니다.<br />
+Divider는 Mobile Web에서만 사용합니다.
+
+<Canvas of={DividerStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+Divider의 기본 사용법입니다.
+
+필수 프로퍼티인 `thickness`를 설정해주세요. <br />
+
+```tsx
+import { Divider } from '@yourssu/design-system-react';
+```
+
+```tsx
+<Divider thickness={1} />
+```
+
+이외의 프로퍼티들은 하단의 예시에서 확인할 수 있습니다.
+
+<br />
+<br />
+
+## 예시
+
+### width
+
+Divider는 기본적으로 `width`가 부모 컴포넌트 `width`의 100%로 지정되어 있습니다.<br />
+
+`width` 프로퍼티를 지정하여 유동적으로 조절할 수 있습니다. (단위: px)
+
+```tsx
+<Divider thickness={1} width={500} />
+```
+
+<Canvas of={DividerStories.Width} />
+
+### thickness
+
+Divider의 두께를 의미하는 프로퍼티입니다.<br />
+
+지원하는 두께는 `1`, `2`, `4`, `8` 입니다. (단위: px)
+
+```tsx
+<Divider thickness={1} />
+```
+
+<Canvas of={DividerStories.Thickness} />
