@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { BoxButton } from '../BoxButton';
-
 import { Snackbar } from './Snackbar';
 import { SnackbarProps } from './Snackbar.type';
 import { SnackbarProvider } from './SnackbarProvider';
@@ -37,16 +36,16 @@ const meta: Meta<SnackbarProps> = {
       control: 'text',
       description: 'Snackbar의 내용 (메시지)',
     },
-    id: { table: { disable: true } },
     onClose: { table: { disable: true } },
     isClosing: { table: { disable: true } },
+    $heightType: { table: { disable: true } },
   },
 };
 
 export default meta;
 type Story = StoryObj<SnackbarProps>;
 
-const SnackbarComponent = (args: Partial<SnackbarProps>) => {
+const SnackbarComponent = (args: SnackbarProps) => {
   const { snackbar } = useSnackbar();
 
   const addSnackbar = () => {
@@ -119,6 +118,25 @@ export const CloseTest: Story = {
     </SnackbarProvider>
   ),
   args: {
+    width: '350px',
+    position: 'center',
+  },
+};
+
+export const OverflowTest: Story = {
+  render: (args) => (
+    <SnackbarProvider>
+      <h3>두 줄 이상 입력 시</h3>
+      <br />
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <SnackbarComponent {...args} type="info" />
+        <SnackbarComponent {...args} type="error" />
+      </div>
+    </SnackbarProvider>
+  ),
+  args: {
+    message:
+      '최대 2줄 입력 가능합니다. 입력 값이 넘칠 시, ellipsis 처리됩니다. 최대 2줄 입력 가능합니다. 입력 값이 넘칠 시, ellipsis 처리됩니다.',
     width: '350px',
     position: 'center',
   },
