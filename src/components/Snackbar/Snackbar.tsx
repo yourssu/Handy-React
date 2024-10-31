@@ -4,7 +4,7 @@ import { IcAlertTriangleFilled, IcCloseFilled } from '@/style';
 
 import { StyledErrorIc, StyledIcMessage, StyledMessage, StyledSnackbar } from './Snackbar.style';
 import { SnackbarHeightType, SnackbarProps } from './Snackbar.type';
-import { useTouchMouseDrag } from './useMouseTouchDrag';
+import { useTouchMouseDrag } from './hooks/useMouseTouchDrag';
 
 export const Snackbar = ({
   type = 'info',

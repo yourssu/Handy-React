@@ -1,5 +1,5 @@
-import { SnackbarWithoutClosingProps } from './Snackbar.type';
-import { useSnackbarContext } from './SnackbarProvider';
+import { SnackbarWithoutClosingProps } from '../Snackbar.type';
+import { useSnackbarContext } from '../SnackbarProvider';
 
 export const useSnackbar = () => {
   const { showSnackbar } = useSnackbarContext();

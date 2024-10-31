@@ -4,7 +4,7 @@ import { BoxButton } from '../BoxButton';
 import { Snackbar } from './Snackbar';
 import { SnackbarProps } from './Snackbar.type';
 import { SnackbarProvider } from './SnackbarProvider';
-import { useSnackbar } from './useSnackbar';
+import { useSnackbar } from './hooks/useSnackbar';
 
 const meta: Meta<SnackbarProps> = {
   title: 'Components/Snackbar',
