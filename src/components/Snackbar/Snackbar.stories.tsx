@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { BoxButton } from '../BoxButton';
+import { BoxButton } from '@/components/BoxButton';
 import { Snackbar } from './Snackbar';
 import { SnackbarProps } from './Snackbar.type';
 import { SnackbarProvider } from './SnackbarProvider';
