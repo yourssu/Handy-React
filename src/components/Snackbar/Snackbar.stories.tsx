@@ -38,7 +38,7 @@ const meta: Meta<SnackbarProps> = {
     },
     onClose: { table: { disable: true } },
     isClosing: { table: { disable: true } },
-    $heightType: { table: { disable: true } },
+    heightType: { table: { disable: true } },
   },
 };
 

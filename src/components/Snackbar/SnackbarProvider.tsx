@@ -29,7 +29,7 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
       {children}
       {snackbar &&
         ReactDOM.createPortal(
-          <StyledSnackbarContainer position={snackbar.position || 'center'}>
+          <StyledSnackbarContainer $position={snackbar.position || 'center'}>
             <Snackbar {...snackbar} onClose={removeSnackbar} isClosing={isClosing} />
           </StyledSnackbarContainer>,
           document.body

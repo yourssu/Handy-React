@@ -50,12 +50,12 @@ export const Snackbar = ({
 
   return (
     <StyledSnackbar
-      ref={snackbarRef}
+      ref={type === 'info' ? snackbarRef : undefined}
       $type={type}
       $width={width}
       $margin={margin}
-      isClosing={isClosing}
-      position={position}
+      $isClosing={isClosing}
+      $position={position}
       $heightType={heightType}
     >
       <StyledIcMessage>

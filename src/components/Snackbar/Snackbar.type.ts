@@ -11,7 +11,7 @@ export interface SnackbarProps {
   duration?: number;
   position?: SnackbarPosition;
   isClosing: boolean;
-  $heightType?: SnackbarHeightType;
+  heightType?: SnackbarHeightType;
 }
 
 export type SnackbarWithoutClosingProps = Omit<SnackbarProps, 'isClosing'>;

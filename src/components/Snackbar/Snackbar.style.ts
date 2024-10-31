@@ -8,8 +8,8 @@ interface StyledSnackbarProps {
   $type: 'info' | 'error';
   $width: SnackbarProps['width'];
   $margin?: SnackbarProps['margin'];
-  isClosing?: boolean;
-  position: SnackbarPosition;
+  $isClosing?: boolean;
+  $position: SnackbarPosition;
   $heightType?: SnackbarHeightType;
 }
 
@@ -56,12 +56,12 @@ export const StyledSnackbarContainer = styled.div<
 >`
   position: fixed;
   bottom: 0;
-  width: ${({ position }) => (position === 'full-width' ? '100%' : 'fit-content')};
+  width: ${({ $position }) => ($position === 'full-width' ? '100%' : 'fit-content')};
   height: fit-content;
   display: flex;
   flex-direction: column-reverse;
   margin: 0 auto;
-  ${({ position, $margin }) => getPositionStyle(position, $margin)}
+  ${({ $position, $margin }) => getPositionStyle($position, $margin)}
 `;
 
 export const StyledSnackbar = styled.div.withConfig({
@@ -70,7 +70,7 @@ export const StyledSnackbar = styled.div.withConfig({
   position: relative;
   padding: 24px;
   margin-bottom: 16px;
-  width: ${({ position, $width }) => (position === 'full-width' ? 'calc(100% - 32px)' : $width)};
+  width: ${({ $position, $width }) => ($position === 'full-width' ? 'calc(100% - 32px)' : $width)};
   height: ${({ $heightType }) => ($heightType === 2 ? '72px' : '52px')};
   border-radius: ${({ theme }) => theme.semantic.radius.m}px;
 
@@ -83,13 +83,13 @@ export const StyledSnackbar = styled.div.withConfig({
   align-items: center;
   justify-content: space-between;
 
-  ${({ isClosing }) => css`
-    opacity: ${isClosing ? 0 : 1};
-    transform: ${isClosing ? 'translateY(100%)' : 'translateY(0)'};
+  ${({ $isClosing }) => css`
+    opacity: ${$isClosing ? 0 : 1};
+    transform: ${$isClosing ? 'translateY(100%)' : 'translateY(0)'};
     transition:
       opacity 300ms ease-out,
       transform 300ms ease-out;
-    animation: ${isClosing ? 'none' : 'slideIn 500ms ease-out'};
+    animation: ${$isClosing ? 'none' : 'slideIn 500ms ease-out'};
   `}
 
   @keyframes slideIn {
