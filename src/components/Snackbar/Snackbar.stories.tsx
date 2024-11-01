@@ -108,7 +108,7 @@ export const Error: Story = {
   },
 };
 
-export const CloseTest: Story = {
+export const type: Story = {
   render: (args) => (
     <SnackbarProvider>
       <div style={{ display: 'flex', gap: '20px' }}>

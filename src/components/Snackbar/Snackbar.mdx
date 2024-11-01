@@ -38,12 +38,7 @@ const { snackbar } = useSnackbar();
 
 필수 프로퍼티인 `message`를 꼭 설정해주세요.
 
-`type` - Snackbar의 종류 (info 또는 error). 기본 값은 `info`입니다. <br />
-`width` - Snackbar의 가로 길이 (px, %, 등). 기본적으로 글자 길이에 맞게 가로 길이가 정해집니다. <br />
-`margin` - 왼쪽 오른쪽의 margin 값. 기본 값은 `16px`입니다. <br />
-`message` - Snackbar의 내용 (메시지). 필수 프로퍼티입니다. <br />
-`duration` - Snackbar가 자동으로 닫히기 전까지의 시간(ms). 기본 값은 `5000`입니다. <br />
-`position` - Snackbar의 위치 (left, center, right, full-width). 기본 값은 `center`입니다.
+이외의 프로퍼티들은 하단의 예시에서 확인할 수 있습니다.
 
 ```tsx
 function App() {
@@ -51,12 +46,12 @@ function App() {
 
   const handleShowSnackbar = () => {
     snackbar({
-      type: 'info', // Snackbar의 종류 (info 또는 error)
-      width: '350px', // Snackbar의 가로 길이 (px, %, 등)
+      type: 'info', // Snackbar의 종류
+      width: '350px', // Snackbar의 가로 길
       margin: '16px', // 왼쪽 오른쪽의 margin 값
-      message: '테스트용 스낵바입니다.', // Snackbar의 내용 (메시지)
+      message: '테스트용 스낵바입니다.', // Snackbar의 내용
       duration: 3000, // Snackbar가 자동으로 닫히기 전까지의 시간(ms)
-      position: 'center', // Snackbar의 위치 (left, center, right, full-width)
+      position: 'center', // Snackbar의 위치
     });
   };
   return (
@@ -71,8 +66,43 @@ function App() {
 
 4. Snackbar를 닫을 시, info 타입일 때는 `드래그`, error 타입일 때는 `X 버튼`을 클릭하여 Snackbar를 닫을 수 있습니다.
 
-<Canvas of={SnackbarStories.CloseTest} />
+<Canvas of={SnackbarStories.type} />
 
 5. Snackbar는 `최대 두 줄까지` 입력되며, 두 줄을 넘어설 시, `ellipsis` 처리됩니다.
 
 <Canvas of={SnackbarStories.OverflowTest} />
+
+## 예시
+
+### type
+
+`type` prop으로 Snackbar의 종류를 설정합니다. (info 또는 error) <br />
+기본 값은 `info`입니다.
+
+<Canvas of={SnackbarStories.type} />
+
+### width
+
+`width` prop으로 원하는 Snackbar의 가로 길이를 설정합니다. (full-width, px, rem, em, %, vh, calc()) <br />
+기본 값으로 글자 길이에 맞게 가로 길이가 정해집니다.
+
+`full-width`인 경우, 기본적으로 `양쪽 margin 16px`이 설정됩니다. 이 때, position 설정은 적용되지 않습니다.
+
+### margin
+
+`margin` prop으로 Snackbar의 왼쪽 오른쪽의 margin 값을 정해줍니다. <br />
+기본 값은 `16px`입니다.
+
+### message
+
+Snackbar의 필수 프로퍼티로, Snackbar의 내용을 설정합니다. <br/ >
+
+### duration
+
+`duration` prop으로 Snackbar가 자동으로 닫히기까지의 시간을 설정합니다. (단위: `ms`) <br />
+기본 값은 `5000`입니다.
+
+### position
+
+`position` prop으로 Snackbar의 위치를 설정합니다. (left, center, right) <br />
+기본 값은 `center`입니다.
