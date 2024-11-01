@@ -1,10 +1,18 @@
 export type SnackbarType = 'info' | 'error';
 export type SnackbarHeightType = 1 | 2;
-export type SnackbarPosition = 'left' | 'center' | 'right' | 'full-width';
+export type SnackbarPosition = 'left' | 'center' | 'right';
+export type SnackbarWidth =
+  | 'full-width'
+  | `${number}px`
+  | `${number}rem`
+  | `${number}em`
+  | `${number}%`
+  | `${number}vh`
+  | `calc(${string})`;
 
 export interface SnackbarProps {
   type?: SnackbarType;
-  width?: string;
+  width?: SnackbarWidth;
   margin?: string;
   message: string;
   onClose?: () => void;

@@ -31,13 +31,15 @@ const getPositionStyle = (position: SnackbarPosition, margin?: string) => {
       'left',
       () => css`
         left: 0;
+        align-items: start;
         margin-left: ${margin || '16px'};
       `
     )
     .with(
       'right',
       () => css`
-        right: 0px;
+        right: 0;
+        align-items: end;
         margin-right: ${margin || '16px'};
       `
     )
@@ -51,17 +53,17 @@ const getPositionStyle = (position: SnackbarPosition, margin?: string) => {
     );
 };
 
-export const StyledSnackbarContainer = styled.div<
-  Omit<StyledSnackbarProps, '$type' | '$width' | 'visible'>
->`
+export const StyledSnackbarContainer = styled.div<Omit<StyledSnackbarProps, '$type' | 'visible'>>`
   position: fixed;
   bottom: 0;
-  width: ${({ $position }) => ($position === 'full-width' ? '100%' : 'fit-content')};
+  width: ${({ $width }) => ($width === 'full-width' ? '100%' : $width)};
   height: fit-content;
   display: flex;
   flex-direction: column-reverse;
   margin: 0 auto;
-  ${({ $position, $margin }) => getPositionStyle($position, $margin)}
+  align-items: center;
+  ${({ $width, $position, $margin }) =>
+    $width !== 'full-width' && getPositionStyle($position, $margin)}
 `;
 
 export const StyledSnackbar = styled.div.withConfig({
@@ -70,7 +72,7 @@ export const StyledSnackbar = styled.div.withConfig({
   position: relative;
   padding: 24px;
   margin-bottom: 16px;
-  width: ${({ $position, $width }) => ($position === 'full-width' ? 'calc(100% - 32px)' : $width)};
+  width: ${({ $width }) => ($width === 'full-width' ? 'calc(100% - 32px)' : $width)};
   height: ${({ $heightType }) => ($heightType === 2 ? '72px' : '52px')};
   border-radius: ${({ theme }) => theme.semantic.radius.m}px;
 

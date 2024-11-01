@@ -1,5 +1,7 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react';
+
 import ReactDOM from 'react-dom';
+
 import { Snackbar } from './Snackbar';
 import { StyledSnackbarContainer } from './Snackbar.style';
 import { SnackbarWithoutClosingProps } from './Snackbar.type';
@@ -29,7 +31,10 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
       {children}
       {snackbar &&
         ReactDOM.createPortal(
-          <StyledSnackbarContainer $position={snackbar.position || 'center'}>
+          <StyledSnackbarContainer
+            $width={snackbar.width}
+            $position={snackbar.position || 'center'}
+          >
             <Snackbar {...snackbar} onClose={removeSnackbar} isClosing={isClosing} />
           </StyledSnackbarContainer>,
           document.body

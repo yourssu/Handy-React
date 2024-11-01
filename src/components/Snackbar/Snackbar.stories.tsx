@@ -22,15 +22,15 @@ const meta: Meta<SnackbarProps> = {
     },
     width: {
       control: 'text',
-      description: 'Snackbar의 가로 길이 (px, %, 등)',
+      description: `Snackbar의 가로 길이 (px, rem, em, %, vh, calc())`,
     },
     duration: {
       description: 'Snackbar가 자동으로 닫히기 전까지의 시간 (ms)',
       control: 'number',
     },
     position: {
-      description: 'Snackbar의 위치 (left, center, right, full-width)',
-      control: { type: 'radio', options: ['left', 'center', 'right', 'full-width'] },
+      description: 'Snackbar의 위치 (left, center, right)',
+      control: { type: 'radio', options: ['left', 'center', 'right'] },
     },
     message: {
       control: 'text',
