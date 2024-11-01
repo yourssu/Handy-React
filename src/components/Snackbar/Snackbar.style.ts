@@ -70,13 +70,13 @@ export const StyledSnackbar = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== 'isClosing',
 })<StyledSnackbarProps>`
   position: relative;
-  padding: 24px;
+  padding: 16px;
   margin-bottom: 16px;
   width: ${({ $width }) => ($width === 'full-width' ? 'calc(100% - 32px)' : $width)};
   height: ${({ $heightType }) => ($heightType === 2 ? '72px' : '52px')};
   border-radius: ${({ theme }) => theme.semantic.radius.m}px;
 
-  ${({ theme }) => theme.typo.B3_Rg_14}
+  ${({ $type, theme }) => ($type === 'info' ? theme.typo.B3_Rg_14 : theme.typo.B3_Sb_14)}
   color: ${({ $type, theme }) => getFontColorStyle({ $type, theme })};
   background-color: ${({ $type, theme }) => `${getBackgroundStyle({ $type, theme })}`};
 
