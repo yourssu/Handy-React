@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { BoxButton } from '@/components/BoxButton';
+
 import { Snackbar } from './Snackbar';
 import { SnackbarProps } from './Snackbar.type';
 import { SnackbarProvider } from './SnackbarProvider';
@@ -80,35 +81,7 @@ export const Test: Story = {
   },
 };
 
-export const Info: Story = {
-  render: (args) => (
-    <SnackbarProvider>
-      <SnackbarComponent {...args} />
-    </SnackbarProvider>
-  ),
-  args: {
-    type: 'info',
-    position: 'center',
-    width: '350px',
-    message: '정보성 메시지가 들어갑니다. 최대 2줄 입력 가능합니다.',
-  },
-};
-
-export const Error: Story = {
-  render: (args) => (
-    <SnackbarProvider>
-      <SnackbarComponent {...args} />
-    </SnackbarProvider>
-  ),
-  args: {
-    type: 'error',
-    message: '에러 메시지가 들어갑니다. 최대 2줄 입력 가능합니다.',
-    width: '350px',
-    position: 'center',
-  },
-};
-
-export const type: Story = {
+export const Type: Story = {
   render: (args) => (
     <SnackbarProvider>
       <div style={{ display: 'flex', gap: '20px' }}>
