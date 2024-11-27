@@ -5,13 +5,13 @@ import { StyledTextButton } from './TextButton.style';
 import { TextButtonProps } from '.';
 
 export const TextButton = forwardRef<HTMLButtonElement, TextButtonProps>(
-  ({ size, hierarchy, width, leftIcon, children, rightIcon, ...props }, ref) => {
+  ({ size, variant, width, leftIcon, children, rightIcon, ...props }, ref) => {
     return (
       <StyledTextButton
         ref={ref}
         disabled={props.disabled}
         $size={size}
-        $hierarchy={hierarchy}
+        $variant={variant}
         $width={width}
         {...props}
       >

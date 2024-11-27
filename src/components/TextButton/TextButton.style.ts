@@ -1,15 +1,15 @@
 import { css, styled } from 'styled-components';
 
-import { TextButtonProps, TextButtonSize, TextButtonHierarchy } from './TextButton.type';
+import { TextButtonProps, TextButtonSize, TextButtonVariant } from './TextButton.type';
 
 interface StyledTextButtonProps {
   $size: TextButtonSize;
-  $hierarchy: TextButtonHierarchy;
+  $variant: TextButtonVariant;
   $width?: TextButtonProps['width'];
 }
 
-const getHierarchyStyle = ($hierarchy: TextButtonHierarchy) => {
-  switch ($hierarchy) {
+const getVariantStyle = ($variant: TextButtonVariant) => {
+  switch ($variant) {
     case 'primary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryEnabled};
@@ -78,8 +78,8 @@ const getSizeStyle = ($size: TextButtonSize) => {
   }
 };
 
-const getDisabledStyle = ($hierarchy: TextButtonHierarchy) => {
-  switch ($hierarchy) {
+const getDisabledStyle = ($variant: TextButtonVariant) => {
+  switch ($variant) {
     case 'primary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryDisabled};
@@ -97,14 +97,14 @@ export const StyledTextButton = styled.button<StyledTextButtonProps>`
   justify-content: center;
   gap: 4px;
 
-  ${({ $hierarchy }) => getHierarchyStyle($hierarchy)}
+  ${({ $variant }) => getVariantStyle($variant)}
   ${({ $size }) => getSizeStyle($size)}
   border-radius: ${({ theme }) => theme.semantic.radius.xs}px;
   min-width: fit-content;
   width: ${({ $width }) => $width};
 
   &:disabled {
-    ${({ $hierarchy }) => getDisabledStyle($hierarchy)}
+    ${({ $variant }) => getDisabledStyle($variant)}
     color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     cursor: not-allowed;
 

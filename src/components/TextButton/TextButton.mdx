@@ -28,17 +28,17 @@ import { TextButton } from '@yourssu/design-system-react';
 ```
 
 ```tsx
-<TextButton size="medium" hierarchy="primary">
+<TextButton size="medium" variant="primary">
   Primary/Medium
 </TextButton>
 ```
 
 <Canvas of={TextButtonStories.Sizes} withSource="none" />
 
-필수 프로퍼티인 `hierarchy`를 사용하여 TextButton의 위계를 설정해주세요.<br />
+필수 프로퍼티인 `variant`를 사용하여 TextButton의 외형을 설정해주세요.<br />
 지원하는 종류는 `primary`, `secondary` 입니다.
 
-<Canvas of={TextButtonStories.Hierarchies} withSource="none" />
+<Canvas of={TextButtonStories.Variants} withSource="none" />
 
 이외의 프로퍼티들은 하단의 예시에서 확인할 수 있습니다.
 
@@ -49,7 +49,7 @@ import { TextButton } from '@yourssu/design-system-react';
 `TextButton`을 클릭할 수 없게 막습니다.
 
 ```tsx
-<TextButton size="medium" hierarchy="primary" disabled={true}>
+<TextButton size="medium" variant="primary" disabled={true}>
   Primary/Disabled/Medium
 </TextButton>
 ```
@@ -62,7 +62,7 @@ import { TextButton } from '@yourssu/design-system-react';
 단, `children` 콘텐츠 크기보다 작은 값을 입력할 경우 적용되지 않습니다.
 
 ```tsx
-<TextButton size="medium" hierarchy="primary" width="500px">
+<TextButton size="medium" variant="primary" width="500px">
   Primary/Medium/500px
 </TextButton>
 ```
@@ -75,7 +75,7 @@ import { TextButton } from '@yourssu/design-system-react';
 아이콘과 텍스트는 동일한 색상으로 스타일링되어 있으므로, 별도의 색상을 지정하지 말아 주세요.
 
 ```tsx
-<TextButton size="medium" hierarchy="primary" leftIcon={<IcExternalLinkLine />}>
+<TextButton size="medium" variant="primary" leftIcon={<IcExternalLinkLine />}>
   with leftIcon
 </TextButton>
 ```
@@ -89,7 +89,7 @@ import { TextButton } from '@yourssu/design-system-react';
 ```tsx
 <TextButton
   size="medium"
-  hierarchy="primary"
+  variant="primary"
   onClick={() => {
     alert('TextButton을 클릭했습니다');
   }}
