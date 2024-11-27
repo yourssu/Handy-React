@@ -1,18 +1,18 @@
 import { css, styled } from 'styled-components';
 
-import { BoxButtonProps, BoxButtonSize, BoxButtonHierarchy } from './BoxButton.type';
+import { BoxButtonProps, BoxButtonSize, BoxButtonVariant } from './BoxButton.type';
 
 interface StyledBoxButtonProps {
   $size: BoxButtonSize;
-  $hierarchy: BoxButtonHierarchy;
+  $variant: BoxButtonVariant;
   $width?: BoxButtonProps['width'];
 }
 
-const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
-  switch ($hierarchy) {
-    case 'primary':
+const getVariantStyle = ($variant: BoxButtonVariant) => {
+  switch ($variant) {
+    case 'filledPrimary':
       return css`
-        background-color: ${({ theme }) => theme.semantic.color.buttonBoxPrimaryEnabled};
+        background-color: ${({ theme }) => theme.semantic.color.buttonFilledPrimaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBasicWhite};
         border: none;
 
@@ -22,12 +22,12 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
 
         &:hover {
           cursor: pointer;
-          background-color: ${({ theme }) => theme.semantic.color.buttonBoxPrimaryPressed};
+          background-color: ${({ theme }) => theme.semantic.color.buttonFilledPrimaryPressed};
         }
       `;
-    case 'secondary':
+    case 'filledSecondary':
       return css`
-        background-color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryEnabled};
+        background-color: ${({ theme }) => theme.semantic.color.buttonFilledSecondaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBrandSecondary};
         border: none;
 
@@ -37,12 +37,12 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
 
         &:hover {
           cursor: pointer;
-          background-color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryPressed};
+          background-color: ${({ theme }) => theme.semantic.color.buttonFilledSecondaryPressed};
         }
       `;
-    case 'tertiary':
+    case 'outlined':
       return css`
-        background-color: ${({ theme }) => theme.semantic.color.buttonBoxTertiaryEnabled};
+        background-color: ${({ theme }) => theme.semantic.color.buttonOutlinedEnabled};
         color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
         border: 1px solid ${({ theme }) => theme.semantic.color.lineBasicMedium};
 
@@ -52,7 +52,7 @@ const getHierarchyStyle = ($hierarchy: BoxButtonHierarchy) => {
 
         &:hover {
           cursor: pointer;
-          background-color: ${({ theme }) => theme.semantic.color.buttonBoxTertiaryPressed};
+          background-color: ${({ theme }) => theme.semantic.color.buttonOutlinedPressed};
         }
       `;
   }
@@ -129,21 +129,21 @@ const getSizeStyle = ($size: BoxButtonSize) => {
   }
 };
 
-const getDisabledStyle = ($hierarchy: BoxButtonHierarchy) => {
-  switch ($hierarchy) {
-    case 'primary':
+const getDisabledStyle = ($variant: BoxButtonVariant) => {
+  switch ($variant) {
+    case 'filledPrimary':
       return css`
-        background-color: ${({ theme }) => theme.semantic.color.buttonBoxPrimaryDisabled};
+        background-color: ${({ theme }) => theme.semantic.color.buttonFilledPrimaryDisabled};
         border: none;
       `;
-    case 'secondary':
+    case 'filledSecondary':
       return css`
-        background-color: ${({ theme }) => theme.semantic.color.buttonBoxSecondaryDisabled};
+        background-color: ${({ theme }) => theme.semantic.color.buttonFilledSecondaryDisabled};
         border: none;
       `;
-    case 'tertiary':
+    case 'outlined':
       return css`
-        background-color: ${({ theme }) => theme.semantic.color.buttonBoxTertiaryDisabled};
+        background-color: ${({ theme }) => theme.semantic.color.buttonOutlinedDisabled};
         border: 1px solid ${({ theme }) => theme.semantic.color.lineBasicMedium};
       `;
   }
@@ -155,13 +155,13 @@ export const StyledBoxButton = styled.button<StyledBoxButtonProps>`
   justify-content: center;
   gap: 4px;
 
-  ${({ $hierarchy }) => getHierarchyStyle($hierarchy)}
+  ${({ $variant }) => getVariantStyle($variant)}
   ${({ $size }) => getSizeStyle($size)}
   min-width: fit-content;
   width: ${({ $width }) => $width};
 
   &:disabled {
-    ${({ $hierarchy }) => getDisabledStyle($hierarchy)}
+    ${({ $variant }) => getDisabledStyle($variant)}
     color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     cursor: not-allowed;
 

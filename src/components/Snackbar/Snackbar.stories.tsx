@@ -60,7 +60,7 @@ const SnackbarComponent = (args: SnackbarProps) => {
 
   return (
     <div>
-      <BoxButton size="small" hierarchy="primary" onClick={addSnackbar}>
+      <BoxButton size="small" variant="filledPrimary" onClick={addSnackbar}>
         {buttonLabel}
       </BoxButton>
     </div>

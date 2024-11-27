@@ -10,7 +10,7 @@ import React from 'react';
 사용자가 작업을 수행하는 데 사용되는 클릭 가능한 요소입니다. 사용자의 행동을 유도하거나 원하는 선택을 할 수 있도록 합니다.<br />
 BoxButton은 주요한 행동을 제안할 때 사용합니다.
 
-<Canvas of={BoxButtonStories.Primary} />
+<Canvas of={BoxButtonStories.filledPrimary} />
 <Controls />
 
 <br />
@@ -28,17 +28,17 @@ import { BoxButton } from '@yourssu/design-system-react';
 ```
 
 ```tsx
-<BoxButton size="large" hierarchy="primary">
-  Primary/Large
+<BoxButton size="large" variant="filledPrimary">
+  filledPrimary/Large
 </BoxButton>
 ```
 
 <Canvas of={BoxButtonStories.Sizes} withSource="none" />
 
-필수 프로퍼티인 `hierarchy`를 사용하여 BoxButton의 위계를 설정해주세요.<br />
-지원하는 종류는 `primary`, `secondary`, `tertiary` 입니다.
+필수 프로퍼티인 `variant`를 사용하여 BoxButton의 외형을 설정해주세요.<br />
+지원하는 종류는 `filledPrimary`, `filledSecondary`, `outlined` 입니다.
 
-<Canvas of={BoxButtonStories.Hierarchies} withSource="none" />
+<Canvas of={BoxButtonStories.Variants} withSource="none" />
 
 이외의 프로퍼티들은 하단의 예시에서 확인할 수 있습니다.
 
@@ -49,8 +49,8 @@ import { BoxButton } from '@yourssu/design-system-react';
 `BoxButton`을 클릭할 수 없게 막습니다.
 
 ```tsx
-<BoxButton size="large" hierarchy="primary" disabled={true}>
-  Primary/Disabled/Large
+<BoxButton size="large" variant="filledPrimary" disabled={true}>
+  filledPrimary/Disabled/Large
 </BoxButton>
 ```
 
@@ -62,8 +62,8 @@ import { BoxButton } from '@yourssu/design-system-react';
 단, `children` 콘텐츠 크기보다 작은 값을 입력할 경우 적용되지 않습니다.
 
 ```tsx
-<BoxButton size="large" hierarchy="primary" width="500px">
-  Primary/Large/500px
+<BoxButton size="large" variant="filledPrimary" width="500px">
+  filledPrimary/Large/500px
 </BoxButton>
 ```
 
@@ -75,7 +75,7 @@ import { BoxButton } from '@yourssu/design-system-react';
 아이콘과 텍스트는 동일한 색상으로 스타일링되어 있으므로, 별도의 색상을 지정하지 말아 주세요.
 
 ```tsx
-<BoxButton size="large" hierarchy="primary" leftIcon={<IcExternalLinkLine />}>
+<BoxButton size="large" variant="filledPrimary" leftIcon={<IcExternalLinkLine />}>
   with leftIcon
 </BoxButton>
 ```
@@ -89,7 +89,7 @@ import { BoxButton } from '@yourssu/design-system-react';
 ```tsx
 <BoxButton
   size="large"
-  hierarchy="primary"
+  variant="filledPrimary"
   onClick={() => {
     alert('BoxButton을 클릭했습니다');
   }}

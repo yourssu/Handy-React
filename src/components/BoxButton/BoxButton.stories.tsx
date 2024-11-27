@@ -12,7 +12,7 @@ const meta: Meta<typeof BoxButton> = {
   },
   argTypes: {
     size: { description: 'BoxButton의 크기를 결정하는 속성' },
-    hierarchy: { description: 'BoxButton의 모양을 결정하는 속성' },
+    variant: { description: 'BoxButton의 외형을 결정하는 속성' },
     leftIcon: { description: 'BoxButton의 왼쪽에 들어갈 아이콘' },
     children: { description: 'BoxButton의 내용' },
     rightIcon: { description: 'BoxButton의 오른쪽에 들어갈 아이콘' },
@@ -27,7 +27,7 @@ export const Primary: Story = {
   args: {
     children: 'Primary/Large',
     size: 'large',
-    hierarchy: 'primary',
+    variant: 'filledPrimary',
     disabled: false,
   },
 };
@@ -35,38 +35,38 @@ export const Primary: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <BoxButton size="xlarge" hierarchy="primary">
+      <BoxButton size="xlarge" variant="filledPrimary">
         xlarge
       </BoxButton>
-      <BoxButton size="large" hierarchy="primary">
+      <BoxButton size="large" variant="filledPrimary">
         large
       </BoxButton>
-      <BoxButton size="medium" hierarchy="primary">
+      <BoxButton size="medium" variant="filledPrimary">
         medium
       </BoxButton>
-      <BoxButton size="small" hierarchy="primary">
+      <BoxButton size="small" variant="filledPrimary">
         small
       </BoxButton>
-      <BoxButton size="xsmall" hierarchy="primary">
+      <BoxButton size="xsmall" variant="filledPrimary">
         xsmall
       </BoxButton>
-      <BoxButton size="xxsmall" hierarchy="primary">
+      <BoxButton size="xxsmall" variant="filledPrimary">
         xxsmall
       </BoxButton>
     </div>
   ),
 };
 
-export const Hierarchies: Story = {
+export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <BoxButton size="large" hierarchy="primary">
+      <BoxButton size="large" variant="filledPrimary">
         primary
       </BoxButton>
-      <BoxButton size="large" hierarchy="secondary">
+      <BoxButton size="large" variant="filledSecondary">
         secondary
       </BoxButton>
-      <BoxButton size="large" hierarchy="tertiary">
+      <BoxButton size="large" variant="outlined">
         tertiary
       </BoxButton>
     </div>
@@ -77,7 +77,7 @@ export const Disabled: Story = {
   args: {
     children: 'Primary/Disabled/Large',
     size: 'large',
-    hierarchy: 'primary',
+    variant: 'filledPrimary',
     disabled: true,
   },
 };
@@ -86,7 +86,7 @@ export const Width: Story = {
   args: {
     children: 'Primary/Large/500px',
     size: 'large',
-    hierarchy: 'primary',
+    variant: 'filledPrimary',
     disabled: false,
     width: '500px',
   },
@@ -96,7 +96,7 @@ export const Click: Story = {
   args: {
     children: 'Click me!',
     size: 'large',
-    hierarchy: 'primary',
+    variant: 'filledPrimary',
     disabled: false,
     onClick: () => {
       alert('BoxButton을 클릭했습니다');
@@ -107,10 +107,10 @@ export const Click: Story = {
 export const WithIcon: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <BoxButton size="large" hierarchy="primary" leftIcon={<IcExternalLinkLine />}>
+      <BoxButton size="large" variant="filledPrimary" leftIcon={<IcExternalLinkLine />}>
         with leftIcon
       </BoxButton>
-      <BoxButton size="large" hierarchy="primary" disabled rightIcon={<IcExternalLinkLine />}>
+      <BoxButton size="large" variant="filledPrimary" disabled rightIcon={<IcExternalLinkLine />}>
         with rightIcon
       </BoxButton>
     </div>
