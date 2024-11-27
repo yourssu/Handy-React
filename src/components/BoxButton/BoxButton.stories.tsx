@@ -25,7 +25,7 @@ type Story = StoryObj<typeof BoxButton>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary/Large',
+    children: 'filledPrimary/Large',
     size: 'large',
     variant: 'filledPrimary',
     disabled: false,
@@ -61,13 +61,13 @@ export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
       <BoxButton size="large" variant="filledPrimary">
-        primary
+        filledPrimary
       </BoxButton>
       <BoxButton size="large" variant="filledSecondary">
-        secondary
+        filledSecondary
       </BoxButton>
       <BoxButton size="large" variant="outlined">
-        tertiary
+        outlined
       </BoxButton>
     </div>
   ),
@@ -75,7 +75,7 @@ export const Variants: Story = {
 
 export const Disabled: Story = {
   args: {
-    children: 'Primary/Disabled/Large',
+    children: 'filledPrimary/Disabled/Large',
     size: 'large',
     variant: 'filledPrimary',
     disabled: true,
@@ -84,7 +84,7 @@ export const Disabled: Story = {
 
 export const Width: Story = {
   args: {
-    children: 'Primary/Large/500px',
+    children: 'filledPrimary/Large/500px',
     size: 'large',
     variant: 'filledPrimary',
     disabled: false,
