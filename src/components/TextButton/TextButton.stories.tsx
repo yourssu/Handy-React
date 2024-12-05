@@ -31,9 +31,9 @@ type Story = StoryObj<typeof TextButton>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary/Small',
+    children: 'textPrimary/Small',
     size: 'small',
-    variant: 'primary',
+    variant: 'textPrimary',
     disabled: false,
     leftIcon: <IcExternalLinkLine />,
   },
@@ -42,13 +42,13 @@ export const Primary: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <TextButton size="medium" variant="primary">
+      <TextButton size="medium" variant="textPrimary">
         medium
       </TextButton>
-      <TextButton size="small" variant="primary">
+      <TextButton size="small" variant="textPrimary">
         small
       </TextButton>
-      <TextButton size="xsmall" variant="primary">
+      <TextButton size="xsmall" variant="textPrimary">
         xsmall
       </TextButton>
     </div>
@@ -58,11 +58,11 @@ export const Sizes: Story = {
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <TextButton size="medium" variant="primary">
-        primary
+      <TextButton size="medium" variant="textPrimary">
+        textPrimary
       </TextButton>
-      <TextButton size="medium" variant="secondary">
-        secondary
+      <TextButton size="medium" variant="textSecondary">
+        textSecondary
       </TextButton>
     </div>
   ),
@@ -70,18 +70,18 @@ export const Variants: Story = {
 
 export const Disabled: Story = {
   args: {
-    children: 'Primary/Disabled/Medium',
+    children: 'textPrimary/Disabled/Medium',
     size: 'medium',
-    variant: 'primary',
+    variant: 'textPrimary',
     disabled: true,
   },
 };
 
 export const Width: Story = {
   args: {
-    children: 'Primary/Medium/500px',
+    children: 'textPrimary/Medium/500px',
     size: 'medium',
-    variant: 'primary',
+    variant: 'textPrimary',
     disabled: false,
     width: '500px',
   },
@@ -91,7 +91,7 @@ export const Click: Story = {
   args: {
     children: 'Click me!',
     size: 'medium',
-    variant: 'primary',
+    variant: 'textPrimary',
     disabled: false,
     onClick: () => {
       alert('TextButton을 클릭했습니다');
@@ -102,10 +102,10 @@ export const Click: Story = {
 export const WithIcon: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <TextButton size="medium" variant="primary" leftIcon={<IcExternalLinkLine />}>
+      <TextButton size="medium" variant="textPrimary" leftIcon={<IcExternalLinkLine />}>
         with leftIcon
       </TextButton>
-      <TextButton size="medium" variant="primary" disabled rightIcon={<IcExternalLinkLine />}>
+      <TextButton size="medium" variant="textPrimary" disabled rightIcon={<IcExternalLinkLine />}>
         with rightIcon
       </TextButton>
     </div>

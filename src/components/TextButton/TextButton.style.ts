@@ -10,7 +10,7 @@ interface StyledTextButtonProps {
 
 const getVariantStyle = ($variant: TextButtonVariant) => {
   switch ($variant) {
-    case 'primary':
+    case 'textPrimary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBrandPrimary};
@@ -25,7 +25,7 @@ const getVariantStyle = ($variant: TextButtonVariant) => {
           background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryPressed};
         }
       `;
-    case 'secondary':
+    case 'textSecondary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBasicTertiary};
@@ -80,11 +80,11 @@ const getSizeStyle = ($size: TextButtonSize) => {
 
 const getDisabledStyle = ($variant: TextButtonVariant) => {
   switch ($variant) {
-    case 'primary':
+    case 'textPrimary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryDisabled};
       `;
-    case 'secondary':
+    case 'textSecondary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryDisabled};
       `;
