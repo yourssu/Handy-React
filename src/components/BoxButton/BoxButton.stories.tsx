@@ -12,7 +12,7 @@ const meta: Meta<typeof BoxButton> = {
   },
   argTypes: {
     size: { description: 'BoxButton의 크기를 결정하는 속성' },
-    variant: { description: 'BoxButton의 외형을 결정하는 속성' },
+    variant: { description: 'BoxButton의 위계를 결정하는 속성' },
     leftIcon: { description: 'BoxButton의 왼쪽에 들어갈 아이콘' },
     children: { description: 'BoxButton의 내용' },
     rightIcon: { description: 'BoxButton의 오른쪽에 들어갈 아이콘' },

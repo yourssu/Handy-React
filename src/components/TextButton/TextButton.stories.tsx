@@ -18,7 +18,7 @@ const meta: Meta<typeof TextButton> = {
       },
       options: ['xsmall', 'small', 'medium'],
     },
-    variant: { description: 'TextButton의 외형을 결정하는 속성' },
+    variant: { description: 'TextButton의 위계를 결정하는 속성' },
     leftIcon: { description: 'TextButton의 왼쪽에 들어갈 아이콘' },
     children: { description: 'TextButton의 내용' },
     rightIcon: { description: 'TextButton의 오른쪽에 들어갈 아이콘' },
