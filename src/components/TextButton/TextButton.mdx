@@ -28,8 +28,8 @@ import { TextButton } from '@yourssu/design-system-react';
 ```
 
 ```tsx
-<TextButton size="medium" variant="primary">
-  Primary/Medium
+<TextButton size="medium" variant="textPrimary">
+  textPrimary/Medium
 </TextButton>
 ```
 
@@ -49,8 +49,8 @@ import { TextButton } from '@yourssu/design-system-react';
 `TextButton`을 클릭할 수 없게 막습니다.
 
 ```tsx
-<TextButton size="medium" variant="primary" disabled={true}>
-  Primary/Disabled/Medium
+<TextButton size="medium" variant="textPrimary" disabled={true}>
+  textPrimary/Disabled/Medium
 </TextButton>
 ```
 
@@ -62,8 +62,8 @@ import { TextButton } from '@yourssu/design-system-react';
 단, `children` 콘텐츠 크기보다 작은 값을 입력할 경우 적용되지 않습니다.
 
 ```tsx
-<TextButton size="medium" variant="primary" width="500px">
-  Primary/Medium/500px
+<TextButton size="medium" variant="textPrimary" width="500px">
+  textPrimary/Medium/500px
 </TextButton>
 ```
 
@@ -75,7 +75,7 @@ import { TextButton } from '@yourssu/design-system-react';
 아이콘과 텍스트는 동일한 색상으로 스타일링되어 있으므로, 별도의 색상을 지정하지 말아 주세요.
 
 ```tsx
-<TextButton size="medium" variant="primary" leftIcon={<IcExternalLinkLine />}>
+<TextButton size="medium" variant="textPrimary" leftIcon={<IcExternalLinkLine />}>
   with leftIcon
 </TextButton>
 ```
@@ -89,7 +89,7 @@ import { TextButton } from '@yourssu/design-system-react';
 ```tsx
 <TextButton
   size="medium"
-  variant="primary"
+  variant="textPrimary"
   onClick={() => {
     alert('TextButton을 클릭했습니다');
   }}
