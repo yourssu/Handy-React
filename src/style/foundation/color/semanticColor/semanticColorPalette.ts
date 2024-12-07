@@ -34,17 +34,17 @@ export const semanticColorPalette: SemanticColorPalette = {
   lineStatusNegative: primitiveColorPalette.statusRedMain,
   lineStatusPositive: primitiveColorPalette.violet500,
 
-  buttonBoxPrimaryEnabled: primitiveColorPalette.violet500,
-  buttonBoxPrimaryPressed: primitiveColorPalette.violet700,
-  buttonBoxPrimaryDisabled: primitiveColorPalette.gray100,
+  buttonFilledPrimaryEnabled: primitiveColorPalette.violet500,
+  buttonFilledPrimaryPressed: primitiveColorPalette.violet700,
+  buttonFilledPrimaryDisabled: primitiveColorPalette.gray100,
 
-  buttonBoxSecondaryEnabled: primitiveColorPalette.violet050,
-  buttonBoxSecondaryPressed: primitiveColorPalette.violet200,
-  buttonBoxSecondaryDisabled: primitiveColorPalette.gray100,
+  buttonFilledSecondaryEnabled: primitiveColorPalette.violet050,
+  buttonFilledSecondaryPressed: primitiveColorPalette.violet200,
+  buttonFilledSecondaryDisabled: primitiveColorPalette.gray100,
 
-  buttonBoxTertiaryEnabled: primitiveColorPalette.neutralTransparent,
-  buttonBoxTertiaryPressed: primitiveColorPalette.gray100,
-  buttonBoxTertiaryDisabled: primitiveColorPalette.neutralTransparent,
+  buttonOutlinedEnabled: primitiveColorPalette.neutralTransparent,
+  buttonOutlinedPressed: primitiveColorPalette.gray100,
+  buttonOutlinedDisabled: primitiveColorPalette.neutralTransparent,
 
   buttonTextPrimaryEnabled: primitiveColorPalette.neutralTransparent,
   buttonTextPrimaryPressed: primitiveColorPalette.violet050,

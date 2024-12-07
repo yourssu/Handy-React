@@ -31,22 +31,21 @@ export type SemanticLineStatusColor = MergeVariants<'line', 'status', StatusVari
 
 export type SemanticButtonBoxPrimaryColor = MergeVariants<
   'button',
-  'box',
+  'filled',
   'primary',
   InteractiveVariant
 >;
 
 export type SemanticButtonBoxSecondaryColor = MergeVariants<
   'button',
-  'box',
+  'filled',
   'secondary',
   InteractiveVariant
 >;
 
 export type SemanticButtonBoxTertiaryColor = MergeVariants<
   'button',
-  'box',
-  'tertiary',
+  'outlined',
   InteractiveVariant
 >;
 

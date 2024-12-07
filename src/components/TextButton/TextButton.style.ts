@@ -1,16 +1,16 @@
 import { css, styled } from 'styled-components';
 
-import { TextButtonProps, TextButtonSize, TextButtonHierarchy } from './TextButton.type';
+import { TextButtonProps, TextButtonSize, TextButtonVariant } from './TextButton.type';
 
 interface StyledTextButtonProps {
   $size: TextButtonSize;
-  $hierarchy: TextButtonHierarchy;
+  $variant: TextButtonVariant;
   $width?: TextButtonProps['width'];
 }
 
-const getHierarchyStyle = ($hierarchy: TextButtonHierarchy) => {
-  switch ($hierarchy) {
-    case 'primary':
+const getVariantStyle = ($variant: TextButtonVariant) => {
+  switch ($variant) {
+    case 'textPrimary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBrandPrimary};
@@ -25,7 +25,7 @@ const getHierarchyStyle = ($hierarchy: TextButtonHierarchy) => {
           background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryPressed};
         }
       `;
-    case 'secondary':
+    case 'textSecondary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryEnabled};
         color: ${({ theme }) => theme.semantic.color.textBasicTertiary};
@@ -78,13 +78,13 @@ const getSizeStyle = ($size: TextButtonSize) => {
   }
 };
 
-const getDisabledStyle = ($hierarchy: TextButtonHierarchy) => {
-  switch ($hierarchy) {
-    case 'primary':
+const getDisabledStyle = ($variant: TextButtonVariant) => {
+  switch ($variant) {
+    case 'textPrimary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextPrimaryDisabled};
       `;
-    case 'secondary':
+    case 'textSecondary':
       return css`
         background-color: ${({ theme }) => theme.semantic.color.buttonTextSecondaryDisabled};
       `;
@@ -97,14 +97,14 @@ export const StyledTextButton = styled.button<StyledTextButtonProps>`
   justify-content: center;
   gap: 4px;
 
-  ${({ $hierarchy }) => getHierarchyStyle($hierarchy)}
+  ${({ $variant }) => getVariantStyle($variant)}
   ${({ $size }) => getSizeStyle($size)}
   border-radius: ${({ theme }) => theme.semantic.radius.xs}px;
   min-width: fit-content;
   width: ${({ $width }) => $width};
 
   &:disabled {
-    ${({ $hierarchy }) => getDisabledStyle($hierarchy)}
+    ${({ $variant }) => getDisabledStyle($variant)}
     color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
     cursor: not-allowed;
 

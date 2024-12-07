@@ -18,7 +18,7 @@ const meta: Meta<typeof TextButton> = {
       },
       options: ['xsmall', 'small', 'medium'],
     },
-    hierarchy: { description: 'TextButton의 모양을 결정하는 속성' },
+    variant: { description: 'TextButton의 위계를 결정하는 속성' },
     leftIcon: { description: 'TextButton의 왼쪽에 들어갈 아이콘' },
     children: { description: 'TextButton의 내용' },
     rightIcon: { description: 'TextButton의 오른쪽에 들어갈 아이콘' },
@@ -31,9 +31,9 @@ type Story = StoryObj<typeof TextButton>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary/Small',
+    children: 'textPrimary/Small',
     size: 'small',
-    hierarchy: 'primary',
+    variant: 'textPrimary',
     disabled: false,
     leftIcon: <IcExternalLinkLine />,
   },
@@ -42,27 +42,27 @@ export const Primary: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <TextButton size="medium" hierarchy="primary">
+      <TextButton size="medium" variant="textPrimary">
         medium
       </TextButton>
-      <TextButton size="small" hierarchy="primary">
+      <TextButton size="small" variant="textPrimary">
         small
       </TextButton>
-      <TextButton size="xsmall" hierarchy="primary">
+      <TextButton size="xsmall" variant="textPrimary">
         xsmall
       </TextButton>
     </div>
   ),
 };
 
-export const Hierarchies: Story = {
+export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <TextButton size="medium" hierarchy="primary">
-        primary
+      <TextButton size="medium" variant="textPrimary">
+        textPrimary
       </TextButton>
-      <TextButton size="medium" hierarchy="secondary">
-        secondary
+      <TextButton size="medium" variant="textSecondary">
+        textSecondary
       </TextButton>
     </div>
   ),
@@ -70,18 +70,18 @@ export const Hierarchies: Story = {
 
 export const Disabled: Story = {
   args: {
-    children: 'Primary/Disabled/Medium',
+    children: 'textPrimary/Disabled/Medium',
     size: 'medium',
-    hierarchy: 'primary',
+    variant: 'textPrimary',
     disabled: true,
   },
 };
 
 export const Width: Story = {
   args: {
-    children: 'Primary/Medium/500px',
+    children: 'textPrimary/Medium/500px',
     size: 'medium',
-    hierarchy: 'primary',
+    variant: 'textPrimary',
     disabled: false,
     width: '500px',
   },
@@ -91,7 +91,7 @@ export const Click: Story = {
   args: {
     children: 'Click me!',
     size: 'medium',
-    hierarchy: 'primary',
+    variant: 'textPrimary',
     disabled: false,
     onClick: () => {
       alert('TextButton을 클릭했습니다');
@@ -102,10 +102,10 @@ export const Click: Story = {
 export const WithIcon: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <TextButton size="medium" hierarchy="primary" leftIcon={<IcExternalLinkLine />}>
+      <TextButton size="medium" variant="textPrimary" leftIcon={<IcExternalLinkLine />}>
         with leftIcon
       </TextButton>
-      <TextButton size="medium" hierarchy="primary" disabled rightIcon={<IcExternalLinkLine />}>
+      <TextButton size="medium" variant="textPrimary" disabled rightIcon={<IcExternalLinkLine />}>
         with rightIcon
       </TextButton>
     </div>
