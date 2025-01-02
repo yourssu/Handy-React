@@ -1,5 +1,6 @@
 {
   "name": "@yourssu/design-system-react",
+  "packageManager": "pnpm@9.15.2",
   "private": false,
   "version": "2.0.0",
   "description": "Yourssu Design System for React",
@@ -74,6 +75,5 @@
     "vite-tsconfig-paths": "^4.2.0",
     "webfontloader": "^1.6.28",
     "xmldom": "^0.6.0"
-  },
-  "packageManager": "pnpm@8.15.4"
+  }
 }
