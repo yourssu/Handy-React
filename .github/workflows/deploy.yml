@@ -10,17 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -33,7 +34,7 @@ jobs:
 
       - name: Extract version from package.json
         id: version
-        run: echo ::set-output name=VERSION::$(node -p "require('./package.json').version")
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Deploy to s3
         env:
@@ -44,7 +45,7 @@ jobs:
             --recursive \
             --region ap-northeast-2 \
             ./storybook-static \
-            s3://yds-react-storybook/${{ steps.version.outputs.VERSION }}
+            s3://handy-react-storybook/${{ steps.version.outputs.VERSION }}
 
       - name: Publish to NPM
         run: npm publish
