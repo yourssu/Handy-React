@@ -11,28 +11,14 @@ import { IconProps } from '../icon.type';
 export const IcListLine = memo(
   forwardRef<SVGSVGElement, IconProps>((props, ref) => (
     <IconBase ref={ref} viewBox="0 0 24 24" {...props}>
-      <g clipPath="url(#clip0_1_257)" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M3 7.75C3 7.33579 3.33579 7 3.75 7H20.25C20.6642 7 21 7.33579 21 7.75C21 8.16421 20.6642 8.5 20.25 8.5H3.75C3.33579 8.5 3 8.16421 3 7.75Z"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-        <path
-          d="M3 11.75C3 11.3358 3.33579 11 3.75 11H14.09C14.5042 11 14.84 11.3358 14.84 11.75C14.84 12.1642 14.5042 12.5 14.09 12.5H3.75C3.33579 12.5 3 12.1642 3 11.75Z"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-        <path
-          d="M3.25 15.75C3.25 15.3358 3.58579 15 4 15H17.2C17.6142 15 17.95 15.3358 17.95 15.75C17.95 16.1642 17.6142 16.5 17.2 16.5H4C3.58579 16.5 3.25 16.1642 3.25 15.75Z"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </g>
-      <defs xmlns="http://www.w3.org/2000/svg">
-        <clipPath id="clip0_1_257">
-          <rect width="18" height="9.5" fill="white" transform="translate(3 7)" />
-        </clipPath>
-      </defs>
+      <path
+        d="M15.37 10.5H5.75C5.33579 10.5 5 10.1642 5 9.75C5 9.33579 5.33579 9 5.75 9H15.37C15.7842 9 16.12 9.33579 16.12 9.75C16.12 10.1642 15.7842 10.5 15.37 10.5Z"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+      <path
+        d="M5.75 14H18.57C18.9842 14 19.32 14.3358 19.32 14.75C19.32 15.1642 18.9842 15.5 18.57 15.5H5.75C5.33579 15.5 5 15.1642 5 14.75C5 14.3358 5.33579 14 5.75 14Z"
+        xmlns="http://www.w3.org/2000/svg"
+      />
     </IconBase>
   ))
 );

@@ -1,52 +1,22 @@
-import { Stories, Primary as PrimaryBlock, Controls, Title } from '@storybook/blocks';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { IcGroundLine } from '@/style';
+import { IcExternalLinkLine } from '@/style';
 
 import { BoxButton } from './BoxButton';
 
 const meta: Meta<typeof BoxButton> = {
-  title: 'Atoms/BoxButton',
+  title: 'Components/BoxButton',
   component: BoxButton,
   parameters: {
     layout: 'centered',
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <PrimaryBlock />
-          <Controls />
-          <h2> Size에 따른 속성 </h2>
-          <h3> extraLarge </h3>
-          <span>
-            {
-              '이 옵션을 선택하면 `height = 56`, `typo = button1`, `iconSize = medium(24*24)`, `horizontal Padding = 16` 으로 설정됩니다.'
-            }
-          </span>
-          <h3> large </h3>
-          <span>
-            {
-              '이 옵션을 선택하면 `height = 48`, `typo = button2`, `iconSize = medium(24*24)`, `horizontal Padding = 16` 으로 설정됩니다.'
-            }
-          </span>
-          <h3> medium </h3>
-          <span>
-            {
-              '이 옵션을 선택하면 `height = 40`, `typo = button2`, `iconSize = medium(24*24)`, `horizontal Padding = 12` 으로 설정됩니다.'
-            }
-          </span>
-          <h3> small </h3>
-          <span>
-            {
-              '이 옵션을 선택하면 `height = 32`, `typo = button4`, `iconSize = small(16*16)`, `horizontal Padding = 12` 으로 설정됩니다.'
-            }
-          </span>
-          <h2> 속성 우선순위 </h2>
-          <span>{'속성이 충돌할 때는 isDisabled > isWarned 순으로 우선됩니다.'}</span>
-          <Stories />
-        </>
-      ),
-    },
+  },
+  argTypes: {
+    size: { description: 'BoxButton의 크기를 결정하는 속성' },
+    variant: { description: 'BoxButton의 위계를 결정하는 속성' },
+    leftIcon: { description: 'BoxButton의 왼쪽에 들어갈 아이콘' },
+    children: { description: 'BoxButton의 내용' },
+    rightIcon: { description: 'BoxButton의 오른쪽에 들어갈 아이콘' },
+    width: { description: 'BoxButton의 가로 크기' },
   },
 };
 
@@ -55,36 +25,94 @@ type Story = StoryObj<typeof BoxButton>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary/Large/filled',
+    children: 'filledPrimary/Large',
     size: 'large',
-    variant: 'filled',
-    rounding: 8,
+    variant: 'filledPrimary',
     disabled: false,
-    isWarned: false,
   },
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <BoxButton size="xlarge" variant="filledPrimary">
+        xlarge
+      </BoxButton>
+      <BoxButton size="large" variant="filledPrimary">
+        large
+      </BoxButton>
+      <BoxButton size="medium" variant="filledPrimary">
+        medium
+      </BoxButton>
+      <BoxButton size="small" variant="filledPrimary">
+        small
+      </BoxButton>
+      <BoxButton size="xsmall" variant="filledPrimary">
+        xsmall
+      </BoxButton>
+      <BoxButton size="xxsmall" variant="filledPrimary">
+        xxsmall
+      </BoxButton>
+    </div>
+  ),
+};
+
+export const Variants: Story = {
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <BoxButton size="large" variant="filledPrimary">
+        filledPrimary
+      </BoxButton>
+      <BoxButton size="large" variant="filledSecondary">
+        filledSecondary
+      </BoxButton>
+      <BoxButton size="large" variant="outlined">
+        outlined
+      </BoxButton>
+    </div>
+  ),
 };
 
 export const Disabled: Story = {
   args: {
-    children: 'Disabled/Large/tinted',
+    children: 'filledPrimary/Disabled/Large',
     size: 'large',
-    variant: 'tinted',
-    rounding: 8,
+    variant: 'filledPrimary',
     disabled: true,
-    isWarned: false,
-    leftIcon: <IcGroundLine />,
   },
 };
 
-export const Warned: Story = {
+export const Width: Story = {
   args: {
-    children: 'Warned/Large/line',
+    children: 'filledPrimary/Large/500px',
     size: 'large',
-    variant: 'line',
-    rounding: 8,
+    variant: 'filledPrimary',
     disabled: false,
-    isWarned: true,
-    leftIcon: <IcGroundLine />,
-    rightIcon: <IcGroundLine />,
+    width: '500px',
   },
+};
+
+export const Click: Story = {
+  args: {
+    children: 'Click me!',
+    size: 'large',
+    variant: 'filledPrimary',
+    disabled: false,
+    onClick: () => {
+      alert('BoxButton을 클릭했습니다');
+    },
+  },
+};
+
+export const WithIcon: Story = {
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <BoxButton size="large" variant="filledPrimary" leftIcon={<IcExternalLinkLine />}>
+        with leftIcon
+      </BoxButton>
+      <BoxButton size="large" variant="filledPrimary" disabled rightIcon={<IcExternalLinkLine />}>
+        with rightIcon
+      </BoxButton>
+    </div>
+  ),
 };

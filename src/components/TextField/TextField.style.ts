@@ -1,110 +1,91 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
-import { TextFieldProps } from './TextField.type';
-
-interface StyledTextFieldProps {
-  $isNegative?: TextFieldProps['isNegative'];
-  $isPositive?: TextFieldProps['isPositive'];
-  $isFocused?: TextFieldProps['isFocused'];
-  $isTyping?: TextFieldProps['isTyping'];
-  $isDisabled?: TextFieldProps['disabled'];
-  $searchPrefix?: TextFieldProps['searchPrefix'];
-  $width?: TextFieldProps['width'];
-}
-
-export const StyledSuffixIconContainer = styled.div`
-  display: none;
-`;
-
-export const StyledTextFieldWrapper = styled.div<StyledTextFieldProps>`
-  width: ${({ $width }) => $width};
-  height: 46px;
-  display: flex;
-  align-items: center;
-
-  background: ${({ theme }) => theme.color.inputFieldElevated};
-  border: 1px solid ${({ theme }) => theme.color.inputFieldElevated};
-  border-radius: 8px;
-  user-select: none;
-
-  margin: 8px 0 0 0;
-  padding: 12px 16px;
-  gap: 4px;
-
-  ${({ $isDisabled, $isPositive, $isNegative, theme }) =>
-    !$isDisabled &&
-    ($isNegative
-      ? css`
-          border: 1px solid ${theme.color.textWarned};
-        `
-      : $isPositive &&
-        css`
-          border: 1px solid ${theme.color.textPointed};
-        `)}
-
-  input:focus + ${StyledSuffixIconContainer},
-  input:not(:disabled):active + ${StyledSuffixIconContainer} {
-    display: flex;
-    cursor: pointer;
-  }
-
-  svg {
-    flex-shrink: 0;
-  }
-`;
-
-export const StyledTextField = styled.input<StyledTextFieldProps>`
+export const StyledTextFieldContainer = styled.div`
   width: 100%;
-  margin-left: ${({ $searchPrefix }) => $searchPrefix && '4px'};
 
-  background-color: transparent;
-  border: none;
-  outline: none;
-  ${({ theme }) => theme.typo.body2};
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
 
-  color: ${({ theme }) => theme.color.textSecondary};
-  caret-color: ${({ theme }) => theme.color.textPointed};
+export const StyledTextFieldInputContainer = styled.div`
+  order: 1;
 
-  &:disabled {
-    cursor: not-allowed;
-    color: ${({ theme }) => theme.color.textDisabled};
-  }
+  position: relative;
+  width: 100%;
+`;
+
+export const StyledTextFieldInput = styled.input<{ $isError: boolean }>`
+  box-sizing: border-box;
+  width: 100%;
+  outline: 0;
+
+  padding: 12px 16px;
+  padding-right: calc(16px * 2 + 20px);
+  background-color: ${({ theme }) => theme.semantic.color.bgBasicLight};
+
+  border-width: ${({ $isError }) => ($isError ? 1 : 0)}px;
+  border-style: solid;
+  border-color: ${({ theme, $isError }) =>
+    $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.lineStatusPositive};
+  border-radius: ${({ theme }) => theme.semantic.radius.m}px;
+
+  caret-color: ${({ theme, $isError }) =>
+    $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.lineStatusPositive};
+
+  ${({ theme }) => theme.typo.B1_Rg_16}
+  color: ${({ theme }) => theme.semantic.color.textBasicPrimary};
 
   &::placeholder {
-    color: ${({ theme, disabled }) =>
-      disabled ? theme.color.textDisabled : theme.color.textTertiary};
+    ${({ theme }) => theme.typo.B1_Rg_16}
+    color: ${({ theme }) => theme.semantic.color.textBasicTertiary};
   }
 
-  &::-ms-reveal {
-    display: none;
+  &:focus {
+    margin: -1px;
+    border-width: 1px;
+  }
+
+  &:disabled,
+  &:disabled::placeholder {
+    color: ${({ theme }) => theme.semantic.color.textBasicDisabled};
+    cursor: not-allowed;
   }
 `;
 
-export const StyledSuffixText = styled.span<StyledTextFieldProps>`
-  ${({ theme }) => theme.typo.body2};
-  color: ${({ theme, $isDisabled }) =>
-    $isDisabled ? theme.color.textDisabled : theme.color.textTertiary};
+export const StyledTextFieldLabel = styled.label`
+  order: 0;
+
+  ${({ theme }) => theme.typo.C2_Rg_12}
+  color: ${({ theme }) => theme.semantic.color.textBasicTertiary};
 `;
 
-export const StyledFieldLabel = styled.label<StyledTextFieldProps>`
-  ${({ theme }) => theme.typo.subtitle6};
-  color: ${({ theme, $isDisabled }) =>
-    $isDisabled ? theme.color.textDisabled : theme.color.textSecondary};
+export const StyledTextFieldHelperText = styled.div<{ $isError: boolean }>`
+  order: 2;
+
+  ${({ theme }) => theme.typo.C2_Rg_12}
+  color: ${({ theme, $isError }) =>
+    $isError ? theme.semantic.color.lineStatusNegative : theme.semantic.color.textBasicTertiary};
 `;
 
-export const StyledHelperLabel = styled.div<StyledTextFieldProps>`
-  ${({ theme }) => theme.typo.caption1};
-  width: 100%;
-  padding: 8px 0 0 8px;
-  word-break: break-all;
+export const StyledClearButton = styled.button<{ $isError: boolean }>`
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  cursor: pointer;
 
-  color: ${({ $isDisabled, theme }) =>
-    $isDisabled ? theme.color.textDisabled : theme.color.textTertiary};
+  width: fit-content;
+  height: fit-content;
 
-  ${({ $isDisabled, $isNegative, theme }) =>
-    !$isDisabled &&
-    $isNegative &&
-    css`
-      color: ${theme.color.textWarned};
-    `};
+  border: 0;
+  border-radius: 50%;
+  background-color: transparent;
+
+  svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${({ theme }) => theme.semantic.color.iconBasicTertiary};
+  }
 `;

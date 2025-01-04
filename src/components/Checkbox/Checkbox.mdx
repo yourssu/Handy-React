@@ -1,0 +1,78 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+import { Checkbox } from './Checkbox';
+import React from 'react';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+체크박스는 선택과 비선택, 다중 선택을 나타낼 수 있는 요소입니다.
+
+<Canvas of={CheckboxStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+체크박스는 필수 프로퍼티로 `size`를 받습니다.
+
+- `size`: 체크박스의 크기를 결정합니다. 값은 `small`, `medium`, `large` 중 하나입니다.
+
+```tsx
+import { Checkbox } from '@yourssu/design-system-react';
+```
+
+```tsx
+<Checkbox size="medium">기본 체크박스</Checkbox>
+```
+
+<Canvas of={CheckboxStories.Default} withSource="none" />
+
+<br />
+<br />
+
+## 예시
+
+### disabled
+
+인터랙션에 의한 체크박스의 상태를 변경할 수 없도록 막습니다.
+
+```tsx
+<Checkbox size="medium" disabled>
+  변경 불가
+</Checkbox>
+```
+
+<Canvas of={CheckboxStories.Disabled} withSource="none" />
+
+<br />
+<br />
+
+### 상태 전달
+
+체크박스의 선택 여부를 외부에서 상태로 관리할 수 있게 합니다.
+
+```tsx
+const Component = () => {
+  const [selected, setSelected] = useState(false);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelected(e.currentTarget.checked);
+    alert('상태가 변경되었습니다: ' + e.currentTarget.checked);
+  };
+
+  return (
+    <Checkbox size="medium" selected={selected} onChange={onChange}>
+      상태 관리 체크박스
+    </Checkbox>
+  );
+};
+```
+
+<Canvas of={CheckboxStories.StateChange} withSource="none" />
+
+<br />
+<br />

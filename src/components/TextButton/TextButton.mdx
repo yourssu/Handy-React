@@ -1,0 +1,101 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as TextButtonStories from './TextButton.stories.tsx';
+import { TextButton } from './TextButton';
+import React from 'react';
+
+<Meta of={TextButtonStories} />
+
+# TextButton
+
+사용자가 작업을 수행하는 데 사용되는 클릭 가능한 요소입니다. 사용자의 행동을 유도하거나 원하는 선택을 할 수 있도록 합니다.<br />
+TextButton은 적은 공간으로 행동을 제안하거나, 다른 버튼과 비교하여 주요하지 않을 경우 사용합니다.
+
+<Canvas of={TextButtonStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+TextButton의 기본 사용법입니다.
+
+필수 프로퍼티인 `size` 를 사용하여 TextButton의 크기를 설정해주세요.<br />
+지원하는 크기는 `medium`, `small`, `xsmall` 입니다.
+
+```tsx
+import { TextButton } from '@yourssu/design-system-react';
+```
+
+```tsx
+<TextButton size="medium" variant="textPrimary">
+  textPrimary/Medium
+</TextButton>
+```
+
+<Canvas of={TextButtonStories.Sizes} withSource="none" />
+
+필수 프로퍼티인 `variant`를 사용하여 TextButton의 위계를 설정해주세요.<br />
+지원하는 종류는 `textPrimary`, `textSecondary` 입니다.
+
+<Canvas of={TextButtonStories.Variants} withSource="none" />
+
+이외의 프로퍼티들은 하단의 예시에서 확인할 수 있습니다.
+
+## 예시
+
+### disabled
+
+`TextButton`을 클릭할 수 없게 막습니다.
+
+```tsx
+<TextButton size="medium" variant="textPrimary" disabled={true}>
+  textPrimary/Disabled/Medium
+</TextButton>
+```
+
+<Canvas of={TextButtonStories.Disabled} withSource="none" />
+
+### width
+
+`width` prop으로 원하는 가로 길이를 설정합니다.<br />
+단, `children` 콘텐츠 크기보다 작은 값을 입력할 경우 적용되지 않습니다.
+
+```tsx
+<TextButton size="medium" variant="textPrimary" width="500px">
+  textPrimary/Medium/500px
+</TextButton>
+```
+
+<Canvas of={TextButtonStories.Width} withSource="none" />
+
+### leftIcon / rightIcon
+
+`leftIcon` 또는 `rightIcon` prop으로 원하는 아이콘을 삽입합니다.<br />
+아이콘과 텍스트는 동일한 색상으로 스타일링되어 있으므로, 별도의 색상을 지정하지 말아 주세요.
+
+```tsx
+<TextButton size="medium" variant="textPrimary" leftIcon={<IcExternalLinkLine />}>
+  with leftIcon
+</TextButton>
+```
+
+<Canvas of={TextButtonStories.WithIcon} withSource="none" />
+
+### TextButton 클릭 시 이벤트 할당
+
+`onClick` 메서드를 이용하여 원하는 이벤트를 할당할 수 있습니다.
+
+```tsx
+<TextButton
+  size="medium"
+  variant="textPrimary"
+  onClick={() => {
+    alert('TextButton을 클릭했습니다');
+  }}
+>
+  Click me!
+</TextButton>
+```
+
+<Canvas of={TextButtonStories.Click} withSource="none" />

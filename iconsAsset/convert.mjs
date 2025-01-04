@@ -111,7 +111,7 @@ type Story = StoryObj<typeof IconBase>;
 
 const Container = styled.div\`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 \`;
 
@@ -138,7 +138,7 @@ const Render = (args: any) => {
 
 export const Primary: Story = {
   args: {
-    size: 24,
+    size: '24px',
   },
   render: Render,
 };

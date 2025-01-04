@@ -1,0 +1,179 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as TabsStories from './Tabs.stories';
+import React from 'react';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+탭은 연관된 화면이나 콘텐츠 그룹 간의 이동을 돕는 UI 컴포넌트입니다.<br />
+이를 통해 사용자는 동일한 섹션 내에서 관련된 콘텐츠를 쉽게 그룹화하고 탐색할 수 있습니다.<br />
+탭을 사용하면 정보가 명확하게 정리되어 사용자가 필요한 내용을 보다 효율적으로 찾을 수 있습니다.
+
+<Canvas of={TabsStories.Scrollable} />
+<Controls />
+
+<br />
+<br />
+
+## 개발 시 참고하면 좋을 내용
+
+사용하는 `Tabs.Tab` 개수에 따라 사용해야 하는 탭 종류가 정해져 있습니다.<br />
+종류에 따른 차이는 `사용법` 파트에서 확인하실 수 있습니다.
+
+- Scrollable Tab: `scrollable = true` 입니다. `Tabs.Tab`이 4개 이상일 경우 사용합니다.
+  - Scrollable Tab은 `size` 프로퍼티를 설정할 수 있습니다.
+    <br />
+    <br />
+- Fixed Tab: `scrollable = false` 입니다. `Tabs.Tab`이 3개 이하일 경우 사용합니다.
+
+  - Fixed Tab은 **모바일 웹**에서만 사용해야 합니다.
+  - Fixed Tab을 사용할 때, `Tabs.Tab`의 내용은 **공백 포함 6자 이하의 텍스트**여야 합니다.
+  - Fixed Tab은 `size` 프로퍼티를 설정해도 적용되지 않습니다.
+    <br />
+    <br />
+
+## 사용법
+
+Tabs의 기본 사용법입니다.<br/ >
+
+<Canvas of={TabsStories.Scrollable} />
+
+1. 사용할 탭의 종류를 나열한 타입을 정의합니다. (이하 `TabType`)
+
+```tsx
+type TabType = 'tab-0' | 'tab-1' | 'tab-2' | 'tab-3';
+```
+
+2. `useTabs` 훅을 호출합니다.
+
+```tsx
+import { useTabs } from '@yourssu/design-system-react';
+
+const Tabs = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
+```
+
+3. 반환된 `Tabs` 컴포넌트를 통해 원하는 콘텐츠를 구성합니다.
+
+```tsx
+<Tabs>
+  <Tabs.List>
+    <Tabs.Tab id="tab-0">전체</Tabs.Tab>
+    <Tabs.Tab id="tab-1">Web</Tabs.Tab>
+    <Tabs.Tab id="tab-2">iOS</Tabs.Tab>
+    <Tabs.Tab id="tab-3">Android</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="tab-0">'전체' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-2">'iOS' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-3">'Android' 탭 조회중</Tabs.Panel>
+</Tabs>
+```
+
+### useTabs
+
+`Tabs`를 사용하기 위한 커스텀 훅입니다. 객체 형태의 인자를 받습니다.<br />
+
+#### defaultTab (필수)
+
+기본으로 표시될 탭을 결정하는 `TabType` 타입 프로퍼티입니다.
+
+```tsx
+type TabType = 'tab-0' | 'tab-1' | 'tab-2' | 'tab-3';
+const Tabs = useTabs<TabType>({ defaultTab: 'tab-3' }); // Android Tab의 id와 동일한 값
+```
+
+<Canvas of={TabsStories.ChangeDefault} />
+
+#### scrollable (선택)
+
+Scrollable Tab과 Fixed Tab을 구분하는 `boolean` 타입 프로퍼티입니다.<br />기본값은 `true`입니다. (Scrollable Tab)
+
+|                | Scrollable Tab       | Fixed Tab        |
+| -------------- | -------------------- | ---------------- |
+| 탭 1개의 너비  | 콘텐츠에 따라 상이함 | 동일함           |
+| 전체 탭의 너비 | 콘텐츠에 따라 상이함 | 부모 요소의 100% |
+
+<Canvas of={TabsStories.TabComparison} />
+
+### Tabs 컴포넌트의 구성요소
+
+```tsx
+<Tabs>
+  <Tabs.List>
+    <Tabs.Tab id="tab-0">전체</Tabs.Tab>
+    <Tabs.Tab id="tab-1">Web</Tabs.Tab>
+    <Tabs.Tab id="tab-2">iOS</Tabs.Tab>
+    <Tabs.Tab id="tab-3">Android</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="tab-0">'전체' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-2">'iOS' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-3">'Android' 탭 조회중</Tabs.Panel>
+</Tabs>
+```
+
+### Tabs
+
+List와 Panel을 감싸는 루트 컴포넌트입니다.<br />
+
+### Tabs.List
+
+1개 이상의 Tab을 감싸는 컴포넌트입니다. 단독 사용시 에러가 발생합니다.<br />
+`size`를 프로퍼티로 넘길 수 있습니다.
+
+### Tabs.Tab
+
+하나의 Panel에 대한 레이블 역할을 하는 컴포넌트입니다. 클릭 시 관련 Panel이 활성화됩니다.<br />
+`Tabs.Tab`은 고유한 `id`를 가져야 하며, 중복 `id`가 존재하면 에러가 발생합니다.
+
+### Tabs.Panel
+
+하나의 Tab과 연결된 내용을 포함하는 컴포넌트입니다.<br />
+`Tabs.Tab`의 `id`와 `Tabs.Panel`의 `value`를 동일하게 설정하여 두 요소를 연결할 수 있습니다.
+
+<br />
+## 예시
+
+### size
+
+Scrollable Tab의 텍스트 사이즈를 결정하는 `Tabs.List`의 프로퍼티입니다.<br />
+지원하는 종류는 `small`, `large` 이며, 기본값은 `large`입니다.
+
+```tsx
+<Tabs>
+  <Tabs.List size="small">
+    <Tabs.Tab id="tab-0">전체</Tabs.Tab>
+    <Tabs.Tab id="tab-1">Web</Tabs.Tab>
+    <Tabs.Tab id="tab-2">iOS</Tabs.Tab>
+    <Tabs.Tab id="tab-3">Android</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="tab-0">'전체' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-2">'iOS' 탭 조회중</Tabs.Panel>
+  <Tabs.Panel value="tab-3">'Android' 탭 조회중</Tabs.Panel>
+</Tabs>
+```
+
+<Canvas of={TabsStories.ScrollableSize} />
+
+### Tabs.Tab 클릭 시 이벤트 할당
+
+`onClick` 메서드를 이용하여 특정 탭에 원하는 이벤트를 할당할 수 있습니다.
+
+```tsx
+<div style={{ width: '390px' }}>
+  <Tabs>
+    <Tabs.List>
+      <Tabs.Tab id="tab-0" onClick={() => alert(`'Web' 탭을 클릭하셨군요!`)}>
+        전체
+      </Tabs.Tab>
+      <Tabs.Tab id="tab-1">Web</Tabs.Tab>
+    </Tabs.List>
+    <Tabs.Panel value="tab-0">'Web' 탭을 클릭해보세요!</Tabs.Panel>
+    <Tabs.Panel value="tab-1">'Web' 탭 조회중</Tabs.Panel>
+  </Tabs>
+</div>
+```
+
+<Canvas of={TabsStories.Click} />

@@ -1,0 +1,44 @@
+import { Meta, Canvas } from '@storybook/blocks';
+
+import * as NumberStories from './number.stories';
+
+<Meta of={NumberStories} />
+
+# Number
+
+Handy를 적용하는 프로덕트들의 간격과 세부 크기를 설정할 때는,  
+Handy **Semantic** 에 정의된 Number 관련 값을 사용해야 합니다.
+
+현재 정의된 semantic 값은 아래와 같습니다.
+
+- `theme.semantic.radius`: `border-radius` 에 사용되는 값
+
+<br />
+<br />
+
+## 예시
+
+사용 예시는 아래와 같습니다.
+
+```tsx
+import { styled } from 'styled-components';
+
+const StyledDiv = styled.div`
+  width: 100px;
+  height: 100px;
+
+  border-radius: ${({ theme }) => theme.semantic.radius.l}px;
+  background-color: ${({ theme }) => theme.semantic.color.bgBrandPrimary};
+`;
+```
+
+<Canvas of={NumberStories.SpacingExample} withSource="none" />
+
+<br />
+<br />
+
+## Number 값
+
+아래 값들은 `theme.semantic.radius` 내에 정의되어 있습니다.
+
+<Canvas of={NumberStories.AllBorderRadius} withSource="none" layout="padded" />

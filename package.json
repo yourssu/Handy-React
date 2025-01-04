@@ -1,7 +1,8 @@
 {
   "name": "@yourssu/design-system-react",
+  "packageManager": "pnpm@9.15.2",
   "private": false,
-  "version": "1.1.3",
+  "version": "2.0.0",
   "description": "Yourssu Design System for React",
   "keywords": [
     "yourssu",
@@ -67,12 +68,12 @@
     "react-dom": "^18.2.0",
     "storybook": "^8.0.2",
     "styled-components": "^6.0.7",
+    "ts-pattern": "^5.3.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.3",
     "vite-tsconfig-paths": "^4.2.0",
     "webfontloader": "^1.6.28",
     "xmldom": "^0.6.0"
-  },
-  "packageManager": "pnpm@8.15.4"
+  }
 }

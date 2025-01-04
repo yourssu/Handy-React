@@ -1,0 +1,115 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as SwitchStories from './Switch.stories';
+import { Switch } from './Switch';
+import React from 'react';
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+Switch는 특정 기능을 활성 또는 비활성의 상태로 만들 수 있도록 도와주는 요소입니다.
+
+<Canvas of={SwitchStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 개발 시 참고하면 좋을 내용
+
+- Switch를 사용할 때에는 단일한 레이블을 제시해야합니다.<br />
+- Switch는 레이블의 오른쪽에 위치시키기를 권장합니다.<br />
+
+<br />
+<br />
+
+## 사용법
+
+필수 프로퍼티인 `size` 를 사용하여 Switch의 크기를 설정해주세요.<br />
+지원하는 크기는 `large`, `medium`, `small` 입니다.
+
+```tsx
+import { Switch } from '@yourssu/design-system-react';
+```
+
+```tsx
+<span> switch label </span>
+<Switch size="large" />
+```
+
+<Canvas of={SwitchStories.Sizes} />
+
+<br />
+<br />
+
+## 예시
+
+## isSelected
+
+`Switch`의 선택 여부를 결정합니다. 기본 값은 `false`입니다. <br />
+
+```tsx
+<span> switch label </span>
+<Switch size="large" isSelected={true} />
+```
+
+<Canvas of={SwitchStories.Selected} />
+
+`Switch`를 직접 클릭하지 않고, `isSelected`에 전달된 상태를 제어하여 선택 여부를 변경할 수도 있습니다. <br />
+단, 직접 클릭하여 상태를 변경할 때 외부에도 이를 반영할 수 있게 `onSelectedChange`를 다음과 같이(\*) 작성해 주세요.
+
+```tsx
+const Component = () => {
+  const [isSelected, setIsSelected] = useState(true);
+
+  return (
+    <>
+      <button onClick={() => setIsSelected(false)}>switch off</button>
+      <button onClick={() => setIsSelected(true)}>switch on</button>
+
+      <span>switch label</span>
+      <Switch
+        size={'large'}
+        isSelected={isSelected}
+        onSelectedChange={(selected) => {
+          setIsSelected(selected); // *
+          // ...
+        }}
+      />
+    </>
+  );
+};
+```
+
+<Canvas of={SwitchStories.ExternalChange} />
+
+## isDisabled
+
+`Switch`를 클릭할 수 없게 막습니다. 기본 값은 `false`입니다. <br />
+**`isDisabled = true`일 때, `isSelected = true`는 동작하지 않으며 항상 unselected한 상태입니다.**
+
+```tsx
+<span> switch label </span>
+<Switch size="large" isDisabled={true} isSelected={true}/>
+```
+
+<Canvas of={SwitchStories.Disabled} />
+
+## 상태 전환 시 이벤트 할당
+
+`onSelectedChange` 메서드를 이용하여 상태 전환 시 수행할 이벤트를 할당할 수 있습니다.
+
+```tsx
+const Component = () => {
+  const handleChange = (selected: boolean) => alert(`현재 Switch의 상태: ${selected}`);
+
+  return (
+    <>
+      <span>click switch</span>
+      <Switch size="large" onSelectedChange={handleChange} />
+    </>
+  );
+};
+```
+
+<Canvas of={SwitchStories.Change} />
