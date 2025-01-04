@@ -1,7 +1,7 @@
 # 이 파일은 release note 작성에 사용되는 파일입니다.
 
 changelog:
-  name-template: '@Yourssu Design/design-system-react@$RESOLVED_VERSION'
+  name-template: '@yourssu/design-system-react@$RESOLVED_VERSION'
   tag-template: 'v$RESOLVED_VERSION'
   categories:
     - title: '🆕 Exciting New Features!'
