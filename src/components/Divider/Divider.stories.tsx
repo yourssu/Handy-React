@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Divider } from './Divider';
-import { DividerProps, DividerThickness } from './Divider.type';
+import { DividerColor, DividerProps, DividerThickness } from './Divider.type';
 
 const meta: Meta<typeof Divider> = {
   title: 'Components/Divider',
@@ -23,6 +23,14 @@ const meta: Meta<typeof Divider> = {
       },
       options: [1, 2, 4, 8],
       defaultValue: 1,
+    },
+    color: {
+      description: 'Divider의 색상을 결정하는 속성',
+      control: {
+        type: 'radio',
+      },
+      options: ['light', 'medium', 'strong'],
+      defaultValue: 'light',
     },
   },
 };
@@ -69,6 +77,27 @@ export const Thickness: Story = {
         <div key={thickness}>
           <p> Divider/{thickness}px </p>
           <Divider thickness={thickness as DividerThickness} />
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const Color: Story = {
+  render: () => (
+    <div
+      style={{
+        width: '390px',
+        height: '200px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
+      {['light', 'medium', 'strong'].map((color) => (
+        <div key={color}>
+          <p> Divider/4px/{color} </p>
+          <Divider thickness={4} color={color as DividerColor} />
         </div>
       ))}
     </div>
