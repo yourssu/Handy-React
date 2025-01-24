@@ -42,8 +42,8 @@ const AllThemeColors = () => {
   const semanticColorCategories = {
     background: ['bgBasic', 'bgBrand', 'bgStatus'],
     text: ['textBasic', 'textBrand', 'textStatus'],
-    line: ['lineBasic', 'lineStatus'],
-    'button/box': ['buttonBoxPrimary', 'buttonBoxSecondary', 'buttonBoxTertiary'],
+    line: ['lineBasic', 'lineBrand', 'lineStatus'],
+    'button/box': ['buttonFilledPrimary', 'buttonFilledSecondary', 'buttonOutlined'],
     'button/text': ['buttonTextPrimary', 'buttonTextSecondary'],
     'button/fab': ['buttonFabPrimary', 'buttonFabSecondary'],
     'button/radio': ['buttonRadio'],
@@ -51,6 +51,8 @@ const AllThemeColors = () => {
     checkbox: ['checkbox'],
     chip: ['chip'],
     pagination: ['paginationBrand', 'paginationBasic'],
+    switch: ['switch'],
+    Snackbar: ['snackbar'],
   };
 
   return (
