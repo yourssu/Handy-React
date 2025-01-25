@@ -60,12 +60,4 @@ const StyledDiv = styled.div`
 
 <br />
 
-<ColorStories.AllThemeColors>
-  {({ colors }) => (
-    <ColorPalette>
-      {colors.map((color) => (
-        <ColorItem title={color.title} subtitle="theme.semantic.color" colors={color.colors} />
-      ))}
-    </ColorPalette>
-  )}
-</ColorStories.AllThemeColors>
+<ColorStories.AllThemeColors />

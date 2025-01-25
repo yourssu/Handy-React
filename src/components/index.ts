@@ -58,6 +58,3 @@ export type { DividerProps } from './Divider';
 export { SnackbarProvider } from './Snackbar/SnackbarProvider';
 export { useSnackbar } from './Snackbar/hooks/useSnackbar';
 export type * from './Snackbar';
-
-export { LoadingIndicator } from './LoadingIndicator';
-export type { LoadingIndicatorProps } from './LoadingIndicator';
