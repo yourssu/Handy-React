@@ -2,7 +2,7 @@
   "name": "@yourssu/design-system-react",
   "packageManager": "pnpm@9.15.2",
   "private": false,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Yourssu Design System for React",
   "keywords": [
     "yourssu",

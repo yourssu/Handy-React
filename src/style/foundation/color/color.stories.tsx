@@ -1,8 +1,16 @@
-import { ColorItem, ColorPalette } from '@storybook/blocks';
-import { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { styled } from 'styled-components';
 
 import { semanticColorPalette } from '@/style/foundation/color/semanticColor';
+
+type SemanticColorPalette = {
+  title: string;
+  colors: Record<string, string>;
+};
+
+interface AllThemeColorsProps {
+  children?: ({ colors }: { colors: SemanticColorPalette[] }) => React.ReactElement;
+}
 
 const meta: Meta = {
   title: 'Foundation/Color',
@@ -19,7 +27,7 @@ const StyledColorExample = styled.div`
   background-color: ${({ theme }) => theme.semantic.color.bgBrandPrimary};
 `;
 
-const AllThemeColors = () => {
+const AllThemeColors = ({ children }: AllThemeColorsProps) => {
   const getSemanticColorPalette = (prefix: string) => {
     const colors: Record<string, string> = {};
 
@@ -42,8 +50,8 @@ const AllThemeColors = () => {
   const semanticColorCategories = {
     background: ['bgBasic', 'bgBrand', 'bgStatus'],
     text: ['textBasic', 'textBrand', 'textStatus'],
-    line: ['lineBasic', 'lineStatus'],
-    'button/box': ['buttonBoxPrimary', 'buttonBoxSecondary', 'buttonBoxTertiary'],
+    line: ['lineBasic', 'lineBrand', 'lineStatus'],
+    'button/box': ['buttonFilledPrimary', 'buttonFilledSecondary', 'buttonOutlined'],
     'button/text': ['buttonTextPrimary', 'buttonTextSecondary'],
     'button/fab': ['buttonFabPrimary', 'buttonFabSecondary'],
     'button/radio': ['buttonRadio'],
@@ -51,6 +59,8 @@ const AllThemeColors = () => {
     checkbox: ['checkbox'],
     chip: ['chip'],
     pagination: ['paginationBrand', 'paginationBasic'],
+    switch: ['switch'],
+    snackbar: ['snackbar'],
   };
 
   return (
@@ -63,17 +73,7 @@ const AllThemeColors = () => {
         return (
           <div>
             <h2>{section}</h2>
-            <ColorPalette>
-              {colors.map((color) => {
-                return (
-                  <ColorItem
-                    title={color.title}
-                    subtitle="theme.semantic.color"
-                    colors={color.colors}
-                  />
-                );
-              })}
-            </ColorPalette>
+            {children && children({ colors })}
             <br />
             <br />
           </div>
