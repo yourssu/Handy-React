@@ -60,7 +60,7 @@ const AllThemeColors = ({ children }: AllThemeColorsProps) => {
     chip: ['chip'],
     pagination: ['paginationBrand', 'paginationBasic'],
     switch: ['switch'],
-    Snackbar: ['snackbar'],
+    snackbar: ['snackbar'],
   };
 
   return (
