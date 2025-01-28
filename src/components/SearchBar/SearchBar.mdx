@@ -1,0 +1,105 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as SearchBarStories from './SearchBar.stories';
+import { SearchBar } from './SearchBar';
+
+<Meta of={SearchBarStories} />
+
+# Searchbar
+
+SearchBar는 사용자가 검색어를 입력하기 위한 필드를 구성하기 위해 사용합니다.<br />
+
+<Canvas of={SearchBarStories.Primary} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+```tsx
+import { SearchBar } from '@yourssu/design-system-react';
+
+<SearchBar>
+  <SearchBar.Input placeholder="검색어를 입력해주세요" />
+</SearchBar>;
+```
+
+<br />
+<br />
+
+### SearchBar.ClearButton
+
+SearchBar에 입력된 검색어를 초기화하기 위한 UI 버튼을 제공합니다.<br />
+
+```tsx
+import { SearchBar } from '@yourssu/design-system-react';
+
+<SearchBar>
+  <SearchBar.Input placeholder="검색어를 입력해주세요" />
+  <SearchBar.ClearButton />
+</SearchBar>;
+```
+
+실제 초기화 동작을 위해서는 `onClick` 이벤트로 초기화 로직을 구현해야 합니다.
+
+> **왜 내부적으로 입력 값을 초기화하지 않나요?**<br />
+> SearchBar 입력 값으로 컴포넌트 외부의 상태를 사용하는 경우, 외부 상태의 초기화 여부를 판단하기 어렵기 때문이에요.
+
+```tsx
+const Component = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <SearchBar>
+      <SearchBar.Input
+        placeholder="검색어를 입력해주세요"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <SearchBar.ClearButton onClick={() => setValue('')} />
+    </SearchBar>
+  );
+};
+```
+
+<Canvas of={SearchBarStories.WithClearButton} withSource="none" />
+
+<br />
+<br />
+
+### 가변 너비
+
+SearchBar 컴포넌트는 가변 너비 컴포넌트입니다.  
+부모 컴포넌트의 너비에 따라 자동으로 너비가 조절됩니다.
+
+```tsx
+import { SearchBar } from '@yourssu/design-system-react';
+
+<div style={{ width: '800px' }}>
+  <SearchBar>
+    <SearchBar.Input placeholder="검색어를 입력해주세요" />
+  </SearchBar>
+</div>;
+```
+
+<Canvas of={SearchBarStories.Width} withSource="none" />
+
+<br />
+<br />
+
+### Form 제출
+
+SearchBar 컴포넌트는 HTML form 요소를 기반으로 구성되어 있습니다.  
+올바른 입력 값 제출을 위해서 `SearchBar` 컴포넌트의 `onSubmit` 이벤트를 사용해주세요.
+
+> ❗ **`SearchBar.Input` 컴포넌트에 keydown 이벤트를 통한 폼 제출은 지양해주세요.**
+
+```tsx
+import { SearchBar } from '@yourssu/design-system-react';
+
+<SearchBar onSubmit={() => alert('제출')}>
+  <SearchBar.Input placeholder="검색어를 입력해주세요" />
+</SearchBar>;
+```
+
+<Canvas of={SearchBarStories.Form} withSource="none" />
