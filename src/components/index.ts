@@ -61,3 +61,5 @@ export type * from './Snackbar';
 
 export { LoadingIndicator } from './LoadingIndicator';
 export type { LoadingIndicatorProps } from './LoadingIndicator';
+
+export { SearchBar } from './SearchBar';
