@@ -1,8 +1,19 @@
 import { forwardRef } from 'react';
 
-import { IcSearchLine } from '@/style';
+import { IcCancelFilled, IcSearchLine } from '@/style';
 
-import { StyledContainer, StyledInput } from './SearchBar.style';
+import { StyledClearButton, StyledContainer, StyledInput } from './SearchBar.style';
+
+const SearchBarClearButton = forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ className, ...props }, ref) => {
+  return (
+    <StyledClearButton ref={ref} className={`searchbar-close-button ${className}`} {...props}>
+      <IcCancelFilled />
+    </StyledClearButton>
+  );
+});
 
 const SearchBarInput = forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
   (props, ref) => {
@@ -28,5 +39,6 @@ export const SearchBar = Object.assign(
   }),
   {
     Input: SearchBarInput,
+    ClearButton: SearchBarClearButton,
   }
 );
