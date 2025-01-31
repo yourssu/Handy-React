@@ -1,0 +1,33 @@
+name: Create Release Note (main)
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Version Name
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        id: version
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: create tag
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git tag -a -f ${{ steps.version.outputs.current-version }} -m "Release ${{ steps.version.outputs.current-version }}"
+          git push -f origin ${{ steps.version.outputs.current-version }}
+      - name: create release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          tag: ${{ steps.version.outputs.current-version }}
+          name: '@yourssu/design-system-react@${{ steps.version.outputs.current-version }}'
+          generateReleaseNotes: true
+          omitBodyDuringUpdate: true
