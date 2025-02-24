@@ -3,15 +3,15 @@ import { useTheme } from 'styled-components';
 import { StyledIndicator } from './LoadingIndicator.style';
 import { LoadingIndicatorProps } from './LoadingIndicator.type';
 
-export const LoadingIndicator = ({ indicatorColor }: LoadingIndicatorProps) => {
+export const LoadingIndicator = ({ indicatorColor, size = 40 }: LoadingIndicatorProps) => {
   const theme = useTheme();
 
   return (
     <StyledIndicator>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="40"
-        height="40"
+        width={size.toString()}
+        height={size.toString()}
         viewBox="0 0 40 40"
         fill="none"
       >
