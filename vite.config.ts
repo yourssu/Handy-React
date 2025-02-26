@@ -23,15 +23,15 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components', '**/*.stories.tsx'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'styled-components',
+        '**/*.stories.tsx',
+      ],
       output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          'styled-components': 'styled',
-        },
         banner: '"use client";',
-        interop: 'compat',
       },
     },
     ssr: false,
