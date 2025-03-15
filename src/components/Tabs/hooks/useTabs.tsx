@@ -1,4 +1,4 @@
-import { Children, isValidElement, useContext, useRef, useState } from 'react';
+import { Children, isValidElement, useContext, useRef, useState, useTransition } from 'react';
 
 import { TabContext } from '../Tab.context';
 import { StyledFixedTab, StyledList, StyledScrollableTab } from '../Tabs.style';
@@ -11,12 +11,13 @@ export const useTabs = <TabType extends string>({
   defaultTab: TabType;
   scrollable?: boolean;
 }) => {
+  const [isPending, startTransition] = useTransition();
+
   const Tabs = ({ children }: { children: React.ReactNode }) => {
     const [currentTab, setCurrentTab] = useState<string>(defaultTab);
-    const onChange = (id: string) => setCurrentTab(id);
 
     return (
-      <TabContext.Provider value={{ currentTab, setCurrentTab: onChange }}>
+      <TabContext.Provider value={{ currentTab, setCurrentTab }}>
         <div>{children}</div>
       </TabContext.Provider>
     );
@@ -46,12 +47,13 @@ export const useTabs = <TabType extends string>({
     const { currentTab, setCurrentTab } = useContext(TabContext) ?? {
       currentTab: undefined,
       setCurrentTab: undefined,
+      startTransition: undefined,
     };
     const isSelected = currentTab === id;
     const tabRef = useRef<HTMLButtonElement>(null);
 
     const onClickWrapper = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      setCurrentTab?.(id);
+      startTransition(() => setCurrentTab?.(id));
       onClick?.(event);
     };
 
@@ -121,5 +123,5 @@ export const useTabs = <TabType extends string>({
     );
   };
 
-  return Object.assign(Tabs, { List, Tab, Panel });
+  return [Object.assign(Tabs, { List, Tab, Panel }), isPending] as const;
 };
