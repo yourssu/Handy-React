@@ -1,7 +1,7 @@
-export interface TabsProps {
+export interface TabsProps<TabType extends string> {
   scrollable?: boolean;
-  children: React.ReactNode;
-  defaultTab: string;
+  defaultTab: TabType;
+  transition?: boolean;
 }
 
 export type TabSize = 'large' | 'small';
