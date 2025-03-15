@@ -6,9 +6,11 @@ import { TabListProps, TabPanelProps, TabProps } from '../Tabs.type';
 export const useTabs = <TabType extends string>({
   defaultTab,
   scrollable = true,
+  transition = true,
 }: {
   defaultTab: TabType;
   scrollable?: boolean;
+  transition?: boolean;
 }) => {
   const [isPending, startTransition] = useTransition();
   const [currentTab, setCurrentTab] = useState<TabType>(defaultTab);
@@ -42,7 +44,7 @@ export const useTabs = <TabType extends string>({
     const tabRef = useRef<HTMLButtonElement>(null);
 
     const onClickWrapper = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      startTransition?.(() => setCurrentTab?.(id));
+      transition && startTransition(() => setCurrentTab?.(id));
       onClick?.(event);
     };
 
