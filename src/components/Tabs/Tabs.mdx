@@ -33,6 +33,14 @@ import React from 'react';
     <br />
     <br />
 
+<br />
+
+또한, 기본적으로 탭 변경시 transition update를 제공합니다.<br />
+
+자세한 내용은 사용법 > transition update 파트를 참고해주세요.
+
+<br />
+
 ## 사용법
 
 Tabs의 기본 사용법입니다.<br/ >
@@ -72,7 +80,7 @@ const [Tabs] = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
 
 ### transition update
 
-Tabs 컴포넌트는 기본적으로 Tab의 변경 시 transtion update를 제공합니다.
+Tabs 컴포넌트는 **기본적으로** Tab의 변경 시 transtion update를 제공합니다.
 
 useTabs의 리턴값으로 `isPending` 을 제공하므로, 이 값으로 트랜지션 상태 여부를 확인하실 수 있습니다.
 
@@ -82,6 +90,21 @@ import { useTabs } from '@yourssu/design-system-react';
 const [Tabs, isPending] = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
 
 isPending; // boolean
+```
+
+<br />
+
+원한다면, `transtion` 프로퍼티를 사용하여 transition update를 끌 수 있습니다.
+
+이때, `isPending` 값은 항상 `false`가 됩니다.
+
+```tsx
+const [Tabs, isPending] = useTabs<TabType>({
+  defaultTab: 'tab-0',
+  transition: false,
+});
+
+isPending; // 항상 false
 ```
 
 <br />

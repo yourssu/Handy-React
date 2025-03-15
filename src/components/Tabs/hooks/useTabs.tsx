@@ -1,17 +1,13 @@
 import { Children, isValidElement, useRef, useState, useTransition } from 'react';
 
 import { StyledFixedTab, StyledList, StyledScrollableTab } from '../Tabs.style';
-import { TabListProps, TabPanelProps, TabProps } from '../Tabs.type';
+import { TabListProps, TabPanelProps, TabProps, TabsProps } from '../Tabs.type';
 
 export const useTabs = <TabType extends string>({
   defaultTab,
   scrollable = true,
   transition = true,
-}: {
-  defaultTab: TabType;
-  scrollable?: boolean;
-  transition?: boolean;
-}) => {
+}: TabsProps<TabType>) => {
   const [isPending, startTransition] = useTransition();
   const [currentTab, setCurrentTab] = useState<TabType>(defaultTab);
 
