@@ -44,7 +44,12 @@ export const useTabs = <TabType extends string>({
     const tabRef = useRef<HTMLButtonElement>(null);
 
     const onClickWrapper = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      transition && startTransition(() => setCurrentTab?.(id));
+      if (transition) {
+        startTransition(() => setCurrentTab?.(id));
+      } else {
+        setCurrentTab?.(id);
+      }
+
       onClick?.(event);
     };
 
