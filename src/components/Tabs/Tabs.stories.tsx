@@ -33,7 +33,7 @@ type Story = StoryObj<TabsProps>;
 type TabType = 'tab-0' | 'tab-1' | 'tab-2' | 'tab-3';
 
 const TabsTest = ({ defaultTab, size = 'large' }: { defaultTab: TabType; size?: TabSize }) => {
-  const Tabs = useTabs<TabType>({ defaultTab, scrollable: true });
+  const [Tabs] = useTabs<TabType>({ defaultTab, scrollable: true });
   return (
     <Tabs>
       <Tabs.List size={size}>
@@ -74,7 +74,7 @@ export const ChangeDefault: Story = {
 };
 
 const FixedTabsTest = ({ defaultTab }: { defaultTab: TabType }) => {
-  const Tabs = useTabs<TabType>({ defaultTab, scrollable: false });
+  const [Tabs] = useTabs<TabType>({ defaultTab, scrollable: false });
   return (
     <div
       style={{
@@ -111,7 +111,7 @@ export const TabComparison: Story = {
 };
 
 const TabsClickTest = ({ defaultTab }: { defaultTab: TabType }) => {
-  const Tabs = useTabs<TabType>({ defaultTab, scrollable: false });
+  const [Tabs] = useTabs<TabType>({ defaultTab, scrollable: false });
   return (
     <div
       style={{

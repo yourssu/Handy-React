@@ -50,7 +50,7 @@ type TabType = 'tab-0' | 'tab-1' | 'tab-2' | 'tab-3';
 ```tsx
 import { useTabs } from '@yourssu/design-system-react';
 
-const Tabs = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
+const [Tabs] = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
 ```
 
 3. 반환된 `Tabs` 컴포넌트를 통해 원하는 콘텐츠를 구성합니다.
@@ -70,6 +70,22 @@ const Tabs = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
 </Tabs>
 ```
 
+### transition update
+
+Tabs 컴포넌트는 기본적으로 Tab의 변경 시 transtion update를 제공합니다.
+
+useTabs의 리턴값으로 `isPending` 을 제공하므로, 이 값으로 트랜지션 상태 여부를 확인하실 수 있습니다.
+
+```tsx
+import { useTabs } from '@yourssu/design-system-react';
+
+const [Tabs, isPending] = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
+
+isPending; // boolean
+```
+
+<br />
+
 ### useTabs
 
 `Tabs`를 사용하기 위한 커스텀 훅입니다. 객체 형태의 인자를 받습니다.<br />
@@ -80,7 +96,7 @@ const Tabs = useTabs<TabType>({ defaultTab: 'tab-0', scrollable: true });
 
 ```tsx
 type TabType = 'tab-0' | 'tab-1' | 'tab-2' | 'tab-3';
-const Tabs = useTabs<TabType>({ defaultTab: 'tab-3' }); // Android Tab의 id와 동일한 값
+const [Tabs] = useTabs<TabType>({ defaultTab: 'tab-3' }); // Android Tab의 id와 동일한 값
 ```
 
 <Canvas of={TabsStories.ChangeDefault} />
