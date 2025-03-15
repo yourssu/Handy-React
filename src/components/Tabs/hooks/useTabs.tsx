@@ -1,6 +1,5 @@
-import { Children, isValidElement, useContext, useRef, useState, useTransition } from 'react';
+import { Children, isValidElement, useRef, useState, useTransition } from 'react';
 
-import { TabContext } from '../Tab.context';
 import { StyledFixedTab, StyledList, StyledScrollableTab } from '../Tabs.style';
 import { TabListProps, TabPanelProps, TabProps } from '../Tabs.type';
 
@@ -12,15 +11,10 @@ export const useTabs = <TabType extends string>({
   scrollable?: boolean;
 }) => {
   const [isPending, startTransition] = useTransition();
+  const [currentTab, setCurrentTab] = useState<TabType>(defaultTab);
 
   const Tabs = ({ children }: { children: React.ReactNode }) => {
-    const [currentTab, setCurrentTab] = useState<string>(defaultTab);
-
-    return (
-      <TabContext.Provider value={{ currentTab, setCurrentTab }}>
-        <div>{children}</div>
-      </TabContext.Provider>
-    );
+    return <div>{children}</div>;
   };
 
   const List = ({ children, size = 'large', ...props }: TabListProps) => {
@@ -44,16 +38,11 @@ export const useTabs = <TabType extends string>({
   };
 
   const Tab = ({ children, id, onClick, ...props }: TabProps<TabType>) => {
-    const { currentTab, setCurrentTab } = useContext(TabContext) ?? {
-      currentTab: undefined,
-      setCurrentTab: undefined,
-      startTransition: undefined,
-    };
     const isSelected = currentTab === id;
     const tabRef = useRef<HTMLButtonElement>(null);
 
     const onClickWrapper = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      startTransition(() => setCurrentTab?.(id));
+      startTransition?.(() => setCurrentTab?.(id));
       onClick?.(event);
     };
 
@@ -113,8 +102,6 @@ export const useTabs = <TabType extends string>({
   };
 
   const Panel = ({ children, value, ...props }: TabPanelProps<TabType>) => {
-    const { currentTab } = useContext(TabContext) ?? { currentTab: undefined };
-
     if (currentTab !== value) return;
     return (
       <div role="tabpanel" aria-labelledby={value} tabIndex={0} {...props}>
