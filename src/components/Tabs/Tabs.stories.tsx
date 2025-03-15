@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { TabListProps, TabSize, TabsProps } from './Tabs.type';
 import { useTabs } from './hooks/useTabs';
 
-const meta: Meta<TabsProps & TabListProps> = {
+const meta: Meta<TabsProps<string> & TabListProps> = {
   title: 'Components/Tabs',
   parameters: {
     layout: 'centered',
@@ -11,6 +11,12 @@ const meta: Meta<TabsProps & TabListProps> = {
   argTypes: {
     defaultTab: {
       description: '기본으로 설정될 Tabs.Tab의 id',
+    },
+    transition: {
+      control: {
+        type: 'boolean',
+      },
+      description: '탭 변경 시 transition update 여부',
     },
     scrollable: {
       control: {
@@ -29,7 +35,7 @@ const meta: Meta<TabsProps & TabListProps> = {
 };
 
 export default meta;
-type Story = StoryObj<TabsProps>;
+type Story = StoryObj<TabsProps<string>>;
 type TabType = 'tab-0' | 'tab-1' | 'tab-2' | 'tab-3';
 
 const TabsTest = ({ defaultTab, size = 'large' }: { defaultTab: TabType; size?: TabSize }) => {
