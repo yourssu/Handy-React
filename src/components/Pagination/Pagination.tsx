@@ -6,7 +6,7 @@ import { StyledButton, StyledNav } from './Pagination.style';
 import { PaginationProps } from './Pagination.type';
 
 export const Pagination = ({ totalPage, initialPage = 1, onPageChange }: PaginationProps) => {
-  if (totalPage <= 1) throw new Error('totalPage는 2 이상의 숫자여야 합니다.');
+  if (totalPage <= 0) throw new Error('totalPage는 1 이상의 숫자여야 합니다.');
   if (initialPage > totalPage) throw new Error('initialPage는 totalPage보다 클 수 없습니다.');
 
   const [currentPage, setCurrentPage] = useState(initialPage);
